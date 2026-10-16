@@ -82,4 +82,15 @@ A **broker leaderboard**: the average CAR[0,1] for upgrades (and, separately, do
 ---
 
 ## Our lean, and the one data question we need answered first
-_(For the team to fill in.)_ Idea B's data is easier to get. Idea A is a cleaner research question, but it depends on one open question: **can we reliably collect S&P DJI announcement dates for every addition since 2022?**
+Idea B's data is easier to get. Idea A is a cleaner research question, but it depends on one open question: **can we reliably collect S&P DJI announcement dates for every addition since 2022?**
+
+**Answer (Oct 16): yes.** S&P DJI's newsroom (`press.spglobal.com`, section `s=2429`) can be searched by keyword and paged through with plain `requests`, no agent needed.
+- Every "Set to Join S&P 500" release since 2022 has a **summary table** (effective date, index, action, company, ticker), so `pd.read_html` gives us additions and deletions directly. Each page also carries a publication timestamp in Eastern time (`<!-- ITEMDATE: 2026-06-05 19:25:00 EDT -->`).
+- **84 additions from 53 releases**, 2022-01 to 2026-10. All 78 Wikipedia additions with a release match on ticker, and the effective dates agree for 77 (PANW: the release says Jun 19, 2023, a market holiday, and Wikipedia says Jun 20; both are the same first trading day).
+- **Wikipedia's "83 additions" includes 5 that aren't additions**: CPAY, DAY, EG, and WTW are ticker changes, and WBD is the Discovery/WarnerMedia merger. A Wikipedia-only event study would include them as fake events.
+- **Every release came out between 17:00 and 19:59 ET**, after the close, so the announcement day 0 is always the next trading day. FLEX's announcement is confirmed as **2026-06-05**, so its day 0 is 2026-06-08.
+- The 6 additions after the pinned Wikipedia revision (RDDT, BE, P, ILMN, TWLO, VYLR) come from the releases alone. **The releases are the primary source, and Wikipedia is now only a cross-check.**
+
+Idea B's open question has an answer too: yfinance builds `GradeDate` with `pd.to_datetime(epochGradeDate, unit='s')` (`yfinance/scrapers/quote.py`), so the timestamps are **UTC** epoch seconds. That supports the "day 0 = Aug 18" reading for the Rothschild call.
+
+**Our lean: Idea A (Seed 3).** Its riskiest input is solved, and the question is cleaner. Proof of concept for 5 additions: branch `checkpoint1-seed3-poc`.
