@@ -3,14 +3,18 @@
 Day 0, on the SPY trading calendar:
   announce:  S&P publishes after the 4pm close (every release since 2022 is stamped 17:00-19:59 ET),
              so day 0 is the next trading day. A release before the open would be day 0 = that day.
-  effective: changes are "effective prior to the open" on the effective date, so day 0 is the
-             first trading day on or after it. Index funds trade at the close of day -1.
+  effective: changes are "effective prior to the open" on the effective date, so S&P implements them
+             at the close of the last trading day BEFORE that date, and index funds buy in that
+             closing auction. Day 0 is that rebalance day, so the day-0 return (close -1 to close 0)
+             ends at the price index funds pay, and day +1 is the first day as a member.
+             See docs/effective_day_convention.md (changed after Checkpoint 1 feedback, spec #2).
 Market model: alpha and beta from trading days EST_WINDOW relative to the ANNOUNCEMENT day 0, used
 for both anchors, so the estimation window never contains the news.
 
 Outputs:
   data/clean/event_panel.csv     key: (ticker, anchor, event_day)
   outputs/poc_car_windows.csv    one row per addition x anchor: CAR over standard windows
+  outputs/dropped_short_history.csv   additions dropped for fewer than MIN_EST_DAYS estimation days
 """
 import numpy as np
 import pandas as pd
@@ -19,6 +23,7 @@ from config import CLEAN, EST_WINDOW, EVENT_WINDOW, MARKET, MIN_EST_DAYS, OUTPUT
 
 PANEL_OUT = CLEAN / "event_panel.csv"
 WINDOWS_OUT = OUTPUTS / "poc_car_windows.csv"
+DROPPED_OUT = OUTPUTS / "dropped_short_history.csv"
 MARKET_CLOSE_HOUR = 16
 CAR_WINDOWS = {"car_m1_p1": (-1, 1), "car_0_p1": (0, 1), "car_m10_p10": EVENT_WINDOW}
 
@@ -29,8 +34,9 @@ returns = pd.read_csv(RAW / "prices.csv", index_col="Date", parse_dates=True).pc
 trading_days = returns.index[returns[MARKET].notna()]
 
 
-def first_trading_day_on_or_after(date):
-    return trading_days[trading_days.searchsorted(date)]
+def rebalance_day(effective_date):
+    """Last trading day strictly before the effective date: the close where index funds trade."""
+    return trading_days[trading_days.searchsorted(effective_date) - 1]
 
 
 def announce_day0(announce_et):
@@ -43,7 +49,7 @@ def event_rows(addition):
     """Market-model ARs for one addition, around both day 0s."""
     stock = returns[[addition.ticker, MARKET]].dropna().rename(columns={addition.ticker: "ret", MARKET: "mkt_ret"})
     day0s = {"announce": announce_day0(addition.announce_et),
-             "effective": first_trading_day_on_or_after(addition.effective_date)}
+             "effective": rebalance_day(addition.effective_date)}
 
     pos_announce = trading_days.get_loc(day0s["announce"])
     pos_effective = trading_days.get_loc(day0s["effective"])
@@ -86,9 +92,15 @@ assert not event_panel.duplicated(subset=["ticker", "anchor", "event_day"]).any(
 window_length = EVENT_WINDOW[1] - EVENT_WINDOW[0] + 1
 rows_per_event = event_panel.groupby(["ticker", "anchor"]).size()
 print("events with an incomplete window:", rows_per_event[rows_per_event != window_length].index.tolist())
-short_est = event_panel.query("n_est < @MIN_EST_DAYS")["ticker"].unique()
-print(f"events with fewer than {MIN_EST_DAYS} estimation days (e.g. spin-offs):", list(short_est))
 print("missing returns inside the window:", event_panel["ret"].isna().sum())
+
+# Drop events without enough estimation history (mostly spin-offs) and keep a record of them.
+dropped = (event_panel.query("n_est < @MIN_EST_DAYS")
+           .drop_duplicates("ticker")[["ticker", "announce_et", "effective_date", "n_est"]])
+dropped.to_csv(DROPPED_OUT, index=False)
+print(f"dropped {len(dropped)} of {event_panel['ticker'].nunique()} additions with fewer than "
+      f"{MIN_EST_DAYS} estimation days (e.g. spin-offs): {dropped['ticker'].tolist()}")
+event_panel = event_panel.query("n_est >= @MIN_EST_DAYS").reset_index(drop=True)
 event_panel.to_csv(PANEL_OUT, index=False)
 print(f"saved {PANEL_OUT.name}: {len(event_panel)} rows")
 

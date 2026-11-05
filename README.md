@@ -25,13 +25,13 @@ code/
   02_download_announcements.py     S&P DJI press releases -> data/raw/spdji_release_list.csv, data/clean/spdji_sp500_actions.csv
   03_build_additions.py            one row per addition, both dates -> data/clean/additions.csv
   04_download_returns.py           yfinance adjusted closes -> data/raw/prices.csv
-  05_build_event_panel.py          market-model ARs -> data/clean/event_panel.csv, outputs/poc_car_windows.csv
+  05_build_event_panel.py          market-model ARs -> data/clean/event_panel.csv, outputs/poc_car_windows.csv, outputs/dropped_short_history.csv
   06_hand_check.py                 recomputes COIN's announcement CAR with different code
 data/raw/                          downloads, never edited (release HTML cache is git-ignored)
 data/clean/                        built by code/
 outputs/                           tables and figures
 poc/                               Checkpoint 0 one-event scripts (superseded by code/)
-docs/                              Checkpoint 0 candidate ideas
+docs/                              Checkpoint 0 ideas; effective-day convention; pre-2022 and ownership data sources
 specs_tried.md                     every specification we have run
 ```
 
@@ -50,7 +50,7 @@ specs_tried.md                     every specification we have run
 
 | ticker | announce_et | effective_date | anchor | day0 | event_day | ret | mkt_ret | beta | ar | car_to_date | batch_size | gap_trading_days |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| COIN | 2025-05-12 18:00 | 2025-05-19 | announce | 2025-05-13 | 0 | 0.2397 | 0.0066 | 3.44 | 0.2178 | 0.0404 | 1 | 4 |
+| COIN | 2025-05-12 18:00 | 2025-05-19 | announce | 2025-05-13 | 0 | 0.2397 | 0.0066 | 3.44 | 0.2178 | 0.0404 | 1 | 3 |
 
 Day 0 rules and the market model are documented at the top of [`code/05_build_event_panel.py`](code/05_build_event_panel.py).
 
@@ -58,8 +58,8 @@ Day 0 rules and the market model are documented at the top of [`code/05_build_ev
 
 - **Two dates.** Wikipedia only has effective dates. Announcement dates come from S&P's releases, and all releases since 2022 came out after the close.
 - **Fake additions.** 5 Wikipedia "additions" since 2022 are ticker changes or a merger (CPAY, DAY, EG, WTW, WBD). We drop them; `code/03_build_additions.py` asserts that every Wikipedia-only row is one of these.
-- **Batches.** 51 of 84 additions share a release with at least one other addition, so they are not independent. Tests will cluster by release.
-- **Overlapping windows.** The announce and effective windows overlap when the gap is short (4 trading days for COIN and VEEV).
+- **Batches.** 51 of 84 additions share a release with at least one other addition, so they are not fully independent. Per Prof. Bowen's Checkpoint 1 feedback we keep the tests simple (plain means and t-tests over short windows) and just note this.
+- **Overlapping windows.** The announce and effective windows overlap when the gap is short (3 trading days between announcement day 0 and rebalance day 0 for COIN and VEEV).
 - **Confounding news.** Earnings inside the window (COIN, MRVL in the proof of concept). Not yet flagged in the data.
-- **Spin-offs** with no return history before the announcement (e.g. GE Vernova, Solventum, Kenvue) cannot get a market model. They will be dropped and counted.
+- **Spin-offs** with no return history before the announcement (e.g. GE Vernova, Solventum, Kenvue) cannot get a market model. Events with fewer than 200 estimation days (`MIN_EST_DAYS`) are dropped and counted (approved by Prof. Bowen at Checkpoint 1).
 - **Survivorship.** Additions are taken from S&P's own announcements, not from today's constituent list, so firms deleted later are still in the sample. Their returns may be harder to get from yfinance.
