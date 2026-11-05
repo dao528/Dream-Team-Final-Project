@@ -6,3 +6,6 @@ __pycache__/
 
 # Cached press-release HTML (about 5 MB). code/02_download_announcements.py downloads it again.
 data/raw/spdji_releases/
+
+# Personal Claude Code notes, one per teammate
+CLAUDE.local.md
