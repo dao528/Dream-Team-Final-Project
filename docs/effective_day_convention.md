@@ -1,39 +1,48 @@
-# Which day is the "effective day"?
+# Which day is the effective day?
 
-Research notes after Checkpoint 1 (Nov 4, 2026). Prof. Bowen asked us to work out when index funds actually trade and to define the effective-day event around that.
+Notes from after Checkpoint 1 (Nov 4, 2026). Prof. Bowen asked us to find out when index funds actually trade and to define the effective-day event around that.
 
 ## Short answer
 
-When S&P says an addition is "effective prior to the open of trading on Monday, December 22", it means the change is put in **at the close of the last trading day before that date** (Friday, December 19, in that example). Index funds buy in that day's closing auction, at the official closing price, because that is the price the index uses for the new member.
+S&P's releases say an addition is "effective prior to the open of trading on Monday, December 22". That means S&P makes the change at the close of the last trading day before that date, which in this example is Friday, December 19. Index funds buy in that day's closing auction, at the official closing price, because that is the price the index uses for the new member.
 
-So the event is the **rebalance close**. Since spec #2 (`specs_tried.md`), we define:
+The event is therefore the rebalance close. Since spec #2 in `specs_tried.md` we use:
 
 | Day | Date | What happens |
 |---|---|---|
 | effective day 0 | last trading day before S&P's effective date | index funds buy at this day's close |
-| day 0 return | close(−1) → close(0) | ends at the price index funds pay |
+| day 0 return | close(−1) to close(0) | ends at the price index funds pay |
 | day +1 | S&P's stated effective date | first day the stock trades as a member |
 
-Our Checkpoint 1 code called the first member day "day 0". Under that convention the rebalance close was day −1. Bowen's comment ("either what you're currently calling day −1 is the first day, or the returns are from close of day −1 to day 0") was right. The first reading is the one the S&P documents support.
+Our Checkpoint 1 code called the first member day "day 0", so the rebalance close was our day −1. Prof. Bowen's guess ("either what you're currently calling day −1 is the first day, or the returns are from close of day −1 to day 0") was right, and the first reading is the one S&P's documents support.
 
 ## Evidence
 
-1. **S&P's own rules.** The *Equity Indices Policies & Practices* methodology, in its section on unexpected exchange closures, says adds and drops "remain unchanged, as trading was completed at the close of the day before the effective date". It also says that if the exchange is closed on the day before the effective date, the changes "are moved to after the close of the next trading date". The *Index Mathematics* methodology explains that divisor changes are made "after the close", using closing prices.
-2. **S&P's press releases** all use the same wording. For example, the Dec 5, 2025 release says "effective prior to the open of trading on Monday, December 22, to coincide with the quarterly rebalance." 54 of our 76 cached releases contain "prior to the open(ing)".
-3. **Volume.** Lynch & Mendenhall (1997) say "most funds rebalance their portfolios on the day before the change," and "the largest abnormal volume is on the day before" the change day. Kappou, Brooks & Ward (2010) find about 35% of the day's volume in the 4pm closing auction on the rebalance day. Greenwood & Sammon report that the effective-date share of volume rose from about 15% in earlier decades to almost 30% in the 2010s. State Street (SSGA, 2026) says index funds and ETFs are "structurally incentivized to execute trades at the closing auction."
-4. **Tesla, Dec 2020.** Tesla was "effective prior to the open of trading on Monday, December 21, 2020." Its record closing auction was on **Friday Dec 18**. *(We saw this in news summaries, not the full article.)*
+S&P's *Equity Indices Policies & Practices* methodology says that after an unexpected exchange closure, adds and drops "remain unchanged, as trading was completed at the close of the day before the effective date". If the exchange is closed on the day before the effective date, the changes "are moved to after the close of the next trading date". The *Index Mathematics* methodology says divisor changes are made "after the close", using closing prices.
 
-## How papers label it (not all the same, so we state ours)
+The press releases all use the same wording. The Dec 5, 2025 release says "effective prior to the open of trading on Monday, December 22, to coincide with the quarterly rebalance." 54 of our 76 cached releases contain "prior to the open(ing)".
 
-- **First member day as the change date** (our old convention): Lynch & Mendenhall (1997) and Vijh & Wang ("ED is the first date when the added stock trades as part of the index").
-- **Rebalance day as the event date** (our new convention): Kappou, Brooks & Ward (2010) and Kappou (2018) ("the change becomes effective at the close of business of the event date").
-- **Greenwood & Sammon** measure the effective-date return from the day before to the day after the change, so their window covers both days either way.
+Volume points to the same day. Lynch & Mendenhall (1997) write that "most funds rebalance their portfolios on the day before the change" and that "the largest abnormal volume is on the day before" the change day. Kappou, Brooks & Ward (2010) find about 35% of the day's volume in the 4pm closing auction on the rebalance day. Greenwood & Sammon say that in the 2010s almost 30% of the day's volume came on the effective date, up from about 15% earlier. State Street (SSGA, 2026) writes that index funds and ETFs are "structurally incentivized to execute trades at the closing auction."
 
-## Details we handle
+Tesla is the famous example. Its addition was "effective prior to the open of trading on Monday, December 21, 2020", and the record closing auction was on Friday, December 18. (We only saw the auction numbers in news summaries, not the full Bloomberg article.)
 
-- **Holidays.** We take the previous day on the SPY trading calendar, never "calendar date minus one". In June 2026 the effective date was Monday June 22. Friday June 19 was Juneteenth, a market holiday, so FLEX and MRVL have rebalance day 0 on **Thursday June 18**.
-- **Quarterly rebalances** take effect on a Monday, so funds trade the Friday close. That Friday is usually the third-Friday options and futures expiration, so day 0 also picks up expiration-day trading.
-- **What changed in our numbers.** For the five proof-of-concept additions, effective day 0 moved one trading day earlier. FLEX's +6.0% abnormal return is on the first member day, which is now day +1. On the rebalance day itself FLEX is +0.7%. The announcement-day results don't change.
+## How the papers label it
+
+The papers don't agree, so we state our convention in the README and the code.
+
+Lynch & Mendenhall (1997) and Vijh & Wang call the first member day the change date ("ED is the first date when the added stock trades as part of the index"). That was our old convention.
+
+Kappou, Brooks & Ward (2010) and Kappou (2018) call the rebalance day the event date ("the change becomes effective at the close of business of the event date"). That is our new convention.
+
+Greenwood & Sammon measure the effective-date return from the day before the change to the day after, so their window covers both days.
+
+## Details we handle in the code
+
+We take the previous day on the SPY trading calendar, never the calendar date minus one. In June 2026 the effective date was Monday, June 22, and Friday, June 19 was Juneteenth with the market closed. So FLEX and MRVL have rebalance day 0 on Thursday, June 18.
+
+Quarterly rebalances take effect on a Monday, so funds trade the Friday close. That Friday is usually the third-Friday options and futures expiration, so day 0 also picks up expiration-day trading.
+
+For the five proof-of-concept additions, effective day 0 moved one trading day earlier. FLEX's +6.0% abnormal return is on its first member day, now day +1. On the rebalance day itself FLEX is +0.7%. The announcement-day results don't change.
 
 ## Sources
 
