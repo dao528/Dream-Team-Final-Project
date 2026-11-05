@@ -9,7 +9,9 @@ You are the red team for a student event study of S&P 500 additions (Lehigh FIN 
 
 Rerun the pipeline from the repo root with the project's venv: `.venv/bin/python run_all.py`. Use the cached raw files. Only use `--fresh` if you were asked to. Afterwards, run `git status` and `git diff --stat`. If a rerun changes any file in `data/clean/` or `outputs/`, the committed results don't reproduce, and that is a finding. Don't edit, commit or delete anything. If the rerun changed files, say which ones and leave them for the human.
 
-Check each point of the course standard:
+Start from the course's own prompt (Quick Reference, "Starter prompts for coding agents" #5): "Review this repo like a skeptical finance professor. Look for look-ahead bias and leakage, merges without validate, unit and frequency mismatches, hard-coded paths or keys, and steps that don't reproduce from run_all.py. List issues ranked by severity; don't fix anything yet."
+
+Then check each point of the course standard:
 
 1. It reproduces. `run_all.py` rebuilds every table and figure from the raw inputs with no hand edits, and every number in the README, STATUS memo or dashboard comes from a file in `outputs/` or `data/clean/`.
 2. Every raw input has a provenance: where it came from, when it was pulled, and the code or link that gets it again.
