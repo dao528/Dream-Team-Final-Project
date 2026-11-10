@@ -17,7 +17,10 @@ announcement date, so their window is EST_WINDOW relative to the effective day 0
 Outputs:
   data/clean/event_panel.csv     key: (event_id, anchor, event_day)
   outputs/car_windows.csv        one row per addition x anchor: CAR over standard windows
-  outputs/dropped_short_history.csv   additions dropped for fewer than MIN_EST_DAYS estimation days
+  outputs/dropped_short_history.csv   dropped additions, with the reason: fewer than MIN_EST_DAYS
+                                 estimation days, or the release came after the rebalance day
+  outputs/announce_effective_gap.csv   every 2022+ addition: trading days from announcement day 0 to
+                                 rebalance day 0, and whether the announcement is inside the effective windows
 """
 import numpy as np
 import pandas as pd
@@ -27,6 +30,7 @@ from config import CLEAN, EST_WINDOW, EVENT_WINDOW, MARKET, MIN_EST_DAYS, OUTPUT
 PANEL_OUT = CLEAN / "event_panel.csv"
 WINDOWS_OUT = OUTPUTS / "car_windows.csv"
 DROPPED_OUT = OUTPUTS / "dropped_short_history.csv"
+GAP_OUT = OUTPUTS / "announce_effective_gap.csv"
 MARKET_CLOSE_HOUR = 16
 CAR_WINDOWS = {"car_m1_p1": (-1, 1), "car_0_p1": (0, 1), "car_m10_p10": EVENT_WINDOW}
 EVENT_COLUMNS = ["event_id", "sample", "era", "ticker", "permno", "announce_et", "effective_date",
@@ -49,6 +53,26 @@ def announce_day0(announce_et):
     """After the close: the next trading day. Otherwise: the first trading day on or after the release date."""
     after_close = announce_et.hour >= MARKET_CLOSE_HOUR
     return trading_days[trading_days.searchsorted(announce_et.normalize(), side="right" if after_close else "left")]
+
+
+# How far apart the two day 0s are, for every 2022+ addition (not only the v0 sample). When the
+# gap is short, the announcement jump is inside the effective-anchor windows.
+additions = pd.read_csv(CLEAN / "additions.csv", parse_dates=["announce_et", "effective_date"])
+announce_gap = additions.assign(
+    event_id=lambda d: d["ticker"] + "_" + d["effective_date"].dt.year.astype(str),
+    announce_day0=lambda d: d["announce_et"].map(announce_day0),
+    rebalance_day=lambda d: d["effective_date"].map(rebalance_day),
+    gap_trading_days=lambda d: (trading_days.get_indexer(d["rebalance_day"])
+                                - trading_days.get_indexer(d["announce_day0"])),
+    announce_in_effective_m1_p1=lambda d: d["gap_trading_days"] <= 1,
+    announce_in_effective_0_p1=lambda d: d["gap_trading_days"] <= 0,
+)[["event_id", "ticker", "announce_et", "announce_day0", "rebalance_day", "gap_trading_days",
+   "announce_in_effective_m1_p1", "announce_in_effective_0_p1"]]
+announce_gap.to_csv(GAP_OUT, index=False)
+print(f"2022+ additions: {len(announce_gap)}. Announcement day 0 inside effective CAR[-1,+1]: "
+      f"{announce_gap['announce_in_effective_m1_p1'].sum()}, inside CAR[0,+1]: "
+      f"{announce_gap['announce_in_effective_0_p1'].sum()}, release after the rebalance day (gap < 0): "
+      f"{announce_gap.query('gap_trading_days < 0')['event_id'].tolist()}")
 
 
 def event_rows(event):
@@ -103,16 +127,23 @@ event_panel = event_panel[["ticker", "announce_et", "effective_date", "anchor", 
 assert not event_panel.duplicated(subset=["event_id", "anchor", "event_day"]).any()
 window_length = EVENT_WINDOW[1] - EVENT_WINDOW[0] + 1
 rows_per_event = event_panel.groupby(["event_id", "anchor"]).size()
-print("events with an incomplete window:", rows_per_event[rows_per_event != window_length].index.tolist())
-print("missing returns inside the window:", event_panel["ret"].isna().sum())
+assert (rows_per_event == window_length).all(), rows_per_event[rows_per_event != window_length]
+assert event_panel["ret"].notna().all(), "missing returns inside the window would count as zero AR"
 
-# Drop events without enough estimation history (mostly spin-offs) and keep a record of them.
-dropped = (event_panel.query("n_est < @MIN_EST_DAYS")
-           .drop_duplicates("event_id")[["event_id", "sample", "ticker", "announce_et", "effective_date", "n_est"]])
+# Drop events without enough estimation history (mostly spin-offs), and events whose release came
+# after the rebalance day (S&P reporting an addition that already happened, like a spin-off).
+# Keep a record of both.
+event_panel["drop_reason"] = None
+event_panel.loc[event_panel["n_est"] < MIN_EST_DAYS, "drop_reason"] = f"fewer than {MIN_EST_DAYS} estimation days"
+event_panel.loc[event_panel["gap_trading_days"] < 0, "drop_reason"] = "release after the rebalance day"
+dropped = (event_panel.query("drop_reason.notna()")
+           .drop_duplicates("event_id")
+           [["event_id", "sample", "ticker", "announce_et", "effective_date", "n_est", "gap_trading_days",
+             "drop_reason"]])
 dropped.to_csv(DROPPED_OUT, index=False)
-print(f"dropped {len(dropped)} of {event_panel['event_id'].nunique()} additions with fewer than "
-      f"{MIN_EST_DAYS} estimation days (e.g. spin-offs): {dropped['event_id'].tolist()}")
-event_panel = event_panel.query("n_est >= @MIN_EST_DAYS").reset_index(drop=True)
+print(f"dropped {len(dropped)} of {event_panel['event_id'].nunique()} additions: "
+      f"{dict(zip(dropped['event_id'], dropped['drop_reason']))}")
+event_panel = event_panel.query("drop_reason.isna()").drop(columns="drop_reason").reset_index(drop=True)
 event_panel.to_csv(PANEL_OUT, index=False)
 print(f"saved {PANEL_OUT.name}: {len(event_panel)} rows")
 

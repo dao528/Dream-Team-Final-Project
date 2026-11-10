@@ -11,7 +11,7 @@ OUTPUTS = ROOT / "outputs"
 for folder in (RAW, RELEASE_CACHE, CLEAN, OUTPUTS):
     folder.mkdir(parents=True, exist_ok=True)
 
-HEADERS = {"User-Agent": "Mozilla/5.0 (Lehigh FIN 377 student project)"}
+HEADERS = {"User-Agent": "Mozilla/5.0 (Lehigh FIN 331 student project)"}
 
 # Wikipedia "List of S&P 500 companies": last revision (2026-08-10) that still has the
 # "Selected changes" table. The live page dropped it in Aug 2026.
@@ -39,6 +39,9 @@ CRSP_DAILY = WRDS / "crsp_daily_sp500_ever.parquet"
 KEYDEV_EVENTS = WRDS / "keydev_sp500_events.parquet"
 CRSP_MARKET = WRDS / "market_daily.parquet"  # used only for its trading calendar
 CRSP_END = pd.Timestamp("2025-12-31")  # last CRSP day; events whose window runs past it use yfinance
+# yfinance prices end the day before this date (yfinance's end is exclusive). Fixed, so a rerun
+# downloads the same days and never a half-finished trading day. Pulled on 2026-11-10.
+PRICES_END = pd.Timestamp("2026-11-10")
 
 # History sample: Key Dev additions before our S&P-release sample starts. Before about 2021 the
 # Key Dev date is the effective date (data/raw/wrds/README.md), so these get the effective anchor only.

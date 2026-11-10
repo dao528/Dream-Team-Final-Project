@@ -19,7 +19,8 @@ import pandas as pd
 import pyarrow.dataset as ds
 import yfinance as yf
 
-from config import CLEAN, CRSP_DAILY, CRSP_END, EVENT_WINDOW, HISTORY_START, MARKET, POC_TICKERS, RAW, era_of
+from config import (CLEAN, CRSP_DAILY, CRSP_END, EVENT_WINDOW, HISTORY_START, MARKET, POC_TICKERS, PRICES_END, RAW,
+                    era_of)
 
 PRICES_OUT = RAW / "prices.csv"
 EVENTS_OUT = CLEAN / "events.csv"
@@ -40,14 +41,17 @@ history_adds = history_adds.assign(sample="keydev_history")
 # yfinance: SPY for the whole period, plus every 2022+ addition.
 tickers = sorted(release_adds["ticker"]) + [MARKET]
 price_start = HISTORY_START - pd.Timedelta(days=CALENDAR_DAYS_BEFORE)
+# Reuse the cached file only if it has every ticker and the same start and end the code asks for.
+cached_dates = (pd.read_csv(PRICES_OUT, usecols=["Date"], parse_dates=["Date"])["Date"]
+                if PRICES_OUT.exists() else pd.Series(dtype="datetime64[ns]"))
 have_all = (PRICES_OUT.exists()
             and set(tickers) <= set(pd.read_csv(PRICES_OUT, nrows=0).columns)
-            and pd.read_csv(PRICES_OUT, usecols=["Date"], nrows=1, parse_dates=["Date"])["Date"].iloc[0]
-            <= price_start + pd.Timedelta(days=7))
+            and price_start <= cached_dates.min() <= price_start + pd.Timedelta(days=7)
+            and PRICES_END - pd.Timedelta(days=7) <= cached_dates.max() < PRICES_END)
 if have_all:
     print(f"{PRICES_OUT.name} exists with all {len(tickers)} tickers from {price_start.date()}, skipping download")
 else:
-    prices = yf.download(tickers, start=price_start, auto_adjust=True, progress=False)["Close"]
+    prices = yf.download(tickers, start=price_start, end=PRICES_END, auto_adjust=True, progress=False)["Close"]
     prices.to_csv(PRICES_OUT)
     print(f"saved {PRICES_OUT.name}: {prices.shape[0]} days x {prices.shape[1]} tickers, "
           f"{prices.index.min().date()} to {prices.index.max().date()}")

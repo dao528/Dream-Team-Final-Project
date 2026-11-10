@@ -1,7 +1,8 @@
 """Step 7: average CARs by era and anchor, with plain t-tests, and the main figure.
 
 Outputs:
-  outputs/car_summary.csv          one row = sample x anchor x era x CAR window
+  outputs/car_summary.csv          one row = sample x anchor x era x CAR window. mean is a decimal
+                                   (0.01 = 1%). With n this small (v0), the t-stats mean little.
   outputs/fig_mean_car_by_era.png  mean cumulative AR, day -10 to +10
                                    left: effective anchor, one line per era
                                    right: 2022+ releases, announce vs. effective
@@ -17,7 +18,7 @@ from config import CLEAN, ERAS, OUTPUTS
 
 SUMMARY_OUT = OUTPUTS / "car_summary.csv"
 FIGURE_OUT = OUTPUTS / "fig_mean_car_by_era.png"
-CAR_COLUMNS = {"car_0_p1": "CAR[0,+1]", "car_m1_p1": "CAR[-1,+1]"}
+CAR_COLUMNS = {"car_0_p1": "CAR[0,+1]", "car_m1_p1": "CAR[-1,+1]", "car_m10_p10": "CAR[-10,+10]"}
 # Default categorical palette, slots 1-4, checked with the dataviz validator (light surface).
 ERA_COLORS = dict(zip(ERAS, ["#2a78d6", "#eb6834", "#1baf7a", "#eda100"]))
 ANCHOR_COLORS = {"announce": "#2a78d6", "effective": "#eb6834"}

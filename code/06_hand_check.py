@@ -5,7 +5,8 @@
    News check: Nasdaq/CNBC reported COIN "soars 24%" on May 13, 2025
    (https://www.nasdaq.com/articles/coinbase-soars-24-sp-500-inclusion-what-lies-ahead-etfs).
 2. CRSP vs. yfinance: the same stock-days from both sources should agree for the 2022+ additions
-   that use CRSP.
+   that use CRSP. COIN and DASH pay no dividends, so also compare 2025 for the yfinance-source
+   additions (MRVL pays a dividend), to catch a difference in dividend handling.
 3. The effective day 0 rule on the history sample: Tesla, Key Dev date 2020-12-21. Its record
    closing auction was Friday 2020-12-18 (docs/effective_day_convention.md). Recompute the CRSP
    volume peak by hand and check that the rule in 03b (the trading day before the Key Dev date)
@@ -56,6 +57,15 @@ for event in crsp_release_events.itertuples():
           f"{from_crsp.corr(from_yf):.4f}, median gap {gap.median() * 1e4:.2f}bp, max gap {gap.max() * 1e4:.1f}bp")
     assert from_crsp.corr(from_yf) > 0.99
 assert abs(coin[DAY0] - yf_returns.loc[DAY0, TICKER]) < 0.001
+for ticker in events.query("sample == 'releases_2022on' and ret_source == 'yfinance'")["ticker"]:
+    from_crsp = (crsp.to_table(columns=["date", "ret_adj"],
+                               filter=(ds.field("ticker") == ticker) & (ds.field("date") >= pd.Timestamp("2025-01-01")))
+                 .to_pandas()
+                 .astype({"date": "datetime64[ns]"})
+                 .set_index("date")["ret_adj"])
+    gap = (from_crsp - yf_returns[ticker].reindex(from_crsp.index)).abs()
+    print(f"{ticker} 2025: {gap.notna().sum()} days, max gap CRSP vs. yfinance {gap.max() * 1e4:.1f}bp")
+    assert gap.notna().sum() > 200 and gap.max() < 0.002
 
 # 3. Tesla: CRSP volume peak vs. the day 0 rule.
 keydev_date = pd.Timestamp("2020-12-21")
