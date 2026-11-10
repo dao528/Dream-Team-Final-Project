@@ -42,7 +42,7 @@ Only edit the files your role owns. If you need a change in someone else's file,
 - Effective day 0: the last trading day before S&P's effective date. That is the close where index funds trade (see `docs/effective_day_convention.md`). Day +1 is the first day as a member.
 - Use the SPY trading calendar for day counts, never calendar days.
 - The market-model estimation window is trading days −250 to −30 before the announcement, for both anchors, so it never contains the news. Additions before 2022 have no announcement date yet, so for them it is −250 to −30 before the effective day 0.
-- Additions with fewer than 200 estimation days (mostly spin-offs) are dropped and listed in `outputs/dropped_short_history.csv`.
+- Additions with fewer than 200 estimation days (mostly spin-offs), and releases that come after the rebalance day, are dropped and listed in `outputs/dropped_short_history.csv`. History additions that fail a step-3b rule are listed in `outputs/history_dropped.csv`.
 - No look-ahead. Only use what was public at the time. Index-fund ownership is measured before the announcement, and the sample comes from S&P's own releases, not from today's constituent list.
 - Keep the methods at the level of the class: average ARs and CARs over short windows, with plain t-tests. Prof. Bowen asked for this at Checkpoint 1. No clustered standard errors or calendar-time portfolios unless he asks.
 
