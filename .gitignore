@@ -9,3 +9,10 @@ data/raw/spdji_releases/
 
 # Personal Claude Code notes, one per teammate
 CLAUDE.local.md
+
+# WRDS pull from Prof. Bowen (CRSP, Capital IQ): licensed data, too big for GitHub, and his own
+# code and notes. Never commit. Download the shared Google Drive folder "dao528_request" into
+# data/raw/wrds/ (see the README).
+data/raw/wrds/
+# Daily stock returns built from CRSP by code/04_download_returns.py (licensed, rebuilt by run_all.py)
+data/clean/stock_returns.parquet
