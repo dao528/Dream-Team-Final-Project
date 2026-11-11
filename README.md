@@ -1,3 +1,6 @@
+**DASHBOARD**
+https://dream-team-index-effect.streamlit.app/
+
 # The disappearing index effect
 
 When a company is added to the S&P 500, does its stock still jump? And is the jump on the day the addition is **announced** or the day it **takes effect**? Shleifer (1986) found a large jump; Greenwood & Sammon (_The Disappearing Index Effect_) find it has mostly vanished. We measure it for every S&P 500 addition since 2022, with both dates, and on the effective date back to 2001 to see how the jump changed over time.
