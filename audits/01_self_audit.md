@@ -1,6 +1,7 @@
 # Self-audit 1 (Checkpoint 2)
 
-We ran a skeptical review of branch `checkpoint2-v0` on Nov 10 (the `auditor` agent in `.claude/agents/`, based on the course's Skeptical review prompt) and fixed what it found in commits `cefcad2` and `bb16d62`. Below is the result for each point of the course's 10-point list. The dashboard (`dashboard/app.py`) and `PROPOSAL.md` were added after the review and are not covered yet.
+Source: the auditor agent's skeptical review (Nov 10) & what we fixed (commits `cefcad2`, `bb16d62`).
+Not covered yet: `dashboard/app.py` and `PROPOSAL.md` (added after the review).
 
 ## 1. Reproduces
 
@@ -44,8 +45,8 @@ The README is updated so the drop reasons match the related code.
 
 ## Still open for v1
 
-- the look-ahead in the volume filter (point 4)
-- how to handle the window overlap: only events with a longer gap, or effective windows that start after announcement day +1
-- the parser for old S&P releases: they say "effective after the close of X", so our day 0 rule would be one day off there
-- small n in v0: the t-stats at n = 4 mean nothing, and the dashboard should not mark them as significant
-- update `STATUS.md`
+- 4. volume filter look-ahead
+- how to handle the window overlap
+- the old parser of S&P releases
+- v0 small n: e.g. 2015-21 t-stats at n=4 mean nothing, should not be starred in the dashboard
+- `STATUS.md` update
