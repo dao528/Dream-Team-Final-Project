@@ -6,7 +6,7 @@ Coding agents (Codex, Claude Code, Copilot) read this file before they work. Hum
 
 `README.md` is the plan, so read it first. We measure the S&P 500 index effect around two dates for every addition: the day S&P announces it and the day index funds trade it.
 
-One row of the final dataset is one addition × one anchor (`announce` or `effective`) × one trading day from −10 to +10, in `data/clean/event_panel.csv`. That file is the contract between the pipeline and the dashboard. Don't rename or drop its columns without telling the product manager first.
+One row of the final dataset is one addition × one anchor (`announce` or `effective`) × one trading day from −10 to +10, in `data/clean/event_panel.csv` (key: `event_id`, `anchor`, `event_day`). That file is the contract between the pipeline and the dashboard. Don't rename or drop its columns without telling the product manager first.
 
 ## Who does what
 
@@ -28,7 +28,7 @@ Only edit the files your role owns. If you need a change in someone else's file,
 
 ## Pipeline
 
-- Run everything from the repo root: `python run_all.py`. It runs `code/01` to `code/06` in order. `--fresh` deletes `data/raw/` and downloads everything again.
+- Run everything from the repo root: `python run_all.py`. It runs `code/01` to `code/07` in order (with `03b`). The WRDS files in `data/raw/wrds/` must be downloaded by hand first (see the README); `--fresh` keeps them. `--fresh` deletes the rest of `data/raw/` and downloads it again.
 - Every setting (paths, sample, windows, pinned sources) lives in `code/config.py`. Don't hard-code a second copy in a script.
 - Never edit files in `data/raw/` by hand. Every raw file has a row in the README's provenance table: where it came from, when we pulled it, and the code that gets it again.
 - Relative paths only, never `/Users/...` or `C:/...`.
@@ -41,8 +41,8 @@ Only edit the files your role owns. If you need a change in someone else's file,
 - Announcement day 0: S&P publishes after the 4pm close, so day 0 is the next trading day.
 - Effective day 0: the last trading day before S&P's effective date. That is the close where index funds trade (see `docs/effective_day_convention.md`). Day +1 is the first day as a member.
 - Use the SPY trading calendar for day counts, never calendar days.
-- The market-model estimation window is trading days −250 to −30 before the announcement, for both anchors, so it never contains the news.
-- Additions with fewer than 200 estimation days (mostly spin-offs) are dropped and listed in `outputs/dropped_short_history.csv`.
+- The market-model estimation window is trading days −250 to −30 before the announcement, for both anchors, so it never contains the news. Additions before 2022 have no announcement date yet, so for them it is −250 to −30 before the effective day 0.
+- Additions with fewer than 200 estimation days (mostly spin-offs), and releases that come after the rebalance day, are dropped and listed in `outputs/dropped_short_history.csv`. History additions that fail a step-3b rule are listed in `outputs/history_dropped.csv`.
 - No look-ahead. Only use what was public at the time. Index-fund ownership is measured before the announcement, and the sample comes from S&P's own releases, not from today's constituent list.
 - Keep the methods at the level of the class: average ARs and CARs over short windows, with plain t-tests. Prof. Bowen asked for this at Checkpoint 1. No clustered standard errors or calendar-time portfolios unless he asks.
 
@@ -57,6 +57,8 @@ Before every checkpoint, run a skeptical review of the repo (the course's "Skept
 ## Secrets
 
 Never commit an API key. Keys go in `.env`, which is already in `.gitignore`. This project doesn't need any so far.
+
+Never commit anything from `data/raw/wrds/` or `data/clean/stock_returns.parquet`. That is licensed CRSP and Capital IQ data, and the repo is public. Both are in `.gitignore`.
 
 ## Course pages we lean on
 

@@ -1,1 +1,2 @@
-ticker,announce_et,effective_date,n_est
+event_id,sample,ticker,announce_et,effective_date,n_est,gap_trading_days,drop_reason
+IVZ_2008,keydev_history,IVZ,,2008-08-21,149,,fewer than 200 estimation days
