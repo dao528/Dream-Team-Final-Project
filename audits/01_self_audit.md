@@ -4,43 +4,43 @@ We ran a skeptical review of branch `checkpoint2-v0` on Nov 10 (the `auditor` ag
 
 ## 1. Reproduces
 
-We ran `run_all.py` twice and got exactly the same files both times. Only `STATUS.md` is out of date, because it is still the Checkpoint 1 memo.
+We ran the `run_all.py` file multiple times and got the same results. Only the file `STATUS.md` is out of date, because it is still the Checkpoint 1 memo.
 
 ## 2. Provenance
 
-Because `data/raw/prices.csv` had no pull date and came from an old config, a new download could give slightly different numbers. Now the end date is fixed in `code/config.py` (`PRICES_END`), and the README says we pulled it on 2026-11-10. The README also said CRSP has every firm that was ever in the S&P 500. That was too strong: it has the 1,130 permnos from the membership spells Prof. Bowen rebuilt, because the official `dsp500list` was not available.
+Because `prices.csv` had no pull date and it came from an old config, a new download could give different numbers. We fixed the end date in `config.py` and wrote in the README that we pulled it on 2026-11-10.
 
 ## 3. Unit and keys
 
-Every merge has `validate=` and the keys are checked with asserts. We found out that there were 36 fake additions in Key Dev, all on Saturday 2005-01-29. They are long-term members like AT&T and Fannie Mae listed as "added", and 4 of them passed our date check. We drop them now, so 377 of 555 additions are kept. We also had no check that S&P's release comes before the rebalance day. VYLR's release came after it, so now we drop events like that and list them in `outputs/dropped_short_history.csv`.
+We found out that there were 36 fake additions, which were e.g. long-term firms stated as added. We dropped them, so in total 377 are kept. Because VYLR's release came after its rebalance day and we had no check that S&P's release comes before the rebalance day, we now drop events like that and list them.
 
 ## 4. No look-ahead
 
-The estimation window ends 30 trading days before the announcement, so it never contains the news. But our date check for 2001-2021 looks at trading volume up to 15 days after day 0, so we pick events with data from after the event. This is still open. In v1 we want dates that don't need volume (old S&P releases, or Wikipedia from 2007 on), and we will also show results without the filter.
+Because the date check for 2001 to 2021 looks at trading volume up to 15 days after day 0, we pick events using data from after the event, but this is still open. In v1 we want dates that do not need the volume and also we will show results without the filter.
 
 ## 5. LLM leakage
 
-No LLM is used on the data, so there is no leakage.
+We do not use an LLM on the data, so there is no leakage.
 
 ## 6. No p-hacking
 
-Every specification is in `specs_tried.md`, and we chose the eras before we saw results. Fixing the fake additions changed our random v0 sample, and the 2008-2014 mean CAR[0,+1] went from +3.3% to -2.4% (spec #5). This shows how noisy 4 events per era are. One weak spot: our commits have the same timestamp, so git can't show in which order we did things.
+We chose the eras before we saw the results, and every specification is in `specs_tried.md`. Fixing the fake additions changed our random sample, such as 2008-14 went from +3.3% to -2.4%.
 
 ## 7. Magnitudes
 
-Our results are in percent in the README and the figure. `outputs/car_summary.csv` uses decimals (0.01 = 1%), which is now written in `code/07_summarize.py`. We also added CAR[-10,+10] to the summary.
+We have our results in percent in the README and the figure. For `car_summary.csv` we use decimals, which is also written in the code now.
 
 ## 8. Hand checks
 
-We recomputed COIN's beta and CAR by hand from raw CRSP and got the same numbers (`code/06_hand_check.py`). We also check that CRSP and Yahoo agree, now with MRVL too because it pays dividends (max gap 0.8bp), and that our effective day 0 rule gives Tesla's record closing auction on 2020-12-18. Still open: an independent check of the announcement times.
+By hand we recomputed COIN's beta as well as the CAR from the raw CRSP, where we got the same numbers. Additionally we checked that CRSP and Yahoo agree, also for MRVL because it pays dividends. Still open is the check of the announcement times.
 
 ## 9. Honest limits
 
-For 29 of the 84 additions since 2022, the announcement falls inside the effective [-1,+1] window, so part of the effective CAR is really the announcement (`outputs/announce_effective_gap.csv`). The README now says this and also counts the drop reasons correctly: 36 backfill, 80 not trading on the rebalance day, 4 without a volume test, 58 with the volume peak on another day.
+Since 2022, for 29 of 84 additions the announcement falls inside the effective [-1,+1] window. So the effective CAR is partly really the announcement.
 
 ## 10. Explainable
 
-The README now explains the drop rules exactly like the code does them.
+The README is updated so the drop reasons match the related code.
 
 ## Still open for v1
 
