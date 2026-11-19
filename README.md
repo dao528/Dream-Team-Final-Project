@@ -67,6 +67,10 @@ specs_tried.md                     every specification we have run
 
 Day 0 rules and the market model are documented at the top of [`code/05_build_event_panel.py`](code/05_build_event_panel.py).
 
+## Magnitudes
+
+For the five recent 2022+ additions, the dollar jumps look huge at an average +7.7% ($3.9 billion) two day post announcement spike compared to just -4.5% to +4.9% for smaller 2001–2021 additions, though Coinbase alone drives a +24% ($10.5 billion) spike and the average drops to +3.6% without it. Even though bid ask spreads are tiny at around 0.03%, traders mostly can’t capture this move because S&P announces after market close, meaning the +8.4% day 0 jump happens off news that were before the closing price you can’t buy at. Buying after the news and holding until the close only gets you an average extra return of +0.2% (positive for 3 of the 5), so the price fixes itself almost immediately and index fund investors would pay basically for the increase while the hedge funds would have very little to trade. These five additions are just early examples rather than reliable results, and the market values are approximate since CRSP leaves out Coinbase’s Class B shares and uses end of 2025 share counts for 2026 additions. (All numbers: `outputs/magnitudes.csv`.)
+
 ## Threats to validity (so far)
 
 - **Two dates.** Wikipedia only has effective dates. Announcement dates come from S&P's releases, and all releases since 2022 came out after the close.
