@@ -4,13 +4,17 @@ The S&P press releases are the primary source (they give both dates). The pinned
 Wikipedia table is a cross-check on the effective date. Wikipedia rows with no release
 should only be ticker changes and mergers, which are not index additions.
 
-Output: data/clean/additions.csv (key: ticker)
+Outputs:
+  data/clean/additions.csv    key: ticker
+  outputs/sample_counts.csv   one row = one count about the 2022+ sample that the README,
+                              PROPOSAL.md or the dashboard quotes
 """
 import pandas as pd
 
-from config import CLEAN, RAW, SAMPLE_START
+from config import CLEAN, OUTPUTS, RAW, SAMPLE_START
 
 OUT = CLEAN / "additions.csv"
+COUNTS_OUT = OUTPUTS / "sample_counts.csv"
 
 sp500_actions = pd.read_csv(CLEAN / "spdji_sp500_actions.csv", parse_dates=["published_et", "effective_date"])
 release_additions = (sp500_actions
@@ -69,3 +73,22 @@ print(f"after the pinned wiki revision (release only): {additions.query('not in_
 
 additions.to_csv(OUT, index=False)
 print(f"saved {OUT.name}: {len(additions)} additions, {additions['announce_url'].nunique()} announcement releases")
+
+# Every count we quote in the docs, saved so it traces to a file in outputs/ (audit finding A6).
+in_both = additions.query("in_wiki")
+sample_counts = pd.DataFrame([
+    ("additions_2022on", len(additions), "S&P 500 additions announced in an S&P DJI release since 2022"),
+    ("announcement_releases", additions["announce_url"].nunique(), "distinct releases that first announced them"),
+    ("additions_sharing_a_release", int((additions["batch_size"] > 1).sum()),
+     "additions announced in the same release as at least one other addition"),
+    ("distinct_effective_dates", additions["effective_date"].nunique(), "distinct S&P effective dates"),
+    ("wiki_only_dropped", len(wiki_only), "Wikipedia 'additions' with no release: renames or mergers, dropped"),
+    ("in_both_sources", len(in_both), "additions in both the releases and the pinned Wikipedia table"),
+    ("effective_dates_agree", int(in_both["effective_dates_agree"].sum()),
+     "of in_both_sources, release and Wikipedia effective dates are the same"),
+    ("release_only", int((~additions["in_wiki"]).sum()), "additions after the pinned Wikipedia revision"),
+], columns=["measure", "value", "description"])
+assert sample_counts["measure"].is_unique
+sample_counts.to_csv(COUNTS_OUT, index=False)
+print(f"saved {COUNTS_OUT.name}")
+print(sample_counts[["measure", "value"]].to_string(index=False))
