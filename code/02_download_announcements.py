@@ -2,14 +2,19 @@
 
 1. Search the S&P newsroom for index-change releases and keep those about the S&P 500
    published since SAMPLE_START. Release URLs start with the publication date.
-2. Download each release once (cached in data/raw/spdji_releases/).
+2. Download each release once into data/raw/spdji_releases/. The pages are committed to git
+   (audit A5), so a fresh clone runs this step offline. The newsroom is live and not pinned.
 3. Parse the release's publication time (the page's ITEMDATE comment, US Eastern) and its
    summary table (Effective Date | Index Name | Action | Company Name | Ticker | GICS Sector).
+   code/06_hand_check.py checks three of these times against PR Newswire's copies.
 
 Outputs:
-  data/raw/spdji_release_list.csv    one row per release (url, publication date)
-  data/clean/spdji_sp500_actions.csv one row per release x S&P 500 action (addition/deletion)
+  data/raw/spdji_release_list.csv     one row per release (url, publication date)
+  data/raw/spdji_release_manifest.csv one row per cached page: url, file, sha256, ITEMDATE. If the
+                                      manifest exists, every cached page must still match its sha256.
+  data/clean/spdji_sp500_actions.csv  one row per release x S&P 500 action (addition/deletion)
 """
+import hashlib
 import io
 import re
 import time
@@ -22,6 +27,7 @@ from config import (CLEAN, HEADERS, NEWSROOM_SEARCH, NEWSROOM_SECTION, RAW, RELE
 
 LIST_OUT = RAW / "spdji_release_list.csv"
 ACTIONS_OUT = CLEAN / "spdji_sp500_actions.csv"
+MANIFEST_OUT = RAW / "spdji_release_manifest.csv"
 PAGE_SIZE = 100
 LINK_PATTERN = re.compile(r'href="(https://press\.spglobal\.com/(\d{4}-\d{2}-\d{2})-[^"?]+)"')
 
@@ -46,12 +52,20 @@ def search_release_links(keyword):
     return links
 
 
+def cache_file_for(url):
+    return RELEASE_CACHE / (url.rsplit("/", 1)[1][:150] + ".html")
+
+
 def get_release_html(url):
-    cache_file = RELEASE_CACHE / (url.rsplit("/", 1)[1][:150] + ".html")
+    """The page as the server sent it (raw bytes, so the sha256 is stable on every computer)."""
+    cache_file = cache_file_for(url)
     if not cache_file.exists():
-        cache_file.write_text(requests.get(url, headers=HEADERS, timeout=30).text)
+        response = requests.get(url, headers=HEADERS, timeout=30)
+        response.raise_for_status()
+        cache_file.write_bytes(response.content)
         time.sleep(1)
-    return cache_file.read_text()
+    # Explicit UTF-8: Windows would otherwise read with cp1252 and fail on characters like U+202F.
+    return cache_file.read_bytes().decode("utf-8")
 
 
 SUMMARY_COLUMNS = {"Effective Date": "effective_date", "Index Name": "index_name", "Action": "action",
@@ -78,10 +92,15 @@ def tidy_summary_table(table):
     return tidy
 
 
+def itemdate_et(html):
+    """Publication time from the page's ITEMDATE comment (US Eastern), or None."""
+    itemdate = re.search(r"ITEMDATE: (\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})", html)
+    return itemdate.group(1) if itemdate else None
+
+
 def parse_release(url, html):
     """Return the release's S&P 500 rows from its summary table, with the publication time."""
-    itemdate = re.search(r"ITEMDATE: (\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})", html)
-    published_et = itemdate.group(1) if itemdate else None
+    published_et = itemdate_et(html)
     tables = pd.read_html(io.StringIO(html)) if "<table" in html else []
     summary = [t for t in tables if (t.iloc[0].astype(str) == "Effective Date").any()]
     if not summary:
@@ -115,6 +134,21 @@ sp500_actions = pd.concat(
     effective_date=lambda d: pd.to_datetime(d["effective_date"], format="mixed", errors="coerce"),
 )
 sp500_actions.to_csv(ACTIONS_OUT, index=False)
+
+# Manifest of the cached pages. If one exists already, the pages must not have changed since.
+manifest = pd.DataFrame({"url": release_list["url"]}).assign(
+    file=lambda d: d["url"].map(lambda u: cache_file_for(u).name),
+    sha256=lambda d: d["url"].map(lambda u: hashlib.sha256(cache_file_for(u).read_bytes()).hexdigest()),
+    itemdate_et=lambda d: d["url"].map(lambda u: itemdate_et(get_release_html(u))),
+)
+assert manifest["file"].is_unique
+if MANIFEST_OUT.exists():
+    previous = pd.read_csv(MANIFEST_OUT)
+    check = manifest.merge(previous, on="url", how="left", validate="one_to_one", suffixes=("", "_before"))
+    changed = check.loc[check["sha256_before"].notna() & (check["sha256"] != check["sha256_before"]), "file"]
+    assert changed.empty, f"cached release pages changed since the manifest was written: {changed.tolist()}"
+manifest.to_csv(MANIFEST_OUT, index=False)
+print(f"saved {MANIFEST_OUT.name}: {len(manifest)} pages, all match the manifest")
 
 unparsed_slugs = sp500_actions.query("not parsed")["url"].str.rsplit("/", n=1).str[1]
 print(f"releases: {len(release_list)}, without a summary table: {len(unparsed_slugs)}")
