@@ -23,6 +23,7 @@ STEPS = [
     "05_build_event_panel.py",
     "06_hand_check.py",
     "07_summarize.py",
+    "08_magnitudes.py",
 ]
 
 missing = [name for name in WRDS_FILES if not (WRDS / "outputs" / name).exists()]
