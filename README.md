@@ -23,7 +23,7 @@ No API keys. v0 runs 5 additions from 2022 on (`POC_TICKERS` in [`code/config.py
 ## Folder layout
 
 ```
-run_all.py                         runs code/01 ... 07 in order
+run_all.py                         runs code/01 ... 08 in order
 code/
   config.py                        paths, pinned sources, windows, sample
   01_download_index_changes.py     Wikipedia changes table (pinned revision) -> data/raw/wiki_sp500_changes.csv
@@ -34,6 +34,7 @@ code/
   05_build_event_panel.py          market-model ARs -> data/clean/event_panel.csv, outputs/car_windows.csv, outputs/dropped_short_history.csv, outputs/announce_effective_gap.csv
   06_hand_check.py                 recomputes COIN's CAR from raw CRSP, compares CRSP with yfinance (incl. a dividend payer), checks Tesla's rebalance day
   07_summarize.py                  mean CARs and t-tests by era -> outputs/car_summary.csv, outputs/fig_mean_car_by_era.png
+  08_magnitudes.py                 CARs in dollars (x market value), bid-ask spreads, tradable part of the announcement jump -> outputs/magnitudes.csv
 data/raw/                          downloads, never edited (wrds/ is git-ignored; the release HTML cache is committed so step 02 runs offline)
 data/clean/                        built by code/
 outputs/                           tables and figures
