@@ -8,6 +8,8 @@ Date rule, the same as for the 2022+ sample:
   effective_date = first trading day on or after the Key Dev date (16% of Key Dev dates are weekends)
   rebalance_day  = the trading day before that, the close where index funds trade (effective day 0)
 Drop rules, in this order (each dropped addition is listed in outputs/history_dropped.csv):
+  0. Duplicate Key Dev row: the same permno again within SAME_FIRM_WINDOW trading days is the same
+     addition (Moderna 2021-07-20 and 2021-07-22). Only the last row of such a group is kept (audit A3).
   1. Key Dev backfill: a date with BACKFILL_MIN_ADDS or more adds and no drops is not an index change.
      2005-01-29 (a Saturday) has 36 "additions" of long-time members like AT&T and Fannie Mae, all from
      source "Index Website". Real changes come in add/drop pairs.
@@ -26,7 +28,7 @@ import pandas as pd
 import pyarrow.dataset as ds
 
 from config import (CLEAN, CRSP_DAILY, CRSP_MARKET, HISTORY_END, HISTORY_PEAK_DAY, HISTORY_PER_ERA,
-                    HISTORY_SEED, HISTORY_START, KEYDEV_EVENTS, OUTPUTS, era_of)
+                    HISTORY_SEED, HISTORY_START, KEYDEV_EVENTS, OUTPUTS, SAME_FIRM_WINDOW, era_of)
 
 OUT = CLEAN / "history_additions.csv"
 CHECK_OUT = OUTPUTS / "history_date_check.csv"
@@ -50,9 +52,24 @@ print("Key Dev backfill dates (adds without drops):", [d.date() for d in backfil
 
 positions = trading_days.searchsorted(keydev_adds["keydev_date"])  # first trading day on or after
 assert (positions > 0).all()  # every addition has a trading day before it in CRSP
-keydev_adds = (keydev_adds
-               .assign(effective_date=trading_days[positions], rebalance_day=trading_days[positions - 1])
-               .query("rebalance_day >= @HISTORY_START"))
+keydev_adds = keydev_adds.assign(effective_date=trading_days[positions], rebalance_day=trading_days[positions - 1],
+                                 keydev_pos=positions)
+
+# Same firm twice: rows of one permno at most SAME_FIRM_WINDOW trading days apart are one event
+# (audit A3). Keep the last row, because these Key Dev dates behave like effective dates and the
+# later row is the final one (as for KVUE in step 3). The earlier rows are listed as duplicates.
+# (Sorted only for this step. The row order stays as before, because the seed-331 draw below depends on it.)
+by_firm = keydev_adds.sort_values(["permno", "keydev_pos"])
+days_since_previous = by_firm.groupby("permno")["keydev_pos"].diff()
+same_firm_event = (days_since_previous.isna() | (days_since_previous > SAME_FIRM_WINDOW)).cumsum()
+keydev_adds["duplicate"] = same_firm_event.duplicated(keep="last")  # aligned back on the index
+assert keydev_adds.index.is_unique
+one_per_event = by_firm[~keydev_adds["duplicate"].reindex(by_firm.index)]
+assert not (one_per_event.groupby("permno")["keydev_pos"].diff() <= SAME_FIRM_WINDOW).any()
+print(f"same permno within {SAME_FIRM_WINDOW} trading days, collapsed into one event (earlier rows): "
+      f"{[(p, str(d.date())) for p, d in keydev_adds.loc[keydev_adds['duplicate'], ['permno', 'keydev_date']].values]}")
+
+keydev_adds = keydev_adds.query("rebalance_day >= @HISTORY_START").copy()
 keydev_adds["era"] = keydev_adds["rebalance_day"].dt.year.map(era_of)
 print(f"Key Dev additions {HISTORY_START.year}-{HISTORY_END.year}: {len(keydev_adds)} "
       f"({keydev_adds['permno'].nunique()} permnos)")
@@ -73,6 +90,7 @@ keydev_adds.loc[keydev_adds["trading_days_to_peak"] != HISTORY_PEAK_DAY, "date_c
 keydev_adds.loc[keydev_adds["trading_days_to_peak"].isna(), "date_check"] = "no volume test"
 keydev_adds.loc[keydev_adds["_merge"] == "left_only", "date_check"] = "not trading on rebalance day"
 keydev_adds.loc[keydev_adds["keydev_date"].isin(backfill_dates), "date_check"] = "Key Dev backfill"
+keydev_adds.loc[keydev_adds["duplicate"], "date_check"] = "duplicate Key Dev row"
 
 (keydev_adds
  .query("date_check != 'kept'")
@@ -82,8 +100,9 @@ keydev_adds.loc[keydev_adds["keydev_date"].isin(backfill_dates), "date_check"] =
 
 date_check = keydev_adds.pivot_table(index="era", columns="date_check", values="permno", aggfunc="size",
                                      fill_value=0)
-# Share of the real additions (backfill rows are not additions).
-date_check["share_kept"] = (date_check["kept"] / date_check.drop(columns="Key Dev backfill").sum(axis=1)).round(3)
+# Share of the real additions (backfill rows are not additions, duplicate rows repeat an addition).
+not_additions = [col for col in ["Key Dev backfill", "duplicate Key Dev row"] if col in date_check]
+date_check["share_kept"] = (date_check["kept"] / date_check.drop(columns=not_additions).sum(axis=1)).round(3)
 date_check.to_csv(CHECK_OUT)
 print(date_check.to_string())
 
