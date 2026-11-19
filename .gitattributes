@@ -1,0 +1,3 @@
+# Cached S&P release pages: keep the bytes exactly as downloaded (no line-ending conversion),
+# so their sha256 matches data/raw/spdji_release_manifest.csv on every computer.
+data/raw/spdji_releases/*.html -text
