@@ -91,11 +91,15 @@ with results:
     st.subheader("Mean CAR by era (outputs/car_summary.csv)")
     window = st.radio("Window", sorted(summary["window"].unique()), horizontal=True)
     table = summary[summary["window"] == window].copy()
-    table["mean"] = table["mean"].map("{:+.2%}".format)
-    table["t_stat"] = table["t_stat"].round(2)
-    table["p_value"] = table["p_value"].round(3)
+    for suffix in ["", "_by_date"]:
+        if f"mean{suffix}" in table:
+            table[f"mean{suffix}"] = table[f"mean{suffix}"].map("{:+.2%}".format)
+            table[f"t_stat{suffix}"] = table[f"t_stat{suffix}"].round(2)
+            table[f"p_value{suffix}"] = table[f"p_value{suffix}"].round(3)
     st.dataframe(table.drop(columns="window"), hide_index=True)
-    st.caption("v0 has only 3 to 5 additions per era, so none of these are reliable yet.")
+    st.caption("v0 has only 3 to 5 additions per era, so none of these are reliable yet. "
+               "n counts additions, n_dates counts distinct day 0s. Additions announced together share "
+               "a day 0, so the *_by_date columns average them first and test one CAR per date.")
 
 # ---------------------------------------------------------------- Explore
 with explore:
