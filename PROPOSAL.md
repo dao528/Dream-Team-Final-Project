@@ -11,7 +11,7 @@ Dream Team: Karthik Sekhar, Daniel Outkou, Manuel Casanova Jr, Tom Sickert
 
 ## Data
 
-One row of the data is a S&P 500 addition, an anchor (announcement date / effective date) and a trading day from -10 to 10 around this anchor. So the key is event_id and anchor and event_day. From 2001 to 2021, the 377 additions only have the effective anchor. We have 555 of them from Capital IQ Key Dev and keep 377. CRSP starts in January 2000 but our market model need around 250 trading days before day 0, which is why our sample starts in 2001. Then from 2022 we use S&P’s own press releases, because they have the announcement date, the release time and effective date, which are 84 additions from 53 releases. Until end of 2025 the returns come from CRSP and after that we use Yahoo Finance.
+One row of the data is a S&P 500 addition, an anchor (announcement date / effective date) and a trading day from -10 to 10 around this anchor. So the key is event_id and anchor and event_day. From 2001 to 2021, the 377 additions only have the effective anchor. We have 555 of them from Capital IQ Key Dev and keep 377 (`outputs/history_date_check.csv`). CRSP starts in January 2000 but our market model need around 250 trading days before day 0, which is why our sample starts in 2001. Then from 2022 we use S&P’s own press releases, because they have the announcement date, the release time and effective date, which are 84 additions from 53 releases (`outputs/sample_counts.csv`). Until end of 2025 the returns come from CRSP and after that we use Yahoo Finance.
 
 In the data, there are 36 fake additions because of Key Dev backfills which get dropped, and 80 that were not trading on the rebalance day yet (spin-offs, new listings). 4 are with no volume tests. There are also 58 with the volume peak on a different day, which we drop too. All events also need at least 200 days, so we drop spin-offs and firms that have a new permno. We also drop 5 Wikipedia additions, because they are merger or ticker changes.
 
@@ -27,7 +27,7 @@ Because S&P announces after the close, the next trading day is the announcement 
 
 For the market model we use SPY, and estimate it on trading days -250 to -30 before the announcement day 0, with its CARs over [0, +1] , [-1, 1] and the [-10, 10]. Then we test the mean CAR per anchor as well as era with t-tests. When we compare 2 dates, we see which one matters and by comparing eras we see whether the effect is disappearing.
 
-There is one problem: for 29 of the 84 additions (since 2022), the announcement falls inside the effective [-1, 1] window.
+There is one problem: for 29 of the 84 additions (since 2022), the announcement falls inside the effective [-1, 1] window (`outputs/announce_effective_gap.csv`).
 
 ## Threats and checks, plus the raw-input table with sources
 
@@ -39,7 +39,7 @@ The third biggest threat is that historical additions create additional data qua
 
 The fourth biggest threat is survivorship bias. If we only looked at companies that are still in the S&P 500 today, we could miss firms that were added and later removed or delisted. We avoid this by using S&P’s own historical addition announcements instead of today’s constituent list. For historical returns, CRSP also keeps data for firms that were later delisted.
 
-The fifth biggest threat is that we also have to consider that many additions are announced in batches. 51 of the 84 additions since 2022 share a release with at least one other company, so those events are not fully independent from each other. We keep the analysis simple and report this as a limitation instead of treating every observation as completely independent.
+The fifth biggest threat is that we also have to consider that many additions are announced in batches. 51 of the 84 additions since 2022 share a release with at least one other company (`outputs/sample_counts.csv`), so those events are not fully independent from each other. We keep the analysis simple and report this as a limitation instead of treating every observation as completely independent.
 
 The sixth biggest threat is p-hacking, where we could keep trying different event windows or specifications until we find a result that looks good. To prevent this, every specification we test is recorded in specs_tried.md, including the ones that do not work or are later dropped.
 
