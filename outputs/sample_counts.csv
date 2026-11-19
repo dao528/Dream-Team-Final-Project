@@ -1,0 +1,7 @@
+count,value,description
+additions_2022on,84,S&P 500 additions announced in an S&P release since 2022-01-01
+announcement_releases,53,distinct releases that first announced them
+additions_sharing_a_release,51,additions announced in a release with at least one other S&P 500 addition
+additions_in_wikipedia,78,additions also in the pinned Wikipedia changes table
+wikipedia_effective_date_agrees,77,"of those, release and Wikipedia give the same effective date"
+wikipedia_only_dropped,5,"Wikipedia 'additions' with no release: renames and mergers, dropped"

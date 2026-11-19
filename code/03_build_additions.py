@@ -4,13 +4,16 @@ The S&P press releases are the primary source (they give both dates). The pinned
 Wikipedia table is a cross-check on the effective date. Wikipedia rows with no release
 should only be ticker changes and mergers, which are not index additions.
 
-Output: data/clean/additions.csv (key: ticker)
+Outputs:
+  data/clean/additions.csv     key: ticker
+  outputs/sample_counts.csv    one row = one count quoted in the README or proposal (audit A6)
 """
 import pandas as pd
 
-from config import CLEAN, RAW, SAMPLE_START
+from config import CLEAN, OUTPUTS, RAW, SAMPLE_START
 
 OUT = CLEAN / "additions.csv"
+COUNTS_OUT = OUTPUTS / "sample_counts.csv"
 
 sp500_actions = pd.read_csv(CLEAN / "spdji_sp500_actions.csv", parse_dates=["published_et", "effective_date"])
 release_additions = (sp500_actions
@@ -69,3 +72,18 @@ print(f"after the pinned wiki revision (release only): {additions.query('not in_
 
 additions.to_csv(OUT, index=False)
 print(f"saved {OUT.name}: {len(additions)} additions, {additions['announce_url'].nunique()} announcement releases")
+
+# The counts this step prints, saved so the README and proposal can cite a file in outputs/.
+in_wiki = additions.query("in_wiki")
+sample_counts = pd.DataFrame([
+    ("additions_2022on", len(additions), "S&P 500 additions announced in an S&P release since 2022-01-01"),
+    ("announcement_releases", additions["announce_url"].nunique(), "distinct releases that first announced them"),
+    ("additions_sharing_a_release", int((additions["batch_size"] > 1).sum()),
+     "additions announced in a release with at least one other S&P 500 addition"),
+    ("additions_in_wikipedia", len(in_wiki), "additions also in the pinned Wikipedia changes table"),
+    ("wikipedia_effective_date_agrees", int(in_wiki["effective_dates_agree"].sum()),
+     "of those, release and Wikipedia give the same effective date"),
+    ("wikipedia_only_dropped", len(wiki_only), "Wikipedia 'additions' with no release: renames and mergers, dropped"),
+], columns=["count", "value", "description"])
+sample_counts.to_csv(COUNTS_OUT, index=False)
+print(sample_counts.to_string(index=False))
