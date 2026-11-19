@@ -51,6 +51,9 @@ HISTORY_END = SAMPLE_START - pd.Timedelta(days=1)
 # Keep an event only if its volume peak (within 15 trading days) is the trading day before the
 # Key Dev date, i.e. the rebalance close our effective day 0 rule points to.
 HISTORY_PEAK_DAY = -1
+# Key Dev can list the same firm twice a few days apart (Moderna 2021-07-20 and 2021-07-22). Additions
+# of the same permno within this many trading days are one event (audit A3).
+SAME_FIRM_WINDOW = 10
 # v0: this many additions per era, drawn with a fixed seed. None = every addition (v1).
 HISTORY_PER_ERA = 4
 HISTORY_SEED = 331
