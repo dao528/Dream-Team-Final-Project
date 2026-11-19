@@ -11,12 +11,21 @@
    closing auction was Friday 2020-12-18 (docs/effective_day_convention.md). Recompute the CRSP
    volume peak by hand and check that the rule in 03b (the trading day before the Key Dev date)
    gives that day.
+4. Announcement times (audit finding A5). Every 2022+ release page stamps its publication time as
+   "ITEMDATE: 2025-05-12 18:00:00 EDT". Re-read the stamp from the committed page with a separate
+   regex and check that (a) it equals announce_et in additions.csv, (b) its zone label is the one US
+   Eastern time uses on that date (EDT in summer, EST in winter, from zoneinfo), so the stamp is
+   Eastern time and not UTC, and (c) it is after the 4pm close. Not yet checked against a source
+   outside S&P (a news story with the release time): still open.
 """
+import re
+from zoneinfo import ZoneInfo
+
 import numpy as np
 import pandas as pd
 import pyarrow.dataset as ds
 
-from config import CLEAN, CRSP_DAILY, KEYDEV_EVENTS, MARKET, OUTPUTS, RAW
+from config import CLEAN, CRSP_DAILY, KEYDEV_EVENTS, MARKET, OUTPUTS, RAW, RELEASE_CACHE
 
 crsp = ds.dataset(CRSP_DAILY)
 prices = pd.read_csv(RAW / "prices.csv", index_col="Date", parse_dates=True)
@@ -82,4 +91,18 @@ rule_day0 = tesla.index[at - 1]
 print(f"TSLA: volume peak {around.idxmax().date()} ({around.max() / around.median():.1f}x the median), "
       f"rule gives day 0 = {rule_day0.date()}")
 assert around.idxmax() == rule_day0 == pd.Timestamp("2020-12-18")
+
+# 4. Announcement time stamps, re-read from the committed release pages.
+EASTERN = ZoneInfo("America/New_York")
+additions = pd.read_csv(CLEAN / "additions.csv", parse_dates=["announce_et"])
+for addition in additions.itertuples():
+    page = (RELEASE_CACHE / (addition.announce_url.rsplit("/", 1)[1][:150] + ".html")).read_text(encoding="utf-8")
+    stamp, zone = re.search(r"ITEMDATE: (\S+ \S+) (E[DS]T)", page).groups()
+    stamp = pd.Timestamp(stamp)
+    assert stamp == addition.announce_et, addition.ticker
+    assert zone == stamp.to_pydatetime().replace(tzinfo=EASTERN).tzname(), f"{addition.ticker}: {zone} on {stamp}"
+    assert stamp.hour >= 16, f"{addition.ticker} released before the close"
+    if addition.ticker in ("COIN", "DASH", "SMCI"):
+        print(f"{addition.ticker}: page stamp {stamp} {zone}, after the close, matches additions.csv")
+print(f"announcement stamps: all {len(additions)} are US Eastern, after 16:00, and match additions.csv")
 print("hand checks passed")
