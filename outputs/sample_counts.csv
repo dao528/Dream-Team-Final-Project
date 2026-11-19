@@ -1,0 +1,9 @@
+measure,value,description
+additions_2022on,84,S&P 500 additions announced in an S&P DJI release since 2022
+announcement_releases,53,distinct releases that first announced them
+additions_sharing_a_release,51,additions announced in the same release as at least one other addition
+distinct_effective_dates,56,distinct S&P effective dates
+wiki_only_dropped,5,"Wikipedia 'additions' with no release: renames or mergers, dropped"
+in_both_sources,78,additions in both the releases and the pinned Wikipedia table
+effective_dates_agree,77,"of in_both_sources, release and Wikipedia effective dates are the same"
+release_only,6,additions after the pinned Wikipedia revision

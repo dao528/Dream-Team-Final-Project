@@ -34,7 +34,7 @@ code/
   05_build_event_panel.py          market-model ARs -> data/clean/event_panel.csv, outputs/car_windows.csv, outputs/dropped_short_history.csv, outputs/announce_effective_gap.csv
   06_hand_check.py                 recomputes COIN's CAR from raw CRSP, compares CRSP with yfinance (incl. a dividend payer), checks Tesla's rebalance day
   07_summarize.py                  mean CARs and t-tests by era -> outputs/car_summary.csv, outputs/fig_mean_car_by_era.png
-data/raw/                          downloads, never edited (release HTML cache and wrds/ are git-ignored)
+data/raw/                          downloads, never edited (wrds/ is git-ignored; the release HTML cache is committed so step 02 runs offline)
 data/clean/                        built by code/
 outputs/                           tables and figures
 poc/                               Checkpoint 0 one-event scripts (superseded by code/)
@@ -47,7 +47,7 @@ specs_tried.md                     every specification we have run
 | Raw file | Source | How we get it again |
 |---|---|---|
 | `data/raw/spdji_release_list.csv` | S&P DJI newsroom search, [press.spglobal.com](https://press.spglobal.com/index.php?s=2429), keywords "Join S&P 500", "Added to the S&P 500", "S&P 500". The `pulled_on` column has the date. | `code/02_download_announcements.py` |
-| `data/raw/spdji_releases/*.html` (git-ignored) | Each release page. Announcement time = the page's `ITEMDATE` comment (ET). | same script, cached on first run |
+| `data/raw/spdji_releases/*.html` (committed) | Each release page, downloaded once and committed so the announcement times can't change on a rerun. Announcement time = the page's `ITEMDATE` comment, e.g. `2025-05-12 18:00:00 EDT` (US Eastern; `code/06_hand_check.py` checks the EDT/EST label against the date). | same script, only for releases missing from the cache |
 | `data/raw/wiki_sp500_changes.csv` | Wikipedia "List of S&P 500 companies", revision [1368675864](https://en.wikipedia.org/w/index.php?oldid=1368675864) (2026-08-10), the last one with the changes table | `code/01_download_index_changes.py` |
 | `data/raw/prices.csv` | yfinance 1.7.0, `auto_adjust=True` Close: SPY from 1999-11-08 to 2026-11-09 (the market for every event) and the 2022+ additions (their returns after CRSP ends, and a cross-check). Pulled on 2026-11-10; the end date is fixed in `code/config.py` (`PRICES_END`). yfinance revises adjusted prices, so a new pull can move the 2026 numbers slightly. | `code/04_download_returns.py` |
 | `data/raw/wrds/outputs/crsp_daily_sp500_ever.parquet` (git-ignored) | CRSP daily stock file (`crsp.dsf_v2`), 2000-01-03 to 2025-12-31, for the 1,130 permnos in membership spells that Prof. Bowen rebuilt from Key Dev and Compustat (the official `dsp500list` was not available, see the Drive folder's README). We use `ret_adj` (return including the delisting return), `ticker`, `comnam`, `vol`. | Pulled from WRDS by Prof. Bowen on 2026-11-04 and shared as the Google Drive folder `dao528_request`. Its `README.md` and `code/` folder document the pull. |
@@ -70,7 +70,7 @@ Day 0 rules and the market model are documented at the top of [`code/05_build_ev
 
 - **Two dates.** Wikipedia only has effective dates. Announcement dates come from S&P's releases, and all releases since 2022 came out after the close.
 - **Fake additions.** 5 Wikipedia "additions" since 2022 are ticker changes or a merger (CPAY, DAY, EG, WTW, WBD). We drop them; `code/03_build_additions.py` asserts that every Wikipedia-only row is one of these.
-- **Batches.** 51 of 84 additions share a release with at least one other addition, so they are not fully independent. Per Prof. Bowen's Checkpoint 1 feedback we keep the tests simple (plain means and t-tests over short windows) and just note this.
+- **Batches.** 51 of 84 additions share a release with at least one other addition (`outputs/sample_counts.csv`), so they are not fully independent. Per Prof. Bowen's Checkpoint 1 feedback we keep the tests simple (plain means and t-tests over short windows) and just note this.
 - **Overlapping windows.** For every 2022+ addition the announcement day 0 is inside the effective [-10,+10] window (the gap is at most 10 trading days). For 29 of 84 it is also inside the effective CAR[-1,+1], and for 4 inside CAR[0,+1] (`outputs/announce_effective_gap.csv`). So the effective-date CARs partly measure the announcement jump. COIN's effective CAR[-10,+10] (+4.9%) includes its +21.8% announcement-day AR. We still have to decide how to handle this in v1 (only events with a longer gap, or effective windows that start after announcement day +1).
 - **Releases after the fact.** VYLR's release (2026-10-01) reports an addition that already happened (a Corteva spin-off). Its rebalance day is before the announcement day 0, so there was no index-fund trade to anticipate. Step 5 drops events like this and lists them in `outputs/dropped_short_history.csv`.
 - **Confounding news.** Earnings inside the window (COIN, MRVL in the proof of concept). Not yet flagged in the data.

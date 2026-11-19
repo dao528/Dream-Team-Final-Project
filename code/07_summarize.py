@@ -3,6 +3,10 @@
 Outputs:
   outputs/car_summary.csv          one row = sample x anchor x era x CAR window. mean is a decimal
                                    (0.01 = 1%). With n this small (v0), the t-stats mean little.
+                                   Additions announced in the same release share their day 0s and
+                                   market news, so they are not independent (audit finding A3).
+                                   n_dates counts distinct day 0s, and the *_by_date columns repeat
+                                   the t-test on one average CAR per day 0.
   outputs/fig_mean_car_by_era.png  mean cumulative AR, day -10 to +10
                                    left: effective anchor, one line per era
                                    right: 2022+ releases, announce vs. effective
@@ -33,16 +37,22 @@ def t_test(cars):
     return pd.Series({"n": len(cars), "mean": cars.mean(), "t_stat": result.statistic, "p_value": result.pvalue})
 
 
+GROUP = ["sample", "anchor", "era", "window"]
 car_windows = pd.read_csv(OUTPUTS / "car_windows.csv")
-car_summary = (car_windows
-               .melt(id_vars=["sample", "anchor", "era"], value_vars=list(CAR_COLUMNS),
-                     var_name="window", value_name="car")
-               .groupby(["sample", "anchor", "era", "window"])["car"]
-               .apply(t_test)
-               .unstack()
+cars = car_windows.melt(id_vars=["sample", "anchor", "era", "day0"], value_vars=list(CAR_COLUMNS),
+                        var_name="window", value_name="car")
+by_event = cars.groupby(GROUP)["car"].apply(t_test).unstack()
+
+# Same test with one observation per day 0: average the CARs of additions that share a day 0 first.
+by_date = (cars.groupby(GROUP + ["day0"])["car"].mean()
+           .groupby(GROUP).apply(t_test).unstack()
+           .rename(columns={"n": "n_dates", "mean": "mean_by_date", "t_stat": "t_stat_by_date",
+                            "p_value": "p_value_by_date"}))
+car_summary = (by_event.join(by_date, validate="one_to_one")
                .reset_index()
-               .assign(window=lambda d: d["window"].map(CAR_COLUMNS)))
-car_summary["n"] = car_summary["n"].astype(int)
+               .assign(window=lambda d: d["window"].map(CAR_COLUMNS))
+               .astype({"n": int, "n_dates": int}))
+assert (car_summary["n_dates"] <= car_summary["n"]).all()
 car_summary.to_csv(SUMMARY_OUT, index=False)
 print(car_summary.round(4).to_string())
 

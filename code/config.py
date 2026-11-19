@@ -5,7 +5,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw"
-RELEASE_CACHE = RAW / "spdji_releases"  # one cached HTML file per press release (git-ignored)
+RELEASE_CACHE = RAW / "spdji_releases"  # one cached HTML file per press release (committed)
 CLEAN = ROOT / "data" / "clean"
 OUTPUTS = ROOT / "outputs"
 for folder in (RAW, RELEASE_CACHE, CLEAN, OUTPUTS):
