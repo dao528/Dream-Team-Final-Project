@@ -11,6 +11,12 @@
    closing auction was Friday 2020-12-18 (docs/effective_day_convention.md). Recompute the CRSP
    volume peak by hand and check that the rule in 03b (the trading day before the Key Dev date)
    gives that day.
+4. Announcement times (audit A5). Step 2 reads each release's time from the newsroom page's ITEMDATE
+   comment and assumes US Eastern. PR Newswire's own copy of the release, on prnewswire.com, shows the
+   time in ET and also a machine-readable UTC timestamp (its "datePublished" tag). If ITEMDATE is
+   Eastern time, converting it to UTC must give PR Newswire's UTC time, in winter (EST, UTC-5) and in
+   summer (EDT, UTC-4). Values copied by hand from the pages on 2026-11-19. Caveat: PR Newswire is the
+   wire service S&P uses, so this checks the time zone and our parsing, not S&P's clock.
 """
 import numpy as np
 import pandas as pd
@@ -82,4 +88,23 @@ rule_day0 = tesla.index[at - 1]
 print(f"TSLA: volume peak {around.idxmax().date()} ({around.max() / around.median():.1f}x the median), "
       f"rule gives day 0 = {rule_day0.date()}")
 assert around.idxmax() == rule_day0 == pd.Timestamp("2020-12-18")
+
+# 4. Announcement times: our ITEMDATE vs. PR Newswire's copy of the same release.
+PRNEWSWIRE = [  # ticker, time shown on prnewswire.com, its datePublished tag, page
+    ("CEG", "Jan 26, 2022, 18:44 ET", "2022-01-26T23:44:00Z",
+     "https://www.prnewswire.com/news-releases/constellation-energy-set-to-join-sp-500-others-to-join-sp-midcap-400-and-sp-smallcap-600-301469198.html"),
+    ("COIN", "May 12, 2025, 18:00 ET", "2025-05-12T23:00:00+01:00",
+     "https://www.prnewswire.com/news-releases/coinbase-global-set-to-join-sp-500-302453020.html"),
+    ("MRVL", "Jun 05, 2026, 19:25 ET", "2026-06-06T00:25:00+01:00",
+     "https://www.prnewswire.com/news-releases/marvell-technology-and-flex-set-to-join-sp-500-others-to-join-sp-midcap-400-and-sp-smallcap-600-302793159.html"),
+]
+actions = pd.read_csv(CLEAN / "spdji_sp500_actions.csv", parse_dates=["published_et"]).query('action == "Addition"')
+for ticker, prn_et, prn_utc, _ in PRNEWSWIRE:
+    ours = actions.loc[actions["ticker"] == ticker, "published_et"].iloc[0]
+    ours_utc = ours.tz_localize("America/New_York").tz_convert("UTC")
+    theirs_utc = pd.Timestamp(prn_utc).tz_convert("UTC")
+    print(f"{ticker}: ITEMDATE {ours} ET = {ours_utc:%Y-%m-%d %H:%M} UTC.  PR Newswire: {prn_et}, "
+          f"{theirs_utc:%Y-%m-%d %H:%M} UTC")
+    assert ours == pd.to_datetime(prn_et.replace(" ET", ""), format="%b %d, %Y, %H:%M")
+    assert ours_utc == theirs_utc
 print("hand checks passed")
