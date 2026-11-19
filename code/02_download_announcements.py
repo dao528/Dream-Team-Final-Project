@@ -53,7 +53,10 @@ def search_release_links(keyword):
 
 
 def cache_file_for(url):
-    return RELEASE_CACHE / (url.rsplit("/", 1)[1][:150] + ".html")
+    """Short file name: publication date + a hash of the url. The full slugs (up to 150 characters)
+    were too long for Windows when the repo sits in a deep folder. The manifest maps url -> file."""
+    slug = url.rsplit("/", 1)[1]
+    return RELEASE_CACHE / f"{slug[:10]}_{hashlib.sha1(url.encode()).hexdigest()[:10]}.html"
 
 
 def get_release_html(url):
