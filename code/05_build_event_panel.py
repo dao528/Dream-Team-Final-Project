@@ -143,10 +143,11 @@ assert event_panel.query("drop_reason.isna()")["ret"].notna().all(), "a missing 
 dropped = (event_panel.query("drop_reason.notna()")
            .drop_duplicates("event_id")
            [["event_id", "sample", "ticker", "announce_et", "effective_date", "n_est", "gap_trading_days",
-             "drop_reason"]])
+             "drop_reason", "era"]])
 dropped.to_csv(DROPPED_OUT, index=False)
 print(f"dropped {len(dropped)} of {event_panel['event_id'].nunique()} additions: "
       f"{dict(zip(dropped['event_id'], dropped['drop_reason']))}")
+print(pd.crosstab(dropped["drop_reason"], dropped["era"]).to_string())
 event_panel = event_panel.query("drop_reason.isna()").drop(columns="drop_reason").reset_index(drop=True)
 event_panel.to_csv(PANEL_OUT, index=False)
 print(f"saved {PANEL_OUT.name}: {len(event_panel)} rows")
