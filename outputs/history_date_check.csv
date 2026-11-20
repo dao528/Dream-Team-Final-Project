@@ -1,4 +1,4 @@
-era,Key Dev backfill,kept,no volume test,not trading on rebalance day,volume peak elsewhere,share_kept
-2001-2007,36,115,0,21,36,0.669
-2008-2014,0,127,1,16,9,0.83
-2015-2021,0,135,3,43,13,0.696
+era,Key Dev backfill,duplicate Key Dev row,kept,new listing: first CRSP day after the rebalance day (spin-off or merger),not a new member: Key Dev drops the same permno within 10 trading days,"not a new member: already in the index (earlier Key Dev add, no drop since)",share_kept
+2001-2007,36,3,147,20,1,1,0.88
+2008-2014,0,1,132,16,1,3,0.892
+2015-2021,0,1,142,41,4,6,0.776

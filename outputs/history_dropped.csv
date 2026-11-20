@@ -1,179 +1,135 @@
-permno,ticker,company,era,keydev_date,rebalance_day,trading_days_to_peak,date_check
-10401,T,A T & T CORP,2001-2007,2005-01-29,2005-01-28,0.0,Key Dev backfill
-10890,UIS,UNISYS CORP,2001-2007,2005-01-29,2005-01-28,-13.0,Key Dev backfill
-10942,CMVT,COMVERSE TECHNOLOGY INC,2001-2007,2005-01-29,2005-01-28,-1.0,Key Dev backfill
-11896,MXIM,MAXIM INTEGRATED PRODUCTS INC,2001-2007,2005-01-29,2005-01-28,11.0,Key Dev backfill
-12503,NAV,NAVISTAR INTERNATIONAL CORP,2001-2007,2005-01-29,2005-01-28,11.0,Key Dev backfill
-13821,PGL,PEOPLES ENERGY CORP,2001-2007,2005-01-29,2005-01-28,1.0,Key Dev backfill
-22947,CIN,CINERGY CORP,2001-2007,2005-01-29,2005-01-28,12.0,Key Dev backfill
-23309,HLT,HILTON HOTELS CORP,2001-2007,2005-01-29,2005-01-28,0.0,Key Dev backfill
-23915,GP,GEORGIA PACIFIC CORP,2001-2007,2005-01-29,2005-01-28,-9.0,Key Dev backfill
-24563,TXU,T X U CORP,2001-2007,2005-01-29,2005-01-28,2.0,Key Dev backfill
-25769,KMG,KERR MCGEE CORP,2001-2007,2005-01-29,2005-01-28,15.0,Key Dev backfill
-27713,ABI,APPLERA CORP,2001-2007,2005-01-29,2005-01-28,-2.0,Key Dev backfill
-48485,JP,JEFFERSON PILOT CORP,2001-2007,2005-01-29,2005-01-28,6.0,Key Dev backfill
-48960,KRI,KNIGHT RIDDER INC,2001-2007,2005-01-29,2005-01-28,-1.0,Key Dev backfill
-49429,DDS,DILLARDS INC,2001-2007,2005-01-29,2005-01-28,-7.0,Key Dev backfill
-50032,ABS,ALBERTSONS INC,2001-2007,2005-01-29,2005-01-28,-5.0,Key Dev backfill
-50906,ADCT,A D C TELECOMMUNICATIONS INC,2001-2007,2005-01-29,2005-01-28,-4.0,Key Dev backfill
-51043,FNM,FEDERAL NATIONAL MORTGAGE ASSN,2001-2007,2005-01-29,2005-01-28,-8.0,Key Dev backfill
-51596,KMI,KINDER MORGAN INC KANSAS,2001-2007,2005-01-29,2005-01-28,-10.0,Key Dev backfill
-56223,LPX,LOUISIANA PACIFIC CORP,2001-2007,2005-01-29,2005-01-28,12.0,Key Dev backfill
-58094,NFB,NORTH FORK BANCORPORATION NY INC,2001-2007,2005-01-29,2005-01-28,-3.0,Key Dev backfill
-59379,MEL,MELLON FINANCIAL CORP,2001-2007,2005-01-29,2005-01-28,-9.0,Key Dev backfill
-66114,TIN,TEMPLE INLAND INC,2001-2007,2005-01-29,2005-01-28,4.0,Key Dev backfill
-68304,BSC,BEAR STEARNS COMPANIES INC,2001-2007,2005-01-29,2005-01-28,14.0,Key Dev backfill
-73940,SBL,SYMBOL TECHNOLOGIES INC,2001-2007,2005-01-29,2005-01-28,-6.0,Key Dev backfill
-75333,BR,BURLINGTON RESOURCES INC,2001-2007,2005-01-29,2005-01-28,0.0,Key Dev backfill
-75857,SLR,SOLECTRON CORP,2001-2007,2005-01-29,2005-01-28,2.0,Key Dev backfill
-75912,PMTC,PARAMETRIC TECHNOLOGY CORP,2001-2007,2005-01-29,2005-01-28,-8.0,Key Dev backfill
-76171,HCA,H C A INC NEW,2001-2007,2005-01-29,2005-01-28,-12.0,Key Dev backfill
-77063,HCR,MANOR CARE INC NEW,2001-2007,2005-01-29,2005-01-28,4.0,Key Dev backfill
-77546,FDC,FIRST DATA CORP,2001-2007,2005-01-29,2005-01-28,-2.0,Key Dev backfill
-79108,SANM,SANMINA SCI CORP,2001-2007,2005-01-29,2005-01-28,-1.0,Key Dev backfill
-79973,GTW,GATEWAY INC,2001-2007,2005-01-29,2005-01-28,-1.0,Key Dev backfill
-84372,NCR,N C R CORP NEW,2001-2007,2005-01-29,2005-01-28,4.0,Key Dev backfill
-85522,AMCC,APPLIED MICRO CIRCUITS CORP,2001-2007,2005-01-29,2005-01-28,-12.0,Key Dev backfill
-88319,VC,VISTEON CORP,2001-2007,2005-01-29,2005-01-28,0.0,Key Dev backfill
-17279,LO,LORILLARD INC,2008-2014,2008-06-11,2008-06-10,,no volume test
-43772,BMS,BEMIS CO INC,2015-2021,2019-06-07,2019-06-06,,no volume test
-21356,DTM,D T MIDSTREAM INC,2015-2021,2021-07-02,2021-07-01,,no volume test
-22092,KD,KYNDRYL HOLDINGS INC,2015-2021,2021-11-05,2021-11-04,,no volume test
-89027,,,2001-2007,2001-06-08,2001-06-07,,not trading on rebalance day
-89014,,,2001-2007,2001-07-02,2001-06-29,,not trading on rebalance day
-89001,,,2001-2007,2001-07-09,2001-07-06,,not trading on rebalance day
-89070,,,2001-2007,2001-08-07,2001-08-06,,not trading on rebalance day
-89495,,,2001-2007,2002-08-21,2002-08-20,,not trading on rebalance day
-89813,,,2001-2007,2003-08-20,2003-08-19,,not trading on rebalance day
-90110,,,2001-2007,2004-05-03,2004-04-30,,not trading on rebalance day
-90435,,,2001-2007,2004-12-02,2004-12-01,,not trading on rebalance day
-90435,,,2001-2007,2004-12-03,2004-12-02,,not trading on rebalance day
-90880,,,2001-2007,2005-10-03,2005-09-30,,not trading on rebalance day
-91063,,,2001-2007,2006-01-03,2005-12-30,,not trading on rebalance day
-91218,,,2001-2007,2006-05-11,2006-05-10,,not trading on rebalance day
-91391,,,2001-2007,2006-07-18,2006-07-17,,not trading on rebalance day
-91388,,,2001-2007,2006-07-25,2006-07-24,,not trading on rebalance day
-91392,,,2001-2007,2006-08-01,2006-07-31,,not trading on rebalance day
-91461,,,2001-2007,2006-09-27,2006-09-26,,not trading on rebalance day
-91650,,,2001-2007,2007-01-03,2006-12-29,,not trading on rebalance day
-92156,,,2001-2007,2007-06-22,2007-06-21,,not trading on rebalance day
-92121,,,2001-2007,2007-06-23,2007-06-22,,not trading on rebalance day
-92157,,,2001-2007,2007-06-23,2007-06-22,,not trading on rebalance day
-92293,,,2001-2007,2007-09-25,2007-09-24,,not trading on rebalance day
-92602,,,2008-2014,2008-03-31,2008-03-28,,not trading on rebalance day
-92709,,,2008-2014,2008-07-01,2008-06-30,,not trading on rebalance day
-92988,,,2008-2014,2009-09-01,2009-08-31,,not trading on rebalance day
-93422,,,2008-2014,2010-07-01,2010-06-30,,not trading on rebalance day
-12456,,,2008-2014,2011-01-04,2011-01-03,,not trading on rebalance day
-12872,,,2008-2014,2011-07-01,2011-06-30,,not trading on rebalance day
-13035,,,2008-2014,2011-11-01,2011-10-31,,not trading on rebalance day
-13168,,,2008-2014,2011-12-21,2011-12-20,,not trading on rebalance day
-13141,,,2008-2014,2011-12-31,2011-12-30,,not trading on rebalance day
-13356,,,2008-2014,2012-05-01,2012-04-30,,not trading on rebalance day
-13567,,,2008-2014,2012-09-30,2012-09-28,,not trading on rebalance day
-13586,,,2008-2014,2012-10-01,2012-09-28,,not trading on rebalance day
-13598,,,2008-2014,2012-10-02,2012-10-01,,not trading on rebalance day
-13721,,,2008-2014,2013-01-01,2012-12-31,,not trading on rebalance day
-13963,,,2008-2014,2013-07-01,2013-06-28,,not trading on rebalance day
-14297,,,2008-2014,2013-11-30,2013-11-29,,not trading on rebalance day
-15401,,,2015-2021,2015-07-01,2015-06-30,,not trading on rebalance day
-15404,,,2015-2021,2015-07-02,2015-07-01,,not trading on rebalance day
-15408,,,2015-2021,2015-07-06,2015-07-02,,not trading on rebalance day
-15488,,,2015-2021,2015-07-18,2015-07-17,,not trading on rebalance day
-15707,,,2015-2021,2015-10-31,2015-10-30,,not trading on rebalance day
-15719,,,2015-2021,2015-11-10,2015-11-09,,not trading on rebalance day
-15797,,,2015-2021,2015-11-28,2015-11-27,,not trading on rebalance day
-16044,,,2015-2021,2016-05-14,2016-05-13,,not trading on rebalance day
-16087,,,2015-2021,2016-07-05,2016-07-01,,not trading on rebalance day
-16267,,,2015-2021,2016-09-07,2016-09-06,,not trading on rebalance day
-16276,,,2015-2021,2016-10-03,2016-09-30,,not trading on rebalance day
-16279,,,2015-2021,2016-10-03,2016-09-30,,not trading on rebalance day
-16342,,,2015-2021,2016-10-31,2016-10-28,,not trading on rebalance day
-16343,,,2015-2021,2016-11-01,2016-10-31,,not trading on rebalance day
-16346,,,2015-2021,2016-11-01,2016-10-31,,not trading on rebalance day
-16347,,,2015-2021,2016-11-01,2016-10-31,,not trading on rebalance day
-16431,,,2015-2021,2016-11-10,2016-11-09,,not trading on rebalance day
-16497,,,2015-2021,2017-01-03,2016-12-30,,not trading on rebalance day
-16538,,,2015-2021,2017-01-17,2017-01-13,,not trading on rebalance day
-16543,,,2015-2021,2017-01-30,2017-01-27,,not trading on rebalance day
-16544,,,2015-2021,2017-02-02,2017-02-01,,not trading on rebalance day
-16696,,,2015-2021,2017-06-01,2017-05-31,,not trading on rebalance day
-16809,,,2015-2021,2017-07-18,2017-07-17,,not trading on rebalance day
-16816,,,2015-2021,2017-08-07,2017-08-04,,not trading on rebalance day
-17040,,,2015-2021,2017-12-05,2017-12-04,,not trading on rebalance day
-17676,,,2015-2021,2018-05-01,2018-04-30,,not trading on rebalance day
-17783,,,2015-2021,2018-05-09,2018-05-08,,not trading on rebalance day
-17792,,,2015-2021,2018-06-01,2018-05-31,,not trading on rebalance day
-18065,,,2015-2021,2018-10-01,2018-09-28,,not trading on rebalance day
-18142,,,2015-2021,2018-10-29,2018-10-26,,not trading on rebalance day
-18327,,,2015-2021,2019-02-08,2019-02-07,,not trading on rebalance day
-18420,,,2015-2021,2019-03-19,2019-03-18,,not trading on rebalance day
-18428,,,2015-2021,2019-04-02,2019-04-01,,not trading on rebalance day
-18578,,,2015-2021,2019-05-23,2019-05-22,,not trading on rebalance day
-18592,,,2015-2021,2019-06-03,2019-05-31,,not trading on rebalance day
-19283,,,2015-2021,2020-04-01,2020-03-31,,not trading on rebalance day
-19285,,,2015-2021,2020-04-03,2020-04-02,,not trading on rebalance day
-19286,,,2015-2021,2020-04-03,2020-04-02,,not trading on rebalance day
-19807,,,2015-2021,2020-10-09,2020-10-08,,not trading on rebalance day
-21124,,,2015-2021,2021-06-03,2021-06-02,,not trading on rebalance day
-21609,,,2015-2021,2021-08-03,2021-08-02,,not trading on rebalance day
-21903,,,2015-2021,2021-10-01,2021-09-30,,not trading on rebalance day
-22264,,,2015-2021,2021-11-15,2021-11-12,,not trading on rebalance day
-84519,CIEN,CIENA CORP,2001-2007,2001-08-30,2001-08-29,-10.0,volume peak elsewhere
-88668,MON,MONSANTO CO NEW,2001-2007,2002-08-14,2002-08-13,0.0,volume peak elsewhere
-39087,FON,SPRINT CORP,2001-2007,2004-04-23,2004-04-22,6.0,volume peak elsewhere
-35044,RF,REGIONS FINANCIAL CORP,2001-2007,2004-07-01,2004-06-30,0.0,volume peak elsewhere
-64451,ASN,ARCHSTONE SMITH TRUST,2001-2007,2004-12-17,2004-12-16,0.0,volume peak elsewhere
-84788,AMZN,AMAZON COM INC,2001-2007,2005-11-15,2005-11-14,3.0,volume peak elsewhere
-86845,CBH,COMMERCE BANCORP INC NJ,2001-2007,2006-06-01,2006-05-31,2.0,volume peak elsewhere
-86979,JNPR,JUNIPER NETWORKS INC,2001-2007,2006-06-01,2006-05-31,0.0,volume peak elsewhere
-86799,CNX,CONSOL ENERGY INC,2001-2007,2006-06-27,2006-06-26,0.0,volume peak elsewhere
-45794,SII,SMITH INTERNATIONAL INC,2001-2007,2006-09-29,2006-09-28,0.0,volume peak elsewhere
-86158,CTSH,COGNIZANT TECHNOLOGY SOLS CORP,2001-2007,2006-11-15,2006-11-14,1.0,volume peak elsewhere
-27756,STR,QUESTAR CORP,2001-2007,2006-11-23,2006-11-22,4.0,volume peak elsewhere
-78840,IACI,IAC INTERACTIVECORP,2001-2007,2006-11-23,2006-11-22,4.0,volume peak elsewhere
-58318,TEX,TEREX CORP NEW,2001-2007,2006-12-19,2006-12-18,0.0,volume peak elsewhere
-62519,ESV,E N S C O INTERNATIONAL INC,2001-2007,2007-01-03,2006-12-29,0.0,volume peak elsewhere
-80381,AVB,AVALONBAY COMMUNITIES INC,2001-2007,2007-01-05,2007-01-04,2.0,volume peak elsewhere
-85072,RL,POLO RALPH LAUREN CORP,2001-2007,2007-02-01,2007-01-31,0.0,volume peak elsewhere
-27043,VAR,VARIAN MEDICAL SYSTEMS INC,2001-2007,2007-02-09,2007-02-08,0.0,volume peak elsewhere
-85459,CHRW,CH ROBINSON WORLDWIDE INC,2001-2007,2007-02-28,2007-02-27,1.0,volume peak elsewhere
-89006,KFT,KRAFT FOODS INC,2001-2007,2007-03-23,2007-03-22,9.0,volume peak elsewhere
-83976,ANF,ABERCROMBIE & FITCH CO,2001-2007,2007-03-28,2007-03-27,0.0,volume peak elsewhere
-90038,AIZ,ASSURANT INC,2001-2007,2007-04-03,2007-04-02,3.0,volume peak elsewhere
-81776,WFR,M E M C ELECTRONIC MATERIALS INC,2001-2007,2007-05-25,2007-05-24,2.0,volume peak elsewhere
-63830,PCP,PRECISION CASTPARTS CORP,2001-2007,2007-05-31,2007-05-30,0.0,volume peak elsewhere
-85271,ACAS,AMERICAN CAPITAL STRATEGIES LTD,2001-2007,2007-07-03,2007-07-02,2.0,volume peak elsewhere
-87299,AKAM,AKAMAI TECHNOLOGIES INC,2001-2007,2007-07-10,2007-07-09,12.0,volume peak elsewhere
-37284,TSO,TESORO CORP,2001-2007,2007-09-25,2007-09-24,1.0,volume peak elsewhere
-90808,EXPE,EXPEDIA INC DE,2001-2007,2007-09-25,2007-09-24,4.0,volume peak elsewhere
-61815,NBL,NOBLE ENERGY INC,2001-2007,2007-10-03,2007-10-02,2.0,volume peak elsewhere
-87717,EXPD,EXPEDITORS INTERNATIONAL WA INC,2001-2007,2007-10-09,2007-10-08,0.0,volume peak elsewhere
-83699,TIE,TITANIUM METALS CORP,2001-2007,2007-10-19,2007-10-18,5.0,volume peak elsewhere
-91143,NYX,N Y S E EURONEXT,2001-2007,2007-10-19,2007-10-18,3.0,volume peak elsewhere
-52329,JEC,JACOBS ENGINEERING GROUP INC,2001-2007,2007-10-24,2007-10-23,1.0,volume peak elsewhere
-23501,POM,PEPCO HOLDINGS INC,2001-2007,2007-11-02,2007-11-01,4.0,volume peak elsewhere
-51263,MTW,MANITOWOC CO INC,2001-2007,2007-11-12,2007-11-09,3.0,volume peak elsewhere
-86111,AMT,AMERICAN TOWER CORP,2001-2007,2007-11-12,2007-11-09,4.0,volume peak elsewhere
-81857,CAM,CAMERON INTERNATIONAL CORP,2008-2014,2008-01-18,2008-01-17,5.0,volume peak elsewhere
-92709,SNI,SCRIPPS NETWORKS INTERACTIVE INC,2008-2014,2008-09-04,2008-09-03,10.0,volume peak elsewhere
-30940,FLS,FLOWSERVE CORP,2008-2014,2008-10-01,2008-09-30,0.0,volume peak elsewhere
-42585,SJM,SMUCKER J M CO,2008-2014,2008-11-06,2008-11-05,0.0,volume peak elsewhere
-91883,TWC,TIME WARNER CABLE INC,2008-2014,2009-03-30,2009-03-27,2.0,volume peak elsewhere
-86783,PCLN,PRICELINE COM INC,2008-2014,2009-11-06,2009-11-05,2.0,volume peak elsewhere
-13788,ZTS,ZOETIS INC,2008-2014,2013-06-24,2013-06-21,0.0,volume peak elsewhere
-90319,GOOG,GOOGLE INC,2008-2014,2014-04-03,2014-04-02,10.0,volume peak elsewhere
-90805,DISCA,DISCOVERY COMMUNICATIONS INC,2008-2014,2014-08-07,2014-08-06,0.0,volume peak elsewhere
-90979,UA,UNDER ARMOUR INC,2015-2021,2016-04-08,2016-04-07,1.0,volume peak elsewhere
-92772,IILG,INTERVAL LEISURE GROUP INC,2015-2021,2016-05-13,2016-05-12,0.0,volume peak elsewhere
-90373,DLR,DIGITAL REALTY TRUST INC,2015-2021,2016-05-17,2016-05-16,0.0,volume peak elsewhere
-13983,COTY,COTY INC,2015-2021,2016-10-03,2016-09-30,4.0,volume peak elsewhere
-24643,AA,ALCOA INC,2015-2021,2016-11-01,2016-10-31,-15.0,volume peak elsewhere
-12308,CHTR,CHARTER COMMUNICATIONS INC NEW,2015-2021,2020-03-28,2020-03-27,-8.0,volume peak elsewhere
-19283,ARNC,ARCONIC CORP,2015-2021,2020-06-30,2020-06-29,-2.0,volume peak elsewhere
-76230,TRMB,TRIMBLE INC,2015-2021,2021-01-22,2021-01-21,-2.0,volume peak elsewhere
-90455,MPWR,MONOLITHIC PWR SYS INC,2015-2021,2021-02-13,2021-02-12,-2.0,volume peak elsewhere
-75912,PTC,P T C INC,2015-2021,2021-04-21,2021-04-20,-2.0,volume peak elsewhere
-18312,MRNA,MODERNA INC,2015-2021,2021-07-20,2021-07-19,0.0,volume peak elsewhere
-18312,MRNA,MODERNA INC,2015-2021,2021-07-22,2021-07-21,-2.0,volume peak elsewhere
-15272,SEDG,SOLAREDGE TECHNOLOGIES INC,2015-2021,2021-12-21,2021-12-20,-2.0,volume peak elsewhere
+permno,gvkey,ticker,company,headline,era,keydev_date,keydev_dates,effective_date,rebalance_day,first_crsp_day,trading_days_to_first_crsp,trading_days_to_peak,date_check
+10401,001581,T,A T & T CORP,AT&T Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,0.0,Key Dev backfill
+10890,002504,UIS,UNISYS CORP,Unisys Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-13.0,Key Dev backfill
+10942,012884,CMVT,COMVERSE TECHNOLOGY INC,Comverse Technology Inc. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-1.0,Key Dev backfill
+11896,014256,MXIM,MAXIM INTEGRATED PRODUCTS INC,Maxim Integrated Products Inc. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,11.0,Key Dev backfill
+12503,006081,NAV,NAVISTAR INTERNATIONAL CORP,Navistar International Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,11.0,Key Dev backfill
+13821,008470,PGL,PEOPLES ENERGY CORP,Peoples Energy Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,1.0,Key Dev backfill
+22947,030865,CIN,CINERGY CORP,Cinergy Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,12.0,Key Dev backfill
+23309,005643,HLT,HILTON HOTELS CORP,Hilton Hotels Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,0.0,Key Dev backfill
+23915,005134,GP,GEORGIA PACIFIC CORP,Georgia-Pacific Corporation added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-9.0,Key Dev backfill
+24563,010507,TXU,T X U CORP,TXU Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,2.0,Key Dev backfill
+25769,006403,KMG,KERR MCGEE CORP,Kerr-McGee Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,15.0,Key Dev backfill
+27713,008488,ABI,APPLERA CORP,Applied Biosystems Inc. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-2.0,Key Dev backfill
+48485,006241,JP,JEFFERSON PILOT CORP,Jefferson-Pilot Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,6.0,Key Dev backfill
+48960,006475,KRI,KNIGHT RIDDER INC,Knight-Ridder Inc. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-1.0,Key Dev backfill
+49429,003964,DDS,DILLARDS INC,Dillard's Inc. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-7.0,Key Dev backfill
+50032,001240,ABS,ALBERTSONS INC,Albertson's Inc. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-5.0,Key Dev backfill
+50906,001013,ADCT,A D C TELECOMMUNICATIONS INC,ADC Telecommunications Inc. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-4.0,Key Dev backfill
+51043,004601,FNM,FEDERAL NATIONAL MORTGAGE ASSN,Fannie Mae added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-8.0,Key Dev backfill
+51596,006310,KMI,KINDER MORGAN INC KANSAS,Kinder Morgan Inc. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-10.0,Key Dev backfill
+56223,006821,LPX,LOUISIANA PACIFIC CORP,Louisiana-Pacific Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,12.0,Key Dev backfill
+58094,015202,NFB,NORTH FORK BANCORPORATION NY INC,"North Fork Bancorp., Inc. added to S&P 500 Index",2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-3.0,Key Dev backfill
+59379,007238,MEL,MELLON FINANCIAL CORP,Mellon Financial Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-9.0,Key Dev backfill
+66114,010426,TIN,TEMPLE INLAND INC,Temple-Inland Inc. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,4.0,Key Dev backfill
+68304,011818,BSC,BEAR STEARNS COMPANIES INC,"The Bear Stearns Companies, Inc. added to S&P 500 Index",2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,14.0,Key Dev backfill
+73940,010232,SBL,SYMBOL TECHNOLOGIES INC,"Symbol Technologies, Inc. added to S&P 500 Index",2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-6.0,Key Dev backfill
+75333,015084,BR,BURLINGTON RESOURCES INC,Burlington Resources Inc. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,0.0,Key Dev backfill
+75857,017110,SLR,SOLECTRON CORP,Solectron Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,2.0,Key Dev backfill
+75912,018699,PMTC,PARAMETRIC TECHNOLOGY CORP,Parametric Technology Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-8.0,Key Dev backfill
+76171,022260,HCA,H C A INC NEW,HCA Inc. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-12.0,Key Dev backfill
+77063,024607,HCR,MANOR CARE INC NEW,Manor Care Inc. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,4.0,Key Dev backfill
+77546,025157,FDC,FIRST DATA CORP,First Data Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-2.0,Key Dev backfill
+79108,028139,SANM,SANMINA SCI CORP,Sanmina-SCI Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-1.0,Key Dev backfill
+79973,029345,GTW,GATEWAY INC,Gateway Inc. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-1.0,Key Dev backfill
+84372,007648,NCR,N C R CORP NEW,NCR Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,4.0,Key Dev backfill
+85522,065904,AMCC,APPLIED MICRO CIRCUITS CORP,Applied Micro Circuits Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-01-03,-1273,-12.0,Key Dev backfill
+88319,136648,VC,VISTEON CORP,Visteon Corp. added to S&P 500 Index,2001-2007,2005-01-29,2005-01-29,2005-01-31,2005-01-28,2000-06-29,-1150,0.0,Key Dev backfill
+90435,157858,FSL,FREESCALE SEMICONDUCTOR INC,Freescale Semiconductor Inc. added to S&P 500 Index,2001-2007,2004-12-02,"2004-12-02, 2004-12-03",2004-12-02,2004-12-01,2004-12-03,2,,duplicate Key Dev row
+64451,008787,ASN,ARCHSTONE SMITH TRUST,Archstone-Smith Trust added to S&P 500 Index,2001-2007,2004-12-17,"2004-12-17, 2004-12-20",2004-12-17,2004-12-16,2000-01-03,-1244,0.0,duplicate Key Dev row
+23501,008694,POM,PEPCO HOLDINGS INC,"Pepco Holdings, Inc. added to S&P 500 Index",2001-2007,2007-11-02,"2007-11-02, 2007-11-09",2007-11-02,2007-11-01,2000-01-03,-1968,4.0,duplicate Key Dev row
+30940,004108,FLS,FLOWSERVE CORP,Flowserve Corp. added to S&P 500 Index,2008-2014,2008-10-01,"2008-10-01, 2008-10-02",2008-10-01,2008-09-30,2000-01-03,-2197,0.0,duplicate Key Dev row
+18312,034410,MRNA,MODERNA INC,"Moderna, Inc.(NasdaqGS:MRNA) added to S&P 500",2015-2021,2021-07-20,"2021-07-20, 2021-07-22",2021-07-21,2021-07-20,2018-12-07,-657,0.0,duplicate Key Dev row
+89027,143971,MCIT,WORLDCOM INC GA NEW,MCI Group added to S&P 500 Index,2001-2007,2001-06-08,2001-06-08,2001-06-08,2001-06-07,2001-06-08,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+89014,144066,COL,ROCKWELL COLLINS INC,Rockwell Collins Inc. added to S&P 500 Index,2001-2007,2001-07-02,2001-07-02,2001-07-02,2001-06-29,2001-07-02,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+89001,134845,AWE,A T & T WIRELESS SVCS INC,"New Cingular Wireless Services, Inc. added to S&P 500 Index",2001-2007,2001-07-09,2001-07-09,2001-07-09,2001-07-06,2001-07-09,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+89070,144559,ZMH,ZIMMER HOLDINGS INC,Zimmer Holdings Inc. added to S&P 500 Index,2001-2007,2001-08-07,2001-08-07,2001-08-07,2001-08-06,2001-08-07,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+89495,062689,TAP,TRAVELERS PPTY CASUALTY CORP NEW,"The Travelers Companies, Inc. added to S&P 500 Index",2001-2007,2002-08-21,2002-08-21,2002-08-21,2002-08-20,2002-08-21,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+89813,007186,MHS,MEDCO HEALTH SOLUTIONS INC,"Medco Health Solutions, Inc.(NYSE:MHS) added to S&P 500 Index",2001-2007,2003-08-20,2003-08-20,2003-08-20,2003-08-19,2003-08-20,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+90110,160255,HSP,HOSPIRA INC,Hospira Inc.(NYSE:HSP) added to S&P 500 Index,2001-2007,2004-05-03,2004-05-03,2004-05-03,2004-04-30,2004-05-03,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+90435,157858,FSL,FREESCALE SEMICONDUCTOR INC,Freescale Semiconductor Inc. added to S&P 500 Index,2001-2007,2004-12-03,"2004-12-02, 2004-12-03",2004-12-03,2004-12-02,2004-12-03,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+90880,164708,AMP,AMERIPRISE FINANCIAL INC,Ameriprise Financial Inc. added to S&P 500 Index,2001-2007,2005-10-03,2005-10-03,2005-10-03,2005-09-30,2005-10-03,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+91063,165675,VIA,VIACOM INC NEW,"Viacom, Inc. added to S&P 500 Index",2001-2007,2006-01-03,2006-01-03,2006-01-03,2005-12-30,2006-01-03,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+91218,174130,EQ,EMBARQ CORP,Embarq Corp. added to S&P 500 Index,2001-2007,2006-05-11,2006-05-11,2006-05-11,2006-05-10,2006-05-18,6,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+91391,174490,WIN,WINDSTREAM CORP,"Windstream Holdings, Inc.(NasdaqGS:WIN) added to S&P 500 Index",2001-2007,2006-07-18,2006-07-18,2006-07-18,2006-07-17,2006-07-18,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+91388,174022,H,REALOGY CORP,Realogy Corporation added to S&P 500 Index,2001-2007,2006-07-25,2006-07-25,2006-07-25,2006-07-24,2006-08-01,6,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+91392,174729,WYN,WYNDHAM WORLDWIDE CORP,Wyndham Worldwide Corporation added to S&P 500 Index,2001-2007,2006-08-01,2006-08-01,2006-08-01,2006-07-31,2006-08-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+91461,175263,WU,WESTERN UNION CO,Western Union Co. added to S&P 500 Index,2001-2007,2006-09-27,2006-09-27,2006-09-27,2006-09-26,2006-10-02,4,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+91650,176282,SE,SPECTRA ENERGY CORP,Spectra Energy Corp.(NYSE:SE) added to S&P 500 Index,2001-2007,2007-01-03,2007-01-03,2007-01-03,2006-12-29,2007-01-03,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+92156,177264,COV,COVIDIEN LTD,Covidien plc added to S&P 500 Index,2001-2007,2007-06-22,2007-06-22,2007-06-22,2007-06-21,2007-07-02,7,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+92121,177376,DFS,DISCOVER FINANCIAL SERVICES,Discover Financial Services LLC added to S&P 500 Index,2001-2007,2007-06-23,2007-06-23,2007-07-02,2007-06-29,2007-07-02,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+92157,177267,TEL,TYCO ELECTRONICS LTD,"Tyco Electronics, Ltd. added to S&P 500 Index",2001-2007,2007-06-23,2007-06-23,2007-06-25,2007-06-22,2007-07-02,6,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+92293,178310,TDC,TERADATA CORP DE,Teradata Corporation added to S&P 500 Index,2001-2007,2007-09-25,2007-09-25,2007-10-01,2007-09-28,2007-10-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+92602,179621,PM,PHILIP MORRIS INTERNATIONAL INC,Philip Morris International Inc. added to S&P 500 Index,2008-2014,2008-03-31,2008-03-31,2008-03-31,2008-03-28,2008-03-31,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+92709,180167,SNI,SCRIPPS NETWORKS INTERACTIVE INC,"Scripps Networks Interactive, Inc. added to S&P 500 Index",2008-2014,2008-07-01,2008-07-01,2008-07-01,2008-06-30,2008-07-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+92988,183257,CFN,CAREFUSION CORP,CareFusion Corporation(NYSE:CFN) added to S&P 500 Index,2008-2014,2009-09-01,2009-09-01,2009-09-01,2009-08-31,2009-09-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+93422,154357,QEP,Q E P RESOURCES INC,"QEP Resources, Inc.(NYSE:QEP) added to S&P 500 Index",2008-2014,2010-07-01,2010-07-01,2010-07-01,2010-06-30,2010-07-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+12456,186106,MMI,MOTOROLA MOBILITY HOLDINGS INC,"Motorola Mobility Holdings, Inc.(NYSE:MMI) added to S&P 500 Index",2008-2014,2011-01-04,2011-01-04,2011-01-04,2011-01-03,2011-01-04,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+12872,186989,MPC,MARATHON PETROLEUM CORP,Marathon Petroleum Corporation(NYSE:MPC.WI) added to S&P 500 Index,2008-2014,2011-07-01,2011-07-01,2011-07-01,2011-06-30,2011-07-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+13035,189491,XYL,XYLEM INC,Xylem Inc.(NYSE:XYL.WI) added to S&P 500 Index,2008-2014,2011-11-01,2011-11-01,2011-11-01,2011-10-31,2011-11-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+13168,199356,TRIP,TRIPADVISOR INC,TripAdvisor LLC(NasdaqGS:TRIP.V) added to S&P 500 Index,2008-2014,2011-12-21,2011-12-21,2011-12-21,2011-12-20,2011-12-21,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+13141,187128,WPX,W P X ENERGY INC,"WPX Energy, Inc.(NYSE:WPX) added to S&P 500 Index",2008-2014,2011-12-31,2011-12-31,2012-01-03,2011-12-30,2012-01-03,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+13356,170841,PSX,PHILLIPS 66,Phillips 66(NYSE:PSX.WI) added to S&P 500 Index,2008-2014,2012-05-01,2012-05-01,2012-05-01,2012-04-30,2012-05-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+13567,014438,ADT,A D T CORP,The ADT Corporation(NYSE:ADT) added to S&P 500 Index,2008-2014,2012-09-30,2012-09-30,2012-10-01,2012-09-28,2012-10-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+13586,008463,PNR,PENTAIR LTD,Pentair plc(NYSE:PNR) added to S&P 500 Index,2008-2014,2012-10-01,2012-10-01,2012-10-01,2012-09-28,2012-10-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+13598,012978,KRFT,KRAFT FOODS GROUP INC,"Kraft Foods Group, Inc.(NasdaqGS:KRFT) added to S&P 500 Index",2008-2014,2012-10-02,2012-10-02,2012-10-02,2012-10-01,2012-10-02,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+13721,016101,ABBV,ABBVIE INC,AbbVie Inc.(NYSE:ABBV.WI) added to S&P 500 Index,2008-2014,2013-01-01,2013-01-01,2013-01-02,2012-12-31,2013-01-02,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+13963,018043,NWSA,NEWS CORP NEW,News Corporation(NasdaqGS:NWSA) added to S&P 500 Index,2008-2014,2013-07-01,2013-07-01,2013-07-01,2013-06-28,2013-07-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+14297,316056,ALLE,ALLEGION PLC,Allegion Plc(NYSE:ALLE.WI) added to S&P 500 Index,2008-2014,2013-11-30,2013-11-30,2013-12-02,2013-11-29,2013-12-02,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+15401,022734,BXLT,BAXALTA INC,Baxalta Incorporated(NYSE:BXLT) added to S&P 500 Index,2015-2021,2015-07-01,2015-07-01,2015-07-01,2015-06-30,2015-07-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+15404,023827,CPGX,COLUMBIA PIPELINE GROUP INC,"Columbia Pipeline Group, Inc.(NYSE:CPGX) added to S&P 500 Index",2015-2021,2015-07-02,2015-07-02,2015-07-02,2015-07-01,2015-07-02,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+15408,,KHC,KRAFT HEINZ CO,The Kraft Heinz Company(NasdaqGS:KHC) added to S&P 500 Index,2015-2021,2015-07-06,2015-07-06,2015-07-06,2015-07-02,2015-07-06,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+15488,024616,PYPL,PAYPAL HOLDINGS INC,"PayPal Holdings, Inc.(NasdaqGS:PYPL.V) added to S&P 500 Index",2015-2021,2015-07-18,2015-07-18,2015-07-20,2015-07-17,2015-07-20,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+15707,026156,HPE,HEWLETT PACKARD ENTERPRISE CO,Hewlett Packard Enterprise Company(NYSE:HPE.WI) added to S&P 500 Index,2015-2021,2015-10-31,2015-10-31,2015-11-02,2015-10-30,2015-11-02,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+15719,026410,FCPT,FOUR CORNERS PROPERTY TRUST INC,"Four Corners Property Trust, Inc.(NYSE:FCPT) added to S&P 500 Index",2015-2021,2015-11-10,2015-11-10,2015-11-10,2015-11-09,2015-11-10,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16044,027119,NGVT,INGEVITY CORP,Ingevity Corporation(NYSE:NGVT) added to S&P 500 Index,2015-2021,2016-05-14,2016-05-14,2016-05-16,2016-05-13,2016-05-16,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16087,026590,FTV,FORTIVE CORP,Fortive Corp.(NYSE:FTV.WI) added to S&P 500 Index,2015-2021,2016-07-05,2016-07-05,2016-07-05,2016-07-01,2016-07-05,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16267,014489,DVMT,DELL TECHNOLOGIES INC,Dell Technologies Inc.(NYSE:DVMT) added to S&P 500 Index,2015-2021,2016-09-07,2016-09-07,2016-09-07,2016-09-06,2016-09-07,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16276,028070,ASIX,ADVANSIX INC,AdvanSix Inc.(NYSE:ASIX) added to S&P 500,2015-2021,2016-10-03,2016-10-03,2016-10-03,2016-09-30,2016-10-03,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16279,026709,VSM,VERSUM MATERIALS INC,"Versum Materials, Inc.(NYSE:VSM) added to S&P 500",2015-2021,2016-10-03,2016-10-03,2016-10-03,2016-09-30,2016-10-03,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16342,027333,ADNT,ADIENT PLC,Adient plc(NYSE:ADNT) added to S&P 500,2015-2021,2016-10-31,2016-10-31,2016-10-31,2016-10-28,2016-10-31,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16343,028499,YUMC,YUM CHINA HOLDINGS INC,"Yum China Holdings, Inc.(NYSE:YUMC) added to S&P 500",2015-2021,2016-11-01,2016-11-01,2016-11-01,2016-10-31,2016-11-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16346,027800,QCP,QUALITY CARE PROPERTIES INC,"Quality Care Properties, Inc.(NYSE:QCP) added to S&P 500",2015-2021,2016-11-01,2016-11-01,2016-11-01,2016-10-31,2016-11-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16347,027638,AA,ALCOA CORP,Alcoa Corporation(NYSE:AA) added to S&P 500,2015-2021,2016-11-01,2016-11-01,2016-11-01,2016-10-31,2016-11-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16431,028790,LW,LAMB WESTON HOLDINGS INC,"Lamb Weston Holdings, Inc.(NYSE:LW) added to S&P 500",2015-2021,2016-11-10,2016-11-10,2016-11-10,2016-11-09,2016-11-10,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16497,028719,CNDT,CONDUENT INC,Conduent Incorporated(NasdaqGS:CNDT) added to S&P 500,2015-2021,2017-01-03,2017-01-03,2017-01-03,2016-12-30,2017-01-03,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16538,030923,FTI,TECHNIPFMC PLC,TechnipFMC plc(NYSE:FTI) added to S&P 500,2015-2021,2017-01-17,2017-01-17,2017-01-17,2017-01-13,2017-01-17,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16543,029004,VREX,VAREX IMAGING CORP,Varex Imaging Corporation(NasdaqGS:VREX) added to S&P 500,2015-2021,2017-01-30,2017-01-30,2017-01-30,2017-01-27,2017-01-30,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16544,029819,BIVV,BIOVERATIV INC,Bioverativ Inc.(NasdaqGM:BIVV) added to S&P 500,2015-2021,2017-02-02,2017-02-02,2017-02-02,2017-02-01,2017-02-02,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16696,029155,CARS,CARS COM INC,"Cars.com, LLC(NYSE:CARS) added to S&P 500",2015-2021,2017-06-01,2017-06-01,2017-06-01,2017-05-31,2017-06-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16809,032154,JBGS,J B G SMITH PROPERTIES,JBG Smith Properties(NYSE:JBGS) added to S&P 500,2015-2021,2017-07-18,2017-07-18,2017-07-18,2017-07-17,2017-07-18,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+17040,031802,DLPH,DELPHI TECHNOLOGIES PLC,Delphi Technologies PLC(NYSE:DLPH) added to S&P 500,2015-2021,2017-12-05,2017-12-05,2017-12-05,2017-12-04,2017-12-05,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+17676,326688,NVT,NVENT ELECTRIC PLC,nVent Electric plc(NYSE:NVT) added to S&P 500,2015-2021,2018-05-01,2018-05-01,2018-05-01,2018-04-30,2018-05-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+17783,033326,APY,APERGY CORP,Apergy Corporation(NYSE:APY) added to S&P 500,2015-2021,2018-05-09,2018-05-09,2018-05-09,2018-05-08,2018-05-09,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+17792,033439,PRSP,PERSPECTA INC,Perspecta Inc.(NYSE:PRSP) added to S&P 500,2015-2021,2018-06-01,2018-06-01,2018-06-01,2018-05-31,2018-06-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+18065,034051,GTX,GARRETT MOTION INC,Garrett Motion Inc.(NYSE:GTX) added to S&P 500,2015-2021,2018-10-01,2018-10-01,2018-10-01,2018-09-28,2018-10-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+18142,034053,REZI,RESIDEO TECHNOLOGIES INC,"Resideo Technologies, Inc.(NYSE:REZI) added to S&P 500",2015-2021,2018-10-29,2018-10-29,2018-10-29,2018-10-26,2018-10-29,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+18327,034765,CVET,COVETRUS INC,"Covetrus, Inc.(NasdaqGS:CVET) added to S&P 500",2015-2021,2019-02-08,2019-02-08,2019-02-08,2019-02-07,2019-02-08,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+18420,034636,FOXA,FOX CORP,Fox Corporation(NasdaqGS:FOX) added to S&P 500,2015-2021,2019-03-19,2019-03-19,2019-03-19,2019-03-18,2019-03-19,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+18428,034443,DOW,DOW INC,Dow Inc.(NYSE:DOW) added to S&P 500,2015-2021,2019-04-02,2019-04-02,2019-04-02,2019-04-01,2019-04-02,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+18578,035035,KTB,KONTOOR BRANDS INC,"Kontoor Brands, Inc.(NYSE:KTB) added to S&P 500",2015-2021,2019-05-23,2019-05-23,2019-05-23,2019-05-22,2019-05-23,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+18592,035168,CTVA,CORTEVA INC,"Corteva, Inc.(NYSE:CTVA) added to S&P 500",2015-2021,2019-06-03,2019-06-03,2019-06-03,2019-05-31,2019-06-03,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+19283,035978,ARNC,ARCONIC CORP,Arconic Corporation(NYSE:ARNC) added to S&P 500,2015-2021,2020-04-01,2020-04-01,2020-04-01,2020-03-31,2020-04-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+19285,036191,CARR,CARRIER GLOBAL CORP,Carrier Global Corporation(NYSE:CARR) added to S&P 500,2015-2021,2020-04-03,2020-04-03,2020-04-03,2020-04-02,2020-04-03,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+19286,036190,OTIS,OTIS WORLDWIDE CORP,Otis Worldwide Corporation(NYSE:OTIS) added to S&P 500,2015-2021,2020-04-03,2020-04-03,2020-04-03,2020-04-02,2020-04-03,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+19807,036203,VNT,VONTIER CORP,Vontier Corporation(NYSE:VNT) added to S&P 500,2015-2021,2020-10-09,2020-10-09,2020-10-09,2020-10-08,2020-10-09,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+21124,038821,OGN,ORGANON & CO,Organon & Co.(NYSE:OGN) added to S&P 500,2015-2021,2021-06-03,2021-06-03,2021-06-03,2021-06-02,2021-06-03,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+21609,039310,VSCO,VICTORIAS SECRET & CO,Victoria's Secret & Co.(NYSE:VSCO) added to S&P 500,2015-2021,2021-08-03,2021-08-03,2021-08-03,2021-08-02,2021-08-03,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+21903,039651,SLVM,SYLVAMO CORP,Sylvamo Corporation(NYSE:SLVM) added to S&P 500,2015-2021,2021-10-01,2021-10-01,2021-10-01,2021-09-30,2021-10-01,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+22264,040248,ONL,ORION OFFICE REIT INC,Orion Office REIT Inc.(NYSE:ONL) added to S&P 500,2015-2021,2021-11-15,2021-11-15,2021-11-15,2021-11-12,2021-11-15,1,,new listing: first CRSP day after the rebalance day (spin-off or merger)
+39087,010984,FON,SPRINT CORP,Sprint Corporation (NYSE:S) added to S&P 500 Index,2001-2007,2004-04-23,2004-04-23,2004-04-23,2004-04-22,2000-01-03,-1079,6.0,not a new member: Key Dev drops the same permno within 10 trading days
+70500,012756,CCE,COCA COLA ENTERPRISES INC,"Coca-Cola Enterprises, Inc.(NYSE:CCE) added to S&P 500 Index",2008-2014,2010-10-04,2010-10-04,2010-10-04,2010-10-01,2000-01-03,-2702,-1.0,not a new member: Key Dev drops the same permno within 10 trading days
+92772,180395,IILG,INTERVAL LEISURE GROUP INC,"Interval Leisure Group, Inc.(NasdaqGS:IILG) added to S&P 500 Index",2015-2021,2016-05-13,2016-05-13,2016-05-13,2016-05-12,2008-08-21,-1944,0.0,not a new member: Key Dev drops the same permno within 10 trading days
+43772,002154,BMS,BEMIS CO INC,"Bemis Company, Inc.(NYSE:BMS) added to S&P 500",2015-2021,2019-06-07,2019-06-07,2019-06-07,2019-06-06,2000-01-03,-4885,,not a new member: Key Dev drops the same permno within 10 trading days
+21356,039041,DTM,D T MIDSTREAM INC,"DT Midstream, Inc.(NYSE:DTM) added to S&P 500",2015-2021,2021-07-02,2021-07-02,2021-07-02,2021-07-01,2021-07-01,0,,not a new member: Key Dev drops the same permno within 10 trading days
+22092,039963,KD,KYNDRYL HOLDINGS INC,"Kyndryl Holdings, Inc.(NYSE:KD) added to S&P 500",2015-2021,2021-11-05,2021-11-05,2021-11-05,2021-11-04,2021-11-04,0,,not a new member: Key Dev drops the same permno within 10 trading days
+35044,004674,RF,REGIONS FINANCIAL CORP,Regions Financial Corp.(NYSE:RF) added to S&P 500 Index,2001-2007,2004-07-01,2004-07-01,2004-07-01,2004-06-30,2000-01-03,-1126,0.0,"not a new member: already in the index (earlier Key Dev add, no drop since)"
+92709,180167,SNI,SCRIPPS NETWORKS INTERACTIVE INC,"Scripps Networks Interactive, Inc. added to S&P 500 Index",2008-2014,2008-09-04,2008-09-04,2008-09-04,2008-09-03,2008-07-01,-44,10.0,"not a new member: already in the index (earlier Key Dev add, no drop since)"
+90319,160329,GOOG,GOOGLE INC,Alphabet Inc.(NasdaqGS:) added to S&P 500 Index,2008-2014,2014-04-03,2014-04-03,2014-04-03,2014-04-02,2004-08-19,-2421,10.0,"not a new member: already in the index (earlier Key Dev add, no drop since)"
+90805,164296,DISCA,DISCOVERY COMMUNICATIONS INC,"Discovery Communications, Inc.(NasdaqGS:DISC.K) added to S&P 500 Index",2008-2014,2014-08-07,2014-08-07,2014-08-07,2014-08-06,2005-07-21,-2276,0.0,"not a new member: already in the index (earlier Key Dev add, no drop since)"
+90441,012886,FOXA,TWENTY FIRST CENTURY FOX INC,"Twenty-First Century Fox, Inc.(NasdaqGS:FOX) added to S&P 500 Index",2015-2021,2015-09-20,2015-09-20,2015-09-21,2015-09-18,2004-11-12,-2730,-1.0,"not a new member: already in the index (earlier Key Dev add, no drop since)"
+13963,018043,NWSA,NEWS CORP NEW,News Corporation(NasdaqGS:NWS) added to S&P 500 Index,2015-2021,2015-09-21,2015-09-21,2015-09-21,2015-09-18,2013-07-01,-559,-1.0,"not a new member: already in the index (earlier Key Dev add, no drop since)"
+90979,165052,UA,UNDER ARMOUR INC,"Under Armour, Inc.(NYSE:UA.CWI) added to S&P 500 Index",2015-2021,2016-04-08,2016-04-08,2016-04-08,2016-04-07,2005-11-18,-2611,1.0,"not a new member: already in the index (earlier Key Dev add, no drop since)"
+24643,028192,AA,ALCOA INC,Arconic Inc.(NYSE:ARNC) added to S&P 500,2015-2021,2016-11-01,2016-11-01,2016-11-01,2016-10-31,2000-01-03,-4233,-15.0,"not a new member: already in the index (earlier Key Dev add, no drop since)"
+19283,035978,ARNC,ARCONIC CORP,Arconic Corporation(NYSE:ARNC) added to S&P 500,2015-2021,2020-06-30,2020-06-30,2020-06-30,2020-06-29,2020-04-01,-61,-2.0,"not a new member: already in the index (earlier Key Dev add, no drop since)"
+80711,030490,AIV,APARTMENT INVESTMENT & MGMT CO,Apartment Income REIT Corp.(NYSE:AIRC) added to S&P 500,2015-2021,2020-12-16,2020-12-16,2020-12-16,2020-12-15,2000-01-03,-5271,-1.0,"not a new member: already in the index (earlier Key Dev add, no drop since)"

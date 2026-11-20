@@ -7,6 +7,10 @@ Outputs:
                                    market news, so they are not independent (audit finding A3).
                                    n_dates counts distinct day 0s, and the *_by_date columns repeat
                                    the t-test on one average CAR per day 0.
+  outputs/car_summary_history_dates.csv  the same for the 2001-2021 additions only, in four subsamples
+                                   (audit A1): all additions; only the ones that pass the v0 volume
+                                   filter; without the ambiguous dates; only the ones where Key Dev
+                                   and Wikipedia give the same effective date (date_rule in 03b).
   outputs/fig_mean_car_by_era.png  mean cumulative AR, day -10 to +10
                                    left: effective anchor, one line per era
                                    right: 2022+ releases, announce vs. effective
@@ -18,9 +22,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from scipy import stats
 
-from config import CLEAN, ERAS, OUTPUTS
+from config import CLEAN, ERAS, HISTORY_PER_ERA, OUTPUTS, POC_TICKERS
 
 SUMMARY_OUT = OUTPUTS / "car_summary.csv"
+HISTORY_SUMMARY_OUT = OUTPUTS / "car_summary_history_dates.csv"
 FIGURE_OUT = OUTPUTS / "fig_mean_car_by_era.png"
 CAR_COLUMNS = {"car_0_p1": "CAR[0,+1]", "car_m1_p1": "CAR[-1,+1]", "car_m10_p10": "CAR[-10,+10]"}
 # Default categorical palette, slots 1-4, checked with the dataviz validator (light surface).
@@ -38,23 +43,49 @@ def t_test(cars):
 
 
 GROUP = ["sample", "anchor", "era", "window"]
-car_windows = pd.read_csv(OUTPUTS / "car_windows.csv")
-cars = car_windows.melt(id_vars=["sample", "anchor", "era", "day0"], value_vars=list(CAR_COLUMNS),
-                        var_name="window", value_name="car")
-by_event = cars.groupby(GROUP)["car"].apply(t_test).unstack()
+# History robustness (audit A1): which 2001-2021 additions enter each row of car_summary_history_dates.csv.
+HISTORY_SUBSAMPLES = {
+    "all": lambda d: d["event_id"].notna(),
+    "v0 volume filter": lambda d: d["passes_volume_filter"].eq(True),
+    "without ambiguous dates": lambda d: d["date_rule"] != "ambiguous",
+    "Key Dev and Wikipedia agree": lambda d: d["date_rule"] == "agree",
+}
 
-# Same test with one observation per day 0: average the CARs of additions that share a day 0 first.
-by_date = (cars.groupby(GROUP + ["day0"])["car"].mean()
-           .groupby(GROUP).apply(t_test).unstack()
-           .rename(columns={"n": "n_dates", "mean": "mean_by_date", "t_stat": "t_stat_by_date",
-                            "p_value": "p_value_by_date"}))
-car_summary = (by_event.join(by_date, validate="one_to_one")
+
+def summarize(cars):
+    """t-test per GROUP over events, and again over one average CAR per day 0 (additions that share
+    a day 0 are averaged first, audit A3)."""
+    by_event = cars.groupby(GROUP)["car"].apply(t_test).unstack()
+    by_date = (cars.groupby(GROUP + ["day0"])["car"].mean()
+               .groupby(GROUP).apply(t_test).unstack()
+               .rename(columns={"n": "n_dates", "mean": "mean_by_date", "t_stat": "t_stat_by_date",
+                                "p_value": "p_value_by_date"}))
+    summary = (by_event.join(by_date, validate="one_to_one")
                .reset_index()
                .assign(window=lambda d: d["window"].map(CAR_COLUMNS))
                .astype({"n": int, "n_dates": int}))
-assert (car_summary["n_dates"] <= car_summary["n"]).all()
+    assert (summary["n_dates"] <= summary["n"]).all()
+    return summary
+
+
+car_windows = pd.read_csv(OUTPUTS / "car_windows.csv")
+cars = car_windows.melt(id_vars=["event_id", "sample", "anchor", "era", "day0"], value_vars=list(CAR_COLUMNS),
+                        var_name="window", value_name="car")
+car_summary = summarize(cars)
 car_summary.to_csv(SUMMARY_OUT, index=False)
 print(car_summary.round(4).to_string())
+
+events = pd.read_csv(CLEAN / "events.csv", usecols=["event_id", "date_rule", "passes_volume_filter"])
+history_cars = (cars
+                .query("sample == 'keydev_history'")
+                .merge(events, on="event_id", how="left", validate="many_to_one", indicator=True))
+assert (history_cars["_merge"] == "both").all()
+history_summary = pd.concat([summarize(history_cars[keep(history_cars)]).assign(subsample=name)
+                             for name, keep in HISTORY_SUBSAMPLES.items()], ignore_index=True)
+history_summary = history_summary[["subsample"] + [c for c in history_summary.columns if c != "subsample"]]
+history_summary.to_csv(HISTORY_SUMMARY_OUT, index=False)
+print(history_summary.query("window == 'CAR[0,+1]'")[["subsample", "era", "n", "mean", "t_stat"]]
+      .round(4).to_string(index=False))
 
 # Mean cumulative AR by event day.
 event_panel = pd.read_csv(CLEAN / "event_panel.csv")
@@ -89,8 +120,10 @@ ax_era.set_title("Effective date (day 0 = rebalance close), by era", color=INK, 
 ax_era.set_ylabel("Mean cumulative abnormal return (%)", color=INK)
 plot_lines(ax_anchor, mean_path.query("sample == 'releases_2022on'"), "anchor", ANCHOR_COLORS)
 ax_anchor.set_title("2022+ additions: announcement vs. effective date", color=INK, fontsize=10, loc="left")
-fig.text(0.01, 0.01, "v0 sample only (small n). Market model vs. SPY, estimation days -250 to -30.",
-         fontsize=8, color=MUTED)
+history_note = "all Key Dev additions" if HISTORY_PER_ERA is None else f"{HISTORY_PER_ERA} Key Dev additions per era"
+release_note = "all additions" if POC_TICKERS is None else f"{len(POC_TICKERS)} additions (v0)"
+fig.text(0.01, 0.01, f"2001-2021: {history_note}. 2022+: {release_note}. Market model vs. SPY, "
+         "estimation days -250 to -30.", fontsize=8, color=MUTED)
 fig.tight_layout(rect=(0, 0.04, 0.97, 1))
 fig.savefig(FIGURE_OUT, dpi=150, facecolor="white")
 print(f"saved {FIGURE_OUT.name}")

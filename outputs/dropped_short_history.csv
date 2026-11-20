@@ -1,2 +1,13 @@
-event_id,sample,ticker,announce_et,effective_date,n_est,gap_trading_days,drop_reason
-IVZ_2008,keydev_history,IVZ,,2008-08-21,149,,fewer than 200 estimation days
+event_id,sample,ticker,announce_et,effective_date,n_est,gap_trading_days,drop_reason,era
+MIR_2001,keydev_history,MIR,,2001-04-03,98,,fewer than 200 estimation days,2001-2007
+PRU_2002,keydev_history,PRU,,2002-07-22,119,,fewer than 200 estimation days,2001-2007
+PFG_2002,keydev_history,PFG,,2002-07-22,155,,fewer than 200 estimation days,2001-2007
+ATH_2002,keydev_history,ATH,,2002-07-25,153,,fewer than 200 estimation days,2001-2007
+NWS_2004,keydev_history,NWS,,2004-12-20,0,,fewer than 200 estimation days,2001-2007
+LO_2008,keydev_history,LO,,2008-06-11,0,,fewer than 200 estimation days,2008-2014
+IVZ_2008,keydev_history,IVZ,,2008-08-21,149,,fewer than 200 estimation days,2008-2014
+DPS_2008,keydev_history,DPS,,2008-10-07,75,,fewer than 200 estimation days,2008-2014
+MJN_2009,keydev_history,MJN,,2009-12-21,186,,fewer than 200 estimation days,2008-2014
+ZTS_2013,keydev_history,ZTS,,2013-06-24,67,,fewer than 200 estimation days,2008-2014
+CSRA_2015,keydev_history,CSRA,,2015-12-01,0,,fewer than 200 estimation days,2015-2021
+BHF_2017,keydev_history,BHF,,2017-08-08,0,,fewer than 200 estimation days,2015-2021

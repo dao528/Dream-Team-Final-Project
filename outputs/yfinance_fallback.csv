@@ -1,0 +1,31 @@
+ticker,company,announce_et,effective_date,window_end,permno,first_crsp_day_after,reason
+CEG,Constellation Energy,2022-01-26 18:44:00,2022-02-02,2022-02-15,,2022-02-02,not trading at the announcement (spin-off or new listing)
+MBC,MasterBrand,2022-12-12 18:35:00,2022-12-15,2022-12-29,,2022-12-15,not trading at the announcement (spin-off or new listing)
+GEHC,GE HealthCare Technologies,2022-12-28 17:43:00,2023-01-04,2023-01-18,,2023-01-04,not trading at the announcement (spin-off or new listing)
+VLTO,Veralto,2023-09-28 18:17:00,2023-10-02,2023-10-13,,2023-10-02,not trading at the announcement (spin-off or new listing)
+GEV,GE Vernova,2024-03-27 18:12:00,2024-04-02,2024-04-15,,2024-04-02,not trading at the announcement (spin-off or new listing)
+SOLV,Solventum,2024-03-27 18:12:00,2024-04-01,2024-04-12,,2024-04-01,not trading at the announcement (spin-off or new listing)
+AMTM,Amentum,2024-09-24 18:13:00,2024-09-30,2024-10-11,,2024-09-30,not trading at the announcement (spin-off or new listing)
+Q,Qnity Electronics,2025-10-27 18:10:00,2025-11-03,2025-11-14,,2025-11-03,not trading at the announcement (spin-off or new listing)
+SOLS,Solstice Advance Materials,2025-10-27 18:10:00,2025-10-30,2025-11-12,,2025-10-30,not trading at the announcement (spin-off or new listing)
+CVNA,Carvana,2025-12-05 17:49:00,2025-12-22,2026-01-06,16655.0,2025-12-05,event window ends after CRSP ends
+CRH,CRH,2025-12-05 17:49:00,2025-12-22,2026-01-06,24294.0,2025-12-05,event window ends after CRSP ends
+FIX,Comfort Systems USA,2025-12-05 17:49:00,2025-12-22,2026-01-06,85059.0,2025-12-05,event window ends after CRSP ends
+CIEN,Ciena,2026-02-04 18:15:00,2026-02-09,2026-02-23,,,announced after CRSP ends
+SATS,EchoStar,2026-03-06 18:39:00,2026-03-23,2026-04-06,,,announced after CRSP ends
+LITE,Lumentum Holdings,2026-03-06 18:39:00,2026-03-23,2026-04-06,,,announced after CRSP ends
+COHR,Coherent,2026-03-06 18:39:00,2026-03-23,2026-04-06,,,announced after CRSP ends
+VRT,Vertiv Holdings,2026-03-06 18:39:00,2026-03-23,2026-04-06,,,announced after CRSP ends
+CASY,Casey's General Stores,2026-04-06 17:51:00,2026-04-09,2026-04-22,,,announced after CRSP ends
+VEEV,Veeva Systems,2026-04-30 18:23:00,2026-05-07,2026-05-20,,,announced after CRSP ends
+FDXF,FedEx Freight,2026-05-27 18:30:00,2026-06-01,2026-06-12,,,announced after CRSP ends
+FLEX,Flex,2026-06-05 19:25:00,2026-06-22,2026-07-06,,,announced after CRSP ends
+MRVL,Marvell Technology,2026-06-05 19:25:00,2026-06-22,2026-07-06,,,announced after CRSP ends
+HONA,Honeywell Aerospace,2026-06-23 18:10:00,2026-06-29,2026-07-13,,,announced after CRSP ends
+FERG,Ferguson Enterprises,2026-07-31 17:51:00,2026-08-05,2026-08-18,,,announced after CRSP ends
+RDDT,Reddit,2026-08-13 18:12:00,2026-08-18,2026-08-31,,,announced after CRSP ends
+BE,Bloom Energy,2026-09-04 19:15:00,2026-09-21,2026-10-02,,,announced after CRSP ends
+ILMN,Illumina,2026-09-04 19:15:00,2026-09-21,2026-10-02,,,announced after CRSP ends
+P,Everpure,2026-09-04 19:15:00,2026-09-21,2026-10-02,,,announced after CRSP ends
+TWLO,Twilio,2026-10-01 18:00:00,2026-10-06,2026-10-19,,,announced after CRSP ends
+VYLR,Vylor,2026-10-01 18:00:00,2026-10-01,2026-10-14,,,announced after CRSP ends
