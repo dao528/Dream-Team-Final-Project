@@ -14,27 +14,31 @@ Outputs:
   data/raw/prices.csv              wide: one column per ticker, adjusted Close (yfinance)
   data/clean/events.csv            one row = one addition (key: event_id), both samples
   data/clean/stock_returns.parquet one row = one event x trading day (key: event_id, date); CRSP data, git-ignored
+  outputs/yfinance_fallback.csv    one row = one 2022+ addition (all of them, not only v0) that uses
+                                   yfinance, with the reason (audit A2)
 """
 import pandas as pd
 import pyarrow.dataset as ds
 import yfinance as yf
 
-from config import (CLEAN, CRSP_DAILY, CRSP_END, EVENT_WINDOW, HISTORY_START, MARKET, POC_TICKERS, PRICES_END, RAW,
-                    era_of)
+from config import (CLEAN, CRSP_DAILY, CRSP_END, EVENT_WINDOW, HISTORY_START, MARKET, OUTPUTS, POC_TICKERS,
+                    PRICES_END, RAW, era_of)
 
 PRICES_OUT = RAW / "prices.csv"
+FALLBACK_OUT = OUTPUTS / "yfinance_fallback.csv"
 EVENTS_OUT = CLEAN / "events.csv"
 RETURNS_OUT = CLEAN / "stock_returns.parquet"
 CALENDAR_DAYS_BEFORE = 420  # covers the 250-trading-day estimation window before day 0
 CALENDAR_DAYS_AFTER = 40  # covers the +10 trading days after the effective day 0
 LINK_TOLERANCE = pd.Timedelta(days=10)  # CRSP row for the ticker at most this long before the announcement
 
-# The two samples, in one event-level table.
-release_adds = pd.read_csv(CLEAN / "additions.csv", parse_dates=["announce_et", "effective_date"])
-if POC_TICKERS is not None:
-    release_adds = release_adds.query("ticker in @POC_TICKERS")
-release_adds = release_adds.assign(sample="releases_2022on",
-                                   event_id=lambda d: d["ticker"] + "_" + d["effective_date"].dt.year.astype(str))
+# The two samples, in one event-level table. The CRSP link below runs on every 2022+ addition, so
+# yfinance_fallback.csv covers the full sample. Prices and returns are pulled for the v0 sample only.
+all_release_adds = (pd.read_csv(CLEAN / "additions.csv", parse_dates=["announce_et", "effective_date"])
+                    .assign(sample="releases_2022on",
+                            event_id=lambda d: d["ticker"] + "_" + d["effective_date"].dt.year.astype(str)))
+release_adds = (all_release_adds if POC_TICKERS is None
+                else all_release_adds.query("ticker in @POC_TICKERS"))
 history_adds = pd.read_csv(CLEAN / "history_additions.csv", parse_dates=["effective_date", "rebalance_day"])
 history_adds = history_adds.assign(sample="keydev_history")
 
@@ -62,30 +66,58 @@ trading_days = prices.index[prices[MARKET].notna()]
 # on or before the announcement date.
 crsp_tickers = (ds.dataset(CRSP_DAILY)
                 .to_table(columns=["permno", "date", "ticker"],
-                          filter=ds.field("date") >= release_adds["announce_et"].min() - LINK_TOLERANCE)
+                          filter=ds.field("date") >= all_release_adds["announce_et"].min() - LINK_TOLERANCE)
                 .to_pandas()
                 .astype({"ticker": str, "date": "datetime64[ns]"}))
 assert not crsp_tickers.duplicated(subset=["ticker", "date"]).any()
-release_adds = pd.merge_asof(
-    release_adds.assign(announce_date=release_adds["announce_et"].dt.normalize().astype("datetime64[ns]"))
-                .sort_values("announce_date"),
+all_release_adds = (all_release_adds
+                    .assign(announce_date=all_release_adds["announce_et"].dt.normalize().astype("datetime64[ns]"))
+                    .sort_values("announce_date"))
+all_release_adds = pd.merge_asof(
+    all_release_adds,
     crsp_tickers.rename(columns={"date": "crsp_link_date"}).sort_values("crsp_link_date"),
     left_on="announce_date", right_on="crsp_link_date", by="ticker",
     direction="backward", tolerance=LINK_TOLERANCE)
+# First CRSP day of the ticker after the announcement: shows which unlinked additions were not trading yet.
+all_release_adds = pd.merge_asof(
+    all_release_adds,
+    crsp_tickers[["ticker", "date"]].rename(columns={"date": "first_crsp_day_after"}).sort_values("first_crsp_day_after"),
+    left_on="announce_date", right_on="first_crsp_day_after", by="ticker", direction="forward")
 
 # Rebalance day (effective day 0) and the last day of its event window, on the SPY calendar.
-release_adds["rebalance_day"] = trading_days[trading_days.searchsorted(release_adds["effective_date"]) - 1]
-window_end = trading_days[trading_days.searchsorted(release_adds["rebalance_day"]) + EVENT_WINDOW[1]]
-release_adds["ret_source"] = "yfinance"
-release_adds.loc[release_adds["permno"].notna() & (window_end <= CRSP_END), "ret_source"] = "crsp"
-print("2022+ additions by return source:", release_adds["ret_source"].value_counts().to_dict())
-print("  no CRSP row at the announcement (after CRSP ends, or not trading yet):", release_adds.loc[release_adds["permno"].isna(), "ticker"].tolist())
+all_release_adds["rebalance_day"] = trading_days[trading_days.searchsorted(all_release_adds["effective_date"]) - 1]
+all_release_adds["window_end"] = trading_days[trading_days.searchsorted(all_release_adds["rebalance_day"])
+                                              + EVENT_WINDOW[1]]
+all_release_adds["ret_source"] = "yfinance"
+all_release_adds.loc[all_release_adds["permno"].notna() & (all_release_adds["window_end"] <= CRSP_END),
+                     "ret_source"] = "crsp"
+
+# Every 2022+ addition that falls back to yfinance, and why (audit A2). Spin-offs and new listings
+# that start trading after the announcement have no CRSP row at the announcement. Any other
+# addition announced while CRSP runs must link to a permno.
+fallback = all_release_adds.query("ret_source == 'yfinance'").copy()
+fallback["reason"] = "no CRSP row for the ticker at or after the announcement"
+fallback.loc[fallback["first_crsp_day_after"].notna(), "reason"] = "not trading at the announcement (spin-off or new listing)"
+fallback.loc[fallback["announce_date"] > CRSP_END, "reason"] = "announced after CRSP ends"
+fallback.loc[fallback["permno"].notna(), "reason"] = "event window ends after CRSP ends"
+assert not fallback["reason"].eq("no CRSP row for the ticker at or after the announcement").any(), \
+    fallback.query("reason.str.startswith('no CRSP')")["ticker"].tolist()
+(fallback[["ticker", "company", "announce_et", "effective_date", "window_end", "permno", "first_crsp_day_after",
+           "reason"]]
+ .sort_values("announce_et")
+ .to_csv(FALLBACK_OUT, index=False))
+print(f"saved {FALLBACK_OUT.name}: {len(fallback)} of {len(all_release_adds)} 2022+ additions use yfinance")
+print(fallback["reason"].value_counts().to_string())
+
+release_adds = all_release_adds[all_release_adds["ticker"].isin(release_adds["ticker"])]
+print("v0 2022+ additions by return source:", release_adds["ret_source"].value_counts().to_dict())
 
 events = (pd.concat([release_adds, history_adds.assign(ret_source="crsp")], ignore_index=True)
           .astype({"permno": "Int64"}))
 events["era"] = events["rebalance_day"].dt.year.map(era_of)
 events = events[["event_id", "sample", "era", "ticker", "permno", "company", "announce_et", "effective_date",
-                 "rebalance_day", "batch_size", "ret_source", "keydev_date", "trading_days_to_peak"]]
+                 "rebalance_day", "batch_size", "ret_source", "keydev_date", "date_rule", "passes_volume_filter",
+                 "trading_days_to_peak"]]
 assert not events.duplicated(subset="event_id").any()
 events.to_csv(EVENTS_OUT, index=False)
 print(f"saved {EVENTS_OUT.name}: {len(events)} events")

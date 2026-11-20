@@ -48,12 +48,18 @@ PRICES_END = pd.Timestamp("2026-11-10")
 # CRSP starts 2000-01-03 and the estimation window needs 250 trading days before day 0, so 2001.
 HISTORY_START = pd.Timestamp("2001-01-01")
 HISTORY_END = SAMPLE_START - pd.Timedelta(days=1)
-# Keep an event only if its volume peak (within 15 trading days) is the trading day before the
-# Key Dev date, i.e. the rebalance close our effective day 0 rule points to.
-HISTORY_PEAK_DAY = -1
 # Key Dev can list the same firm twice a few days apart (Moderna 2021-07-20 and 2021-07-22). Additions
 # of the same permno within this many trading days are one event (audit A3).
 SAME_FIRM_WINDOW = 10
+# Effective dates (rules in code/03b_build_history_additions.py, audit A1). "keydev+wikipedia" takes
+# Wikipedia's date where Key Dev is early or lists the firm twice. "keydev" = the v0 rule.
+HISTORY_DATE_SOURCE = "keydev"
+WIKI_MATCH_DAYS = 10  # S&P announces at most 10 trading days ahead (max gap in outputs/announce_effective_gap.csv)
+# v0 volume filter: keep an event only if its volume peak (within 15 trading days) is the trading day
+# before the Key Dev date. It looks at volume after day 0, so it is off from v1 on (audit A1) and
+# only used for a robustness test (passes_volume_filter in 03b).
+HISTORY_PEAK_DAY = -1
+HISTORY_VOLUME_FILTER = True
 # v0: this many additions per era, drawn with a fixed seed. None = every addition (v1).
 HISTORY_PER_ERA = 4
 HISTORY_SEED = 331
