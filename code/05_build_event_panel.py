@@ -128,14 +128,18 @@ assert not event_panel.duplicated(subset=["event_id", "anchor", "event_day"]).an
 window_length = EVENT_WINDOW[1] - EVENT_WINDOW[0] + 1
 rows_per_event = event_panel.groupby(["event_id", "anchor"]).size()
 assert (rows_per_event == window_length).all(), rows_per_event[rows_per_event != window_length]
-assert event_panel["ret"].notna().all(), "missing returns inside the window would count as zero AR"
 
-# Drop events without enough estimation history (mostly spin-offs), and events whose release came
-# after the rebalance day (S&P reporting an addition that already happened, like a spin-off).
-# Keep a record of both.
+# Drop events with returns missing inside the window (a spin-off that starts trading on the rebalance
+# day, or Bemis 2019, added for three days before its merger closed), events without enough
+# estimation history (mostly spin-offs), and events whose release came after the rebalance day
+# (S&P reporting an addition that already happened, like a spin-off). Keep a record of all of them.
+# Later lines win.
 event_panel["drop_reason"] = None
+missing_ret = event_panel.groupby("event_id")["ret"].transform(lambda ret: ret.isna().any())
+event_panel.loc[missing_ret, "drop_reason"] = "returns missing inside the event window"
 event_panel.loc[event_panel["n_est"] < MIN_EST_DAYS, "drop_reason"] = f"fewer than {MIN_EST_DAYS} estimation days"
 event_panel.loc[event_panel["gap_trading_days"] < 0, "drop_reason"] = "release after the rebalance day"
+assert event_panel.query("drop_reason.isna()")["ret"].notna().all(), "a missing return would count as zero AR"
 dropped = (event_panel.query("drop_reason.notna()")
            .drop_duplicates("event_id")
            [["event_id", "sample", "ticker", "announce_et", "effective_date", "n_est", "gap_trading_days",

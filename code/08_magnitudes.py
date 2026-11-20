@@ -35,7 +35,8 @@ def crsp_rows(event):
     by = ds.field("permno") == int(event.permno) if pd.notna(event.permno) else ds.field("ticker") == event.ticker
     rows = (crsp.to_table(columns=["date", "prc", "shrout", "mktcap", "bid", "ask"], filter=by).to_pandas()
             .astype({"date": "datetime64[ns]"}).set_index("date").sort_index())
-    assert ((rows["prc"].abs() * rows["shrout"] - rows["mktcap"]).abs() < 1).all()  # mktcap = |prc| x shrout
+    priced = rows.dropna(subset=["prc"])  # a few days in the full history sample have no price and no mktcap
+    assert ((priced["prc"].abs() * priced["shrout"] - priced["mktcap"]).abs() < 1).all()  # mktcap = |prc| x shrout
     return rows
 
 

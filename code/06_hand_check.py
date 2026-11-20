@@ -17,6 +17,10 @@
    Eastern time uses on that date (EDT in summer, EST in winter, from zoneinfo), so the stamp is
    Eastern time and not UTC, and (c) it is after the 4pm close. Not yet checked against a source
    outside S&P (a news story with the release time): still open.
+5. History effective dates against S&P's releases (audit finding A1). The rebalance day in
+   outputs/history_dates.csv should be the close the release names. HP and MRNA must match.
+   PTC is a known miss: its dates are "ambiguous" (Wikipedia one day before Key Dev), 03b keeps
+   Key Dev there, and Key Dev is one day late. RRC (2007): no release found yet, not checked.
 """
 import re
 from zoneinfo import ZoneInfo
@@ -105,4 +109,25 @@ for addition in additions.itertuples():
     if addition.ticker in ("COIN", "DASH", "SMCI"):
         print(f"{addition.ticker}: page stamp {stamp} {zone}, after the close, matches additions.csv")
 print(f"announcement stamps: all {len(additions)} are US Eastern, after 16:00, and match additions.csv")
+
+# 5. History effective dates vs. S&P's releases, looked up on 2026-11-20.
+#   HP:   S&P release of 2010-02-22, HP replaces IMS Health "after the close of trading on Friday,
+#         February 26" (PR Newswire copy, https://marketscreener.com/quote/stock/IMS-HEALTH-INC-14310/news/IMS-HEALTH-USD-Standard-Poor-s-Announces-Changes-to-U-S-Indices-13329415)
+#   MRNA: "effective prior to the opening of trading on Wednesday, July 21"
+#         (https://press.spglobal.com/2021-07-15-Moderna-Set-to-Join-S-P-500)
+#   PTC:  "effective prior to the open of trading on Tuesday, April 20" (https://press.spglobal.com/2021-04-15-PTC-Set-to-Join-S-P-500-Lattice-Semiconductor-Progyny-to-Join-S-P-MidCap-400-Domtar-to-Join-S-P-SmallCap-600)
+RELEASE_REBALANCE_DAYS = {"HP": "2010-02-26", "MRNA": "2021-07-20", "PTC": "2021-04-19"}
+KNOWN_MISSES = {"PTC"}  # ambiguous dates, 03b keeps Key Dev, which is one day late here
+history_dates = pd.read_csv(OUTPUTS / "history_dates.csv", parse_dates=["rebalance_day"])
+for ticker, release_day in RELEASE_REBALANCE_DAYS.items():
+    release_day = pd.Timestamp(release_day)
+    row = history_dates[(history_dates["ticker"] == ticker)
+                        & ((history_dates["rebalance_day"] - release_day).abs() < pd.Timedelta(days=30))]
+    assert len(row) == 1, ticker
+    ours, rule = row["rebalance_day"].iloc[0], row["date_rule"].iloc[0]
+    print(f"{ticker}: release rebalance close {release_day.date()}, ours {ours.date()} ({rule})")
+    if ticker in KNOWN_MISSES:
+        assert rule == "ambiguous" and ours != release_day
+    else:
+        assert ours == release_day, ticker
 print("hand checks passed")

@@ -1,2 +1,19 @@
 event_id,sample,ticker,announce_et,effective_date,n_est,gap_trading_days,drop_reason
+MIR_2001,keydev_history,MIR,,2001-04-03,98,,fewer than 200 estimation days
+PRU_2002,keydev_history,PRU,,2002-07-22,119,,fewer than 200 estimation days
+PFG_2002,keydev_history,PFG,,2002-07-22,155,,fewer than 200 estimation days
+ATH_2002,keydev_history,ATH,,2002-07-25,153,,fewer than 200 estimation days
+NWS_2004,keydev_history,NWS,,2004-12-20,0,,fewer than 200 estimation days
+LO_2008,keydev_history,LO,,2008-06-11,0,,fewer than 200 estimation days
 IVZ_2008,keydev_history,IVZ,,2008-08-21,149,,fewer than 200 estimation days
+SNI_2008,keydev_history,SNI,,2008-09-04,14,,fewer than 200 estimation days
+DPS_2008,keydev_history,DPS,,2008-10-07,75,,fewer than 200 estimation days
+MJN_2009,keydev_history,MJN,,2009-12-21,186,,fewer than 200 estimation days
+ESV_2012,keydev_history,ESV,,2012-07-31,17,,fewer than 200 estimation days
+ZTS_2013,keydev_history,ZTS,,2013-06-24,67,,fewer than 200 estimation days
+CSRA_2015,keydev_history,CSRA,,2015-12-01,0,,fewer than 200 estimation days
+BHF_2017,keydev_history,BHF,,2017-08-08,0,,fewer than 200 estimation days
+BMS_2019,keydev_history,BMS,,2019-06-07,221,,returns missing inside the event window
+ARNC_2020,keydev_history,ARNC,,2020-06-30,31,,fewer than 200 estimation days
+DTM_2021,keydev_history,DTM,,2021-07-02,0,,fewer than 200 estimation days
+KD_2021,keydev_history,KD,,2021-11-05,0,,fewer than 200 estimation days
