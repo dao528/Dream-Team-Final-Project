@@ -6,7 +6,9 @@ Return sources:
     on the announcement date. History additions already have a permno from Key Dev.
   yfinance (adjusted closes) for 2022+ additions whose window runs past CRSP_END, or that have no
     CRSP row at the announcement (spin-offs that were not trading yet).
-  One source per event, never mixed inside an event's estimation or event window.
+  One source per event, never mixed inside an event's estimation or event window. A firm that got a
+    new permno (a move abroad or back, PREDECESSORS in config.py) uses the older permno's CRSP returns
+    before the newer one's first day. ret_permno in stock_returns.parquet shows which one.
 The market is SPY from yfinance for every event (one market proxy across all years). yfinance closes
 are downloaded for every 2022+ addition, also the CRSP ones, so 06_hand_check.py can compare sources.
 
@@ -16,16 +18,19 @@ Outputs:
   data/clean/stock_returns.parquet one row = one event x trading day (key: event_id, date); CRSP data, git-ignored
   outputs/yfinance_fallback.csv    one row = one 2022+ addition (all of them, not only v0) that uses
                                    yfinance, with the reason (audit A2)
+  outputs/history_predecessors.csv one row = one event x older permno of the same firm (PREDECESSORS in
+                                   config.py): spliced into the estimation window, or why not (audit A2)
 """
 import pandas as pd
 import pyarrow.dataset as ds
 import yfinance as yf
 
-from config import (CLEAN, CRSP_DAILY, CRSP_END, EVENT_WINDOW, HISTORY_START, MARKET, OUTPUTS, POC_TICKERS,
-                    PRICES_END, RAW, era_of)
+from config import (CLEAN, CRSP_DAILY, CRSP_DAILY_FULL, CRSP_END, EVENT_WINDOW, HISTORY_START, MARKET, OUTPUTS,
+                    POC_TICKERS, PREDECESSORS, PRICES_END, RAW, era_of)
 
 PRICES_OUT = RAW / "prices.csv"
 FALLBACK_OUT = OUTPUTS / "yfinance_fallback.csv"
+SPLICES_OUT = OUTPUTS / "history_predecessors.csv"
 EVENTS_OUT = CLEAN / "events.csv"
 RETURNS_OUT = CLEAN / "stock_returns.parquet"
 CALENDAR_DAYS_BEFORE = 420  # covers the 250-trading-day estimation window before day 0
@@ -124,13 +129,55 @@ print(f"saved {EVENTS_OUT.name}: {len(events)} events")
 print(events.groupby(["sample", "era", "ret_source"]).size().to_string())
 
 # Daily stock returns, one block per event, from that event's single source.
+def predecessor_chain(permno):
+    """Older permnos of the same firm, newest first (PREDECESSORS in config.py)."""
+    chain = []
+    while permno in PREDECESSORS:
+        permno = PREDECESSORS[permno]
+        chain.append(permno)
+    return chain
+
+
+def load_crsp_returns(path, permnos):
+    """Daily ret_adj (return including any delisting return) for these permnos."""
+    return (ds.dataset(path)
+            .to_table(columns=["permno", "date", "ret_adj"], filter=ds.field("permno").isin(permnos))
+            .to_pandas()
+            .astype({"date": "datetime64[ns]"})
+            .rename(columns={"ret_adj": "ret"}))
+
+
 crsp_events = events.query("ret_source == 'crsp'")
-crsp_returns = (ds.dataset(CRSP_DAILY)
-                .to_table(columns=["permno", "date", "ret_adj"],
-                          filter=ds.field("permno").isin([int(p) for p in crsp_events["permno"].unique()]))
-                .to_pandas()
-                .astype({"date": "datetime64[ns]"})
-                .rename(columns={"ret_adj": "ret"}))
+event_permnos = [int(p) for p in crsp_events["permno"].unique()]
+predecessor_permnos = sorted({older for permno in event_permnos for older in predecessor_chain(permno)})
+crsp_returns = load_crsp_returns(CRSP_DAILY, event_permnos + predecessor_permnos)
+not_in_sp500_file = sorted(set(predecessor_permnos) - set(crsp_returns["permno"]))
+if not_in_sp500_file and CRSP_DAILY_FULL.exists():
+    crsp_returns = pd.concat([crsp_returns, load_crsp_returns(CRSP_DAILY_FULL, not_in_sp500_file)], ignore_index=True)
+assert not crsp_returns.duplicated(subset=["permno", "date"]).any()
+
+# One row per event x older permno: what was spliced, or why not (audit A2).
+first_crsp_day = crsp_returns.groupby("permno")["date"].min()
+last_crsp_day = crsp_returns.groupby("permno")["date"].max()
+splices = []
+for event in crsp_events.dropna(subset=["permno"]).itertuples():
+    newer = int(event.permno)
+    for older in predecessor_chain(newer):
+        if older in last_crsp_day:
+            days_between = trading_days.searchsorted(first_crsp_day[newer]) - trading_days.searchsorted(last_crsp_day[older])
+            assert 0 < days_between <= 10, f"{event.event_id}: {older} ends {days_between} trading days before {newer}"
+            status = "spliced"
+        else:
+            days_between = None
+            status = "not in either CRSP file" if CRSP_DAILY_FULL.exists() else f"skipped: {CRSP_DAILY_FULL.name} not downloaded"
+        splices.append({"event_id": event.event_id, "permno": newer, "first_crsp_day": first_crsp_day[newer].date(),
+                        "predecessor_permno": older, "predecessor_last_crsp_day": last_crsp_day.get(older),
+                        "trading_days_between": days_between, "status": status})
+        newer = older
+pd.DataFrame(splices, columns=["event_id", "permno", "first_crsp_day", "predecessor_permno",
+                               "predecessor_last_crsp_day", "trading_days_between", "status"]).to_csv(SPLICES_OUT, index=False)
+print(f"saved {SPLICES_OUT.name}: {len(splices)} predecessor permnos for "
+      f"{len({s['event_id'] for s in splices})} events, statuses {pd.Series([s['status'] for s in splices]).value_counts().to_dict()}")
 yf_returns = (prices.pct_change(fill_method=None)
               .rename_axis("date")
               .reset_index()
@@ -144,9 +191,12 @@ def event_returns(event):
     last = event.rebalance_day + pd.Timedelta(days=CALENDAR_DAYS_AFTER)
     if event.ret_source == "crsp":
         block = crsp_returns.query("permno == @event.permno")
+        for older in predecessor_chain(int(event.permno)):  # older permnos fill the days before
+            block = pd.concat([crsp_returns.query("permno == @older and date < @block['date'].min()"), block])
     else:
-        block = yf_returns.query("ticker == @event.ticker")
-    return (block.query("@first <= date <= @last")[["date", "ret"]]
+        block = yf_returns.query("ticker == @event.ticker").assign(permno=pd.NA)
+    return (block.query("@first <= date <= @last")[["date", "ret", "permno"]]
+            .rename(columns={"permno": "ret_permno"})
             .assign(event_id=event.event_id, ret_source=event.ret_source))
 
 

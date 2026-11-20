@@ -36,6 +36,9 @@ POC_TICKERS = ["FLEX", "MRVL", "VEEV", "DASH", "COIN"]
 # WRDS pull from Prof. Bowen (Google Drive folder "dao528_request", built 2026-11-04). Not in git.
 WRDS = RAW / "wrds" / "outputs"
 CRSP_DAILY = WRDS / "crsp_daily_sp500_ever.parquet"
+# Every CRSP security (1.5 GB, same Drive folder). Optional: only step 04 reads it, for predecessors
+# that were never in the S&P 500 (an ADR before a move to the US). Without it those are skipped.
+CRSP_DAILY_FULL = WRDS / "crsp_daily.parquet"
 KEYDEV_EVENTS = WRDS / "keydev_sp500_events.parquet"
 CRSP_MARKET = WRDS / "market_daily.parquet"  # used only for its trading calendar
 CRSP_END = pd.Timestamp("2025-12-31")  # last CRSP day; events whose window runs past it use yfinance
@@ -63,6 +66,12 @@ HISTORY_VOLUME_FILTER = False
 # v0 drew this many additions per era with a fixed seed. None = every addition (since the Checkpoint 2 audit).
 HISTORY_PER_ERA = None
 HISTORY_SEED = 331
+# Same firm, new permno (audit A2): successor permno -> the permno it replaced. Step 04 fills the
+# estimation window with the older permno's returns before the newer one's first CRSP day.
+PREDECESSORS = {
+    93159: 19661,  # Ensco plc class A shares (2012) <- Ensco plc ADS; same Key Dev gvkey 002270
+    19661: 62519,  # Ensco plc ADS (move to the UK, Dec 2009) <- Ensco International Inc; gvkey 002270
+}
 
 # 7-year blocks (the last one is 2022 to now) by the year of effective day 0, fixed before looking at results.
 ERAS = {"2001-2007": (2001, 2007), "2008-2014": (2008, 2014), "2015-2021": (2015, 2021), "2022-2026": (2022, 2026)}

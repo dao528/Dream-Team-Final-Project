@@ -1,0 +1,3 @@
+event_id,permno,first_crsp_day,predecessor_permno,predecessor_last_crsp_day,trading_days_between,status
+ESV_2012,93159,2012-05-22,19661,2012-05-21,1,spliced
+ESV_2012,19661,2009-12-23,62519,2009-12-22,1,spliced
