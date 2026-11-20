@@ -18,9 +18,13 @@
    Eastern time and not UTC, and (c) it is after the 4pm close. Not yet checked against a source
    outside S&P (a news story with the release time): still open.
 5. History effective dates against S&P's releases (audit finding A1). The rebalance day in
-   outputs/history_dates.csv should be the close the release names. HP and MRNA must match.
-   PTC is a known miss: its dates are "ambiguous" (Wikipedia one day before Key Dev), 03b keeps
-   Key Dev there, and Key Dev is one day late. RRC (2007): no release found yet, not checked.
+   outputs/history_dates.csv must be the last trading day before the effective date in the release.
+   Six of the eight are "ambiguous" (Wikipedia one day before Key Dev). They are the evidence for
+   AMBIGUOUS_WIKIPEDIA_FROM in config.py. RRC (2007): no release found, not checked.
+6. One history CAR by hand: Ensco 2012 (ESV_2012), effective day 0 = 2012-07-30. Its estimation
+   window spans three permnos (Ensco International, the Ensco plc ADS from Dec 2009, the class A
+   shares from May 2012). Stitch them from the raw CRSP file by date, recompute beta with np.polyfit
+   on the SPY calendar, and compare beta, n_est and CAR[0,+1] with the pipeline.
 """
 import re
 from zoneinfo import ZoneInfo
@@ -110,24 +114,52 @@ for addition in additions.itertuples():
         print(f"{addition.ticker}: page stamp {stamp} {zone}, after the close, matches additions.csv")
 print(f"announcement stamps: all {len(additions)} are US Eastern, after 16:00, and match additions.csv")
 
-# 5. History effective dates vs. S&P's releases, looked up on 2026-11-20.
-#   HP:   S&P release of 2010-02-22, HP replaces IMS Health "after the close of trading on Friday,
-#         February 26" (PR Newswire copy, https://marketscreener.com/quote/stock/IMS-HEALTH-INC-14310/news/IMS-HEALTH-USD-Standard-Poor-s-Announces-Changes-to-U-S-Indices-13329415)
+# 5. History effective dates vs. S&P's releases, looked up on 2026-11-20. Rebalance close = the
+#    trading day before the effective date ("effective prior to the open of trading on ...").
+#   HP:   release 2010-02-22, HP replaces IMS Health "after the close of trading on Friday, February 26"
+#         (PR Newswire copy, https://marketscreener.com/quote/stock/IMS-HEALTH-INC-14310/news/IMS-HEALTH-USD-Standard-Poor-s-Announces-Changes-to-U-S-Indices-13329415)
+#   WCG:  "effective prior to the open of trading on Monday, September 17"
+#         (https://press.spglobal.com/2018-09-11-WellCare-Health-Plans-Set-to-Join-S-P-500-HealthEquity-to-Join-S-P-MidCap-400-Laredo-Petroleum-to-Join-S-P-SmallCap-600)
+#   IR:   announced as Gardner Denver Holdings, "effective prior to the open of trading on Tuesday, March 3"
+#         (https://press.spglobal.com/2020-02-27-Gardner-Denver-Holdings-Set-to-Join-S-P-500-Cimarex-Energy-to-Join-S-P-MidCap-400)
+#   TRMB: "effective prior to the opening of trading on Thursday, January 21"
+#         (https://press.spglobal.com/2021-01-15-Trimble-Set-to-Join-S-P-500-YETI-Holdings-to-Join-S-P-MidCap-400-Hilltop-Holdings-to-Join-S-P-SmallCap-600)
+#   MPWR: "effective prior to the opening of trading on Friday, February 12"
+#         (https://press.spglobal.com/2021-02-08-Monolithic-Power-Systems-Set-to-Join-S-P-500-Iridium-Communications-to-Join-S-P-MidCap-400-Collegium-Pharmaceutical-to-Join-S-P-SmallCap-600)
+#   PTC:  "effective prior to the open of trading on Tuesday, April 20" (https://press.spglobal.com/2021-04-15-PTC-Set-to-Join-S-P-500-Lattice-Semiconductor-Progyny-to-Join-S-P-MidCap-400-Domtar-to-Join-S-P-SmallCap-600)
 #   MRNA: "effective prior to the opening of trading on Wednesday, July 21"
 #         (https://press.spglobal.com/2021-07-15-Moderna-Set-to-Join-S-P-500)
-#   PTC:  "effective prior to the open of trading on Tuesday, April 20" (https://press.spglobal.com/2021-04-15-PTC-Set-to-Join-S-P-500-Lattice-Semiconductor-Progyny-to-Join-S-P-MidCap-400-Domtar-to-Join-S-P-SmallCap-600)
-RELEASE_REBALANCE_DAYS = {"HP": "2010-02-26", "MRNA": "2021-07-20", "PTC": "2021-04-19"}
-KNOWN_MISSES = {"PTC"}  # ambiguous dates, 03b keeps Key Dev, which is one day late here
+#   SEDG: "effective prior to the open of trading on Monday, December 20, 2021"
+#         (https://press.spglobal.com/2021-12-03-Signature-Bank%2C-SolarEdge-Technologies-and-FactSet-Research-Systems-Set-to-Join-S-P-500-Others-to-Join-S-P-MidCap-400-and-S-P-SmallCap-600)
+RELEASE_REBALANCE_DAYS = {"HP": "2010-02-26", "WCG": "2018-09-14", "IR": "2020-03-02", "TRMB": "2021-01-20",
+                          "MPWR": "2021-02-11", "PTC": "2021-04-19", "MRNA": "2021-07-20", "SEDG": "2021-12-17"}
 history_dates = pd.read_csv(OUTPUTS / "history_dates.csv", parse_dates=["rebalance_day"])
 for ticker, release_day in RELEASE_REBALANCE_DAYS.items():
     release_day = pd.Timestamp(release_day)
     row = history_dates[(history_dates["ticker"] == ticker)
                         & ((history_dates["rebalance_day"] - release_day).abs() < pd.Timedelta(days=30))]
     assert len(row) == 1, ticker
-    ours, rule = row["rebalance_day"].iloc[0], row["date_rule"].iloc[0]
-    print(f"{ticker}: release rebalance close {release_day.date()}, ours {ours.date()} ({rule})")
-    if ticker in KNOWN_MISSES:
-        assert rule == "ambiguous" and ours != release_day
-    else:
-        assert ours == release_day, ticker
+    ours, rule, source = row[["rebalance_day", "date_rule", "date_source"]].iloc[0]
+    print(f"{ticker}: release rebalance close {release_day.date()}, ours {ours.date()} ({rule}, {source} date)")
+    assert ours == release_day, ticker
+
+# 6. ESV_2012 by hand, across its three permnos.
+ESV_PERMNOS, ESV_DAY0 = [62519, 19661, 93159], pd.Timestamp("2012-07-30")
+esv = (crsp.to_table(columns=["permno", "date", "ret_adj"], filter=ds.field("permno").isin(ESV_PERMNOS)).to_pandas()
+       .astype({"date": "datetime64[ns]"})
+       .dropna(subset=["ret_adj"]))
+assert not esv.duplicated(subset="date").any()  # the three permnos never trade on the same day
+esv = esv.set_index("date")["ret_adj"].sort_index()
+spy_days = spy_returns.dropna().index
+day0_pos = spy_days.get_loc(ESV_DAY0)
+est_days = spy_days[day0_pos - 250: day0_pos - 30 + 1]
+est = pd.concat({"stock": esv, "spy": spy_returns}, axis=1, join="inner").loc[lambda d: d.index.isin(est_days)].dropna()
+beta, alpha = np.polyfit(est["spy"], est["stock"], 1)
+event_days = spy_days[day0_pos: day0_pos + 2]
+car_0_p1_by_hand = (esv.reindex(event_days) - (alpha + beta * spy_returns.reindex(event_days))).sum()
+pipeline = pd.read_csv(OUTPUTS / "car_windows.csv").query('event_id == "ESV_2012"').iloc[0]
+print(f"ESV_2012: beta by hand {beta:.4f}, pipeline {pipeline['beta']:.4f}; n_est {len(est)} vs {pipeline['n_est']}; "
+      f"CAR[0,1] {car_0_p1_by_hand:.4f} vs {pipeline['car_0_p1']:.4f}")
+assert pipeline["day0"] == str(ESV_DAY0.date()) and len(est) == pipeline["n_est"]
+assert np.isclose(beta, pipeline["beta"]) and np.isclose(car_0_p1_by_hand, pipeline["car_0_p1"])
 print("hand checks passed")

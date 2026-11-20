@@ -6,13 +6,8 @@ ATH_2002,keydev_history,ATH,,2002-07-25,153,,fewer than 200 estimation days,2001
 NWS_2004,keydev_history,NWS,,2004-12-20,0,,fewer than 200 estimation days,2001-2007
 LO_2008,keydev_history,LO,,2008-06-11,0,,fewer than 200 estimation days,2008-2014
 IVZ_2008,keydev_history,IVZ,,2008-08-21,149,,fewer than 200 estimation days,2008-2014
-SNI_2008,keydev_history,SNI,,2008-09-04,14,,fewer than 200 estimation days,2008-2014
 DPS_2008,keydev_history,DPS,,2008-10-07,75,,fewer than 200 estimation days,2008-2014
 MJN_2009,keydev_history,MJN,,2009-12-21,186,,fewer than 200 estimation days,2008-2014
 ZTS_2013,keydev_history,ZTS,,2013-06-24,67,,fewer than 200 estimation days,2008-2014
 CSRA_2015,keydev_history,CSRA,,2015-12-01,0,,fewer than 200 estimation days,2015-2021
 BHF_2017,keydev_history,BHF,,2017-08-08,0,,fewer than 200 estimation days,2015-2021
-BMS_2019,keydev_history,BMS,,2019-06-07,221,,returns missing inside the event window,2015-2021
-ARNC_2020,keydev_history,ARNC,,2020-06-30,31,,fewer than 200 estimation days,2015-2021
-DTM_2021,keydev_history,DTM,,2021-07-02,0,,fewer than 200 estimation days,2015-2021
-KD_2021,keydev_history,KD,,2021-11-05,0,,fewer than 200 estimation days,2015-2021

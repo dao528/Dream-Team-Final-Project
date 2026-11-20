@@ -1,515 +1,499 @@
-permno,ticker,company,era,keydev_dates,keydev_effective,wiki_date,wiki_offset,date_rule,effective_date,rebalance_day,passes_volume_filter,volume_peak_on,date_check
-79094,JBL,JABIL CIRCUIT INC,2001-2007,2001-01-30,2001-01-30,,,keydev only,2001-01-30,2001-01-29,True,keydev rebalance day,kept
-84001,UVN,UNIVISION COMMUNICATIONS INC,2001-2007,2001-02-07,2001-02-07,,,keydev only,2001-02-07,2001-02-06,True,keydev rebalance day,kept
-23887,CZN,CITIZENS COMMUNICATIONS CO,2001-2007,2001-02-27,2001-02-27,,,keydev only,2001-02-27,2001-02-26,True,keydev rebalance day,kept
-23660,CTAS,CINTAS CORP,2001-2007,2001-03-01,2001-03-01,,,keydev only,2001-03-01,2001-02-28,True,keydev rebalance day,kept
-10696,FISV,FISERV INC,2001-2007,2001-04-02,2001-04-02,,,keydev only,2001-04-02,2001-03-30,True,keydev rebalance day,kept
-26332,CEFT,CONCORD E F S INC,2001-2007,2001-04-02,2001-04-02,,,keydev only,2001-04-02,2001-03-30,True,keydev rebalance day,kept
-88601,MIR,MIRANT CORP,2001-2007,2001-04-03,2001-04-03,,,keydev only,2001-04-03,2001-04-02,True,keydev rebalance day,kept
-86756,PBG,PEPSI BOTTLING GROUP INC,2001-2007,2001-05-14,2001-05-14,,,keydev only,2001-05-14,2001-05-11,True,keydev rebalance day,kept
-84342,TMPW,T M P WORLDWIDE INC,2001-2007,2001-06-04,2001-06-04,,,keydev only,2001-06-04,2001-06-01,True,keydev rebalance day,kept
-89027,MCIT,WORLDCOM INC GA NEW,2001-2007,2001-06-08,2001-06-08,,,keydev only,2001-06-08,2001-06-07,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-84129,ZION,ZIONS BANCORPORATION,2001-2007,2001-06-25,2001-06-25,,,keydev only,2001-06-25,2001-06-22,True,keydev rebalance day,kept
-87536,JHF,HANCOCK JOHN FINANCIAL SVCS INC,2001-2007,2001-06-28,2001-06-28,,,keydev only,2001-06-28,2001-06-27,True,keydev rebalance day,kept
-89014,COL,ROCKWELL COLLINS INC,2001-2007,2001-07-02,2001-07-02,,,keydev only,2001-07-02,2001-06-29,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-89001,AWE,A T & T WIRELESS SVCS INC,2001-2007,2001-07-09,2001-07-09,,,keydev only,2001-07-09,2001-07-06,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-76624,PMCS,P M C SIERRA INC,2001-2007,2001-08-03,2001-08-03,,,keydev only,2001-08-03,2001-08-02,True,keydev rebalance day,kept
-53866,FDO,FAMILY DOLLAR STORES INC,2001-2007,2001-08-06,2001-08-06,,,keydev only,2001-08-06,2001-08-03,True,keydev rebalance day,kept
-89070,ZMH,ZIMMER HOLDINGS INC,2001-2007,2001-08-07,2001-08-07,,,keydev only,2001-08-07,2001-08-06,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-81540,AAS,AMERISOURCE HEALTH CORP,2001-2007,2001-08-30,2001-08-30,,,keydev only,2001-08-30,2001-08-29,True,keydev rebalance day,kept
-84519,CIEN,CIENA CORP,2001-2007,2001-08-30,2001-08-30,,,keydev only,2001-08-30,2001-08-29,False,neither,kept
-45277,IGT,INTERNATIONAL GAME TECHNOLOGY,2001-2007,2001-09-04,2001-09-04,,,keydev only,2001-09-04,2001-08-31,True,keydev rebalance day,kept
-86314,XL,X L CAPITAL LTD,2001-2007,2001-09-04,2001-09-04,,,keydev only,2001-09-04,2001-08-31,True,keydev rebalance day,kept
-43610,IMNX,IMMUNEX CORP NEW,2001-2007,2001-09-21,2001-09-21,,,keydev only,2001-09-21,2001-09-20,True,keydev rebalance day,kept
-37161,TE,T E C O ENERGY INC,2001-2007,2001-10-10,2001-10-10,,,keydev only,2001-10-10,2001-10-09,True,keydev rebalance day,kept
-85238,EOP,EQUITY OFFICE PROPERTIES TRUST,2001-2007,2001-10-10,2001-10-10,,,keydev only,2001-10-10,2001-10-09,True,keydev rebalance day,kept
-76565,HMA,HEALTH MANAGEMENT ASSOCIATES INC,2001-2007,2001-11-07,2001-11-07,,,keydev only,2001-11-07,2001-11-06,True,keydev rebalance day,kept
-86580,NVDA,NVIDIA CORP,2001-2007,2001-11-30,2001-11-30,,,keydev only,2001-11-30,2001-11-29,True,keydev rebalance day,kept
-79547,EQR,EQUITY RESIDENTIAL PROPERTIES TR,2001-2007,2001-12-03,2001-12-03,,,keydev only,2001-12-03,2001-11-30,True,keydev rebalance day,kept
-10324,GENZ,GENZYME CORP,2001-2007,2001-12-14,2001-12-14,,,keydev only,2001-12-14,2001-12-13,True,keydev rebalance day,kept
-76638,JNY,JONES APPAREL GROUP INC,2001-2007,2001-12-17,2001-12-17,,,keydev only,2001-12-17,2001-12-14,True,keydev rebalance day,kept
-82651,WAT,WATERS CORP,2001-2007,2002-01-02,2002-01-02,,,keydev only,2002-01-02,2001-12-31,True,keydev rebalance day,kept
-75592,PCL,PLUM CREEK TIMBER CO INC,2001-2007,2002-01-17,2002-01-17,,,keydev only,2002-01-17,2002-01-16,True,keydev rebalance day,kept
-79057,ACE,ACE LTD,2001-2007,2002-01-30,2002-01-30,,,keydev only,2002-01-30,2002-01-29,True,keydev rebalance day,kept
-80515,RATL,RATIONAL SOFTWARE CORP,2001-2007,2002-02-01,2002-02-01,,,keydev only,2002-02-01,2002-01-31,True,keydev rebalance day,kept
-51706,MI,MARSHALL & ILSLEY CORP,2001-2007,2002-02-11,2002-02-11,,,keydev only,2002-02-11,2002-02-08,True,keydev rebalance day,kept
-36397,FTN,FIRST TENNESSEE NATIONAL CORP,2001-2007,2002-05-06,2002-05-06,,,keydev only,2002-05-06,2002-05-03,True,keydev rebalance day,kept
-81285,ASD,AMERICAN STANDARD COS INC DEL,2001-2007,2002-05-13,2002-05-13,,,keydev only,2002-05-13,2002-05-10,True,keydev rebalance day,kept
-76240,BJS,B J SERVICES CO,2001-2007,2002-05-15,2002-05-15,,,keydev only,2002-05-15,2002-05-14,True,keydev rebalance day,kept
-81138,APOL,APOLLO GROUP INC,2001-2007,2002-05-15,2002-05-15,,,keydev only,2002-05-15,2002-05-14,True,keydev rebalance day,kept
-80100,SPG,SIMON PROPERTY GROUP INC NEW,2001-2007,2002-06-26,2002-06-26,,,keydev only,2002-06-26,2002-06-25,True,keydev rebalance day,kept
-58094,NFB,NORTH FORK BANCORPORATION NY INC,2001-2007,2002-07-17,2002-07-17,,,keydev only,2002-07-17,2002-07-16,True,keydev rebalance day,kept
-89195,PFG,PRINCIPAL FINANCIAL GROUP INC,2001-2007,2002-07-22,2002-07-22,,,keydev only,2002-07-22,2002-07-19,True,keydev rebalance day,kept
-87447,UPS,UNITED PARCEL SERVICE INC,2001-2007,2002-07-22,2002-07-22,,,keydev only,2002-07-22,2002-07-19,True,keydev rebalance day,kept
-86868,GS,GOLDMAN SACHS GROUP INC,2001-2007,2002-07-22,2002-07-22,,,keydev only,2002-07-22,2002-07-19,True,keydev rebalance day,kept
-89258,PRU,PRUDENTIAL FINANCIAL INC,2001-2007,2002-07-22,2002-07-22,,,keydev only,2002-07-22,2002-07-19,True,keydev rebalance day,kept
-75828,ERTS,ELECTRONIC ARTS INC,2001-2007,2002-07-22,2002-07-22,,,keydev only,2002-07-22,2002-07-19,True,keydev rebalance day,kept
-10108,SDS,SUNGARD DATA SYSTEMS INC,2001-2007,2002-07-22,2002-07-22,,,keydev only,2002-07-22,2002-07-19,True,keydev rebalance day,kept
-86356,EBAY,EBAY INC,2001-2007,2002-07-22,2002-07-22,,,keydev only,2002-07-22,2002-07-19,True,keydev rebalance day,kept
-89179,ATH,ANTHEM INC,2001-2007,2002-07-25,2002-07-25,,,keydev only,2002-07-25,2002-07-24,True,keydev rebalance day,kept
-88668,MON,MONSANTO CO NEW,2001-2007,2002-08-14,2002-08-14,,,keydev only,2002-08-14,2002-08-13,False,neither,kept
-89495,TAP,TRAVELERS PPTY CASUALTY CORP NEW,2001-2007,2002-08-21,2002-08-21,,,keydev only,2002-08-21,2002-08-20,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-86946,RJR,REYNOLDS R J TOBACCO HLDGS INC,2001-2007,2002-09-04,2002-09-04,,,keydev only,2002-09-04,2002-09-03,True,keydev rebalance day,kept
-84373,DGX,QUEST DIAGNOSTICS INC,2001-2007,2002-12-12,2002-12-12,,,keydev only,2002-12-12,2002-12-11,True,keydev rebalance day,kept
-76282,AN,AUTONATION INC DEL,2001-2007,2003-02-24,2003-02-24,,,keydev only,2003-02-24,2003-02-21,True,keydev rebalance day,kept
-80711,AIV,APARTMENT INVESTMENT & MGMT CO,2001-2007,2003-03-14,2003-03-14,,,keydev only,2003-03-14,2003-03-13,True,keydev rebalance day,kept
-52090,MKC,MCCORMICK & CO INC,2001-2007,2003-03-21,2003-03-21,,,keydev only,2003-03-21,2003-03-20,True,keydev rebalance day,kept
-75607,SYMC,SYMANTEC CORP,2001-2007,2003-03-31,2003-03-31,,,keydev only,2003-03-31,2003-03-28,True,keydev rebalance day,kept
-86102,FII,FEDERATED INVESTORS INC PA,2001-2007,2003-04-16,2003-04-16,,,keydev only,2003-04-16,2003-04-15,True,keydev rebalance day,kept
-80406,PLD,PROLOGIS,2001-2007,2003-07-17,2003-07-17,,,keydev only,2003-07-17,2003-07-16,True,keydev rebalance day,kept
-89813,MHS,MEDCO HEALTH SOLUTIONS INC,2001-2007,2003-08-20,2003-08-20,,,keydev only,2003-08-20,2003-08-19,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-77668,ESRX,EXPRESS SCRIPTS INC,2001-2007,2003-09-26,2003-09-26,2003-09-25,-1.0,ambiguous,2003-09-26,2003-09-25,True,keydev rebalance day,kept
-76841,IDPH,I D E C PHARMACEUTICALS CORP,2001-2007,2003-11-13,2003-11-13,,,keydev only,2003-11-13,2003-11-12,True,keydev rebalance day,kept
-35554,MTB,M & T BANK CORP,2001-2007,2004-02-27,2004-02-27,,,keydev only,2004-02-27,2004-02-26,True,keydev rebalance day,kept
-81262,CMX,CAREMARK RX INC,2001-2007,2004-03-25,2004-03-25,,,keydev only,2004-03-25,2004-03-24,True,keydev rebalance day,kept
-83862,ET,E TRADE FINANCIAL CORP,2001-2007,2004-04-01,2004-04-01,,,keydev only,2004-04-01,2004-03-31,True,keydev rebalance day,kept
-80913,ACS,AFFILIATED COMPUTER SERVICES INC,2001-2007,2004-04-02,2004-04-02,,,keydev only,2004-04-02,2004-04-01,True,keydev rebalance day,kept
-39087,FON,SPRINT CORP,2001-2007,2004-04-23,2004-04-23,,,keydev only,2004-04-23,2004-04-22,False,neither,kept
-69550,MYL,MYLAN LABS INC,2001-2007,2004-04-23,2004-04-23,,,keydev only,2004-04-23,2004-04-22,True,keydev rebalance day,kept
-85269,VLO,VALERO ENERGY CORP NEW,2001-2007,2004-04-29,2004-04-29,,,keydev only,2004-04-29,2004-04-28,True,keydev rebalance day,kept
-90110,HSP,HOSPIRA INC,2001-2007,2004-05-03,2004-05-03,,,keydev only,2004-05-03,2004-04-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-10562,SOV,SOVEREIGN BANCORP INC,2001-2007,2004-07-01,2004-07-01,,,keydev only,2004-07-01,2004-06-30,True,keydev rebalance day,kept
-35044,RF,REGIONS FINANCIAL CORP,2001-2007,2004-07-01,2004-07-01,,,keydev only,2004-07-01,2004-06-30,False,neither,kept
-77274,GILD,GILEAD SCIENCES INC,2001-2007,2004-07-01,2004-07-01,,,keydev only,2004-07-01,2004-06-30,True,keydev rebalance day,kept
-77150,FSH,FISHER SCIENTIFIC INTL INC,2001-2007,2004-08-03,2004-08-03,,,keydev only,2004-08-03,2004-08-02,True,keydev rebalance day,kept
-88661,COH,COACH INC,2001-2007,2004-09-01,2004-09-01,,,keydev only,2004-09-01,2004-08-31,True,keydev rebalance day,kept
-89463,CIT,C I T GROUP INC NEW,2001-2007,2004-10-27,2004-10-27,,,keydev only,2004-10-27,2004-10-26,True,keydev rebalance day,kept
-12062,LH,LABORATORY CORP AMERICA HLDGS,2001-2007,2004-11-01,2004-11-01,,,keydev only,2004-11-01,2004-10-29,True,keydev rebalance day,kept
-86021,LLL,L 3 COMMUNICATIONS HLDGS INC,2001-2007,2004-12-01,2004-12-01,,,keydev only,2004-12-01,2004-11-30,True,keydev rebalance day,kept
-90435,FSL,FREESCALE SEMICONDUCTOR INC,2001-2007,"2004-12-02, 2004-12-03",2004-12-03,,,keydev only,2004-12-03,2004-12-02,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-90441,NWS,NEWS CORP,2001-2007,2004-12-20,2004-12-20,,,keydev only,2004-12-20,2004-12-17,True,keydev rebalance day,kept
-22032,CBSS,COMPASS BANCSHARES INC,2001-2007,2004-12-20,2004-12-20,,,keydev only,2004-12-20,2004-12-17,True,keydev rebalance day,kept
-64451,ASN,ARCHSTONE SMITH TRUST,2001-2007,"2004-12-17, 2004-12-20",2004-12-20,,,keydev only,2004-12-20,2004-12-17,True,keydev rebalance day,kept
-79212,XTO,X T O ENERGY INC,2001-2007,2004-12-29,2004-12-29,,,keydev only,2004-12-29,2004-12-28,True,keydev rebalance day,kept
-84032,NOI,NATIONAL OILWELL INC,2001-2007,2005-03-14,2005-03-14,,,keydev only,2005-03-14,2005-03-11,True,keydev rebalance day,kept
-89757,KMRT,KMART HOLDING CORP,2001-2007,2005-03-28,2005-03-28,,,keydev only,2005-03-28,2005-03-24,True,keydev rebalance day,kept
-69796,STZ,CONSTELLATION BRANDS INC,2001-2007,2005-07-05,2005-07-05,2005-07-01,-1.0,ambiguous,2005-07-05,2005-07-01,True,keydev rebalance day,kept
-77661,DHI,D R HORTON INC,2001-2007,2005-07-05,2005-07-05,,,keydev only,2005-07-05,2005-07-01,True,keydev rebalance day,kept
-32791,WFT,WEATHERFORD INTL LTD,2001-2007,2005-07-22,2005-07-22,,,keydev only,2005-07-22,2005-07-21,True,keydev rebalance day,kept
-77730,TSN,TYSON FOODS INC,2001-2007,2005-08-11,2005-08-11,,,keydev only,2005-08-11,2005-08-10,True,keydev rebalance day,kept
-28388,VNO,VORNADO REALTY TRUST,2001-2007,2005-08-12,2005-08-12,,,keydev only,2005-08-12,2005-08-11,True,keydev rebalance day,kept
-28345,MUR,MURPHY OIL CORP,2001-2007,2005-08-15,2005-08-15,,,keydev only,2005-08-15,2005-08-12,True,keydev rebalance day,kept
-64653,PSA,PUBLIC STORAGE INC,2001-2007,2005-08-19,2005-08-19,,,keydev only,2005-08-19,2005-08-18,True,keydev rebalance day,kept
-76619,CVH,COVENTRY HEALTH CARE INC,2001-2007,2005-08-30,2005-08-30,,,keydev only,2005-08-30,2005-08-29,True,keydev rebalance day,kept
-90880,AMP,AMERIPRISE FINANCIAL INC,2001-2007,2005-10-03,2005-10-03,,,keydev only,2005-10-03,2005-09-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-52708,LEN,LENNAR CORP,2001-2007,2005-10-04,2005-10-04,,,keydev only,2005-10-04,2005-10-03,True,keydev rebalance day,kept
-78034,PDCO,PATTERSON COMPANIES INC,2001-2007,2005-10-11,2005-10-11,,,keydev only,2005-10-11,2005-10-10,True,keydev rebalance day,kept
-84788,AMZN,AMAZON COM INC,2001-2007,2005-11-15,2005-11-15,2005-11-18,3.0,keydev early,2005-11-18,2005-11-17,False,neither,kept
-90162,GNW,GENWORTH FINANCIAL INC,2001-2007,2005-12-02,2005-12-02,,,keydev only,2005-12-02,2005-12-01,True,keydev rebalance day,kept
-84176,SSP,SCRIPPS E W CO OHIO,2001-2007,2005-12-20,2005-12-20,,,keydev only,2005-12-20,2005-12-19,True,keydev rebalance day,kept
-77281,WFMI,WHOLE FOODS MARKET INC,2001-2007,2006-01-03,2006-01-03,,,keydev only,2006-01-03,2005-12-30,True,keydev rebalance day,kept
-91063,VIA,VIACOM INC NEW,2001-2007,2006-01-03,2006-01-03,,,keydev only,2006-01-03,2005-12-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-82642,EL,LAUDER ESTEE COS INC,2001-2007,2006-01-05,2006-01-05,,,keydev only,2006-01-05,2006-01-04,True,keydev rebalance day,kept
-75224,HAR,HARMAN INTL INDS INC NEW,2001-2007,2006-02-01,2006-02-01,,,keydev only,2006-02-01,2006-01-31,True,keydev rebalance day,kept
-85753,VRSN,VERISIGN INC,2001-2007,2006-02-01,2006-02-01,,,keydev only,2006-02-01,2006-01-31,True,keydev rebalance day,kept
-11415,BRL,BARR PHARMACEUTICALS INC,2001-2007,2006-02-27,2006-02-27,,,keydev only,2006-02-27,2006-02-24,True,keydev rebalance day,kept
-78877,CHK,CHESAPEAKE ENERGY CORP,2001-2007,2006-03-03,2006-03-03,,,keydev only,2006-03-03,2006-03-02,True,keydev rebalance day,kept
-77129,KIM,KIMCO REALTY CORP,2001-2007,2006-04-03,2006-04-03,,,keydev only,2006-04-03,2006-03-31,True,keydev rebalance day,kept
-83421,DF,DEAN FOODS CO NEW,2001-2007,2006-04-03,2006-04-03,,,keydev only,2006-04-03,2006-03-31,True,keydev rebalance day,kept
-85058,BXP,BOSTON PROPERTIES INC,2001-2007,2006-04-03,2006-04-03,,,keydev only,2006-04-03,2006-03-31,True,keydev rebalance day,kept
-90319,GOOG,GOOGLE INC,2001-2007,2006-04-03,2006-04-03,,,keydev only,2006-04-03,2006-03-31,True,keydev rebalance day,kept
-82618,SNDK,SANDISK CORP,2001-2007,2006-04-20,2006-04-20,,,keydev only,2006-04-20,2006-04-19,True,keydev rebalance day,kept
-65330,LM,LEGG MASON INC,2001-2007,2006-04-24,2006-04-24,,,keydev only,2006-04-24,2006-04-21,True,keydev rebalance day,kept
-91218,EQ,EMBARQ CORP,2001-2007,2006-05-11,2006-05-11,,,keydev only,2006-05-11,2006-05-10,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-86845,CBH,COMMERCE BANCORP INC NJ,2001-2007,2006-06-01,2006-06-01,,,keydev only,2006-06-01,2006-05-31,False,neither,kept
-86979,JNPR,JUNIPER NETWORKS INC,2001-2007,2006-06-01,2006-06-01,2006-06-02,1.0,keydev early,2006-06-02,2006-06-01,False,wikipedia rebalance day,kept
-86799,CNX,CONSOL ENERGY INC,2001-2007,2006-06-27,2006-06-27,,,keydev only,2006-06-27,2006-06-26,False,neither,kept
-91391,WIN,WINDSTREAM CORP,2001-2007,2006-07-18,2006-07-18,,,keydev only,2006-07-18,2006-07-17,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-91388,H,REALOGY CORP,2001-2007,2006-07-25,2006-07-25,,,keydev only,2006-07-25,2006-07-24,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-91392,WYN,WYNDHAM WORLDWIDE CORP,2001-2007,2006-08-01,2006-08-01,,,keydev only,2006-08-01,2006-07-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-89626,CME,CHICAGO MERCANTILE EXCH HLDG INC,2001-2007,2006-08-11,2006-08-11,,,keydev only,2006-08-11,2006-08-10,True,keydev rebalance day,kept
-91461,WU,WESTERN UNION CO,2001-2007,2006-09-27,2006-09-27,,,keydev only,2006-09-27,2006-09-26,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-45794,SII,SMITH INTERNATIONAL INC,2001-2007,2006-09-29,2006-09-29,,,keydev only,2006-09-29,2006-09-28,False,neither,kept
-11552,CELG,CELGENE CORP,2001-2007,2006-11-06,2006-11-06,,,keydev only,2006-11-06,2006-11-03,True,keydev rebalance day,kept
-89003,FIS,FIDELITY NATIONAL INFO SVCS INC,2001-2007,2006-11-10,2006-11-10,,,keydev only,2006-11-10,2006-11-09,True,keydev rebalance day,kept
-90199,CBG,C B RICHARD ELLIS GROUP INC,2001-2007,2006-11-10,2006-11-10,,,keydev only,2006-11-10,2006-11-09,True,keydev rebalance day,kept
-86158,CTSH,COGNIZANT TECHNOLOGY SOLS CORP,2001-2007,2006-11-15,2006-11-15,,,keydev only,2006-11-15,2006-11-14,False,neither,kept
-88991,BTU,PEABODY ENERGY CORP,2001-2007,2006-11-18,2006-11-20,,,keydev only,2006-11-20,2006-11-17,True,keydev rebalance day,kept
-78840,IACI,IAC INTERACTIVECORP,2001-2007,2006-11-23,2006-11-24,,,keydev only,2006-11-24,2006-11-22,False,neither,kept
-27756,STR,QUESTAR CORP,2001-2007,2006-11-23,2006-11-24,,,keydev only,2006-11-24,2006-11-22,False,neither,kept
-89954,DTV,DIRECTV GROUP INC,2001-2007,2006-12-04,2006-12-04,,,keydev only,2006-12-04,2006-12-01,True,keydev rebalance day,kept
-58318,TEX,TEREX CORP NEW,2001-2007,2006-12-19,2006-12-19,,,keydev only,2006-12-19,2006-12-18,False,neither,kept
-62519,ESV,E N S C O INTERNATIONAL INC,2001-2007,2007-01-03,2007-01-03,,,keydev only,2007-01-03,2006-12-29,False,neither,kept
-91650,SE,SPECTRA ENERGY CORP,2001-2007,2007-01-03,2007-01-03,,,keydev only,2007-01-03,2006-12-29,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-80381,AVB,AVALONBAY COMMUNITIES INC,2001-2007,2007-01-05,2007-01-05,2007-01-10,3.0,keydev early,2007-01-10,2007-01-09,False,wikipedia rebalance day,kept
-85072,RL,POLO RALPH LAUREN CORP,2001-2007,2007-02-01,2007-02-01,,,keydev only,2007-02-01,2007-01-31,False,neither,kept
-27043,VAR,VARIAN MEDICAL SYSTEMS INC,2001-2007,2007-02-09,2007-02-09,,,keydev only,2007-02-09,2007-02-08,False,neither,kept
-87070,HCBK,HUDSON CITY BANCORP INC,2001-2007,2007-02-15,2007-02-15,,,keydev only,2007-02-15,2007-02-14,True,keydev rebalance day,kept
-25099,WPS,W P S RESOURCES CORP,2001-2007,2007-02-22,2007-02-22,,,keydev only,2007-02-22,2007-02-21,True,keydev rebalance day,kept
-85459,CHRW,CH ROBINSON WORLDWIDE INC,2001-2007,2007-02-28,2007-02-28,,,keydev only,2007-02-28,2007-02-27,False,neither,kept
-46703,HST,HOST HOTELS & RESORTS INC,2001-2007,2007-03-20,2007-03-20,,,keydev only,2007-03-20,2007-03-19,True,keydev rebalance day,kept
-78927,DDR,DEVELOPERS DIVERSIFIED RLTY CORP,2001-2007,2007-03-23,2007-03-23,,,keydev only,2007-03-23,2007-03-22,True,keydev rebalance day,kept
-83976,ANF,ABERCROMBIE & FITCH CO,2001-2007,2007-03-28,2007-03-28,,,keydev only,2007-03-28,2007-03-27,False,neither,kept
-89006,KFT,KRAFT FOODS INC,2001-2007,2007-03-23,2007-03-23,2007-03-30,5.0,keydev early,2007-03-30,2007-03-29,False,neither,kept
-90038,AIZ,ASSURANT INC,2001-2007,2007-04-03,2007-04-03,,,keydev only,2007-04-03,2007-04-02,False,neither,kept
-81776,WFR,M E M C ELECTRONIC MATERIALS INC,2001-2007,2007-05-25,2007-05-25,,,keydev only,2007-05-25,2007-05-24,False,neither,kept
-63830,PCP,PRECISION CASTPARTS CORP,2001-2007,2007-05-31,2007-05-31,,,keydev only,2007-05-31,2007-05-30,False,neither,kept
-92156,COV,COVIDIEN LTD,2001-2007,2007-06-22,2007-06-22,,,keydev only,2007-06-22,2007-06-21,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-92157,TEL,TYCO ELECTRONICS LTD,2001-2007,2007-06-23,2007-06-25,,,keydev only,2007-06-25,2007-06-22,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-92121,DFS,DISCOVER FINANCIAL SERVICES,2001-2007,2007-06-23,2007-06-25,2007-07-02,5.0,keydev early,2007-07-02,2007-06-29,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-79129,GGP,GENERAL GROWTH PROPERTIES INC,2001-2007,2007-07-02,2007-07-02,,,keydev only,2007-07-02,2007-06-29,True,keydev rebalance day,kept
-85271,ACAS,AMERICAN CAPITAL STRATEGIES LTD,2001-2007,2007-07-03,2007-07-03,,,keydev only,2007-07-03,2007-07-02,False,neither,kept
-87299,AKAM,AKAMAI TECHNOLOGIES INC,2001-2007,2007-07-10,2007-07-10,,,keydev only,2007-07-10,2007-07-09,False,neither,kept
-20415,LUK,LEUCADIA NATIONAL CORP,2001-2007,2007-08-27,2007-08-27,2007-08-24,-1.0,ambiguous,2007-08-27,2007-08-24,True,keydev rebalance day,kept
-78987,MCHP,MICROCHIP TECHNOLOGY INC,2001-2007,2007-09-07,2007-09-07,,,keydev only,2007-09-07,2007-09-06,True,keydev rebalance day,kept
-90993,ICE,INTERCONTINENTALEXCHANGE INC,2001-2007,2007-09-26,2007-09-26,2007-09-26,0.0,agree,2007-09-26,2007-09-25,True,both rebalance days,kept
-37284,TSO,TESORO CORP,2001-2007,2007-09-25,2007-09-25,2007-09-27,2.0,keydev early,2007-09-27,2007-09-26,False,wikipedia rebalance day,kept
-92293,TDC,TERADATA CORP DE,2001-2007,2007-09-25,2007-09-25,2007-10-01,4.0,keydev early,2007-10-01,2007-09-28,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-90808,EXPE,EXPEDIA INC DE,2001-2007,2007-09-25,2007-09-25,2007-10-02,5.0,keydev early,2007-10-02,2007-10-01,False,wikipedia rebalance day,kept
-61815,NBL,NOBLE ENERGY INC,2001-2007,2007-10-03,2007-10-03,,,keydev only,2007-10-03,2007-10-02,False,neither,kept
-87717,EXPD,EXPEDITORS INTERNATIONAL WA INC,2001-2007,2007-10-09,2007-10-09,,,keydev only,2007-10-09,2007-10-08,False,neither,kept
-83699,TIE,TITANIUM METALS CORP,2001-2007,2007-10-19,2007-10-19,,,keydev only,2007-10-19,2007-10-18,False,neither,kept
-91143,NYX,N Y S E EURONEXT,2001-2007,2007-10-19,2007-10-19,,,keydev only,2007-10-19,2007-10-18,False,neither,kept
-52329,JEC,JACOBS ENGINEERING GROUP INC,2001-2007,2007-10-24,2007-10-24,2007-10-26,2.0,keydev early,2007-10-26,2007-10-25,False,wikipedia rebalance day,kept
-23501,POM,PEPCO HOLDINGS INC,2001-2007,"2007-11-02, 2007-11-09",2007-11-09,,,keydev only,2007-11-09,2007-11-08,True,keydev rebalance day,kept
-51263,MTW,MANITOWOC CO INC,2001-2007,2007-11-12,2007-11-12,,,keydev only,2007-11-12,2007-11-09,False,neither,kept
-86111,AMT,AMERICAN TOWER CORP,2001-2007,2007-11-12,2007-11-12,,,keydev only,2007-11-12,2007-11-09,False,neither,kept
-89301,GME,GAMESTOP CORP NEW,2001-2007,2007-12-14,2007-12-14,2007-12-13,-1.0,ambiguous,2007-12-14,2007-12-13,True,keydev rebalance day,kept
-50017,RRC,RANGE RESOURCES CORP,2001-2007,2007-12-21,2007-12-21,2007-12-20,-1.0,ambiguous,2007-12-21,2007-12-20,True,keydev rebalance day,kept
-53225,WPO,WASHINGTON POST CO,2001-2007,2007-12-31,2007-12-31,,,keydev only,2007-12-31,2007-12-28,True,keydev rebalance day,kept
-76639,TSS,TOTAL SYSTEM SERVICES INC,2001-2007,2008-01-02,2008-01-02,,,keydev only,2008-01-02,2007-12-31,True,keydev rebalance day,kept
-81857,CAM,CAMERON INTERNATIONAL CORP,2008-2014,2008-01-18,2008-01-18,,,keydev only,2008-01-18,2008-01-17,False,neither,kept
-67598,HCP,H C P INC,2008-2014,2008-03-31,2008-03-31,,,keydev only,2008-03-31,2008-03-28,True,keydev rebalance day,kept
-92602,PM,PHILIP MORRIS INTERNATIONAL INC,2008-2014,2008-03-31,2008-03-31,,,keydev only,2008-03-31,2008-03-28,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-88352,ISRG,INTUITIVE SURGICAL INC,2008-2014,2008-06-02,2008-06-02,,,keydev only,2008-06-02,2008-05-30,True,keydev rebalance day,kept
-63765,SWN,SOUTHWESTERN ENERGY CO,2008-2014,2008-06-06,2008-06-06,,,keydev only,2008-06-06,2008-06-05,True,keydev rebalance day,kept
-17279,LO,LORILLARD INC,2008-2014,2008-06-11,2008-06-11,2008-06-10,-1.0,ambiguous,2008-06-11,2008-06-10,False,no volume test,kept
-26382,MEE,MASSEY ENERGY CO,2008-2014,2008-06-23,2008-06-23,2008-06-23,0.0,agree,2008-06-23,2008-06-20,True,both rebalance days,kept
-76082,COG,CABOT OIL & GAS CORP,2008-2014,2008-06-23,2008-06-23,2008-06-23,0.0,agree,2008-06-23,2008-06-20,True,both rebalance days,kept
-80303,AKS,A K STEEL HOLDING CORP,2008-2014,2008-07-01,2008-07-01,2008-07-01,0.0,agree,2008-07-01,2008-06-30,True,both rebalance days,kept
-92709,SNI,SCRIPPS NETWORKS INTERACTIVE INC,2008-2014,2008-07-01,2008-07-01,,,keydev only,2008-07-01,2008-06-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-91233,MA,MASTERCARD INC,2008-2014,2008-07-18,2008-07-18,,,keydev only,2008-07-18,2008-07-17,True,keydev rebalance day,kept
-82307,DVA,DAVITA INC,2008-2014,2008-07-31,2008-07-31,,,keydev only,2008-07-31,2008-07-30,True,keydev rebalance day,kept
-19583,IVZ,INVESCO LTD,2008-2014,2008-08-21,2008-08-21,,,keydev only,2008-08-21,2008-08-20,True,keydev rebalance day,kept
-90829,CF,C F INDUSTRIES HOLDINGS INC,2008-2014,2008-08-27,2008-08-27,,,keydev only,2008-08-27,2008-08-26,True,keydev rebalance day,kept
-92709,SNI,SCRIPPS NETWORKS INTERACTIVE INC,2008-2014,2008-09-04,2008-09-04,,,keydev only,2008-09-04,2008-09-03,False,neither,kept
-11618,FAST,FASTENAL CO,2008-2014,2008-09-15,2008-09-15,2008-09-12,-1.0,ambiguous,2008-09-15,2008-09-12,True,keydev rebalance day,kept
-90215,CRM,SALESFORCE COM INC,2008-2014,2008-09-15,2008-09-15,2008-09-12,-1.0,ambiguous,2008-09-15,2008-09-12,True,keydev rebalance day,kept
-25582,HRS,HARRIS CORP,2008-2014,2008-09-22,2008-09-22,2008-09-16,-4.0,wikipedia earlier,2008-09-22,2008-09-19,True,keydev rebalance day,kept
-75241,PXD,PIONEER NATURAL RESOURCES CO,2008-2014,2008-09-24,2008-09-24,,,keydev only,2008-09-24,2008-09-23,True,keydev rebalance day,kept
-84769,APH,AMPHENOL CORP NEW,2008-2014,2008-09-30,2008-09-30,,,keydev only,2008-09-30,2008-09-29,True,keydev rebalance day,kept
-30940,FLS,FLOWSERVE CORP,2008-2014,"2008-10-01, 2008-10-02",2008-10-02,,,keydev only,2008-10-02,2008-10-01,True,keydev rebalance day,kept
-92618,DPS,DR PEPPER SNAPPLE GROUP INC,2008-2014,2008-10-07,2008-10-07,,,keydev only,2008-10-07,2008-10-06,True,keydev rebalance day,kept
-90601,NDAQ,NASDAQ O M X GROUP INC,2008-2014,2008-10-22,2008-10-22,,,keydev only,2008-10-22,2008-10-21,True,keydev rebalance day,kept
-23536,WEC,WISCONSIN ENERGY CORP,2008-2014,2008-10-31,2008-10-31,,,keydev only,2008-10-31,2008-10-30,True,keydev rebalance day,kept
-42585,SJM,SMUCKER J M CO,2008-2014,2008-11-06,2008-11-06,,,keydev only,2008-11-06,2008-11-05,False,neither,kept
-12073,PBCT,PEOPLES UNITED FINANCIAL INC,2008-2014,2008-11-13,2008-11-13,,,keydev only,2008-11-13,2008-11-12,True,keydev rebalance day,kept
-11600,XRAY,DENTSPLY INTERNATIONAL INC NEW,2008-2014,2008-11-14,2008-11-14,,,keydev only,2008-11-14,2008-11-13,True,keydev rebalance day,kept
-89533,WYNN,WYNN RESORTS LTD,2008-2014,2008-11-14,2008-11-14,,,keydev only,2008-11-14,2008-11-13,True,keydev rebalance day,kept
-76625,CEPH,CEPHALON INC,2008-2014,2008-11-17,2008-11-17,,,keydev only,2008-11-17,2008-11-14,True,keydev rebalance day,kept
-83906,SRCL,STERICYCLE INC,2008-2014,2008-11-19,2008-11-19,,,keydev only,2008-11-19,2008-11-18,True,keydev rebalance day,kept
-86725,IVGN,INVITROGEN CORP,2008-2014,2008-11-24,2008-11-24,,,keydev only,2008-11-24,2008-11-21,True,keydev rebalance day,kept
-88590,DNB,DUN & BRADSTREET CORP DEL NEW,2008-2014,2008-12-02,2008-12-02,,,keydev only,2008-12-02,2008-12-01,True,keydev rebalance day,kept
-86228,RSG,REPUBLIC SERVICES INC,2008-2014,2008-12-05,2008-12-05,,,keydev only,2008-12-05,2008-12-04,True,keydev rebalance day,kept
-24328,EQT,EQUITABLE RESOURCES INC,2008-2014,2008-12-19,2008-12-19,,,keydev only,2008-12-19,2008-12-18,True,keydev rebalance day,kept
-77976,MFE,MCAFEE INC,2008-2014,2008-12-23,2008-12-23,,,keydev only,2008-12-23,2008-12-22,True,keydev rebalance day,kept
-77157,OI,OWENS ILL INC,2008-2014,2009-01-02,2009-01-02,2008-12-31,-1.0,ambiguous,2009-01-02,2008-12-31,True,keydev rebalance day,kept
-79265,FLIR,FLIR SYSTEMS INC,2008-2014,2009-01-02,2009-01-02,,,keydev only,2009-01-02,2008-12-31,True,keydev rebalance day,kept
-23085,SCG,SCANA CORP NEW,2008-2014,2009-01-02,2009-01-02,,,keydev only,2009-01-02,2008-12-31,True,keydev rebalance day,kept
-83143,IRM,IRON MOUNTAIN INC,2008-2014,2009-01-06,2009-01-06,,,keydev only,2009-01-06,2009-01-05,True,keydev rebalance day,kept
-65947,HCN,HEALTH CARE REIT INC,2008-2014,2009-01-30,2009-01-30,,,keydev only,2009-01-30,2009-01-29,True,keydev rebalance day,kept
-82298,DO,DIAMOND OFFSHORE DRILLING INC,2008-2014,2009-02-26,2009-02-26,,,keydev only,2009-02-26,2009-02-25,True,keydev rebalance day,kept
-32870,HRL,HORMEL FOODS CORP,2008-2014,2009-03-04,2009-03-04,2009-03-03,-1.0,ambiguous,2009-03-04,2009-03-03,True,keydev rebalance day,kept
-75819,VTR,VENTAS INC,2008-2014,2009-03-04,2009-03-04,2009-03-03,-1.0,ambiguous,2009-03-04,2009-03-03,True,keydev rebalance day,kept
-44206,NU,NORTHEAST UTILITIES,2008-2014,2009-03-17,2009-03-17,,,keydev only,2009-03-17,2009-03-16,True,keydev rebalance day,kept
-79103,ORLY,O REILLY AUTOMOTIVE INC,2008-2014,2009-03-27,2009-03-27,,,keydev only,2009-03-27,2009-03-26,True,keydev rebalance day,kept
-91883,TWC,TIME WARNER CABLE INC,2008-2014,2009-03-30,2009-03-30,,,keydev only,2009-03-30,2009-03-27,False,neither,kept
-82196,DNR,DENBURY RESOURCES INC,2008-2014,2009-04-02,2009-04-02,,,keydev only,2009-04-02,2009-04-01,True,keydev rebalance day,kept
-89004,FTI,F M C TECHNOLOGIES INC,2008-2014,2009-06-05,2009-06-05,2009-06-05,0.0,agree,2009-06-05,2009-06-04,True,both rebalance days,kept
-76708,DV,DEVRY INC DEL,2008-2014,2009-06-09,2009-06-09,,,keydev only,2009-06-09,2009-06-08,True,keydev rebalance day,kept
-91937,PCS,METROPCS COMMUNICATIONS INC,2008-2014,2009-06-30,2009-06-30,2009-06-29,-1.0,ambiguous,2009-06-30,2009-06-29,True,keydev rebalance day,kept
-85792,PWR,QUANTA SERVICES INC,2008-2014,2009-07-01,2009-07-01,,,keydev only,2009-07-01,2009-06-30,True,keydev rebalance day,kept
-66384,WDC,WESTERN DIGITAL CORP,2008-2014,2009-07-01,2009-07-01,,,keydev only,2009-07-01,2009-06-30,True,keydev rebalance day,kept
-87184,RHT,RED HAT INC,2008-2014,2009-07-27,2009-07-27,,,keydev only,2009-07-27,2009-07-24,True,keydev rebalance day,kept
-19166,FMC,F M C CORP,2008-2014,2009-08-19,2009-08-19,2009-08-19,0.0,agree,2009-08-19,2009-08-18,True,both rebalance days,kept
-92988,CFN,CAREFUSION CORP,2008-2014,2009-09-01,2009-09-01,,,keydev only,2009-09-01,2009-08-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-70308,ARG,AIRGAS INC,2008-2014,2009-09-09,2009-09-09,,,keydev only,2009-09-09,2009-09-08,True,keydev rebalance day,kept
-91611,FSLR,FIRST SOLAR INC,2008-2014,2009-10-16,2009-10-16,,,keydev only,2009-10-16,2009-10-15,True,keydev rebalance day,kept
-86783,PCLN,PRICELINE COM INC,2008-2014,2009-11-06,2009-11-06,2009-11-03,-3.0,wikipedia earlier,2009-11-06,2009-11-05,False,neither,kept
-27422,CLF,CLIFFS NATURAL RESOURCES INC,2008-2014,2009-12-19,2009-12-21,2009-12-18,-1.0,ambiguous,2009-12-21,2009-12-18,True,keydev rebalance day,kept
-92611,V,VISA INC,2008-2014,2009-12-19,2009-12-21,2009-12-18,-1.0,ambiguous,2009-12-21,2009-12-18,True,keydev rebalance day,kept
-92890,MJN,MEAD JOHNSON NUTRITION CO,2008-2014,2009-12-19,2009-12-21,2009-12-18,-1.0,ambiguous,2009-12-21,2009-12-18,True,keydev rebalance day,kept
-91547,SAI,S A I C INC,2008-2014,2009-12-21,2009-12-21,2009-12-18,-1.0,ambiguous,2009-12-21,2009-12-18,True,keydev rebalance day,kept
-91556,ROST,ROSS STORES INC,2008-2014,2009-12-21,2009-12-21,2009-12-18,-1.0,ambiguous,2009-12-21,2009-12-18,True,keydev rebalance day,kept
-77338,ROP,ROPER INDUSTRIES INC NEW,2008-2014,2009-12-23,2009-12-23,,,keydev only,2009-12-23,2009-12-22,True,keydev rebalance day,kept
-90071,NRG,N R G ENERGY INC,2008-2014,2010-01-29,2010-01-29,,,keydev only,2010-01-29,2010-01-28,True,keydev rebalance day,kept
-79881,URBN,URBAN OUTFITTERS INC,2008-2014,2010-02-06,2010-02-08,,,keydev only,2010-02-08,2010-02-05,True,keydev rebalance day,kept
-83443,BRK,BERKSHIRE HATHAWAY INC DEL,2008-2014,2010-02-16,2010-02-16,,,keydev only,2010-02-16,2010-02-12,True,keydev rebalance day,kept
-32707,HP,HELMERICH & PAYNE INC,2008-2014,2010-03-01,2010-03-01,2010-02-26,-1.0,ambiguous,2010-03-01,2010-02-26,True,keydev rebalance day,kept
-90805,DISCA,DISCOVERY COMMUNICATIONS INC,2008-2014,2010-03-01,2010-03-01,,,keydev only,2010-03-01,2010-02-26,True,keydev rebalance day,kept
-25232,OKE,ONEOK INC NEW,2008-2014,2010-03-13,2010-03-15,,,keydev only,2010-03-15,2010-03-12,True,keydev rebalance day,kept
-10909,CERN,CERNER CORP,2008-2014,2010-04-30,2010-04-30,2010-04-29,-1.0,ambiguous,2010-04-30,2010-04-29,True,keydev rebalance day,kept
-89508,KMX,CARMAX INC,2008-2014,2010-06-28,2010-06-28,2010-06-28,0.0,agree,2010-06-28,2010-06-25,True,both rebalance days,kept
-93422,QEP,Q E P RESOURCES INC,2008-2014,2010-07-01,2010-07-01,2010-06-30,-1.0,ambiguous,2010-07-01,2010-06-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-79057,ACE,ACE LTD NEW,2008-2014,2010-07-15,2010-07-15,,,keydev only,2010-07-15,2010-07-14,True,keydev rebalance day,kept
-45356,TYC,TYCO INTERNATIONAL LTD SWTZLND,2008-2014,2010-08-27,2010-08-27,2010-08-26,-1.0,ambiguous,2010-08-27,2010-08-26,True,keydev rebalance day,kept
-70500,CCE,COCA COLA ENTERPRISES INC,2008-2014,2010-10-04,2010-10-04,,,keydev only,2010-10-04,2010-10-01,True,keydev rebalance day,kept
-12431,IR,INGERSOLL RAND PLC,2008-2014,2010-11-17,2010-11-17,2010-11-17,0.0,agree,2010-11-17,2010-11-16,True,both rebalance days,kept
-79915,NFX,NEWFIELD EXPLORATION CO,2008-2014,2010-12-18,2010-12-20,2010-12-17,-1.0,ambiguous,2010-12-20,2010-12-17,True,keydev rebalance day,kept
-89393,NFLX,NETFLIX INC,2008-2014,2010-12-18,2010-12-20,2010-12-17,-1.0,ambiguous,2010-12-20,2010-12-17,True,keydev rebalance day,kept
-68857,CVC,CABLEVISION SYSTEMS CORP,2008-2014,2010-12-20,2010-12-20,2010-12-17,-1.0,ambiguous,2010-12-20,2010-12-17,True,keydev rebalance day,kept
-86964,FFIV,F 5 NETWORKS INC,2008-2014,2010-12-20,2010-12-20,2010-12-17,-1.0,ambiguous,2010-12-20,2010-12-17,True,keydev rebalance day,kept
-12456,MMI,MOTOROLA MOBILITY HOLDINGS INC,2008-2014,2011-01-04,2011-01-04,2011-01-03,-1.0,ambiguous,2011-01-04,2011-01-03,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-90537,NE,NOBLE CORP BAAR,2008-2014,2011-01-15,2011-01-18,,,keydev only,2011-01-18,2011-01-14,True,keydev rebalance day,kept
-89105,JOYG,JOY GLOBAL INC,2008-2014,2011-02-26,2011-02-28,2011-02-25,-1.0,ambiguous,2011-02-28,2011-02-25,True,keydev rebalance day,kept
-92156,COV,COVIDIEN PLC,2008-2014,2011-03-01,2011-03-01,2011-02-28,-1.0,ambiguous,2011-03-01,2011-02-28,True,keydev rebalance day,kept
-87657,EW,EDWARDS LIFESCIENCES CORP,2008-2014,2011-04-01,2011-04-01,2011-03-31,-1.0,ambiguous,2011-04-01,2011-03-31,True,keydev rebalance day,kept
-87267,BLK,BLACKROCK INC,2008-2014,2011-04-04,2011-04-04,2011-04-01,-1.0,ambiguous,2011-04-04,2011-04-01,True,keydev rebalance day,kept
-91068,CMG,CHIPOTLE MEXICAN GRILL INC,2008-2014,2011-04-28,2011-04-28,2011-04-27,-1.0,ambiguous,2011-04-28,2011-04-27,True,keydev rebalance day,kept
-90547,ANR,ALPHA NATURAL RESOURCES INC,2008-2014,2011-06-02,2011-06-02,2011-06-01,-1.0,ambiguous,2011-06-02,2011-06-01,True,keydev rebalance day,kept
-12872,MPC,MARATHON PETROLEUM CORP,2008-2014,2011-07-01,2011-07-01,2011-06-30,-1.0,ambiguous,2011-07-01,2011-06-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-89071,ACN,ACCENTURE PLC IRELAND,2008-2014,2011-07-06,2011-07-06,2011-07-05,-1.0,ambiguous,2011-07-06,2011-07-05,True,keydev rebalance day,kept
-90386,MOS,MOSAIC CO NEW,2008-2014,2011-09-26,2011-09-26,2011-09-23,-1.0,ambiguous,2011-09-26,2011-09-23,True,keydev rebalance day,kept
-92157,TEL,T E CONNECTIVITY LTD,2008-2014,2011-10-17,2011-10-17,2011-10-14,-1.0,ambiguous,2011-10-17,2011-10-14,True,keydev rebalance day,kept
-13035,XYL,XYLEM INC,2008-2014,2011-11-01,2011-11-01,2011-10-31,-1.0,ambiguous,2011-11-01,2011-10-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-21979,CBE,COOPER INDUSTRIES PLC,2008-2014,2011-11-23,2011-11-23,2011-11-18,-3.0,wikipedia earlier,2011-11-23,2011-11-22,True,keydev rebalance day,kept
-15553,AGL,A G L RESOURCES INC,2008-2014,2011-12-13,2011-12-13,,,keydev only,2011-12-13,2011-12-12,True,keydev rebalance day,kept
-79545,BWA,BORGWARNER INC,2008-2014,2011-12-17,2011-12-19,2011-12-16,-1.0,ambiguous,2011-12-19,2011-12-16,True,keydev rebalance day,kept
-81481,DLTR,DOLLAR TREE INC,2008-2014,2011-12-17,2011-12-19,2011-12-16,-1.0,ambiguous,2011-12-19,2011-12-16,True,keydev rebalance day,kept
-77182,PRGO,PERRIGO CO,2008-2014,2011-12-19,2011-12-19,2011-12-16,-1.0,ambiguous,2011-12-19,2011-12-16,True,keydev rebalance day,kept
-13168,TRIP,TRIPADVISOR INC,2008-2014,2011-12-21,2011-12-21,2011-12-20,-1.0,ambiguous,2011-12-21,2011-12-20,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-13141,WPX,W P X ENERGY INC,2008-2014,2011-12-31,2012-01-03,2011-12-31,0.0,agree,2012-01-03,2011-12-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-86339,CCI,CROWN CASTLE INTERNATIONAL CORP,2008-2014,2012-03-14,2012-03-14,2012-03-13,-1.0,ambiguous,2012-03-14,2012-03-13,True,keydev rebalance day,kept
-79089,FOSL,FOSSIL INC,2008-2014,2012-04-04,2012-04-04,2012-04-03,-1.0,ambiguous,2012-04-04,2012-04-03,True,keydev rebalance day,kept
-13356,PSX,PHILLIPS 66,2008-2014,2012-05-01,2012-05-01,2012-04-23,-6.0,wikipedia earlier,2012-05-01,2012-04-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-12558,KMI,KINDER MORGAN INC,2008-2014,2012-05-25,2012-05-25,2012-05-17,-6.0,wikipedia earlier,2012-05-25,2012-05-24,True,keydev rebalance day,kept
-83111,ALXN,ALEXION PHARMACEUTICALS INC,2008-2014,2012-05-25,2012-05-25,2012-05-21,-4.0,wikipedia earlier,2012-05-25,2012-05-24,True,keydev rebalance day,kept
-48486,LRCX,LAM RESH CORP,2008-2014,2012-06-05,2012-06-05,2012-06-05,0.0,agree,2012-06-05,2012-06-04,True,both rebalance days,kept
-88031,MNST,MONSTER BEVERAGE CORP,2008-2014,2012-06-29,2012-06-29,2012-06-29,0.0,agree,2012-06-29,2012-06-28,True,both rebalance days,kept
-89641,STX,SEAGATE TECHNOLOGY PLC,2008-2014,2012-06-30,2012-07-02,2012-07-02,0.0,agree,2012-07-02,2012-06-29,True,both rebalance days,kept
-93159,ESV,E N S C O PLC NEW,2008-2014,2012-07-31,2012-07-31,2012-07-31,0.0,agree,2012-07-31,2012-07-30,True,both rebalance days,kept
-12345,LYB,LYONDELLBASELL INDUSTRIES N V,2008-2014,2012-09-05,2012-09-05,2012-09-05,0.0,agree,2012-09-05,2012-09-04,True,both rebalance days,kept
-13567,ADT,A D T CORP,2008-2014,2012-09-30,2012-10-01,2012-10-01,0.0,agree,2012-10-01,2012-09-28,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-13586,PNR,PENTAIR LTD,2008-2014,2012-10-01,2012-10-01,2012-10-01,0.0,agree,2012-10-01,2012-09-28,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-13598,KRFT,KRAFT FOODS GROUP INC,2008-2014,2012-10-02,2012-10-02,2012-10-02,0.0,agree,2012-10-02,2012-10-01,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-79411,PETM,PETSMART INC,2008-2014,2012-10-05,2012-10-05,2012-10-10,3.0,keydev early,2012-10-10,2012-10-09,True,keydev rebalance day,kept
-93096,DG,DOLLAR GENERAL CORP NEW,2008-2014,2012-12-01,2012-12-03,2012-12-03,0.0,agree,2012-12-03,2012-11-30,True,both rebalance days,kept
-88837,GRMN,GARMIN LTD,2008-2014,2012-12-12,2012-12-12,2012-12-11,-1.0,ambiguous,2012-12-12,2012-12-11,True,keydev rebalance day,kept
-13103,DLPH,DELPHI AUTOMOTIVE PLC,2008-2014,2012-12-22,2012-12-24,2012-12-21,-1.0,ambiguous,2012-12-24,2012-12-21,True,keydev rebalance day,kept
-13721,ABBV,ABBVIE INC,2008-2014,2013-01-01,2013-01-02,2013-01-02,0.0,agree,2013-01-02,2012-12-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-13936,PVH,P V H CORP,2008-2014,2013-02-14,2013-02-14,2013-02-15,1.0,keydev early,2013-02-15,2013-02-14,True,keydev rebalance day,kept
-76614,REGN,REGENERON PHARMACEUTICALS INC,2008-2014,2013-05-01,2013-05-01,2013-04-30,-1.0,ambiguous,2013-05-01,2013-04-30,True,keydev rebalance day,kept
-80399,MAC,MACERICH CO,2008-2014,2013-05-09,2013-05-09,2013-05-08,-1.0,ambiguous,2013-05-09,2013-05-08,True,keydev rebalance day,kept
-12650,KSU,KANSAS CITY SOUTHERN,2008-2014,2013-05-24,2013-05-24,2013-05-23,-1.0,ambiguous,2013-05-24,2013-05-23,True,keydev rebalance day,kept
-12369,GM,GENERAL MOTORS CO,2008-2014,2013-06-07,2013-06-07,2013-06-06,-1.0,ambiguous,2013-06-07,2013-06-06,True,keydev rebalance day,kept
-13788,ZTS,ZOETIS INC,2008-2014,2013-06-24,2013-06-24,2013-06-21,-1.0,ambiguous,2013-06-24,2013-06-21,False,neither,kept
-13963,NWSA,NEWS CORP NEW,2008-2014,2013-07-01,2013-07-01,2013-07-01,0.0,agree,2013-07-01,2013-06-28,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-12542,NLSN,NIELSEN HOLDINGS N V,2008-2014,2013-07-09,2013-07-09,2013-07-08,-1.0,ambiguous,2013-07-09,2013-07-08,True,keydev rebalance day,kept
-91926,DAL,DELTA AIR LINES INC,2008-2014,2013-09-11,2013-09-11,2013-09-10,-1.0,ambiguous,2013-09-11,2013-09-10,True,keydev rebalance day,kept
-76744,VRTX,VERTEX PHARMACEUTICALS INC,2008-2014,2013-09-21,2013-09-23,2013-09-20,-1.0,ambiguous,2013-09-23,2013-09-20,True,keydev rebalance day,kept
-85257,AME,AMETEK INC NEW,2008-2014,2013-09-21,2013-09-23,2013-09-20,-1.0,ambiguous,2013-09-23,2013-09-20,True,keydev rebalance day,kept
-79237,RIG,TRANSOCEAN LTD,2008-2014,2013-10-29,2013-10-29,2013-10-29,0.0,agree,2013-10-29,2013-10-28,True,both rebalance days,kept
-13142,KORS,MICHAEL KORS HOLDINGS LTD,2008-2014,2013-11-13,2013-11-13,2013-11-13,0.0,agree,2013-11-13,2013-11-12,True,both rebalance days,kept
-14297,ALLE,ALLEGION PLC,2008-2014,2013-11-30,2013-12-02,2013-12-02,0.0,agree,2013-12-02,2013-11-29,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-79129,GGP,GENERAL GROWTH PPTYS INC NEW,2008-2014,2013-12-10,2013-12-10,2013-12-10,0.0,agree,2013-12-10,2013-12-09,True,both rebalance days,kept
-89002,ADS,ALLIANCE DATA SYSTEMS CORP,2008-2014,2013-12-21,2013-12-23,2013-12-23,0.0,agree,2013-12-23,2013-12-20,True,both rebalance days,kept
-13407,FB,FACEBOOK INC,2008-2014,2013-12-21,2013-12-23,2013-12-23,0.0,agree,2013-12-23,2013-12-20,True,both rebalance days,kept
-77496,MHK,MOHAWK INDUSTRIES INC,2008-2014,2013-12-21,2013-12-23,2013-12-23,0.0,agree,2013-12-23,2013-12-20,True,both rebalance days,kept
-80286,TSCO,TRACTOR SUPPLY CO NEW,2008-2014,2014-01-24,2014-01-24,2014-01-24,0.0,agree,2014-01-24,2014-01-23,True,both rebalance days,kept
-79588,GMCR,KEURIG GREEN MOUNTAIN INC,2008-2014,2014-03-22,2014-03-24,2014-03-21,-1.0,ambiguous,2014-03-24,2014-03-21,True,keydev rebalance day,kept
-80681,ESS,ESSEX PROPERTY TRUST INC,2008-2014,2014-04-02,2014-04-02,2014-04-02,0.0,agree,2014-04-02,2014-04-01,True,both rebalance days,kept
-90319,GOOG,GOOGLE INC,2008-2014,2014-04-03,2014-04-03,,,keydev only,2014-04-03,2014-04-02,False,neither,kept
-90979,UA,UNDER ARMOUR INC,2008-2014,2014-05-01,2014-05-01,2014-05-01,0.0,agree,2014-05-01,2014-04-30,True,both rebalance days,kept
-93002,AVGO,AVAGO TECHNOLOGIES LTD,2008-2014,2014-05-08,2014-05-08,2014-05-08,0.0,agree,2014-05-08,2014-05-07,True,both rebalance days,kept
-89509,XEC,CIMAREX ENERGY CO,2008-2014,2014-06-21,2014-06-23,2014-06-20,-1.0,ambiguous,2014-06-23,2014-06-20,True,keydev rebalance day,kept
-85593,AMG,AFFILIATED MANAGERS GROUP INC,2008-2014,2014-07-01,2014-07-01,2014-07-01,0.0,agree,2014-07-01,2014-06-30,True,both rebalance days,kept
-80204,MLM,MARTIN MARIETTA MATERIALS INC,2008-2014,2014-07-02,2014-07-02,2014-07-02,0.0,agree,2014-07-02,2014-07-01,True,both rebalance days,kept
-90805,DISCA,DISCOVERY COMMUNICATIONS INC,2008-2014,2014-08-07,2014-08-07,,,keydev only,2014-08-07,2014-08-06,False,neither,kept
-14011,MNK,MALLINCKRODT PLC,2008-2014,2014-08-19,2014-08-19,2014-08-18,-1.0,ambiguous,2014-08-19,2014-08-18,True,keydev rebalance day,kept
-79637,UHS,UNIVERSAL HEALTH SERVICES INC,2008-2014,2014-09-20,2014-09-22,2014-09-20,0.0,agree,2014-09-22,2014-09-19,True,both rebalance days,kept
-85663,URI,UNITED RENTALS INC,2008-2014,2014-09-20,2014-09-22,2014-09-20,0.0,agree,2014-09-22,2014-09-19,True,both rebalance days,kept
-85991,LVLT,LEVEL 3 COMMUNICATIONS INC,2008-2014,2014-11-05,2014-11-05,2014-11-05,0.0,agree,2014-11-05,2014-11-04,True,both rebalance days,kept
-79145,RCL,ROYAL CARIBBEAN CRUISES LTD,2008-2014,2014-12-05,2014-12-05,2014-12-05,0.0,agree,2014-12-05,2014-12-04,True,both rebalance days,kept
-12622,HCA,H C A HOLDINGS INC,2015-2021,2015-01-27,2015-01-27,2015-01-27,0.0,agree,2015-01-27,2015-01-26,True,both rebalance days,kept
-88436,ENDP,ENDO INTERNATIONAL PLC,2015-2021,2015-01-27,2015-01-27,2015-01-27,0.0,agree,2015-01-27,2015-01-26,True,both rebalance days,kept
-45911,SWKS,SKYWORKS SOLUTIONS INC,2015-2021,2015-03-12,2015-03-12,2015-03-12,0.0,agree,2015-03-12,2015-03-11,True,both rebalance days,kept
-82581,HSIC,SCHEIN HENRY INC,2015-2021,2015-03-18,2015-03-18,2015-03-18,0.0,agree,2015-03-18,2015-03-17,True,both rebalance days,kept
-21020,AAL,AMERICAN AIRLINES GROUP INC,2015-2021,2015-03-21,2015-03-23,2015-03-23,0.0,agree,2015-03-23,2015-03-20,True,both rebalance days,kept
-85265,SLG,S L GREEN REALTY CORP,2015-2021,2015-03-21,2015-03-23,2015-03-23,0.0,agree,2015-03-23,2015-03-20,True,both rebalance days,kept
-89617,EQIX,EQUINIX INC,2015-2021,2015-03-21,2015-03-23,2015-03-23,0.0,agree,2015-03-23,2015-03-20,True,both rebalance days,kept
-91416,HBI,HANESBRANDS INC,2015-2021,2015-03-21,2015-03-23,2015-03-23,0.0,agree,2015-03-23,2015-03-20,True,both rebalance days,kept
-81045,O,REALTY INCOME CORP,2015-2021,2015-04-07,2015-04-07,2015-04-07,0.0,agree,2015-04-07,2015-04-06,True,both rebalance days,kept
-85035,QRVO,QORVO INC,2015-2021,2015-06-12,2015-06-12,2015-06-11,-1.0,ambiguous,2015-06-12,2015-06-11,True,keydev rebalance day,kept
-15401,BXLT,BAXALTA INC,2015-2021,2015-07-01,2015-07-01,2015-07-01,0.0,agree,2015-07-01,2015-06-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-42877,JBHT,HUNT J B TRANSPORT SERVICES INC,2015-2021,2015-07-01,2015-07-01,2015-07-01,0.0,agree,2015-07-01,2015-06-30,True,both rebalance days,kept
-15404,CPGX,COLUMBIA PIPELINE GROUP INC,2015-2021,2015-07-02,2015-07-02,2015-07-02,0.0,agree,2015-07-02,2015-07-01,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-15408,KHC,KRAFT HEINZ CO,2015-2021,2015-07-06,2015-07-06,2015-07-06,0.0,agree,2015-07-06,2015-07-02,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-89217,AAP,ADVANCE AUTO PARTS INC,2015-2021,2015-07-09,2015-07-09,2015-07-08,-1.0,ambiguous,2015-07-09,2015-07-08,True,keydev rebalance day,kept
-15488,PYPL,PAYPAL HOLDINGS INC,2015-2021,2015-07-18,2015-07-20,2015-07-20,0.0,agree,2015-07-20,2015-07-17,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-12076,SIG,SIGNET JEWELERS LTD,2015-2021,2015-07-29,2015-07-29,2015-07-29,0.0,agree,2015-07-29,2015-07-28,True,both rebalance days,kept
-79678,ATVI,ACTIVISION BLIZZARD INC,2015-2021,2015-08-29,2015-08-31,2015-08-28,-1.0,ambiguous,2015-08-31,2015-08-28,True,keydev rebalance day,kept
-91103,UAL,UNITED CONTINENTAL HOLDINGS INC,2015-2021,2015-09-03,2015-09-03,2015-09-02,-1.0,ambiguous,2015-09-03,2015-09-02,True,keydev rebalance day,kept
-90441,FOXA,TWENTY FIRST CENTURY FOX INC,2015-2021,2015-09-20,2015-09-21,,,keydev only,2015-09-21,2015-09-18,True,keydev rebalance day,kept
-13963,NWSA,NEWS CORP NEW,2015-2021,2015-09-21,2015-09-21,,,keydev only,2015-09-21,2015-09-18,True,keydev rebalance day,kept
-89525,CMCSA,COMCAST CORP NEW,2015-2021,2015-09-21,2015-09-21,,,keydev only,2015-09-21,2015-09-18,True,keydev rebalance day,kept
-93089,VRSK,VERISK ANALYTICS INC,2015-2021,2015-10-08,2015-10-08,2015-10-07,-1.0,ambiguous,2015-10-08,2015-10-07,True,keydev rebalance day,kept
-15707,HPE,HEWLETT PACKARD ENTERPRISE CO,2015-2021,2015-10-31,2015-11-02,2015-11-02,0.0,agree,2015-11-02,2015-10-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-15719,FCPT,FOUR CORNERS PROPERTY TRUST INC,2015-2021,2015-11-10,2015-11-10,,,keydev only,2015-11-10,2015-11-09,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-14776,SYF,SYNCHRONY FINANCIAL,2015-2021,2015-11-18,2015-11-18,2015-11-18,0.0,agree,2015-11-18,2015-11-17,True,both rebalance days,kept
-88446,ILMN,ILLUMINA INC,2015-2021,2015-11-19,2015-11-19,2015-11-19,0.0,agree,2015-11-19,2015-11-18,True,both rebalance days,kept
-15797,CSRA,C S R A INC,2015-2021,2015-11-28,2015-11-30,2015-12-01,1.0,keydev early,2015-12-01,2015-11-30,False,no volume test,kept
-23393,CHD,CHURCH & DWIGHT INC,2015-2021,2015-12-29,2015-12-29,2015-12-29,0.0,agree,2015-12-29,2015-12-28,True,both rebalance days,kept
-89017,WSH,WILLIS GROUP HOLDINGS PUB LTD CO,2015-2021,2016-01-05,2016-01-05,,,keydev only,2016-01-05,2016-01-04,True,keydev rebalance day,kept
-90305,EXR,EXTRA SPACE STORAGE INC,2015-2021,2016-01-19,2016-01-19,2016-01-19,0.0,agree,2016-01-19,2016-01-15,True,both rebalance days,kept
-14889,CFG,CITIZENS FINANCIAL GROUP INC,2015-2021,2016-01-30,2016-02-01,2016-02-01,0.0,agree,2016-02-01,2016-01-29,True,both rebalance days,kept
-58413,FRT,FEDERAL REALTY INVESTMENT TRUST,2015-2021,2016-01-30,2016-02-01,2016-02-01,0.0,agree,2016-02-01,2016-01-29,True,both rebalance days,kept
-92239,CXO,CONCHO RESOURCES INC,2015-2021,2016-02-21,2016-02-22,2016-02-22,0.0,agree,2016-02-22,2016-02-19,True,both rebalance days,kept
-92614,AWK,AMERICAN WATER WORKS CO INC,2015-2021,2016-03-04,2016-03-04,2016-03-04,0.0,agree,2016-03-04,2016-03-03,True,both rebalance days,kept
-59300,UDR,U D R INC,2015-2021,2016-03-07,2016-03-07,2016-03-07,0.0,agree,2016-03-07,2016-03-04,True,both rebalance days,kept
-76095,HOLX,HOLOGIC INC,2015-2021,2016-03-30,2016-03-30,2016-03-30,0.0,agree,2016-03-30,2016-03-29,True,both rebalance days,kept
-89269,CNC,CENTENE CORP DEL,2015-2021,2016-03-30,2016-03-30,2016-03-30,0.0,agree,2016-03-30,2016-03-29,True,both rebalance days,kept
-15456,FL,FOOT LOCKER INC,2015-2021,2016-04-04,2016-04-04,2016-04-04,0.0,agree,2016-04-04,2016-04-01,True,both rebalance days,kept
-90979,UA,UNDER ARMOUR INC,2015-2021,2016-04-08,2016-04-08,2016-04-08,0.0,agree,2016-04-08,2016-04-07,False,neither,kept
-92322,ULTA,ULTA SALON COSMETICS & FRAG INC,2015-2021,2016-04-16,2016-04-18,2016-04-18,0.0,agree,2016-04-18,2016-04-15,True,both rebalance days,kept
-88873,GPN,GLOBAL PAYMENTS INC,2015-2021,2016-04-23,2016-04-25,2016-04-25,0.0,agree,2016-04-25,2016-04-22,True,both rebalance days,kept
-89216,AYI,ACUITY BRANDS INC,2015-2021,2016-05-03,2016-05-03,2016-05-03,0.0,agree,2016-05-03,2016-05-02,True,both rebalance days,kept
-28804,ALK,ALASKA AIRGROUP INC,2015-2021,2016-05-13,2016-05-13,2016-05-13,0.0,agree,2016-05-13,2016-05-12,True,both rebalance days,kept
-92772,IILG,INTERVAL LEISURE GROUP INC,2015-2021,2016-05-13,2016-05-13,,,keydev only,2016-05-13,2016-05-12,False,neither,kept
-16044,NGVT,INGEVITY CORP,2015-2021,2016-05-14,2016-05-16,,,keydev only,2016-05-16,2016-05-13,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-90373,DLR,DIGITAL REALTY TRUST INC,2015-2021,2016-05-17,2016-05-17,2016-05-18,1.0,keydev early,2016-05-18,2016-05-17,False,wikipedia rebalance day,kept
-89866,LKQ,L K Q CORP,2015-2021,2016-05-23,2016-05-23,2016-05-23,0.0,agree,2016-05-23,2016-05-20,True,both rebalance days,kept
-38093,AJG,GALLAGHER ARTHUR J & CO,2015-2021,2016-05-29,2016-05-31,2016-05-31,0.0,agree,2016-05-31,2016-05-27,True,both rebalance days,kept
-91152,TDG,TRANSDIGM GROUP INC,2015-2021,2016-06-03,2016-06-03,2016-06-03,0.0,agree,2016-06-03,2016-06-02,True,both rebalance days,kept
-12981,FBHS,FORTUNE BRANDS HOME & SECUR INC,2015-2021,2016-06-24,2016-06-24,2016-06-22,-2.0,wikipedia earlier,2016-06-24,2016-06-23,True,keydev rebalance day,kept
-58819,LNT,ALLIANT ENERGY CORP,2015-2021,2016-07-01,2016-07-01,2016-07-01,0.0,agree,2016-07-01,2016-06-30,True,both rebalance days,kept
-80191,ALB,ALBEMARLE CORP,2015-2021,2016-07-01,2016-07-01,2016-07-01,0.0,agree,2016-07-01,2016-06-30,True,both rebalance days,kept
-16087,FTV,FORTIVE CORP,2015-2021,2016-07-05,2016-07-05,2016-07-05,0.0,agree,2016-07-05,2016-07-01,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-85621,MTD,METTLER TOLEDO INTERNATIONAL INC,2015-2021,2016-09-06,2016-09-06,2016-09-06,0.0,agree,2016-09-06,2016-09-02,True,both rebalance days,kept
-16267,DVMT,DELL TECHNOLOGIES INC,2015-2021,2016-09-07,2016-09-07,,,keydev only,2016-09-07,2016-09-06,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-65541,COO,COOPER COMPANIES INC,2015-2021,2016-09-23,2016-09-23,2016-09-22,-1.0,ambiguous,2016-09-23,2016-09-22,True,keydev rebalance day,kept
-13983,COTY,COTY INC,2015-2021,2016-10-03,2016-10-03,2016-09-30,-1.0,ambiguous,2016-10-03,2016-09-30,False,neither,kept
-16276,ASIX,ADVANSIX INC,2015-2021,2016-10-03,2016-10-03,,,keydev only,2016-10-03,2016-09-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-16279,VSM,VERSUM MATERIALS INC,2015-2021,2016-10-03,2016-10-03,,,keydev only,2016-10-03,2016-09-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-16342,ADNT,ADIENT PLC,2015-2021,2016-10-31,2016-10-31,,,keydev only,2016-10-31,2016-10-28,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-16347,AA,ALCOA CORP,2015-2021,2016-11-01,2016-11-01,,,keydev only,2016-11-01,2016-10-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-24643,AA,ALCOA INC,2015-2021,2016-11-01,2016-11-01,,,keydev only,2016-11-01,2016-10-31,False,neither,kept
-16343,YUMC,YUM CHINA HOLDINGS INC,2015-2021,2016-11-01,2016-11-01,,,keydev only,2016-11-01,2016-10-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-16346,QCP,QUALITY CARE PROPERTIES INC,2015-2021,2016-11-01,2016-11-01,,,keydev only,2016-11-01,2016-10-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-16431,LW,LAMB WESTON HOLDINGS INC,2015-2021,2016-11-10,2016-11-10,,,keydev only,2016-11-10,2016-11-09,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-80183,MAA,MID AMERICA APT COMMUNITIES INC,2015-2021,2016-12-02,2016-12-02,2016-12-02,0.0,agree,2016-12-02,2016-12-01,True,both rebalance days,kept
-85675,AMSG,AMSURG CORP,2015-2021,2016-12-02,2016-12-02,,,keydev only,2016-12-02,2016-12-01,True,keydev rebalance day,kept
-16497,CNDT,CONDUENT INC,2015-2021,2017-01-03,2017-01-03,,,keydev only,2017-01-03,2016-12-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-76709,IDXX,I D E X X LABORATORIES INC,2015-2021,2017-01-05,2017-01-05,2017-01-05,0.0,agree,2017-01-05,2017-01-04,True,both rebalance days,kept
-16538,FTI,TECHNIPFMC PLC,2015-2021,2017-01-17,2017-01-17,,,keydev only,2017-01-17,2017-01-13,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-16543,VREX,VAREX IMAGING CORP,2015-2021,2017-01-30,2017-01-30,,,keydev only,2017-01-30,2017-01-27,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-16544,BIVV,BIOVERATIV INC,2015-2021,2017-02-02,2017-02-02,,,keydev only,2017-02-02,2017-02-01,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-79906,INCY,INCYTE CORP,2015-2021,2017-02-28,2017-02-28,2017-02-28,0.0,agree,2017-02-28,2017-02-27,True,both rebalance days,kept
-93429,CBOE,C B O E HOLDINGS INC,2015-2021,2017-03-01,2017-03-01,2017-03-01,0.0,agree,2017-03-01,2017-02-28,True,both rebalance days,kept
-79782,REG,REGENCY CENTERS CORP,2015-2021,2017-03-02,2017-03-02,2017-03-02,0.0,agree,2017-03-02,2017-03-01,True,both rebalance days,kept
-81696,DISH,DISH NETWORK CORP,2015-2021,2017-03-13,2017-03-13,2017-03-13,0.0,agree,2017-03-13,2017-03-10,True,both rebalance days,kept
-77357,SNPS,SYNOPSYS INC,2015-2021,2017-03-16,2017-03-16,2017-03-16,0.0,agree,2017-03-16,2017-03-15,True,both rebalance days,kept
-61241,AMD,ADVANCED MICRO DEVICES INC,2015-2021,2017-03-20,2017-03-20,2017-03-20,0.0,agree,2017-03-20,2017-03-17,True,both rebalance days,kept
-69649,RJF,RAYMOND JAMES FINANCIAL INC,2015-2021,2017-03-20,2017-03-20,2017-03-20,0.0,agree,2017-03-20,2017-03-17,True,both rebalance days,kept
-84767,ARE,ALEXANDRIA REAL EST EQUITIES INC,2015-2021,2017-03-20,2017-03-20,2017-03-20,0.0,agree,2017-03-20,2017-03-17,True,both rebalance days,kept
-40125,DXC,D X C TECHNOLOGY CO,2015-2021,2017-04-04,2017-04-04,2017-04-04,0.0,agree,2017-04-04,2017-04-03,True,both rebalance days,kept
-79698,IT,GARTNER INC,2015-2021,2017-04-05,2017-04-05,2017-04-05,0.0,agree,2017-04-05,2017-04-04,True,both rebalance days,kept
-16696,CARS,CARS COM INC,2015-2021,2017-06-01,2017-06-01,,,keydev only,2017-06-01,2017-05-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-14704,INFO,I H S MARKIT LTD,2015-2021,2017-06-02,2017-06-02,2017-06-02,0.0,agree,2017-06-02,2017-06-01,True,both rebalance days,kept
-14338,HLT,HILTON WORLDWIDE HOLDINGS INC,2015-2021,2017-06-19,2017-06-19,2017-06-19,0.0,agree,2017-06-19,2017-06-16,True,both rebalance days,kept
-82303,RE,EVEREST RE GROUP LTD,2015-2021,2017-06-19,2017-06-19,2017-06-19,0.0,agree,2017-06-19,2017-06-16,True,both rebalance days,kept
-83621,ANSS,ANSYS INC,2015-2021,2017-06-19,2017-06-19,2017-06-19,0.0,agree,2017-06-19,2017-06-16,True,both rebalance days,kept
-88860,ALGN,ALIGN TECHNOLOGY INC,2015-2021,2017-06-19,2017-06-19,2017-06-19,0.0,agree,2017-06-19,2017-06-16,True,both rebalance days,kept
-16809,JBGS,J B G SMITH PROPERTIES,2015-2021,2017-07-18,2017-07-18,,,keydev only,2017-07-18,2017-07-17,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-81736,RMD,RESMED INC,2015-2021,2017-07-26,2017-07-26,2017-07-26,0.0,agree,2017-07-26,2017-07-25,True,both rebalance days,kept
-75341,DRE,DUKE REALTY CORP,2015-2021,2017-07-26,2017-07-26,2017-07-26,0.0,agree,2017-07-26,2017-07-25,True,both rebalance days,kept
-87541,PKG,PACKAGING CORP AMERICA,2015-2021,2017-07-26,2017-07-26,2017-07-26,0.0,agree,2017-07-26,2017-07-25,True,both rebalance days,kept
-11891,MGM,M G M RESORTS INTERNATIONAL,2015-2021,2017-07-26,2017-07-26,2017-07-26,0.0,agree,2017-07-26,2017-07-25,True,both rebalance days,kept
-65402,AOS,SMITH A O CORP,2015-2021,2017-07-26,2017-07-26,2017-07-26,0.0,agree,2017-07-26,2017-07-25,True,both rebalance days,kept
-16816,BHF,BRIGHTHOUSE FINANCIAL INC,2015-2021,2017-08-07,2017-08-07,2017-08-08,1.0,keydev early,2017-08-08,2017-08-07,False,no volume test,kept
-13911,Q,QUINTILES IMS HOLDINGS INC,2015-2021,2017-08-29,2017-08-29,2017-08-29,0.0,agree,2017-08-29,2017-08-28,True,both rebalance days,kept
-86996,SBAC,S B A COMMUNICATIONS CORP NEW,2015-2021,2017-09-01,2017-09-01,2017-09-01,0.0,agree,2017-09-01,2017-08-31,True,both rebalance days,kept
-11403,CDNS,CADENCE DESIGN SYSTEMS INC,2015-2021,2017-09-18,2017-09-18,2017-09-18,0.0,agree,2017-09-18,2017-09-15,True,both rebalance days,kept
-13760,NCLH,NORWEGIAN CRUISE LINE HLDGS LTD,2015-2021,2017-10-13,2017-10-13,2017-10-13,0.0,agree,2017-10-13,2017-10-12,True,both rebalance days,kept
-17040,DLPH,DELPHI TECHNOLOGIES PLC,2015-2021,2017-12-05,2017-12-05,,,keydev only,2017-12-05,2017-12-04,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-12623,HII,HUNTINGTON INGALLS INDS INC,2015-2021,2018-01-03,2018-01-03,2018-01-03,0.0,agree,2018-01-03,2018-01-02,True,both rebalance days,kept
-91668,IPGP,I P G PHOTONICS CORP,2015-2021,2018-03-07,2018-03-07,2018-03-07,0.0,agree,2018-03-07,2018-03-06,True,both rebalance days,kept
-92402,MSCI,M S C I INC,2015-2021,2018-04-04,2018-04-04,2018-04-04,0.0,agree,2018-04-04,2018-04-03,True,both rebalance days,kept
-17676,NVT,NVENT ELECTRIC PLC,2015-2021,2018-05-01,2018-05-01,,,keydev only,2018-05-01,2018-04-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-17783,APY,APERGY CORP,2015-2021,2018-05-09,2018-05-09,,,keydev only,2018-05-09,2018-05-08,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-75107,ABMD,ABIOMED INC,2015-2021,2018-05-31,2018-05-31,2018-05-31,0.0,agree,2018-05-31,2018-05-30,True,both rebalance days,kept
-17792,PRSP,PERSPECTA INC,2015-2021,2018-06-01,2018-06-01,,,keydev only,2018-06-01,2018-05-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-24053,WR,WESTAR ENERGY INC,2015-2021,2018-06-05,2018-06-05,,,keydev only,2018-06-05,2018-06-04,True,keydev rebalance day,kept
-14295,TWTR,TWITTER INC,2015-2021,2018-06-07,2018-06-07,2018-06-07,0.0,agree,2018-06-07,2018-06-06,True,both rebalance days,kept
-32803,HFC,HOLLYFRONTIER CORP,2015-2021,2018-06-18,2018-06-18,2018-06-18,0.0,agree,2018-06-18,2018-06-15,True,both rebalance days,kept
-91849,BR,BROADRIDGE FINANCIAL SOLUTNS INC,2015-2021,2018-06-18,2018-06-18,2018-06-18,0.0,agree,2018-06-18,2018-06-15,True,both rebalance days,kept
-12449,FLT,FLEETCOR TECHNOLOGIES INC,2015-2021,2018-06-20,2018-06-20,2018-06-20,0.0,agree,2018-06-20,2018-06-19,True,both rebalance days,kept
-80320,CPRT,COPART INC,2015-2021,2018-07-02,2018-07-02,2018-07-02,0.0,agree,2018-07-02,2018-06-29,True,both rebalance days,kept
-14714,ANET,ARISTA NETWORKS INC,2015-2021,2018-08-28,2018-08-28,2018-08-28,0.0,agree,2018-08-28,2018-08-27,True,both rebalance days,kept
-90272,WCG,WELLCARE HEALTH PLANS INC,2015-2021,2018-09-17,2018-09-17,2018-09-14,-1.0,ambiguous,2018-09-17,2018-09-14,True,keydev rebalance day,kept
-18065,GTX,GARRETT MOTION INC,2015-2021,2018-10-01,2018-10-01,,,keydev only,2018-10-01,2018-09-28,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-36003,ROL,ROLLINS INC,2015-2021,2018-10-01,2018-10-01,2018-10-01,0.0,agree,2018-10-01,2018-09-28,True,both rebalance days,kept
-93132,FTNT,FORTINET INC,2015-2021,2018-10-11,2018-10-11,2018-10-11,0.0,agree,2018-10-11,2018-10-10,True,both rebalance days,kept
-18142,REZI,RESIDEO TECHNOLOGIES INC,2015-2021,2018-10-29,2018-10-29,,,keydev only,2018-10-29,2018-10-26,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-14939,KEYS,KEYSIGHT TECHNOLOGIES INC,2015-2021,2018-11-06,2018-11-06,2018-11-06,0.0,agree,2018-11-06,2018-11-05,True,both rebalance days,kept
-88664,JKHY,HENRY JACK & ASSOC INC,2015-2021,2018-11-13,2018-11-13,2018-11-13,0.0,agree,2018-11-13,2018-11-12,True,both rebalance days,kept
-11896,MXIM,MAXIM INTEGRATED PRODUCTS INC,2015-2021,2018-12-03,2018-12-03,2018-12-03,0.0,agree,2018-12-03,2018-11-30,True,both rebalance days,kept
-13641,FANG,DIAMONDBACK ENERGY INC,2015-2021,2018-12-03,2018-12-03,2018-12-03,0.0,agree,2018-12-03,2018-11-30,True,both rebalance days,kept
-16431,LW,LAMB WESTON HOLDINGS INC,2015-2021,2018-12-03,2018-12-03,2018-12-03,0.0,agree,2018-12-03,2018-11-30,True,both rebalance days,kept
-90520,CE,CELANESE CORP DEL,2015-2021,2018-12-24,2018-12-24,2018-12-24,0.0,agree,2018-12-24,2018-12-21,True,both rebalance days,kept
-12448,FRC,FIRST REPUBLIC BANK S F NEW,2015-2021,2019-01-02,2019-01-02,2019-01-02,0.0,agree,2019-01-02,2018-12-31,True,both rebalance days,kept
-44329,TFX,TELEFLEX INC,2015-2021,2019-01-18,2019-01-18,2019-01-18,0.0,agree,2019-01-18,2019-01-17,True,both rebalance days,kept
-18327,CVET,COVETRUS INC,2015-2021,2019-02-08,2019-02-08,,,keydev only,2019-02-08,2019-02-07,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-32986,ATO,ATMOS ENERGY CORP,2015-2021,2019-02-15,2019-02-15,2019-02-15,0.0,agree,2019-02-15,2019-02-14,True,both rebalance days,kept
-81677,WAB,WABTEC CORP,2015-2021,2019-02-27,2019-02-27,2019-02-27,0.0,agree,2019-02-27,2019-02-26,True,both rebalance days,kept
-18420,FOXA,FOX CORP,2015-2021,2019-03-19,2019-03-19,2019-03-19,0.0,agree,2019-03-19,2019-03-18,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-18428,DOW,DOW INC,2015-2021,2019-04-02,2019-04-02,2019-04-02,0.0,agree,2019-04-02,2019-04-01,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-18578,KTB,KONTOOR BRANDS INC,2015-2021,2019-05-23,2019-05-23,,,keydev only,2019-05-23,2019-05-22,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-18592,CTVA,CORTEVA INC,2015-2021,2019-06-03,2019-06-03,2019-06-03,0.0,agree,2019-06-03,2019-05-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-43772,BMS,BEMIS CO INC,2015-2021,2019-06-07,2019-06-07,2019-06-07,0.0,agree,2019-06-07,2019-06-06,False,no volume test,kept
-90454,MKTX,MARKETAXESS HLDGS INC,2015-2021,2019-07-01,2019-07-01,2019-07-01,0.0,agree,2019-07-01,2019-06-28,True,both rebalance days,kept
-91937,TMUS,T MOBILE U S INC,2015-2021,2019-07-15,2019-07-15,2019-07-15,0.0,agree,2019-07-15,2019-07-12,True,both rebalance days,kept
-75591,IEX,IDEX CORP,2015-2021,2019-08-09,2019-08-09,2019-08-09,0.0,agree,2019-08-09,2019-08-08,True,both rebalance days,kept
-91547,LDOS,LEIDOS HOLDINGS INC,2015-2021,2019-08-09,2019-08-09,2019-08-09,0.0,agree,2019-08-09,2019-08-08,True,both rebalance days,kept
-13949,CDW,C D W CORP NEW,2015-2021,2019-09-23,2019-09-23,2019-09-23,0.0,agree,2019-09-23,2019-09-20,True,both rebalance days,kept
-79785,NVR,N V R INC,2015-2021,2019-09-26,2019-09-26,2019-09-26,0.0,agree,2019-09-26,2019-09-25,True,both rebalance days,kept
-90505,LVS,LAS VEGAS SANDS CORP,2015-2021,2019-10-03,2019-10-03,2019-10-03,0.0,agree,2019-10-03,2019-10-02,True,both rebalance days,kept
-13447,NOW,SERVICENOW INC,2015-2021,2019-11-21,2019-11-21,2019-11-21,0.0,agree,2019-11-21,2019-11-20,True,both rebalance days,kept
-17743,WRB,BERKLEY W R CORP,2015-2021,2019-12-05,2019-12-05,2019-12-05,0.0,agree,2019-12-05,2019-12-04,True,both rebalance days,kept
-77037,ODFL,OLD DOMINION FREIGHT LINE INC,2015-2021,2019-12-09,2019-12-09,2019-12-09,0.0,agree,2019-12-09,2019-12-06,True,both rebalance days,kept
-76795,ZBRA,ZEBRA TECHNOLOGIES CORP,2015-2021,2019-12-23,2019-12-23,2019-12-23,0.0,agree,2019-12-23,2019-12-20,True,both rebalance days,kept
-77649,STE,STERIS PLC NEW,2015-2021,2019-12-23,2019-12-23,2019-12-23,0.0,agree,2019-12-23,2019-12-20,True,both rebalance days,kept
-91041,LYV,LIVE NATION ENTERTAINMENT INC,2015-2021,2019-12-23,2019-12-23,2019-12-23,0.0,agree,2019-12-23,2019-12-20,True,both rebalance days,kept
-14579,PAYC,PAYCOM SOFTWARE INC,2015-2021,2020-01-28,2020-01-28,2020-01-28,0.0,agree,2020-01-28,2020-01-27,True,both rebalance days,kept
-16692,IR,INGERSOLL RAND INC,2015-2021,2020-03-03,2020-03-03,2020-03-02,-1.0,ambiguous,2020-03-03,2020-03-02,True,keydev rebalance day,kept
-12308,CHTR,CHARTER COMMUNICATIONS INC NEW,2015-2021,2020-03-28,2020-03-30,,,keydev only,2020-03-30,2020-03-27,False,neither,kept
-19283,ARNC,ARCONIC CORP,2015-2021,2020-04-01,2020-04-01,,,keydev only,2020-04-01,2020-03-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-19285,CARR,CARRIER GLOBAL CORP,2015-2021,2020-04-03,2020-04-03,2020-04-03,0.0,agree,2020-04-03,2020-04-02,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-19286,OTIS,OTIS WORLDWIDE CORP,2015-2021,2020-04-03,2020-04-03,2020-04-03,0.0,agree,2020-04-03,2020-04-02,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-90248,DPZ,DOMINOS PIZZA INC,2015-2021,2020-05-12,2020-05-12,2020-05-12,0.0,agree,2020-05-12,2020-05-11,True,both rebalance days,kept
-90664,DXCM,DEXCOM INC,2015-2021,2020-05-12,2020-05-12,2020-05-12,0.0,agree,2020-05-12,2020-05-11,True,both rebalance days,kept
-62498,WST,WEST PHARMACEUTICAL SERVICES INC,2015-2021,2020-05-22,2020-05-22,2020-05-22,0.0,agree,2020-05-22,2020-05-21,True,both rebalance days,kept
-76185,TYL,TYLER TECHNOLOGIES INC,2015-2021,2020-06-22,2020-06-22,2020-06-22,0.0,agree,2020-06-22,2020-06-19,True,both rebalance days,kept
-87445,TDY,TELEDYNE TECHNOLOGIES,2015-2021,2020-06-22,2020-06-22,2020-06-22,0.0,agree,2020-06-22,2020-06-19,True,both rebalance days,kept
-61516,BIO,BIO RAD LABORATORIES INC,2015-2021,2020-06-22,2020-06-22,2020-06-22,0.0,agree,2020-06-22,2020-06-19,True,both rebalance days,kept
-19283,ARNC,ARCONIC CORP,2015-2021,2020-06-30,2020-06-30,,,keydev only,2020-06-30,2020-06-29,False,neither,kept
-14763,CTLT,CATALENT INC,2015-2021,2020-09-21,2020-09-21,2020-09-21,0.0,agree,2020-09-21,2020-09-18,True,both rebalance days,kept
-15291,ETSY,ETSY INC,2015-2021,2020-09-21,2020-09-21,2020-09-21,0.0,agree,2020-09-21,2020-09-18,True,both rebalance days,kept
-51369,TER,TERADYNE INC,2015-2021,2020-09-21,2020-09-21,2020-09-21,0.0,agree,2020-09-21,2020-09-18,True,both rebalance days,kept
-82515,POOL,POOL CORP,2015-2021,2020-10-07,2020-10-07,2020-10-07,0.0,agree,2020-10-07,2020-10-06,True,both rebalance days,kept
-19807,VNT,VONTIER CORP,2015-2021,2020-10-09,2020-10-09,2020-10-09,0.0,agree,2020-10-09,2020-10-08,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-80711,AIV,APARTMENT INVESTMENT & MGMT CO,2015-2021,2020-12-16,2020-12-16,,,keydev only,2020-12-16,2020-12-15,True,keydev rebalance day,kept
-93436,TSLA,TESLA INC,2015-2021,2020-12-21,2020-12-21,2020-12-21,0.0,agree,2020-12-21,2020-12-18,True,both rebalance days,kept
-13323,ENPH,ENPHASE ENERGY INC,2015-2021,2021-01-07,2021-01-07,2021-01-07,0.0,agree,2021-01-07,2021-01-06,True,both rebalance days,kept
-76230,TRMB,TRIMBLE INC,2015-2021,2021-01-22,2021-01-22,2021-01-21,-1.0,ambiguous,2021-01-22,2021-01-21,False,wikipedia rebalance day,kept
-90455,MPWR,MONOLITHIC PWR SYS INC,2015-2021,2021-02-13,2021-02-16,2021-02-12,-1.0,ambiguous,2021-02-16,2021-02-12,False,wikipedia rebalance day,kept
-80563,PENN,PENN NATIONAL GAMING INC,2015-2021,2021-03-22,2021-03-22,2021-03-22,0.0,agree,2021-03-22,2021-03-19,True,both rebalance days,kept
-12084,NXPI,N X P SEMICONDUCTORS N V,2015-2021,2021-03-22,2021-03-22,2021-03-22,0.0,agree,2021-03-22,2021-03-19,True,both rebalance days,kept
-14882,CZR,CAESARS ENTERTAINMENT INC DE,2015-2021,2021-03-22,2021-03-22,2021-03-22,0.0,agree,2021-03-22,2021-03-19,True,both rebalance days,kept
-93246,GNRC,GENERAC HOLDINGS INC,2015-2021,2021-03-22,2021-03-22,2021-03-22,0.0,agree,2021-03-22,2021-03-19,True,both rebalance days,kept
-75912,PTC,P T C INC,2015-2021,2021-04-21,2021-04-21,2021-04-20,-1.0,ambiguous,2021-04-21,2021-04-20,False,wikipedia rebalance day,kept
-88281,CRL,CHARLES RIVER LABS INTL INC,2015-2021,2021-05-14,2021-05-14,2021-05-14,0.0,agree,2021-05-14,2021-05-13,True,both rebalance days,kept
-21124,OGN,ORGANON & CO,2015-2021,2021-06-03,2021-06-03,2021-06-03,0.0,agree,2021-06-03,2021-06-02,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-21356,DTM,D T MIDSTREAM INC,2015-2021,2021-07-02,2021-07-02,,,keydev only,2021-07-02,2021-07-01,False,no volume test,kept
-18312,MRNA,MODERNA INC,2015-2021,"2021-07-20, 2021-07-22",2021-07-22,2021-07-21,-1.0,"keydev duplicate, wikipedia inside",2021-07-21,2021-07-20,False,wikipedia rebalance day,kept
-21609,VSCO,VICTORIAS SECRET & CO,2015-2021,2021-08-03,2021-08-03,,,keydev only,2021-08-03,2021-08-02,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-75694,TECH,BIO TECHNE CORP,2015-2021,2021-08-30,2021-08-30,2021-08-30,0.0,agree,2021-08-30,2021-08-27,True,both rebalance days,kept
-15850,MTCH,MATCH GROUP INC NEW,2015-2021,2021-09-20,2021-09-20,2021-09-20,0.0,agree,2021-09-20,2021-09-17,True,both rebalance days,kept
-17700,CDAY,CERIDIAN H C M HOLDING INC,2015-2021,2021-09-20,2021-09-20,2021-09-20,0.0,agree,2021-09-20,2021-09-17,True,both rebalance days,kept
-63467,BRO,BROWN & BROWN INC,2015-2021,2021-09-20,2021-09-20,2021-09-20,0.0,agree,2021-09-20,2021-09-17,True,both rebalance days,kept
-21903,SLVM,SYLVAMO CORP,2015-2021,2021-10-01,2021-10-01,,,keydev only,2021-10-01,2021-09-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-22092,KD,KYNDRYL HOLDINGS INC,2015-2021,2021-11-05,2021-11-05,,,keydev only,2021-11-05,2021-11-04,False,no volume test,kept
-22264,ONL,ORION OFFICE REIT INC,2015-2021,2021-11-15,2021-11-15,,,keydev only,2021-11-15,2021-11-12,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
-13210,EPAM,EPAM SYSTEMS INC,2015-2021,2021-12-14,2021-12-14,2021-12-14,0.0,agree,2021-12-14,2021-12-13,True,both rebalance days,kept
-90090,SBNY,SIGNATURE BANK NEW YORK N Y,2015-2021,2021-12-20,2021-12-20,2021-12-20,0.0,agree,2021-12-20,2021-12-17,True,both rebalance days,kept
-83597,FDS,FACTSET RESEARCH SYSTEMS INC,2015-2021,2021-12-20,2021-12-20,2021-12-20,0.0,agree,2021-12-20,2021-12-17,True,both rebalance days,kept
-15272,SEDG,SOLAREDGE TECHNOLOGIES INC,2015-2021,2021-12-21,2021-12-21,2021-12-20,-1.0,ambiguous,2021-12-21,2021-12-20,False,wikipedia rebalance day,kept
+permno,ticker,company,era,keydev_dates,keydev_effective,wiki_date,wiki_offset,date_rule,date_source,effective_date,rebalance_day,passes_volume_filter,volume_peak_on,date_check
+79094,JBL,JABIL CIRCUIT INC,2001-2007,2001-01-30,2001-01-30,,,keydev only,keydev,2001-01-30,2001-01-29,True,keydev rebalance day,kept
+84001,UVN,UNIVISION COMMUNICATIONS INC,2001-2007,2001-02-07,2001-02-07,,,keydev only,keydev,2001-02-07,2001-02-06,True,keydev rebalance day,kept
+23887,CZN,CITIZENS COMMUNICATIONS CO,2001-2007,2001-02-27,2001-02-27,,,keydev only,keydev,2001-02-27,2001-02-26,True,keydev rebalance day,kept
+23660,CTAS,CINTAS CORP,2001-2007,2001-03-01,2001-03-01,,,keydev only,keydev,2001-03-01,2001-02-28,True,keydev rebalance day,kept
+10696,FISV,FISERV INC,2001-2007,2001-04-02,2001-04-02,,,keydev only,keydev,2001-04-02,2001-03-30,True,keydev rebalance day,kept
+26332,CEFT,CONCORD E F S INC,2001-2007,2001-04-02,2001-04-02,,,keydev only,keydev,2001-04-02,2001-03-30,True,keydev rebalance day,kept
+88601,MIR,MIRANT CORP,2001-2007,2001-04-03,2001-04-03,,,keydev only,keydev,2001-04-03,2001-04-02,True,keydev rebalance day,kept
+86756,PBG,PEPSI BOTTLING GROUP INC,2001-2007,2001-05-14,2001-05-14,,,keydev only,keydev,2001-05-14,2001-05-11,True,keydev rebalance day,kept
+84342,TMPW,T M P WORLDWIDE INC,2001-2007,2001-06-04,2001-06-04,,,keydev only,keydev,2001-06-04,2001-06-01,True,keydev rebalance day,kept
+89027,MCIT,WORLDCOM INC GA NEW,2001-2007,2001-06-08,2001-06-08,,,keydev only,keydev,2001-06-08,2001-06-07,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+84129,ZION,ZIONS BANCORPORATION,2001-2007,2001-06-25,2001-06-25,,,keydev only,keydev,2001-06-25,2001-06-22,True,keydev rebalance day,kept
+87536,JHF,HANCOCK JOHN FINANCIAL SVCS INC,2001-2007,2001-06-28,2001-06-28,,,keydev only,keydev,2001-06-28,2001-06-27,True,keydev rebalance day,kept
+89014,COL,ROCKWELL COLLINS INC,2001-2007,2001-07-02,2001-07-02,,,keydev only,keydev,2001-07-02,2001-06-29,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+89001,AWE,A T & T WIRELESS SVCS INC,2001-2007,2001-07-09,2001-07-09,,,keydev only,keydev,2001-07-09,2001-07-06,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+76624,PMCS,P M C SIERRA INC,2001-2007,2001-08-03,2001-08-03,,,keydev only,keydev,2001-08-03,2001-08-02,True,keydev rebalance day,kept
+53866,FDO,FAMILY DOLLAR STORES INC,2001-2007,2001-08-06,2001-08-06,,,keydev only,keydev,2001-08-06,2001-08-03,True,keydev rebalance day,kept
+89070,ZMH,ZIMMER HOLDINGS INC,2001-2007,2001-08-07,2001-08-07,,,keydev only,keydev,2001-08-07,2001-08-06,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+81540,AAS,AMERISOURCE HEALTH CORP,2001-2007,2001-08-30,2001-08-30,,,keydev only,keydev,2001-08-30,2001-08-29,True,keydev rebalance day,kept
+84519,CIEN,CIENA CORP,2001-2007,2001-08-30,2001-08-30,,,keydev only,keydev,2001-08-30,2001-08-29,False,neither,kept
+45277,IGT,INTERNATIONAL GAME TECHNOLOGY,2001-2007,2001-09-04,2001-09-04,,,keydev only,keydev,2001-09-04,2001-08-31,True,keydev rebalance day,kept
+86314,XL,X L CAPITAL LTD,2001-2007,2001-09-04,2001-09-04,,,keydev only,keydev,2001-09-04,2001-08-31,True,keydev rebalance day,kept
+43610,IMNX,IMMUNEX CORP NEW,2001-2007,2001-09-21,2001-09-21,,,keydev only,keydev,2001-09-21,2001-09-20,True,keydev rebalance day,kept
+37161,TE,T E C O ENERGY INC,2001-2007,2001-10-10,2001-10-10,,,keydev only,keydev,2001-10-10,2001-10-09,True,keydev rebalance day,kept
+85238,EOP,EQUITY OFFICE PROPERTIES TRUST,2001-2007,2001-10-10,2001-10-10,,,keydev only,keydev,2001-10-10,2001-10-09,True,keydev rebalance day,kept
+76565,HMA,HEALTH MANAGEMENT ASSOCIATES INC,2001-2007,2001-11-07,2001-11-07,,,keydev only,keydev,2001-11-07,2001-11-06,True,keydev rebalance day,kept
+86580,NVDA,NVIDIA CORP,2001-2007,2001-11-30,2001-11-30,,,keydev only,keydev,2001-11-30,2001-11-29,True,keydev rebalance day,kept
+79547,EQR,EQUITY RESIDENTIAL PROPERTIES TR,2001-2007,2001-12-03,2001-12-03,,,keydev only,keydev,2001-12-03,2001-11-30,True,keydev rebalance day,kept
+10324,GENZ,GENZYME CORP,2001-2007,2001-12-14,2001-12-14,,,keydev only,keydev,2001-12-14,2001-12-13,True,keydev rebalance day,kept
+76638,JNY,JONES APPAREL GROUP INC,2001-2007,2001-12-17,2001-12-17,,,keydev only,keydev,2001-12-17,2001-12-14,True,keydev rebalance day,kept
+82651,WAT,WATERS CORP,2001-2007,2002-01-02,2002-01-02,,,keydev only,keydev,2002-01-02,2001-12-31,True,keydev rebalance day,kept
+75592,PCL,PLUM CREEK TIMBER CO INC,2001-2007,2002-01-17,2002-01-17,,,keydev only,keydev,2002-01-17,2002-01-16,True,keydev rebalance day,kept
+79057,ACE,ACE LTD,2001-2007,2002-01-30,2002-01-30,,,keydev only,keydev,2002-01-30,2002-01-29,True,keydev rebalance day,kept
+80515,RATL,RATIONAL SOFTWARE CORP,2001-2007,2002-02-01,2002-02-01,,,keydev only,keydev,2002-02-01,2002-01-31,True,keydev rebalance day,kept
+51706,MI,MARSHALL & ILSLEY CORP,2001-2007,2002-02-11,2002-02-11,,,keydev only,keydev,2002-02-11,2002-02-08,True,keydev rebalance day,kept
+36397,FTN,FIRST TENNESSEE NATIONAL CORP,2001-2007,2002-05-06,2002-05-06,,,keydev only,keydev,2002-05-06,2002-05-03,True,keydev rebalance day,kept
+81285,ASD,AMERICAN STANDARD COS INC DEL,2001-2007,2002-05-13,2002-05-13,,,keydev only,keydev,2002-05-13,2002-05-10,True,keydev rebalance day,kept
+76240,BJS,B J SERVICES CO,2001-2007,2002-05-15,2002-05-15,,,keydev only,keydev,2002-05-15,2002-05-14,True,keydev rebalance day,kept
+81138,APOL,APOLLO GROUP INC,2001-2007,2002-05-15,2002-05-15,,,keydev only,keydev,2002-05-15,2002-05-14,True,keydev rebalance day,kept
+80100,SPG,SIMON PROPERTY GROUP INC NEW,2001-2007,2002-06-26,2002-06-26,,,keydev only,keydev,2002-06-26,2002-06-25,True,keydev rebalance day,kept
+58094,NFB,NORTH FORK BANCORPORATION NY INC,2001-2007,2002-07-17,2002-07-17,,,keydev only,keydev,2002-07-17,2002-07-16,True,keydev rebalance day,kept
+89258,PRU,PRUDENTIAL FINANCIAL INC,2001-2007,2002-07-22,2002-07-22,,,keydev only,keydev,2002-07-22,2002-07-19,True,keydev rebalance day,kept
+87447,UPS,UNITED PARCEL SERVICE INC,2001-2007,2002-07-22,2002-07-22,,,keydev only,keydev,2002-07-22,2002-07-19,True,keydev rebalance day,kept
+86868,GS,GOLDMAN SACHS GROUP INC,2001-2007,2002-07-22,2002-07-22,,,keydev only,keydev,2002-07-22,2002-07-19,True,keydev rebalance day,kept
+89195,PFG,PRINCIPAL FINANCIAL GROUP INC,2001-2007,2002-07-22,2002-07-22,,,keydev only,keydev,2002-07-22,2002-07-19,True,keydev rebalance day,kept
+75828,ERTS,ELECTRONIC ARTS INC,2001-2007,2002-07-22,2002-07-22,,,keydev only,keydev,2002-07-22,2002-07-19,True,keydev rebalance day,kept
+86356,EBAY,EBAY INC,2001-2007,2002-07-22,2002-07-22,,,keydev only,keydev,2002-07-22,2002-07-19,True,keydev rebalance day,kept
+10108,SDS,SUNGARD DATA SYSTEMS INC,2001-2007,2002-07-22,2002-07-22,,,keydev only,keydev,2002-07-22,2002-07-19,True,keydev rebalance day,kept
+89179,ATH,ANTHEM INC,2001-2007,2002-07-25,2002-07-25,,,keydev only,keydev,2002-07-25,2002-07-24,True,keydev rebalance day,kept
+88668,MON,MONSANTO CO NEW,2001-2007,2002-08-14,2002-08-14,,,keydev only,keydev,2002-08-14,2002-08-13,False,neither,kept
+89495,TAP,TRAVELERS PPTY CASUALTY CORP NEW,2001-2007,2002-08-21,2002-08-21,,,keydev only,keydev,2002-08-21,2002-08-20,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+86946,RJR,REYNOLDS R J TOBACCO HLDGS INC,2001-2007,2002-09-04,2002-09-04,,,keydev only,keydev,2002-09-04,2002-09-03,True,keydev rebalance day,kept
+84373,DGX,QUEST DIAGNOSTICS INC,2001-2007,2002-12-12,2002-12-12,,,keydev only,keydev,2002-12-12,2002-12-11,True,keydev rebalance day,kept
+76282,AN,AUTONATION INC DEL,2001-2007,2003-02-24,2003-02-24,,,keydev only,keydev,2003-02-24,2003-02-21,True,keydev rebalance day,kept
+80711,AIV,APARTMENT INVESTMENT & MGMT CO,2001-2007,2003-03-14,2003-03-14,,,keydev only,keydev,2003-03-14,2003-03-13,True,keydev rebalance day,kept
+52090,MKC,MCCORMICK & CO INC,2001-2007,2003-03-21,2003-03-21,,,keydev only,keydev,2003-03-21,2003-03-20,True,keydev rebalance day,kept
+75607,SYMC,SYMANTEC CORP,2001-2007,2003-03-31,2003-03-31,,,keydev only,keydev,2003-03-31,2003-03-28,True,keydev rebalance day,kept
+86102,FII,FEDERATED INVESTORS INC PA,2001-2007,2003-04-16,2003-04-16,,,keydev only,keydev,2003-04-16,2003-04-15,True,keydev rebalance day,kept
+80406,PLD,PROLOGIS,2001-2007,2003-07-17,2003-07-17,,,keydev only,keydev,2003-07-17,2003-07-16,True,keydev rebalance day,kept
+89813,MHS,MEDCO HEALTH SOLUTIONS INC,2001-2007,2003-08-20,2003-08-20,,,keydev only,keydev,2003-08-20,2003-08-19,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+77668,ESRX,EXPRESS SCRIPTS INC,2001-2007,2003-09-26,2003-09-26,2003-09-25,-1.0,ambiguous,keydev,2003-09-26,2003-09-25,True,keydev rebalance day,kept
+76841,IDPH,I D E C PHARMACEUTICALS CORP,2001-2007,2003-11-13,2003-11-13,,,keydev only,keydev,2003-11-13,2003-11-12,True,keydev rebalance day,kept
+35554,MTB,M & T BANK CORP,2001-2007,2004-02-27,2004-02-27,,,keydev only,keydev,2004-02-27,2004-02-26,True,keydev rebalance day,kept
+81262,CMX,CAREMARK RX INC,2001-2007,2004-03-25,2004-03-25,,,keydev only,keydev,2004-03-25,2004-03-24,True,keydev rebalance day,kept
+83862,ET,E TRADE FINANCIAL CORP,2001-2007,2004-04-01,2004-04-01,,,keydev only,keydev,2004-04-01,2004-03-31,True,keydev rebalance day,kept
+80913,ACS,AFFILIATED COMPUTER SERVICES INC,2001-2007,2004-04-02,2004-04-02,,,keydev only,keydev,2004-04-02,2004-04-01,True,keydev rebalance day,kept
+69550,MYL,MYLAN LABS INC,2001-2007,2004-04-23,2004-04-23,,,keydev only,keydev,2004-04-23,2004-04-22,True,keydev rebalance day,kept
+85269,VLO,VALERO ENERGY CORP NEW,2001-2007,2004-04-29,2004-04-29,,,keydev only,keydev,2004-04-29,2004-04-28,True,keydev rebalance day,kept
+90110,HSP,HOSPIRA INC,2001-2007,2004-05-03,2004-05-03,,,keydev only,keydev,2004-05-03,2004-04-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+10562,SOV,SOVEREIGN BANCORP INC,2001-2007,2004-07-01,2004-07-01,,,keydev only,keydev,2004-07-01,2004-06-30,True,keydev rebalance day,kept
+77274,GILD,GILEAD SCIENCES INC,2001-2007,2004-07-01,2004-07-01,,,keydev only,keydev,2004-07-01,2004-06-30,True,keydev rebalance day,kept
+77150,FSH,FISHER SCIENTIFIC INTL INC,2001-2007,2004-08-03,2004-08-03,,,keydev only,keydev,2004-08-03,2004-08-02,True,keydev rebalance day,kept
+88661,COH,COACH INC,2001-2007,2004-09-01,2004-09-01,,,keydev only,keydev,2004-09-01,2004-08-31,True,keydev rebalance day,kept
+89463,CIT,C I T GROUP INC NEW,2001-2007,2004-10-27,2004-10-27,,,keydev only,keydev,2004-10-27,2004-10-26,True,keydev rebalance day,kept
+12062,LH,LABORATORY CORP AMERICA HLDGS,2001-2007,2004-11-01,2004-11-01,,,keydev only,keydev,2004-11-01,2004-10-29,True,keydev rebalance day,kept
+86021,LLL,L 3 COMMUNICATIONS HLDGS INC,2001-2007,2004-12-01,2004-12-01,,,keydev only,keydev,2004-12-01,2004-11-30,True,keydev rebalance day,kept
+90435,FSL,FREESCALE SEMICONDUCTOR INC,2001-2007,"2004-12-02, 2004-12-03",2004-12-03,,,keydev only,keydev,2004-12-03,2004-12-02,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+90441,NWS,NEWS CORP,2001-2007,2004-12-20,2004-12-20,,,keydev only,keydev,2004-12-20,2004-12-17,True,keydev rebalance day,kept
+22032,CBSS,COMPASS BANCSHARES INC,2001-2007,2004-12-20,2004-12-20,,,keydev only,keydev,2004-12-20,2004-12-17,True,keydev rebalance day,kept
+64451,ASN,ARCHSTONE SMITH TRUST,2001-2007,"2004-12-17, 2004-12-20",2004-12-20,,,keydev only,keydev,2004-12-20,2004-12-17,True,keydev rebalance day,kept
+79212,XTO,X T O ENERGY INC,2001-2007,2004-12-29,2004-12-29,,,keydev only,keydev,2004-12-29,2004-12-28,True,keydev rebalance day,kept
+84032,NOI,NATIONAL OILWELL INC,2001-2007,2005-03-14,2005-03-14,,,keydev only,keydev,2005-03-14,2005-03-11,True,keydev rebalance day,kept
+89757,KMRT,KMART HOLDING CORP,2001-2007,2005-03-28,2005-03-28,,,keydev only,keydev,2005-03-28,2005-03-24,True,keydev rebalance day,kept
+69796,STZ,CONSTELLATION BRANDS INC,2001-2007,2005-07-05,2005-07-05,2005-07-01,-1.0,ambiguous,keydev,2005-07-05,2005-07-01,True,keydev rebalance day,kept
+77661,DHI,D R HORTON INC,2001-2007,2005-07-05,2005-07-05,,,keydev only,keydev,2005-07-05,2005-07-01,True,keydev rebalance day,kept
+32791,WFT,WEATHERFORD INTL LTD,2001-2007,2005-07-22,2005-07-22,,,keydev only,keydev,2005-07-22,2005-07-21,True,keydev rebalance day,kept
+77730,TSN,TYSON FOODS INC,2001-2007,2005-08-11,2005-08-11,,,keydev only,keydev,2005-08-11,2005-08-10,True,keydev rebalance day,kept
+28388,VNO,VORNADO REALTY TRUST,2001-2007,2005-08-12,2005-08-12,,,keydev only,keydev,2005-08-12,2005-08-11,True,keydev rebalance day,kept
+28345,MUR,MURPHY OIL CORP,2001-2007,2005-08-15,2005-08-15,,,keydev only,keydev,2005-08-15,2005-08-12,True,keydev rebalance day,kept
+64653,PSA,PUBLIC STORAGE INC,2001-2007,2005-08-19,2005-08-19,,,keydev only,keydev,2005-08-19,2005-08-18,True,keydev rebalance day,kept
+76619,CVH,COVENTRY HEALTH CARE INC,2001-2007,2005-08-30,2005-08-30,,,keydev only,keydev,2005-08-30,2005-08-29,True,keydev rebalance day,kept
+90880,AMP,AMERIPRISE FINANCIAL INC,2001-2007,2005-10-03,2005-10-03,,,keydev only,keydev,2005-10-03,2005-09-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+52708,LEN,LENNAR CORP,2001-2007,2005-10-04,2005-10-04,,,keydev only,keydev,2005-10-04,2005-10-03,True,keydev rebalance day,kept
+78034,PDCO,PATTERSON COMPANIES INC,2001-2007,2005-10-11,2005-10-11,,,keydev only,keydev,2005-10-11,2005-10-10,True,keydev rebalance day,kept
+84788,AMZN,AMAZON COM INC,2001-2007,2005-11-15,2005-11-15,2005-11-18,3.0,keydev early,wikipedia,2005-11-18,2005-11-17,False,neither,kept
+90162,GNW,GENWORTH FINANCIAL INC,2001-2007,2005-12-02,2005-12-02,,,keydev only,keydev,2005-12-02,2005-12-01,True,keydev rebalance day,kept
+84176,SSP,SCRIPPS E W CO OHIO,2001-2007,2005-12-20,2005-12-20,,,keydev only,keydev,2005-12-20,2005-12-19,True,keydev rebalance day,kept
+77281,WFMI,WHOLE FOODS MARKET INC,2001-2007,2006-01-03,2006-01-03,,,keydev only,keydev,2006-01-03,2005-12-30,True,keydev rebalance day,kept
+91063,VIA,VIACOM INC NEW,2001-2007,2006-01-03,2006-01-03,,,keydev only,keydev,2006-01-03,2005-12-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+82642,EL,LAUDER ESTEE COS INC,2001-2007,2006-01-05,2006-01-05,,,keydev only,keydev,2006-01-05,2006-01-04,True,keydev rebalance day,kept
+75224,HAR,HARMAN INTL INDS INC NEW,2001-2007,2006-02-01,2006-02-01,,,keydev only,keydev,2006-02-01,2006-01-31,True,keydev rebalance day,kept
+85753,VRSN,VERISIGN INC,2001-2007,2006-02-01,2006-02-01,,,keydev only,keydev,2006-02-01,2006-01-31,True,keydev rebalance day,kept
+11415,BRL,BARR PHARMACEUTICALS INC,2001-2007,2006-02-27,2006-02-27,,,keydev only,keydev,2006-02-27,2006-02-24,True,keydev rebalance day,kept
+78877,CHK,CHESAPEAKE ENERGY CORP,2001-2007,2006-03-03,2006-03-03,,,keydev only,keydev,2006-03-03,2006-03-02,True,keydev rebalance day,kept
+77129,KIM,KIMCO REALTY CORP,2001-2007,2006-04-03,2006-04-03,,,keydev only,keydev,2006-04-03,2006-03-31,True,keydev rebalance day,kept
+83421,DF,DEAN FOODS CO NEW,2001-2007,2006-04-03,2006-04-03,,,keydev only,keydev,2006-04-03,2006-03-31,True,keydev rebalance day,kept
+85058,BXP,BOSTON PROPERTIES INC,2001-2007,2006-04-03,2006-04-03,,,keydev only,keydev,2006-04-03,2006-03-31,True,keydev rebalance day,kept
+90319,GOOG,GOOGLE INC,2001-2007,2006-04-03,2006-04-03,,,keydev only,keydev,2006-04-03,2006-03-31,True,keydev rebalance day,kept
+82618,SNDK,SANDISK CORP,2001-2007,2006-04-20,2006-04-20,,,keydev only,keydev,2006-04-20,2006-04-19,True,keydev rebalance day,kept
+65330,LM,LEGG MASON INC,2001-2007,2006-04-24,2006-04-24,,,keydev only,keydev,2006-04-24,2006-04-21,True,keydev rebalance day,kept
+91218,EQ,EMBARQ CORP,2001-2007,2006-05-11,2006-05-11,,,keydev only,keydev,2006-05-11,2006-05-10,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+86845,CBH,COMMERCE BANCORP INC NJ,2001-2007,2006-06-01,2006-06-01,,,keydev only,keydev,2006-06-01,2006-05-31,False,neither,kept
+86979,JNPR,JUNIPER NETWORKS INC,2001-2007,2006-06-01,2006-06-01,2006-06-02,1.0,keydev early,wikipedia,2006-06-02,2006-06-01,False,wikipedia rebalance day,kept
+86799,CNX,CONSOL ENERGY INC,2001-2007,2006-06-27,2006-06-27,,,keydev only,keydev,2006-06-27,2006-06-26,False,neither,kept
+91391,WIN,WINDSTREAM CORP,2001-2007,2006-07-18,2006-07-18,,,keydev only,keydev,2006-07-18,2006-07-17,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+91388,H,REALOGY CORP,2001-2007,2006-07-25,2006-07-25,,,keydev only,keydev,2006-07-25,2006-07-24,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+91392,WYN,WYNDHAM WORLDWIDE CORP,2001-2007,2006-08-01,2006-08-01,,,keydev only,keydev,2006-08-01,2006-07-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+89626,CME,CHICAGO MERCANTILE EXCH HLDG INC,2001-2007,2006-08-11,2006-08-11,,,keydev only,keydev,2006-08-11,2006-08-10,True,keydev rebalance day,kept
+91461,WU,WESTERN UNION CO,2001-2007,2006-09-27,2006-09-27,,,keydev only,keydev,2006-09-27,2006-09-26,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+45794,SII,SMITH INTERNATIONAL INC,2001-2007,2006-09-29,2006-09-29,,,keydev only,keydev,2006-09-29,2006-09-28,False,neither,kept
+11552,CELG,CELGENE CORP,2001-2007,2006-11-06,2006-11-06,,,keydev only,keydev,2006-11-06,2006-11-03,True,keydev rebalance day,kept
+89003,FIS,FIDELITY NATIONAL INFO SVCS INC,2001-2007,2006-11-10,2006-11-10,,,keydev only,keydev,2006-11-10,2006-11-09,True,keydev rebalance day,kept
+90199,CBG,C B RICHARD ELLIS GROUP INC,2001-2007,2006-11-10,2006-11-10,,,keydev only,keydev,2006-11-10,2006-11-09,True,keydev rebalance day,kept
+86158,CTSH,COGNIZANT TECHNOLOGY SOLS CORP,2001-2007,2006-11-15,2006-11-15,,,keydev only,keydev,2006-11-15,2006-11-14,False,neither,kept
+88991,BTU,PEABODY ENERGY CORP,2001-2007,2006-11-18,2006-11-20,,,keydev only,keydev,2006-11-20,2006-11-17,True,keydev rebalance day,kept
+27756,STR,QUESTAR CORP,2001-2007,2006-11-23,2006-11-24,,,keydev only,keydev,2006-11-24,2006-11-22,False,neither,kept
+78840,IACI,IAC INTERACTIVECORP,2001-2007,2006-11-23,2006-11-24,,,keydev only,keydev,2006-11-24,2006-11-22,False,neither,kept
+89954,DTV,DIRECTV GROUP INC,2001-2007,2006-12-04,2006-12-04,,,keydev only,keydev,2006-12-04,2006-12-01,True,keydev rebalance day,kept
+58318,TEX,TEREX CORP NEW,2001-2007,2006-12-19,2006-12-19,,,keydev only,keydev,2006-12-19,2006-12-18,False,neither,kept
+62519,ESV,E N S C O INTERNATIONAL INC,2001-2007,2007-01-03,2007-01-03,,,keydev only,keydev,2007-01-03,2006-12-29,False,neither,kept
+91650,SE,SPECTRA ENERGY CORP,2001-2007,2007-01-03,2007-01-03,,,keydev only,keydev,2007-01-03,2006-12-29,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+80381,AVB,AVALONBAY COMMUNITIES INC,2001-2007,2007-01-05,2007-01-05,2007-01-10,3.0,keydev early,wikipedia,2007-01-10,2007-01-09,False,wikipedia rebalance day,kept
+85072,RL,POLO RALPH LAUREN CORP,2001-2007,2007-02-01,2007-02-01,,,keydev only,keydev,2007-02-01,2007-01-31,False,neither,kept
+27043,VAR,VARIAN MEDICAL SYSTEMS INC,2001-2007,2007-02-09,2007-02-09,,,keydev only,keydev,2007-02-09,2007-02-08,False,neither,kept
+87070,HCBK,HUDSON CITY BANCORP INC,2001-2007,2007-02-15,2007-02-15,,,keydev only,keydev,2007-02-15,2007-02-14,True,keydev rebalance day,kept
+25099,WPS,W P S RESOURCES CORP,2001-2007,2007-02-22,2007-02-22,,,keydev only,keydev,2007-02-22,2007-02-21,True,keydev rebalance day,kept
+85459,CHRW,CH ROBINSON WORLDWIDE INC,2001-2007,2007-02-28,2007-02-28,,,keydev only,keydev,2007-02-28,2007-02-27,False,neither,kept
+46703,HST,HOST HOTELS & RESORTS INC,2001-2007,2007-03-20,2007-03-20,,,keydev only,keydev,2007-03-20,2007-03-19,True,keydev rebalance day,kept
+78927,DDR,DEVELOPERS DIVERSIFIED RLTY CORP,2001-2007,2007-03-23,2007-03-23,,,keydev only,keydev,2007-03-23,2007-03-22,True,keydev rebalance day,kept
+83976,ANF,ABERCROMBIE & FITCH CO,2001-2007,2007-03-28,2007-03-28,,,keydev only,keydev,2007-03-28,2007-03-27,False,neither,kept
+89006,KFT,KRAFT FOODS INC,2001-2007,2007-03-23,2007-03-23,2007-03-30,5.0,keydev early,wikipedia,2007-03-30,2007-03-29,False,neither,kept
+90038,AIZ,ASSURANT INC,2001-2007,2007-04-03,2007-04-03,,,keydev only,keydev,2007-04-03,2007-04-02,False,neither,kept
+81776,WFR,M E M C ELECTRONIC MATERIALS INC,2001-2007,2007-05-25,2007-05-25,,,keydev only,keydev,2007-05-25,2007-05-24,False,neither,kept
+63830,PCP,PRECISION CASTPARTS CORP,2001-2007,2007-05-31,2007-05-31,,,keydev only,keydev,2007-05-31,2007-05-30,False,neither,kept
+92156,COV,COVIDIEN LTD,2001-2007,2007-06-22,2007-06-22,,,keydev only,keydev,2007-06-22,2007-06-21,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+92157,TEL,TYCO ELECTRONICS LTD,2001-2007,2007-06-23,2007-06-25,,,keydev only,keydev,2007-06-25,2007-06-22,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+92121,DFS,DISCOVER FINANCIAL SERVICES,2001-2007,2007-06-23,2007-06-25,2007-07-02,5.0,keydev early,wikipedia,2007-07-02,2007-06-29,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+79129,GGP,GENERAL GROWTH PROPERTIES INC,2001-2007,2007-07-02,2007-07-02,,,keydev only,keydev,2007-07-02,2007-06-29,True,keydev rebalance day,kept
+85271,ACAS,AMERICAN CAPITAL STRATEGIES LTD,2001-2007,2007-07-03,2007-07-03,,,keydev only,keydev,2007-07-03,2007-07-02,False,neither,kept
+87299,AKAM,AKAMAI TECHNOLOGIES INC,2001-2007,2007-07-10,2007-07-10,,,keydev only,keydev,2007-07-10,2007-07-09,False,neither,kept
+20415,LUK,LEUCADIA NATIONAL CORP,2001-2007,2007-08-27,2007-08-27,2007-08-24,-1.0,ambiguous,keydev,2007-08-27,2007-08-24,True,keydev rebalance day,kept
+78987,MCHP,MICROCHIP TECHNOLOGY INC,2001-2007,2007-09-07,2007-09-07,,,keydev only,keydev,2007-09-07,2007-09-06,True,keydev rebalance day,kept
+90993,ICE,INTERCONTINENTALEXCHANGE INC,2001-2007,2007-09-26,2007-09-26,2007-09-26,0.0,agree,keydev,2007-09-26,2007-09-25,True,both rebalance days,kept
+37284,TSO,TESORO CORP,2001-2007,2007-09-25,2007-09-25,2007-09-27,2.0,keydev early,wikipedia,2007-09-27,2007-09-26,False,wikipedia rebalance day,kept
+92293,TDC,TERADATA CORP DE,2001-2007,2007-09-25,2007-09-25,2007-10-01,4.0,keydev early,wikipedia,2007-10-01,2007-09-28,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+90808,EXPE,EXPEDIA INC DE,2001-2007,2007-09-25,2007-09-25,2007-10-02,5.0,keydev early,wikipedia,2007-10-02,2007-10-01,False,wikipedia rebalance day,kept
+61815,NBL,NOBLE ENERGY INC,2001-2007,2007-10-03,2007-10-03,,,keydev only,keydev,2007-10-03,2007-10-02,False,neither,kept
+87717,EXPD,EXPEDITORS INTERNATIONAL WA INC,2001-2007,2007-10-09,2007-10-09,,,keydev only,keydev,2007-10-09,2007-10-08,False,neither,kept
+83699,TIE,TITANIUM METALS CORP,2001-2007,2007-10-19,2007-10-19,,,keydev only,keydev,2007-10-19,2007-10-18,False,neither,kept
+91143,NYX,N Y S E EURONEXT,2001-2007,2007-10-19,2007-10-19,,,keydev only,keydev,2007-10-19,2007-10-18,False,neither,kept
+52329,JEC,JACOBS ENGINEERING GROUP INC,2001-2007,2007-10-24,2007-10-24,2007-10-26,2.0,keydev early,wikipedia,2007-10-26,2007-10-25,False,wikipedia rebalance day,kept
+23501,POM,PEPCO HOLDINGS INC,2001-2007,"2007-11-02, 2007-11-09",2007-11-09,,,keydev only,keydev,2007-11-09,2007-11-08,True,keydev rebalance day,kept
+51263,MTW,MANITOWOC CO INC,2001-2007,2007-11-12,2007-11-12,,,keydev only,keydev,2007-11-12,2007-11-09,False,neither,kept
+86111,AMT,AMERICAN TOWER CORP,2001-2007,2007-11-12,2007-11-12,,,keydev only,keydev,2007-11-12,2007-11-09,False,neither,kept
+89301,GME,GAMESTOP CORP NEW,2001-2007,2007-12-14,2007-12-14,2007-12-13,-1.0,ambiguous,keydev,2007-12-14,2007-12-13,True,keydev rebalance day,kept
+50017,RRC,RANGE RESOURCES CORP,2001-2007,2007-12-21,2007-12-21,2007-12-20,-1.0,ambiguous,keydev,2007-12-21,2007-12-20,True,keydev rebalance day,kept
+53225,WPO,WASHINGTON POST CO,2001-2007,2007-12-31,2007-12-31,,,keydev only,keydev,2007-12-31,2007-12-28,True,keydev rebalance day,kept
+76639,TSS,TOTAL SYSTEM SERVICES INC,2001-2007,2008-01-02,2008-01-02,,,keydev only,keydev,2008-01-02,2007-12-31,True,keydev rebalance day,kept
+81857,CAM,CAMERON INTERNATIONAL CORP,2008-2014,2008-01-18,2008-01-18,,,keydev only,keydev,2008-01-18,2008-01-17,False,neither,kept
+92602,PM,PHILIP MORRIS INTERNATIONAL INC,2008-2014,2008-03-31,2008-03-31,,,keydev only,keydev,2008-03-31,2008-03-28,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+67598,HCP,H C P INC,2008-2014,2008-03-31,2008-03-31,,,keydev only,keydev,2008-03-31,2008-03-28,True,keydev rebalance day,kept
+88352,ISRG,INTUITIVE SURGICAL INC,2008-2014,2008-06-02,2008-06-02,,,keydev only,keydev,2008-06-02,2008-05-30,True,keydev rebalance day,kept
+63765,SWN,SOUTHWESTERN ENERGY CO,2008-2014,2008-06-06,2008-06-06,,,keydev only,keydev,2008-06-06,2008-06-05,True,keydev rebalance day,kept
+17279,LO,LORILLARD INC,2008-2014,2008-06-11,2008-06-11,2008-06-10,-1.0,ambiguous,keydev,2008-06-11,2008-06-10,False,no volume test,kept
+26382,MEE,MASSEY ENERGY CO,2008-2014,2008-06-23,2008-06-23,2008-06-23,0.0,agree,keydev,2008-06-23,2008-06-20,True,both rebalance days,kept
+76082,COG,CABOT OIL & GAS CORP,2008-2014,2008-06-23,2008-06-23,2008-06-23,0.0,agree,keydev,2008-06-23,2008-06-20,True,both rebalance days,kept
+80303,AKS,A K STEEL HOLDING CORP,2008-2014,2008-07-01,2008-07-01,2008-07-01,0.0,agree,keydev,2008-07-01,2008-06-30,True,both rebalance days,kept
+92709,SNI,SCRIPPS NETWORKS INTERACTIVE INC,2008-2014,2008-07-01,2008-07-01,,,keydev only,keydev,2008-07-01,2008-06-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+91233,MA,MASTERCARD INC,2008-2014,2008-07-18,2008-07-18,,,keydev only,keydev,2008-07-18,2008-07-17,True,keydev rebalance day,kept
+82307,DVA,DAVITA INC,2008-2014,2008-07-31,2008-07-31,,,keydev only,keydev,2008-07-31,2008-07-30,True,keydev rebalance day,kept
+19583,IVZ,INVESCO LTD,2008-2014,2008-08-21,2008-08-21,,,keydev only,keydev,2008-08-21,2008-08-20,True,keydev rebalance day,kept
+90829,CF,C F INDUSTRIES HOLDINGS INC,2008-2014,2008-08-27,2008-08-27,,,keydev only,keydev,2008-08-27,2008-08-26,True,keydev rebalance day,kept
+11618,FAST,FASTENAL CO,2008-2014,2008-09-15,2008-09-15,2008-09-12,-1.0,ambiguous,keydev,2008-09-15,2008-09-12,True,keydev rebalance day,kept
+90215,CRM,SALESFORCE COM INC,2008-2014,2008-09-15,2008-09-15,2008-09-12,-1.0,ambiguous,keydev,2008-09-15,2008-09-12,True,keydev rebalance day,kept
+25582,HRS,HARRIS CORP,2008-2014,2008-09-22,2008-09-22,2008-09-16,-4.0,wikipedia earlier,keydev,2008-09-22,2008-09-19,True,keydev rebalance day,kept
+75241,PXD,PIONEER NATURAL RESOURCES CO,2008-2014,2008-09-24,2008-09-24,,,keydev only,keydev,2008-09-24,2008-09-23,True,keydev rebalance day,kept
+84769,APH,AMPHENOL CORP NEW,2008-2014,2008-09-30,2008-09-30,,,keydev only,keydev,2008-09-30,2008-09-29,True,keydev rebalance day,kept
+30940,FLS,FLOWSERVE CORP,2008-2014,"2008-10-01, 2008-10-02",2008-10-02,,,keydev only,keydev,2008-10-02,2008-10-01,True,keydev rebalance day,kept
+92618,DPS,DR PEPPER SNAPPLE GROUP INC,2008-2014,2008-10-07,2008-10-07,,,keydev only,keydev,2008-10-07,2008-10-06,True,keydev rebalance day,kept
+90601,NDAQ,NASDAQ O M X GROUP INC,2008-2014,2008-10-22,2008-10-22,,,keydev only,keydev,2008-10-22,2008-10-21,True,keydev rebalance day,kept
+23536,WEC,WISCONSIN ENERGY CORP,2008-2014,2008-10-31,2008-10-31,,,keydev only,keydev,2008-10-31,2008-10-30,True,keydev rebalance day,kept
+42585,SJM,SMUCKER J M CO,2008-2014,2008-11-06,2008-11-06,,,keydev only,keydev,2008-11-06,2008-11-05,False,neither,kept
+12073,PBCT,PEOPLES UNITED FINANCIAL INC,2008-2014,2008-11-13,2008-11-13,,,keydev only,keydev,2008-11-13,2008-11-12,True,keydev rebalance day,kept
+11600,XRAY,DENTSPLY INTERNATIONAL INC NEW,2008-2014,2008-11-14,2008-11-14,,,keydev only,keydev,2008-11-14,2008-11-13,True,keydev rebalance day,kept
+89533,WYNN,WYNN RESORTS LTD,2008-2014,2008-11-14,2008-11-14,,,keydev only,keydev,2008-11-14,2008-11-13,True,keydev rebalance day,kept
+76625,CEPH,CEPHALON INC,2008-2014,2008-11-17,2008-11-17,,,keydev only,keydev,2008-11-17,2008-11-14,True,keydev rebalance day,kept
+83906,SRCL,STERICYCLE INC,2008-2014,2008-11-19,2008-11-19,,,keydev only,keydev,2008-11-19,2008-11-18,True,keydev rebalance day,kept
+86725,IVGN,INVITROGEN CORP,2008-2014,2008-11-24,2008-11-24,,,keydev only,keydev,2008-11-24,2008-11-21,True,keydev rebalance day,kept
+88590,DNB,DUN & BRADSTREET CORP DEL NEW,2008-2014,2008-12-02,2008-12-02,,,keydev only,keydev,2008-12-02,2008-12-01,True,keydev rebalance day,kept
+86228,RSG,REPUBLIC SERVICES INC,2008-2014,2008-12-05,2008-12-05,,,keydev only,keydev,2008-12-05,2008-12-04,True,keydev rebalance day,kept
+24328,EQT,EQUITABLE RESOURCES INC,2008-2014,2008-12-19,2008-12-19,,,keydev only,keydev,2008-12-19,2008-12-18,True,keydev rebalance day,kept
+77976,MFE,MCAFEE INC,2008-2014,2008-12-23,2008-12-23,,,keydev only,keydev,2008-12-23,2008-12-22,True,keydev rebalance day,kept
+79265,FLIR,FLIR SYSTEMS INC,2008-2014,2009-01-02,2009-01-02,,,keydev only,keydev,2009-01-02,2008-12-31,True,keydev rebalance day,kept
+23085,SCG,SCANA CORP NEW,2008-2014,2009-01-02,2009-01-02,,,keydev only,keydev,2009-01-02,2008-12-31,True,keydev rebalance day,kept
+77157,OI,OWENS ILL INC,2008-2014,2009-01-02,2009-01-02,2008-12-31,-1.0,ambiguous,keydev,2009-01-02,2008-12-31,True,keydev rebalance day,kept
+83143,IRM,IRON MOUNTAIN INC,2008-2014,2009-01-06,2009-01-06,,,keydev only,keydev,2009-01-06,2009-01-05,True,keydev rebalance day,kept
+65947,HCN,HEALTH CARE REIT INC,2008-2014,2009-01-30,2009-01-30,,,keydev only,keydev,2009-01-30,2009-01-29,True,keydev rebalance day,kept
+82298,DO,DIAMOND OFFSHORE DRILLING INC,2008-2014,2009-02-26,2009-02-26,,,keydev only,keydev,2009-02-26,2009-02-25,True,keydev rebalance day,kept
+32870,HRL,HORMEL FOODS CORP,2008-2014,2009-03-04,2009-03-04,2009-03-03,-1.0,ambiguous,keydev,2009-03-04,2009-03-03,True,keydev rebalance day,kept
+75819,VTR,VENTAS INC,2008-2014,2009-03-04,2009-03-04,2009-03-03,-1.0,ambiguous,keydev,2009-03-04,2009-03-03,True,keydev rebalance day,kept
+44206,NU,NORTHEAST UTILITIES,2008-2014,2009-03-17,2009-03-17,,,keydev only,keydev,2009-03-17,2009-03-16,True,keydev rebalance day,kept
+79103,ORLY,O REILLY AUTOMOTIVE INC,2008-2014,2009-03-27,2009-03-27,,,keydev only,keydev,2009-03-27,2009-03-26,True,keydev rebalance day,kept
+91883,TWC,TIME WARNER CABLE INC,2008-2014,2009-03-30,2009-03-30,,,keydev only,keydev,2009-03-30,2009-03-27,False,neither,kept
+82196,DNR,DENBURY RESOURCES INC,2008-2014,2009-04-02,2009-04-02,,,keydev only,keydev,2009-04-02,2009-04-01,True,keydev rebalance day,kept
+89004,FTI,F M C TECHNOLOGIES INC,2008-2014,2009-06-05,2009-06-05,2009-06-05,0.0,agree,keydev,2009-06-05,2009-06-04,True,both rebalance days,kept
+76708,DV,DEVRY INC DEL,2008-2014,2009-06-09,2009-06-09,,,keydev only,keydev,2009-06-09,2009-06-08,True,keydev rebalance day,kept
+91937,PCS,METROPCS COMMUNICATIONS INC,2008-2014,2009-06-30,2009-06-30,2009-06-29,-1.0,ambiguous,keydev,2009-06-30,2009-06-29,True,keydev rebalance day,kept
+85792,PWR,QUANTA SERVICES INC,2008-2014,2009-07-01,2009-07-01,,,keydev only,keydev,2009-07-01,2009-06-30,True,keydev rebalance day,kept
+66384,WDC,WESTERN DIGITAL CORP,2008-2014,2009-07-01,2009-07-01,,,keydev only,keydev,2009-07-01,2009-06-30,True,keydev rebalance day,kept
+87184,RHT,RED HAT INC,2008-2014,2009-07-27,2009-07-27,,,keydev only,keydev,2009-07-27,2009-07-24,True,keydev rebalance day,kept
+19166,FMC,F M C CORP,2008-2014,2009-08-19,2009-08-19,2009-08-19,0.0,agree,keydev,2009-08-19,2009-08-18,True,both rebalance days,kept
+92988,CFN,CAREFUSION CORP,2008-2014,2009-09-01,2009-09-01,,,keydev only,keydev,2009-09-01,2009-08-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+70308,ARG,AIRGAS INC,2008-2014,2009-09-09,2009-09-09,,,keydev only,keydev,2009-09-09,2009-09-08,True,keydev rebalance day,kept
+91611,FSLR,FIRST SOLAR INC,2008-2014,2009-10-16,2009-10-16,,,keydev only,keydev,2009-10-16,2009-10-15,True,keydev rebalance day,kept
+86783,PCLN,PRICELINE COM INC,2008-2014,2009-11-06,2009-11-06,2009-11-03,-3.0,wikipedia earlier,keydev,2009-11-06,2009-11-05,False,neither,kept
+27422,CLF,CLIFFS NATURAL RESOURCES INC,2008-2014,2009-12-19,2009-12-21,2009-12-18,-1.0,ambiguous,keydev,2009-12-21,2009-12-18,True,keydev rebalance day,kept
+92611,V,VISA INC,2008-2014,2009-12-19,2009-12-21,2009-12-18,-1.0,ambiguous,keydev,2009-12-21,2009-12-18,True,keydev rebalance day,kept
+92890,MJN,MEAD JOHNSON NUTRITION CO,2008-2014,2009-12-19,2009-12-21,2009-12-18,-1.0,ambiguous,keydev,2009-12-21,2009-12-18,True,keydev rebalance day,kept
+91547,SAI,S A I C INC,2008-2014,2009-12-21,2009-12-21,2009-12-18,-1.0,ambiguous,keydev,2009-12-21,2009-12-18,True,keydev rebalance day,kept
+91556,ROST,ROSS STORES INC,2008-2014,2009-12-21,2009-12-21,2009-12-18,-1.0,ambiguous,keydev,2009-12-21,2009-12-18,True,keydev rebalance day,kept
+77338,ROP,ROPER INDUSTRIES INC NEW,2008-2014,2009-12-23,2009-12-23,,,keydev only,keydev,2009-12-23,2009-12-22,True,keydev rebalance day,kept
+90071,NRG,N R G ENERGY INC,2008-2014,2010-01-29,2010-01-29,,,keydev only,keydev,2010-01-29,2010-01-28,True,keydev rebalance day,kept
+79881,URBN,URBAN OUTFITTERS INC,2008-2014,2010-02-06,2010-02-08,,,keydev only,keydev,2010-02-08,2010-02-05,True,keydev rebalance day,kept
+83443,BRK,BERKSHIRE HATHAWAY INC DEL,2008-2014,2010-02-16,2010-02-16,,,keydev only,keydev,2010-02-16,2010-02-12,True,keydev rebalance day,kept
+32707,HP,HELMERICH & PAYNE INC,2008-2014,2010-03-01,2010-03-01,2010-02-26,-1.0,ambiguous,keydev,2010-03-01,2010-02-26,True,keydev rebalance day,kept
+90805,DISCA,DISCOVERY COMMUNICATIONS INC,2008-2014,2010-03-01,2010-03-01,,,keydev only,keydev,2010-03-01,2010-02-26,True,keydev rebalance day,kept
+25232,OKE,ONEOK INC NEW,2008-2014,2010-03-13,2010-03-15,,,keydev only,keydev,2010-03-15,2010-03-12,True,keydev rebalance day,kept
+10909,CERN,CERNER CORP,2008-2014,2010-04-30,2010-04-30,2010-04-29,-1.0,ambiguous,keydev,2010-04-30,2010-04-29,True,keydev rebalance day,kept
+89508,KMX,CARMAX INC,2008-2014,2010-06-28,2010-06-28,2010-06-28,0.0,agree,keydev,2010-06-28,2010-06-25,True,both rebalance days,kept
+93422,QEP,Q E P RESOURCES INC,2008-2014,2010-07-01,2010-07-01,2010-06-30,-1.0,ambiguous,keydev,2010-07-01,2010-06-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+79057,ACE,ACE LTD NEW,2008-2014,2010-07-15,2010-07-15,,,keydev only,keydev,2010-07-15,2010-07-14,True,keydev rebalance day,kept
+45356,TYC,TYCO INTERNATIONAL LTD SWTZLND,2008-2014,2010-08-27,2010-08-27,2010-08-26,-1.0,ambiguous,keydev,2010-08-27,2010-08-26,True,keydev rebalance day,kept
+12431,IR,INGERSOLL RAND PLC,2008-2014,2010-11-17,2010-11-17,2010-11-17,0.0,agree,keydev,2010-11-17,2010-11-16,True,both rebalance days,kept
+79915,NFX,NEWFIELD EXPLORATION CO,2008-2014,2010-12-18,2010-12-20,2010-12-17,-1.0,ambiguous,keydev,2010-12-20,2010-12-17,True,keydev rebalance day,kept
+89393,NFLX,NETFLIX INC,2008-2014,2010-12-18,2010-12-20,2010-12-17,-1.0,ambiguous,keydev,2010-12-20,2010-12-17,True,keydev rebalance day,kept
+68857,CVC,CABLEVISION SYSTEMS CORP,2008-2014,2010-12-20,2010-12-20,2010-12-17,-1.0,ambiguous,keydev,2010-12-20,2010-12-17,True,keydev rebalance day,kept
+86964,FFIV,F 5 NETWORKS INC,2008-2014,2010-12-20,2010-12-20,2010-12-17,-1.0,ambiguous,keydev,2010-12-20,2010-12-17,True,keydev rebalance day,kept
+12456,MMI,MOTOROLA MOBILITY HOLDINGS INC,2008-2014,2011-01-04,2011-01-04,2011-01-03,-1.0,ambiguous,keydev,2011-01-04,2011-01-03,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+90537,NE,NOBLE CORP BAAR,2008-2014,2011-01-15,2011-01-18,,,keydev only,keydev,2011-01-18,2011-01-14,True,keydev rebalance day,kept
+89105,JOYG,JOY GLOBAL INC,2008-2014,2011-02-26,2011-02-28,2011-02-25,-1.0,ambiguous,keydev,2011-02-28,2011-02-25,True,keydev rebalance day,kept
+92156,COV,COVIDIEN PLC,2008-2014,2011-03-01,2011-03-01,2011-02-28,-1.0,ambiguous,keydev,2011-03-01,2011-02-28,True,keydev rebalance day,kept
+87657,EW,EDWARDS LIFESCIENCES CORP,2008-2014,2011-04-01,2011-04-01,2011-03-31,-1.0,ambiguous,keydev,2011-04-01,2011-03-31,True,keydev rebalance day,kept
+87267,BLK,BLACKROCK INC,2008-2014,2011-04-04,2011-04-04,2011-04-01,-1.0,ambiguous,keydev,2011-04-04,2011-04-01,True,keydev rebalance day,kept
+91068,CMG,CHIPOTLE MEXICAN GRILL INC,2008-2014,2011-04-28,2011-04-28,2011-04-27,-1.0,ambiguous,keydev,2011-04-28,2011-04-27,True,keydev rebalance day,kept
+90547,ANR,ALPHA NATURAL RESOURCES INC,2008-2014,2011-06-02,2011-06-02,2011-06-01,-1.0,ambiguous,keydev,2011-06-02,2011-06-01,True,keydev rebalance day,kept
+12872,MPC,MARATHON PETROLEUM CORP,2008-2014,2011-07-01,2011-07-01,2011-06-30,-1.0,ambiguous,keydev,2011-07-01,2011-06-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+89071,ACN,ACCENTURE PLC IRELAND,2008-2014,2011-07-06,2011-07-06,2011-07-05,-1.0,ambiguous,keydev,2011-07-06,2011-07-05,True,keydev rebalance day,kept
+90386,MOS,MOSAIC CO NEW,2008-2014,2011-09-26,2011-09-26,2011-09-23,-1.0,ambiguous,keydev,2011-09-26,2011-09-23,True,keydev rebalance day,kept
+92157,TEL,T E CONNECTIVITY LTD,2008-2014,2011-10-17,2011-10-17,2011-10-14,-1.0,ambiguous,keydev,2011-10-17,2011-10-14,True,keydev rebalance day,kept
+13035,XYL,XYLEM INC,2008-2014,2011-11-01,2011-11-01,2011-10-31,-1.0,ambiguous,keydev,2011-11-01,2011-10-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+21979,CBE,COOPER INDUSTRIES PLC,2008-2014,2011-11-23,2011-11-23,2011-11-18,-3.0,wikipedia earlier,keydev,2011-11-23,2011-11-22,True,keydev rebalance day,kept
+15553,AGL,A G L RESOURCES INC,2008-2014,2011-12-13,2011-12-13,,,keydev only,keydev,2011-12-13,2011-12-12,True,keydev rebalance day,kept
+81481,DLTR,DOLLAR TREE INC,2008-2014,2011-12-17,2011-12-19,2011-12-16,-1.0,ambiguous,keydev,2011-12-19,2011-12-16,True,keydev rebalance day,kept
+77182,PRGO,PERRIGO CO,2008-2014,2011-12-19,2011-12-19,2011-12-16,-1.0,ambiguous,keydev,2011-12-19,2011-12-16,True,keydev rebalance day,kept
+79545,BWA,BORGWARNER INC,2008-2014,2011-12-17,2011-12-19,2011-12-16,-1.0,ambiguous,keydev,2011-12-19,2011-12-16,True,keydev rebalance day,kept
+13168,TRIP,TRIPADVISOR INC,2008-2014,2011-12-21,2011-12-21,2011-12-20,-1.0,ambiguous,keydev,2011-12-21,2011-12-20,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+13141,WPX,W P X ENERGY INC,2008-2014,2011-12-31,2012-01-03,2011-12-31,0.0,agree,keydev,2012-01-03,2011-12-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+86339,CCI,CROWN CASTLE INTERNATIONAL CORP,2008-2014,2012-03-14,2012-03-14,2012-03-13,-1.0,ambiguous,keydev,2012-03-14,2012-03-13,True,keydev rebalance day,kept
+79089,FOSL,FOSSIL INC,2008-2014,2012-04-04,2012-04-04,2012-04-03,-1.0,ambiguous,keydev,2012-04-04,2012-04-03,True,keydev rebalance day,kept
+13356,PSX,PHILLIPS 66,2008-2014,2012-05-01,2012-05-01,2012-04-23,-6.0,wikipedia earlier,keydev,2012-05-01,2012-04-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+12558,KMI,KINDER MORGAN INC,2008-2014,2012-05-25,2012-05-25,2012-05-17,-6.0,wikipedia earlier,keydev,2012-05-25,2012-05-24,True,keydev rebalance day,kept
+83111,ALXN,ALEXION PHARMACEUTICALS INC,2008-2014,2012-05-25,2012-05-25,2012-05-21,-4.0,wikipedia earlier,keydev,2012-05-25,2012-05-24,True,keydev rebalance day,kept
+48486,LRCX,LAM RESH CORP,2008-2014,2012-06-05,2012-06-05,2012-06-05,0.0,agree,keydev,2012-06-05,2012-06-04,True,both rebalance days,kept
+88031,MNST,MONSTER BEVERAGE CORP,2008-2014,2012-06-29,2012-06-29,2012-06-29,0.0,agree,keydev,2012-06-29,2012-06-28,True,both rebalance days,kept
+89641,STX,SEAGATE TECHNOLOGY PLC,2008-2014,2012-06-30,2012-07-02,2012-07-02,0.0,agree,keydev,2012-07-02,2012-06-29,True,both rebalance days,kept
+93159,ESV,E N S C O PLC NEW,2008-2014,2012-07-31,2012-07-31,2012-07-31,0.0,agree,keydev,2012-07-31,2012-07-30,True,both rebalance days,kept
+12345,LYB,LYONDELLBASELL INDUSTRIES N V,2008-2014,2012-09-05,2012-09-05,2012-09-05,0.0,agree,keydev,2012-09-05,2012-09-04,True,both rebalance days,kept
+13586,PNR,PENTAIR LTD,2008-2014,2012-10-01,2012-10-01,2012-10-01,0.0,agree,keydev,2012-10-01,2012-09-28,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+13567,ADT,A D T CORP,2008-2014,2012-09-30,2012-10-01,2012-10-01,0.0,agree,keydev,2012-10-01,2012-09-28,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+13598,KRFT,KRAFT FOODS GROUP INC,2008-2014,2012-10-02,2012-10-02,2012-10-02,0.0,agree,keydev,2012-10-02,2012-10-01,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+79411,PETM,PETSMART INC,2008-2014,2012-10-05,2012-10-05,2012-10-10,3.0,keydev early,wikipedia,2012-10-10,2012-10-09,True,keydev rebalance day,kept
+93096,DG,DOLLAR GENERAL CORP NEW,2008-2014,2012-12-01,2012-12-03,2012-12-03,0.0,agree,keydev,2012-12-03,2012-11-30,True,both rebalance days,kept
+88837,GRMN,GARMIN LTD,2008-2014,2012-12-12,2012-12-12,2012-12-11,-1.0,ambiguous,keydev,2012-12-12,2012-12-11,True,keydev rebalance day,kept
+13103,DLPH,DELPHI AUTOMOTIVE PLC,2008-2014,2012-12-22,2012-12-24,2012-12-21,-1.0,ambiguous,keydev,2012-12-24,2012-12-21,True,keydev rebalance day,kept
+13721,ABBV,ABBVIE INC,2008-2014,2013-01-01,2013-01-02,2013-01-02,0.0,agree,keydev,2013-01-02,2012-12-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+13936,PVH,P V H CORP,2008-2014,2013-02-14,2013-02-14,2013-02-15,1.0,keydev early,wikipedia,2013-02-15,2013-02-14,True,keydev rebalance day,kept
+76614,REGN,REGENERON PHARMACEUTICALS INC,2008-2014,2013-05-01,2013-05-01,2013-04-30,-1.0,ambiguous,keydev,2013-05-01,2013-04-30,True,keydev rebalance day,kept
+80399,MAC,MACERICH CO,2008-2014,2013-05-09,2013-05-09,2013-05-08,-1.0,ambiguous,keydev,2013-05-09,2013-05-08,True,keydev rebalance day,kept
+12650,KSU,KANSAS CITY SOUTHERN,2008-2014,2013-05-24,2013-05-24,2013-05-23,-1.0,ambiguous,keydev,2013-05-24,2013-05-23,True,keydev rebalance day,kept
+12369,GM,GENERAL MOTORS CO,2008-2014,2013-06-07,2013-06-07,2013-06-06,-1.0,ambiguous,keydev,2013-06-07,2013-06-06,True,keydev rebalance day,kept
+13788,ZTS,ZOETIS INC,2008-2014,2013-06-24,2013-06-24,2013-06-21,-1.0,ambiguous,keydev,2013-06-24,2013-06-21,False,neither,kept
+13963,NWSA,NEWS CORP NEW,2008-2014,2013-07-01,2013-07-01,2013-07-01,0.0,agree,keydev,2013-07-01,2013-06-28,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+12542,NLSN,NIELSEN HOLDINGS N V,2008-2014,2013-07-09,2013-07-09,2013-07-08,-1.0,ambiguous,keydev,2013-07-09,2013-07-08,True,keydev rebalance day,kept
+91926,DAL,DELTA AIR LINES INC,2008-2014,2013-09-11,2013-09-11,2013-09-10,-1.0,ambiguous,keydev,2013-09-11,2013-09-10,True,keydev rebalance day,kept
+85257,AME,AMETEK INC NEW,2008-2014,2013-09-21,2013-09-23,2013-09-20,-1.0,ambiguous,keydev,2013-09-23,2013-09-20,True,keydev rebalance day,kept
+76744,VRTX,VERTEX PHARMACEUTICALS INC,2008-2014,2013-09-21,2013-09-23,2013-09-20,-1.0,ambiguous,keydev,2013-09-23,2013-09-20,True,keydev rebalance day,kept
+79237,RIG,TRANSOCEAN LTD,2008-2014,2013-10-29,2013-10-29,2013-10-29,0.0,agree,keydev,2013-10-29,2013-10-28,True,both rebalance days,kept
+13142,KORS,MICHAEL KORS HOLDINGS LTD,2008-2014,2013-11-13,2013-11-13,2013-11-13,0.0,agree,keydev,2013-11-13,2013-11-12,True,both rebalance days,kept
+14297,ALLE,ALLEGION PLC,2008-2014,2013-11-30,2013-12-02,2013-12-02,0.0,agree,keydev,2013-12-02,2013-11-29,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+79129,GGP,GENERAL GROWTH PPTYS INC NEW,2008-2014,2013-12-10,2013-12-10,2013-12-10,0.0,agree,keydev,2013-12-10,2013-12-09,True,both rebalance days,kept
+13407,FB,FACEBOOK INC,2008-2014,2013-12-21,2013-12-23,2013-12-23,0.0,agree,keydev,2013-12-23,2013-12-20,True,both rebalance days,kept
+77496,MHK,MOHAWK INDUSTRIES INC,2008-2014,2013-12-21,2013-12-23,2013-12-23,0.0,agree,keydev,2013-12-23,2013-12-20,True,both rebalance days,kept
+89002,ADS,ALLIANCE DATA SYSTEMS CORP,2008-2014,2013-12-21,2013-12-23,2013-12-23,0.0,agree,keydev,2013-12-23,2013-12-20,True,both rebalance days,kept
+80286,TSCO,TRACTOR SUPPLY CO NEW,2008-2014,2014-01-24,2014-01-24,2014-01-24,0.0,agree,keydev,2014-01-24,2014-01-23,True,both rebalance days,kept
+79588,GMCR,KEURIG GREEN MOUNTAIN INC,2008-2014,2014-03-22,2014-03-24,2014-03-21,-1.0,ambiguous,keydev,2014-03-24,2014-03-21,True,keydev rebalance day,kept
+80681,ESS,ESSEX PROPERTY TRUST INC,2008-2014,2014-04-02,2014-04-02,2014-04-02,0.0,agree,keydev,2014-04-02,2014-04-01,True,both rebalance days,kept
+90979,UA,UNDER ARMOUR INC,2008-2014,2014-05-01,2014-05-01,2014-05-01,0.0,agree,keydev,2014-05-01,2014-04-30,True,both rebalance days,kept
+93002,AVGO,AVAGO TECHNOLOGIES LTD,2008-2014,2014-05-08,2014-05-08,2014-05-08,0.0,agree,keydev,2014-05-08,2014-05-07,True,both rebalance days,kept
+89509,XEC,CIMAREX ENERGY CO,2008-2014,2014-06-21,2014-06-23,2014-06-20,-1.0,ambiguous,keydev,2014-06-23,2014-06-20,True,keydev rebalance day,kept
+85593,AMG,AFFILIATED MANAGERS GROUP INC,2008-2014,2014-07-01,2014-07-01,2014-07-01,0.0,agree,keydev,2014-07-01,2014-06-30,True,both rebalance days,kept
+80204,MLM,MARTIN MARIETTA MATERIALS INC,2008-2014,2014-07-02,2014-07-02,2014-07-02,0.0,agree,keydev,2014-07-02,2014-07-01,True,both rebalance days,kept
+14011,MNK,MALLINCKRODT PLC,2008-2014,2014-08-19,2014-08-19,2014-08-18,-1.0,ambiguous,keydev,2014-08-19,2014-08-18,True,keydev rebalance day,kept
+79637,UHS,UNIVERSAL HEALTH SERVICES INC,2008-2014,2014-09-20,2014-09-22,2014-09-20,0.0,agree,keydev,2014-09-22,2014-09-19,True,both rebalance days,kept
+85663,URI,UNITED RENTALS INC,2008-2014,2014-09-20,2014-09-22,2014-09-20,0.0,agree,keydev,2014-09-22,2014-09-19,True,both rebalance days,kept
+85991,LVLT,LEVEL 3 COMMUNICATIONS INC,2008-2014,2014-11-05,2014-11-05,2014-11-05,0.0,agree,keydev,2014-11-05,2014-11-04,True,both rebalance days,kept
+79145,RCL,ROYAL CARIBBEAN CRUISES LTD,2008-2014,2014-12-05,2014-12-05,2014-12-05,0.0,agree,keydev,2014-12-05,2014-12-04,True,both rebalance days,kept
+12622,HCA,H C A HOLDINGS INC,2015-2021,2015-01-27,2015-01-27,2015-01-27,0.0,agree,keydev,2015-01-27,2015-01-26,True,both rebalance days,kept
+88436,ENDP,ENDO INTERNATIONAL PLC,2015-2021,2015-01-27,2015-01-27,2015-01-27,0.0,agree,keydev,2015-01-27,2015-01-26,True,both rebalance days,kept
+45911,SWKS,SKYWORKS SOLUTIONS INC,2015-2021,2015-03-12,2015-03-12,2015-03-12,0.0,agree,keydev,2015-03-12,2015-03-11,True,both rebalance days,kept
+82581,HSIC,SCHEIN HENRY INC,2015-2021,2015-03-18,2015-03-18,2015-03-18,0.0,agree,keydev,2015-03-18,2015-03-17,True,both rebalance days,kept
+21020,AAL,AMERICAN AIRLINES GROUP INC,2015-2021,2015-03-21,2015-03-23,2015-03-23,0.0,agree,keydev,2015-03-23,2015-03-20,True,both rebalance days,kept
+85265,SLG,S L GREEN REALTY CORP,2015-2021,2015-03-21,2015-03-23,2015-03-23,0.0,agree,keydev,2015-03-23,2015-03-20,True,both rebalance days,kept
+89617,EQIX,EQUINIX INC,2015-2021,2015-03-21,2015-03-23,2015-03-23,0.0,agree,keydev,2015-03-23,2015-03-20,True,both rebalance days,kept
+91416,HBI,HANESBRANDS INC,2015-2021,2015-03-21,2015-03-23,2015-03-23,0.0,agree,keydev,2015-03-23,2015-03-20,True,both rebalance days,kept
+81045,O,REALTY INCOME CORP,2015-2021,2015-04-07,2015-04-07,2015-04-07,0.0,agree,keydev,2015-04-07,2015-04-06,True,both rebalance days,kept
+85035,QRVO,QORVO INC,2015-2021,2015-06-12,2015-06-12,2015-06-11,-1.0,ambiguous,keydev,2015-06-12,2015-06-11,True,keydev rebalance day,kept
+42877,JBHT,HUNT J B TRANSPORT SERVICES INC,2015-2021,2015-07-01,2015-07-01,2015-07-01,0.0,agree,keydev,2015-07-01,2015-06-30,True,both rebalance days,kept
+15401,BXLT,BAXALTA INC,2015-2021,2015-07-01,2015-07-01,2015-07-01,0.0,agree,keydev,2015-07-01,2015-06-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+15404,CPGX,COLUMBIA PIPELINE GROUP INC,2015-2021,2015-07-02,2015-07-02,2015-07-02,0.0,agree,keydev,2015-07-02,2015-07-01,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+15408,KHC,KRAFT HEINZ CO,2015-2021,2015-07-06,2015-07-06,2015-07-06,0.0,agree,keydev,2015-07-06,2015-07-02,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+89217,AAP,ADVANCE AUTO PARTS INC,2015-2021,2015-07-09,2015-07-09,2015-07-08,-1.0,ambiguous,keydev,2015-07-09,2015-07-08,True,keydev rebalance day,kept
+15488,PYPL,PAYPAL HOLDINGS INC,2015-2021,2015-07-18,2015-07-20,2015-07-20,0.0,agree,keydev,2015-07-20,2015-07-17,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+12076,SIG,SIGNET JEWELERS LTD,2015-2021,2015-07-29,2015-07-29,2015-07-29,0.0,agree,keydev,2015-07-29,2015-07-28,True,both rebalance days,kept
+79678,ATVI,ACTIVISION BLIZZARD INC,2015-2021,2015-08-29,2015-08-31,2015-08-28,-1.0,ambiguous,keydev,2015-08-31,2015-08-28,True,keydev rebalance day,kept
+91103,UAL,UNITED CONTINENTAL HOLDINGS INC,2015-2021,2015-09-03,2015-09-03,2015-09-02,-1.0,ambiguous,keydev,2015-09-03,2015-09-02,True,keydev rebalance day,kept
+89525,CMCSA,COMCAST CORP NEW,2015-2021,2015-09-21,2015-09-21,,,keydev only,keydev,2015-09-21,2015-09-18,True,keydev rebalance day,kept
+93089,VRSK,VERISK ANALYTICS INC,2015-2021,2015-10-08,2015-10-08,2015-10-07,-1.0,ambiguous,keydev,2015-10-08,2015-10-07,True,keydev rebalance day,kept
+15707,HPE,HEWLETT PACKARD ENTERPRISE CO,2015-2021,2015-10-31,2015-11-02,2015-11-02,0.0,agree,keydev,2015-11-02,2015-10-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+15719,FCPT,FOUR CORNERS PROPERTY TRUST INC,2015-2021,2015-11-10,2015-11-10,,,keydev only,keydev,2015-11-10,2015-11-09,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+14776,SYF,SYNCHRONY FINANCIAL,2015-2021,2015-11-18,2015-11-18,2015-11-18,0.0,agree,keydev,2015-11-18,2015-11-17,True,both rebalance days,kept
+88446,ILMN,ILLUMINA INC,2015-2021,2015-11-19,2015-11-19,2015-11-19,0.0,agree,keydev,2015-11-19,2015-11-18,True,both rebalance days,kept
+15797,CSRA,C S R A INC,2015-2021,2015-11-28,2015-11-30,2015-12-01,1.0,keydev early,wikipedia,2015-12-01,2015-11-30,False,no volume test,kept
+23393,CHD,CHURCH & DWIGHT INC,2015-2021,2015-12-29,2015-12-29,2015-12-29,0.0,agree,keydev,2015-12-29,2015-12-28,True,both rebalance days,kept
+89017,WSH,WILLIS GROUP HOLDINGS PUB LTD CO,2015-2021,2016-01-05,2016-01-05,,,keydev only,keydev,2016-01-05,2016-01-04,True,keydev rebalance day,kept
+90305,EXR,EXTRA SPACE STORAGE INC,2015-2021,2016-01-19,2016-01-19,2016-01-19,0.0,agree,keydev,2016-01-19,2016-01-15,True,both rebalance days,kept
+14889,CFG,CITIZENS FINANCIAL GROUP INC,2015-2021,2016-01-30,2016-02-01,2016-02-01,0.0,agree,keydev,2016-02-01,2016-01-29,True,both rebalance days,kept
+58413,FRT,FEDERAL REALTY INVESTMENT TRUST,2015-2021,2016-01-30,2016-02-01,2016-02-01,0.0,agree,keydev,2016-02-01,2016-01-29,True,both rebalance days,kept
+92239,CXO,CONCHO RESOURCES INC,2015-2021,2016-02-21,2016-02-22,2016-02-22,0.0,agree,keydev,2016-02-22,2016-02-19,True,both rebalance days,kept
+92614,AWK,AMERICAN WATER WORKS CO INC,2015-2021,2016-03-04,2016-03-04,2016-03-04,0.0,agree,keydev,2016-03-04,2016-03-03,True,both rebalance days,kept
+59300,UDR,U D R INC,2015-2021,2016-03-07,2016-03-07,2016-03-07,0.0,agree,keydev,2016-03-07,2016-03-04,True,both rebalance days,kept
+76095,HOLX,HOLOGIC INC,2015-2021,2016-03-30,2016-03-30,2016-03-30,0.0,agree,keydev,2016-03-30,2016-03-29,True,both rebalance days,kept
+89269,CNC,CENTENE CORP DEL,2015-2021,2016-03-30,2016-03-30,2016-03-30,0.0,agree,keydev,2016-03-30,2016-03-29,True,both rebalance days,kept
+15456,FL,FOOT LOCKER INC,2015-2021,2016-04-04,2016-04-04,2016-04-04,0.0,agree,keydev,2016-04-04,2016-04-01,True,both rebalance days,kept
+92322,ULTA,ULTA SALON COSMETICS & FRAG INC,2015-2021,2016-04-16,2016-04-18,2016-04-18,0.0,agree,keydev,2016-04-18,2016-04-15,True,both rebalance days,kept
+88873,GPN,GLOBAL PAYMENTS INC,2015-2021,2016-04-23,2016-04-25,2016-04-25,0.0,agree,keydev,2016-04-25,2016-04-22,True,both rebalance days,kept
+89216,AYI,ACUITY BRANDS INC,2015-2021,2016-05-03,2016-05-03,2016-05-03,0.0,agree,keydev,2016-05-03,2016-05-02,True,both rebalance days,kept
+28804,ALK,ALASKA AIRGROUP INC,2015-2021,2016-05-13,2016-05-13,2016-05-13,0.0,agree,keydev,2016-05-13,2016-05-12,True,both rebalance days,kept
+16044,NGVT,INGEVITY CORP,2015-2021,2016-05-14,2016-05-16,,,keydev only,keydev,2016-05-16,2016-05-13,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+90373,DLR,DIGITAL REALTY TRUST INC,2015-2021,2016-05-17,2016-05-17,2016-05-18,1.0,keydev early,wikipedia,2016-05-18,2016-05-17,False,wikipedia rebalance day,kept
+89866,LKQ,L K Q CORP,2015-2021,2016-05-23,2016-05-23,2016-05-23,0.0,agree,keydev,2016-05-23,2016-05-20,True,both rebalance days,kept
+38093,AJG,GALLAGHER ARTHUR J & CO,2015-2021,2016-05-29,2016-05-31,2016-05-31,0.0,agree,keydev,2016-05-31,2016-05-27,True,both rebalance days,kept
+91152,TDG,TRANSDIGM GROUP INC,2015-2021,2016-06-03,2016-06-03,2016-06-03,0.0,agree,keydev,2016-06-03,2016-06-02,True,both rebalance days,kept
+12981,FBHS,FORTUNE BRANDS HOME & SECUR INC,2015-2021,2016-06-24,2016-06-24,2016-06-22,-2.0,wikipedia earlier,keydev,2016-06-24,2016-06-23,True,keydev rebalance day,kept
+58819,LNT,ALLIANT ENERGY CORP,2015-2021,2016-07-01,2016-07-01,2016-07-01,0.0,agree,keydev,2016-07-01,2016-06-30,True,both rebalance days,kept
+80191,ALB,ALBEMARLE CORP,2015-2021,2016-07-01,2016-07-01,2016-07-01,0.0,agree,keydev,2016-07-01,2016-06-30,True,both rebalance days,kept
+16087,FTV,FORTIVE CORP,2015-2021,2016-07-05,2016-07-05,2016-07-05,0.0,agree,keydev,2016-07-05,2016-07-01,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+85621,MTD,METTLER TOLEDO INTERNATIONAL INC,2015-2021,2016-09-06,2016-09-06,2016-09-06,0.0,agree,keydev,2016-09-06,2016-09-02,True,both rebalance days,kept
+16267,DVMT,DELL TECHNOLOGIES INC,2015-2021,2016-09-07,2016-09-07,,,keydev only,keydev,2016-09-07,2016-09-06,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+65541,COO,COOPER COMPANIES INC,2015-2021,2016-09-23,2016-09-23,2016-09-22,-1.0,ambiguous,keydev,2016-09-23,2016-09-22,True,keydev rebalance day,kept
+13983,COTY,COTY INC,2015-2021,2016-10-03,2016-10-03,2016-09-30,-1.0,ambiguous,keydev,2016-10-03,2016-09-30,False,neither,kept
+16276,ASIX,ADVANSIX INC,2015-2021,2016-10-03,2016-10-03,,,keydev only,keydev,2016-10-03,2016-09-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16279,VSM,VERSUM MATERIALS INC,2015-2021,2016-10-03,2016-10-03,,,keydev only,keydev,2016-10-03,2016-09-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16342,ADNT,ADIENT PLC,2015-2021,2016-10-31,2016-10-31,,,keydev only,keydev,2016-10-31,2016-10-28,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16347,AA,ALCOA CORP,2015-2021,2016-11-01,2016-11-01,,,keydev only,keydev,2016-11-01,2016-10-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16346,QCP,QUALITY CARE PROPERTIES INC,2015-2021,2016-11-01,2016-11-01,,,keydev only,keydev,2016-11-01,2016-10-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16343,YUMC,YUM CHINA HOLDINGS INC,2015-2021,2016-11-01,2016-11-01,,,keydev only,keydev,2016-11-01,2016-10-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16431,LW,LAMB WESTON HOLDINGS INC,2015-2021,2016-11-10,2016-11-10,,,keydev only,keydev,2016-11-10,2016-11-09,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+80183,MAA,MID AMERICA APT COMMUNITIES INC,2015-2021,2016-12-02,2016-12-02,2016-12-02,0.0,agree,keydev,2016-12-02,2016-12-01,True,both rebalance days,kept
+85675,AMSG,AMSURG CORP,2015-2021,2016-12-02,2016-12-02,,,keydev only,keydev,2016-12-02,2016-12-01,True,keydev rebalance day,kept
+16497,CNDT,CONDUENT INC,2015-2021,2017-01-03,2017-01-03,,,keydev only,keydev,2017-01-03,2016-12-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+76709,IDXX,I D E X X LABORATORIES INC,2015-2021,2017-01-05,2017-01-05,2017-01-05,0.0,agree,keydev,2017-01-05,2017-01-04,True,both rebalance days,kept
+16538,FTI,TECHNIPFMC PLC,2015-2021,2017-01-17,2017-01-17,,,keydev only,keydev,2017-01-17,2017-01-13,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16543,VREX,VAREX IMAGING CORP,2015-2021,2017-01-30,2017-01-30,,,keydev only,keydev,2017-01-30,2017-01-27,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+16544,BIVV,BIOVERATIV INC,2015-2021,2017-02-02,2017-02-02,,,keydev only,keydev,2017-02-02,2017-02-01,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+79906,INCY,INCYTE CORP,2015-2021,2017-02-28,2017-02-28,2017-02-28,0.0,agree,keydev,2017-02-28,2017-02-27,True,both rebalance days,kept
+93429,CBOE,C B O E HOLDINGS INC,2015-2021,2017-03-01,2017-03-01,2017-03-01,0.0,agree,keydev,2017-03-01,2017-02-28,True,both rebalance days,kept
+79782,REG,REGENCY CENTERS CORP,2015-2021,2017-03-02,2017-03-02,2017-03-02,0.0,agree,keydev,2017-03-02,2017-03-01,True,both rebalance days,kept
+81696,DISH,DISH NETWORK CORP,2015-2021,2017-03-13,2017-03-13,2017-03-13,0.0,agree,keydev,2017-03-13,2017-03-10,True,both rebalance days,kept
+77357,SNPS,SYNOPSYS INC,2015-2021,2017-03-16,2017-03-16,2017-03-16,0.0,agree,keydev,2017-03-16,2017-03-15,True,both rebalance days,kept
+61241,AMD,ADVANCED MICRO DEVICES INC,2015-2021,2017-03-20,2017-03-20,2017-03-20,0.0,agree,keydev,2017-03-20,2017-03-17,True,both rebalance days,kept
+69649,RJF,RAYMOND JAMES FINANCIAL INC,2015-2021,2017-03-20,2017-03-20,2017-03-20,0.0,agree,keydev,2017-03-20,2017-03-17,True,both rebalance days,kept
+84767,ARE,ALEXANDRIA REAL EST EQUITIES INC,2015-2021,2017-03-20,2017-03-20,2017-03-20,0.0,agree,keydev,2017-03-20,2017-03-17,True,both rebalance days,kept
+40125,DXC,D X C TECHNOLOGY CO,2015-2021,2017-04-04,2017-04-04,2017-04-04,0.0,agree,keydev,2017-04-04,2017-04-03,True,both rebalance days,kept
+79698,IT,GARTNER INC,2015-2021,2017-04-05,2017-04-05,2017-04-05,0.0,agree,keydev,2017-04-05,2017-04-04,True,both rebalance days,kept
+16696,CARS,CARS COM INC,2015-2021,2017-06-01,2017-06-01,,,keydev only,keydev,2017-06-01,2017-05-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+14704,INFO,I H S MARKIT LTD,2015-2021,2017-06-02,2017-06-02,2017-06-02,0.0,agree,keydev,2017-06-02,2017-06-01,True,both rebalance days,kept
+14338,HLT,HILTON WORLDWIDE HOLDINGS INC,2015-2021,2017-06-19,2017-06-19,2017-06-19,0.0,agree,keydev,2017-06-19,2017-06-16,True,both rebalance days,kept
+82303,RE,EVEREST RE GROUP LTD,2015-2021,2017-06-19,2017-06-19,2017-06-19,0.0,agree,keydev,2017-06-19,2017-06-16,True,both rebalance days,kept
+83621,ANSS,ANSYS INC,2015-2021,2017-06-19,2017-06-19,2017-06-19,0.0,agree,keydev,2017-06-19,2017-06-16,True,both rebalance days,kept
+88860,ALGN,ALIGN TECHNOLOGY INC,2015-2021,2017-06-19,2017-06-19,2017-06-19,0.0,agree,keydev,2017-06-19,2017-06-16,True,both rebalance days,kept
+16809,JBGS,J B G SMITH PROPERTIES,2015-2021,2017-07-18,2017-07-18,,,keydev only,keydev,2017-07-18,2017-07-17,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+81736,RMD,RESMED INC,2015-2021,2017-07-26,2017-07-26,2017-07-26,0.0,agree,keydev,2017-07-26,2017-07-25,True,both rebalance days,kept
+75341,DRE,DUKE REALTY CORP,2015-2021,2017-07-26,2017-07-26,2017-07-26,0.0,agree,keydev,2017-07-26,2017-07-25,True,both rebalance days,kept
+87541,PKG,PACKAGING CORP AMERICA,2015-2021,2017-07-26,2017-07-26,2017-07-26,0.0,agree,keydev,2017-07-26,2017-07-25,True,both rebalance days,kept
+11891,MGM,M G M RESORTS INTERNATIONAL,2015-2021,2017-07-26,2017-07-26,2017-07-26,0.0,agree,keydev,2017-07-26,2017-07-25,True,both rebalance days,kept
+65402,AOS,SMITH A O CORP,2015-2021,2017-07-26,2017-07-26,2017-07-26,0.0,agree,keydev,2017-07-26,2017-07-25,True,both rebalance days,kept
+16816,BHF,BRIGHTHOUSE FINANCIAL INC,2015-2021,2017-08-07,2017-08-07,2017-08-08,1.0,keydev early,wikipedia,2017-08-08,2017-08-07,False,no volume test,kept
+13911,Q,QUINTILES IMS HOLDINGS INC,2015-2021,2017-08-29,2017-08-29,2017-08-29,0.0,agree,keydev,2017-08-29,2017-08-28,True,both rebalance days,kept
+86996,SBAC,S B A COMMUNICATIONS CORP NEW,2015-2021,2017-09-01,2017-09-01,2017-09-01,0.0,agree,keydev,2017-09-01,2017-08-31,True,both rebalance days,kept
+11403,CDNS,CADENCE DESIGN SYSTEMS INC,2015-2021,2017-09-18,2017-09-18,2017-09-18,0.0,agree,keydev,2017-09-18,2017-09-15,True,both rebalance days,kept
+13760,NCLH,NORWEGIAN CRUISE LINE HLDGS LTD,2015-2021,2017-10-13,2017-10-13,2017-10-13,0.0,agree,keydev,2017-10-13,2017-10-12,True,both rebalance days,kept
+17040,DLPH,DELPHI TECHNOLOGIES PLC,2015-2021,2017-12-05,2017-12-05,,,keydev only,keydev,2017-12-05,2017-12-04,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+12623,HII,HUNTINGTON INGALLS INDS INC,2015-2021,2018-01-03,2018-01-03,2018-01-03,0.0,agree,keydev,2018-01-03,2018-01-02,True,both rebalance days,kept
+91668,IPGP,I P G PHOTONICS CORP,2015-2021,2018-03-07,2018-03-07,2018-03-07,0.0,agree,keydev,2018-03-07,2018-03-06,True,both rebalance days,kept
+92402,MSCI,M S C I INC,2015-2021,2018-04-04,2018-04-04,2018-04-04,0.0,agree,keydev,2018-04-04,2018-04-03,True,both rebalance days,kept
+17676,NVT,NVENT ELECTRIC PLC,2015-2021,2018-05-01,2018-05-01,,,keydev only,keydev,2018-05-01,2018-04-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+17783,APY,APERGY CORP,2015-2021,2018-05-09,2018-05-09,,,keydev only,keydev,2018-05-09,2018-05-08,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+75107,ABMD,ABIOMED INC,2015-2021,2018-05-31,2018-05-31,2018-05-31,0.0,agree,keydev,2018-05-31,2018-05-30,True,both rebalance days,kept
+17792,PRSP,PERSPECTA INC,2015-2021,2018-06-01,2018-06-01,,,keydev only,keydev,2018-06-01,2018-05-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+24053,WR,WESTAR ENERGY INC,2015-2021,2018-06-05,2018-06-05,,,keydev only,keydev,2018-06-05,2018-06-04,True,keydev rebalance day,kept
+14295,TWTR,TWITTER INC,2015-2021,2018-06-07,2018-06-07,2018-06-07,0.0,agree,keydev,2018-06-07,2018-06-06,True,both rebalance days,kept
+32803,HFC,HOLLYFRONTIER CORP,2015-2021,2018-06-18,2018-06-18,2018-06-18,0.0,agree,keydev,2018-06-18,2018-06-15,True,both rebalance days,kept
+91849,BR,BROADRIDGE FINANCIAL SOLUTNS INC,2015-2021,2018-06-18,2018-06-18,2018-06-18,0.0,agree,keydev,2018-06-18,2018-06-15,True,both rebalance days,kept
+12449,FLT,FLEETCOR TECHNOLOGIES INC,2015-2021,2018-06-20,2018-06-20,2018-06-20,0.0,agree,keydev,2018-06-20,2018-06-19,True,both rebalance days,kept
+80320,CPRT,COPART INC,2015-2021,2018-07-02,2018-07-02,2018-07-02,0.0,agree,keydev,2018-07-02,2018-06-29,True,both rebalance days,kept
+14714,ANET,ARISTA NETWORKS INC,2015-2021,2018-08-28,2018-08-28,2018-08-28,0.0,agree,keydev,2018-08-28,2018-08-27,True,both rebalance days,kept
+90272,WCG,WELLCARE HEALTH PLANS INC,2015-2021,2018-09-17,2018-09-17,2018-09-14,-1.0,ambiguous,keydev,2018-09-17,2018-09-14,True,keydev rebalance day,kept
+18065,GTX,GARRETT MOTION INC,2015-2021,2018-10-01,2018-10-01,,,keydev only,keydev,2018-10-01,2018-09-28,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+36003,ROL,ROLLINS INC,2015-2021,2018-10-01,2018-10-01,2018-10-01,0.0,agree,keydev,2018-10-01,2018-09-28,True,both rebalance days,kept
+93132,FTNT,FORTINET INC,2015-2021,2018-10-11,2018-10-11,2018-10-11,0.0,agree,keydev,2018-10-11,2018-10-10,True,both rebalance days,kept
+18142,REZI,RESIDEO TECHNOLOGIES INC,2015-2021,2018-10-29,2018-10-29,,,keydev only,keydev,2018-10-29,2018-10-26,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+14939,KEYS,KEYSIGHT TECHNOLOGIES INC,2015-2021,2018-11-06,2018-11-06,2018-11-06,0.0,agree,keydev,2018-11-06,2018-11-05,True,both rebalance days,kept
+88664,JKHY,HENRY JACK & ASSOC INC,2015-2021,2018-11-13,2018-11-13,2018-11-13,0.0,agree,keydev,2018-11-13,2018-11-12,True,both rebalance days,kept
+11896,MXIM,MAXIM INTEGRATED PRODUCTS INC,2015-2021,2018-12-03,2018-12-03,2018-12-03,0.0,agree,keydev,2018-12-03,2018-11-30,True,both rebalance days,kept
+13641,FANG,DIAMONDBACK ENERGY INC,2015-2021,2018-12-03,2018-12-03,2018-12-03,0.0,agree,keydev,2018-12-03,2018-11-30,True,both rebalance days,kept
+16431,LW,LAMB WESTON HOLDINGS INC,2015-2021,2018-12-03,2018-12-03,2018-12-03,0.0,agree,keydev,2018-12-03,2018-11-30,True,both rebalance days,kept
+90520,CE,CELANESE CORP DEL,2015-2021,2018-12-24,2018-12-24,2018-12-24,0.0,agree,keydev,2018-12-24,2018-12-21,True,both rebalance days,kept
+12448,FRC,FIRST REPUBLIC BANK S F NEW,2015-2021,2019-01-02,2019-01-02,2019-01-02,0.0,agree,keydev,2019-01-02,2018-12-31,True,both rebalance days,kept
+44329,TFX,TELEFLEX INC,2015-2021,2019-01-18,2019-01-18,2019-01-18,0.0,agree,keydev,2019-01-18,2019-01-17,True,both rebalance days,kept
+18327,CVET,COVETRUS INC,2015-2021,2019-02-08,2019-02-08,,,keydev only,keydev,2019-02-08,2019-02-07,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+32986,ATO,ATMOS ENERGY CORP,2015-2021,2019-02-15,2019-02-15,2019-02-15,0.0,agree,keydev,2019-02-15,2019-02-14,True,both rebalance days,kept
+81677,WAB,WABTEC CORP,2015-2021,2019-02-27,2019-02-27,2019-02-27,0.0,agree,keydev,2019-02-27,2019-02-26,True,both rebalance days,kept
+18420,FOXA,FOX CORP,2015-2021,2019-03-19,2019-03-19,2019-03-19,0.0,agree,keydev,2019-03-19,2019-03-18,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+18428,DOW,DOW INC,2015-2021,2019-04-02,2019-04-02,2019-04-02,0.0,agree,keydev,2019-04-02,2019-04-01,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+18578,KTB,KONTOOR BRANDS INC,2015-2021,2019-05-23,2019-05-23,,,keydev only,keydev,2019-05-23,2019-05-22,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+18592,CTVA,CORTEVA INC,2015-2021,2019-06-03,2019-06-03,2019-06-03,0.0,agree,keydev,2019-06-03,2019-05-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+90454,MKTX,MARKETAXESS HLDGS INC,2015-2021,2019-07-01,2019-07-01,2019-07-01,0.0,agree,keydev,2019-07-01,2019-06-28,True,both rebalance days,kept
+91937,TMUS,T MOBILE U S INC,2015-2021,2019-07-15,2019-07-15,2019-07-15,0.0,agree,keydev,2019-07-15,2019-07-12,True,both rebalance days,kept
+75591,IEX,IDEX CORP,2015-2021,2019-08-09,2019-08-09,2019-08-09,0.0,agree,keydev,2019-08-09,2019-08-08,True,both rebalance days,kept
+91547,LDOS,LEIDOS HOLDINGS INC,2015-2021,2019-08-09,2019-08-09,2019-08-09,0.0,agree,keydev,2019-08-09,2019-08-08,True,both rebalance days,kept
+13949,CDW,C D W CORP NEW,2015-2021,2019-09-23,2019-09-23,2019-09-23,0.0,agree,keydev,2019-09-23,2019-09-20,True,both rebalance days,kept
+79785,NVR,N V R INC,2015-2021,2019-09-26,2019-09-26,2019-09-26,0.0,agree,keydev,2019-09-26,2019-09-25,True,both rebalance days,kept
+90505,LVS,LAS VEGAS SANDS CORP,2015-2021,2019-10-03,2019-10-03,2019-10-03,0.0,agree,keydev,2019-10-03,2019-10-02,True,both rebalance days,kept
+13447,NOW,SERVICENOW INC,2015-2021,2019-11-21,2019-11-21,2019-11-21,0.0,agree,keydev,2019-11-21,2019-11-20,True,both rebalance days,kept
+17743,WRB,BERKLEY W R CORP,2015-2021,2019-12-05,2019-12-05,2019-12-05,0.0,agree,keydev,2019-12-05,2019-12-04,True,both rebalance days,kept
+77037,ODFL,OLD DOMINION FREIGHT LINE INC,2015-2021,2019-12-09,2019-12-09,2019-12-09,0.0,agree,keydev,2019-12-09,2019-12-06,True,both rebalance days,kept
+76795,ZBRA,ZEBRA TECHNOLOGIES CORP,2015-2021,2019-12-23,2019-12-23,2019-12-23,0.0,agree,keydev,2019-12-23,2019-12-20,True,both rebalance days,kept
+77649,STE,STERIS PLC NEW,2015-2021,2019-12-23,2019-12-23,2019-12-23,0.0,agree,keydev,2019-12-23,2019-12-20,True,both rebalance days,kept
+91041,LYV,LIVE NATION ENTERTAINMENT INC,2015-2021,2019-12-23,2019-12-23,2019-12-23,0.0,agree,keydev,2019-12-23,2019-12-20,True,both rebalance days,kept
+14579,PAYC,PAYCOM SOFTWARE INC,2015-2021,2020-01-28,2020-01-28,2020-01-28,0.0,agree,keydev,2020-01-28,2020-01-27,True,both rebalance days,kept
+16692,IR,INGERSOLL RAND INC,2015-2021,2020-03-03,2020-03-03,2020-03-02,-1.0,ambiguous,keydev,2020-03-03,2020-03-02,True,keydev rebalance day,kept
+12308,CHTR,CHARTER COMMUNICATIONS INC NEW,2015-2021,2020-03-28,2020-03-30,,,keydev only,keydev,2020-03-30,2020-03-27,False,neither,kept
+19283,ARNC,ARCONIC CORP,2015-2021,2020-04-01,2020-04-01,,,keydev only,keydev,2020-04-01,2020-03-31,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+19285,CARR,CARRIER GLOBAL CORP,2015-2021,2020-04-03,2020-04-03,2020-04-03,0.0,agree,keydev,2020-04-03,2020-04-02,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+19286,OTIS,OTIS WORLDWIDE CORP,2015-2021,2020-04-03,2020-04-03,2020-04-03,0.0,agree,keydev,2020-04-03,2020-04-02,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+90248,DPZ,DOMINOS PIZZA INC,2015-2021,2020-05-12,2020-05-12,2020-05-12,0.0,agree,keydev,2020-05-12,2020-05-11,True,both rebalance days,kept
+90664,DXCM,DEXCOM INC,2015-2021,2020-05-12,2020-05-12,2020-05-12,0.0,agree,keydev,2020-05-12,2020-05-11,True,both rebalance days,kept
+62498,WST,WEST PHARMACEUTICAL SERVICES INC,2015-2021,2020-05-22,2020-05-22,2020-05-22,0.0,agree,keydev,2020-05-22,2020-05-21,True,both rebalance days,kept
+61516,BIO,BIO RAD LABORATORIES INC,2015-2021,2020-06-22,2020-06-22,2020-06-22,0.0,agree,keydev,2020-06-22,2020-06-19,True,both rebalance days,kept
+76185,TYL,TYLER TECHNOLOGIES INC,2015-2021,2020-06-22,2020-06-22,2020-06-22,0.0,agree,keydev,2020-06-22,2020-06-19,True,both rebalance days,kept
+87445,TDY,TELEDYNE TECHNOLOGIES,2015-2021,2020-06-22,2020-06-22,2020-06-22,0.0,agree,keydev,2020-06-22,2020-06-19,True,both rebalance days,kept
+14763,CTLT,CATALENT INC,2015-2021,2020-09-21,2020-09-21,2020-09-21,0.0,agree,keydev,2020-09-21,2020-09-18,True,both rebalance days,kept
+15291,ETSY,ETSY INC,2015-2021,2020-09-21,2020-09-21,2020-09-21,0.0,agree,keydev,2020-09-21,2020-09-18,True,both rebalance days,kept
+51369,TER,TERADYNE INC,2015-2021,2020-09-21,2020-09-21,2020-09-21,0.0,agree,keydev,2020-09-21,2020-09-18,True,both rebalance days,kept
+82515,POOL,POOL CORP,2015-2021,2020-10-07,2020-10-07,2020-10-07,0.0,agree,keydev,2020-10-07,2020-10-06,True,both rebalance days,kept
+19807,VNT,VONTIER CORP,2015-2021,2020-10-09,2020-10-09,2020-10-09,0.0,agree,keydev,2020-10-09,2020-10-08,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+93436,TSLA,TESLA INC,2015-2021,2020-12-21,2020-12-21,2020-12-21,0.0,agree,keydev,2020-12-21,2020-12-18,True,both rebalance days,kept
+13323,ENPH,ENPHASE ENERGY INC,2015-2021,2021-01-07,2021-01-07,2021-01-07,0.0,agree,keydev,2021-01-07,2021-01-06,True,both rebalance days,kept
+76230,TRMB,TRIMBLE INC,2015-2021,2021-01-22,2021-01-22,2021-01-21,-1.0,ambiguous,wikipedia,2021-01-21,2021-01-20,False,wikipedia rebalance day,kept
+90455,MPWR,MONOLITHIC PWR SYS INC,2015-2021,2021-02-13,2021-02-16,2021-02-12,-1.0,ambiguous,wikipedia,2021-02-12,2021-02-11,False,wikipedia rebalance day,kept
+80563,PENN,PENN NATIONAL GAMING INC,2015-2021,2021-03-22,2021-03-22,2021-03-22,0.0,agree,keydev,2021-03-22,2021-03-19,True,both rebalance days,kept
+93246,GNRC,GENERAC HOLDINGS INC,2015-2021,2021-03-22,2021-03-22,2021-03-22,0.0,agree,keydev,2021-03-22,2021-03-19,True,both rebalance days,kept
+12084,NXPI,N X P SEMICONDUCTORS N V,2015-2021,2021-03-22,2021-03-22,2021-03-22,0.0,agree,keydev,2021-03-22,2021-03-19,True,both rebalance days,kept
+14882,CZR,CAESARS ENTERTAINMENT INC DE,2015-2021,2021-03-22,2021-03-22,2021-03-22,0.0,agree,keydev,2021-03-22,2021-03-19,True,both rebalance days,kept
+75912,PTC,P T C INC,2015-2021,2021-04-21,2021-04-21,2021-04-20,-1.0,ambiguous,wikipedia,2021-04-20,2021-04-19,False,wikipedia rebalance day,kept
+88281,CRL,CHARLES RIVER LABS INTL INC,2015-2021,2021-05-14,2021-05-14,2021-05-14,0.0,agree,keydev,2021-05-14,2021-05-13,True,both rebalance days,kept
+21124,OGN,ORGANON & CO,2015-2021,2021-06-03,2021-06-03,2021-06-03,0.0,agree,keydev,2021-06-03,2021-06-02,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+18312,MRNA,MODERNA INC,2015-2021,"2021-07-20, 2021-07-22",2021-07-22,2021-07-21,-1.0,"keydev duplicate, wikipedia inside",wikipedia,2021-07-21,2021-07-20,False,wikipedia rebalance day,kept
+21609,VSCO,VICTORIAS SECRET & CO,2015-2021,2021-08-03,2021-08-03,,,keydev only,keydev,2021-08-03,2021-08-02,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+75694,TECH,BIO TECHNE CORP,2015-2021,2021-08-30,2021-08-30,2021-08-30,0.0,agree,keydev,2021-08-30,2021-08-27,True,both rebalance days,kept
+63467,BRO,BROWN & BROWN INC,2015-2021,2021-09-20,2021-09-20,2021-09-20,0.0,agree,keydev,2021-09-20,2021-09-17,True,both rebalance days,kept
+15850,MTCH,MATCH GROUP INC NEW,2015-2021,2021-09-20,2021-09-20,2021-09-20,0.0,agree,keydev,2021-09-20,2021-09-17,True,both rebalance days,kept
+17700,CDAY,CERIDIAN H C M HOLDING INC,2015-2021,2021-09-20,2021-09-20,2021-09-20,0.0,agree,keydev,2021-09-20,2021-09-17,True,both rebalance days,kept
+21903,SLVM,SYLVAMO CORP,2015-2021,2021-10-01,2021-10-01,,,keydev only,keydev,2021-10-01,2021-09-30,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+22264,ONL,ORION OFFICE REIT INC,2015-2021,2021-11-15,2021-11-15,,,keydev only,keydev,2021-11-15,2021-11-12,False,no volume test,new listing: first CRSP day after the rebalance day (spin-off or merger)
+13210,EPAM,EPAM SYSTEMS INC,2015-2021,2021-12-14,2021-12-14,2021-12-14,0.0,agree,keydev,2021-12-14,2021-12-13,True,both rebalance days,kept
+90090,SBNY,SIGNATURE BANK NEW YORK N Y,2015-2021,2021-12-20,2021-12-20,2021-12-20,0.0,agree,keydev,2021-12-20,2021-12-17,True,both rebalance days,kept
+83597,FDS,FACTSET RESEARCH SYSTEMS INC,2015-2021,2021-12-20,2021-12-20,2021-12-20,0.0,agree,keydev,2021-12-20,2021-12-17,True,both rebalance days,kept
+15272,SEDG,SOLAREDGE TECHNOLOGIES INC,2015-2021,2021-12-21,2021-12-21,2021-12-20,-1.0,ambiguous,wikipedia,2021-12-20,2021-12-17,False,wikipedia rebalance day,kept

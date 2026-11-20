@@ -58,6 +58,11 @@ SAME_FIRM_WINDOW = 10
 # Wikipedia's date where Key Dev is early or lists the firm twice. "keydev" = the v0 rule.
 HISTORY_DATE_SOURCE = "keydev+wikipedia"
 WIKI_MATCH_DAYS = 10  # S&P announces at most 10 trading days ahead (max gap in outputs/announce_effective_gap.csv)
+# When Wikipedia is one trading day before Key Dev ("ambiguous"), which one is the effective date?
+# S&P's releases (code/06_hand_check.py): HP 2010, WellCare 2018 and Ingersoll Rand 2020 match Key Dev
+# (Wikipedia gives the rebalance close); Trimble, Monolithic Power, PTC and SolarEdge 2021 match Wikipedia
+# (Key Dev is a day late). From this year on, ambiguous dates use Wikipedia.
+AMBIGUOUS_WIKIPEDIA_FROM = 2021
 # v0 volume filter: keep an event only if its volume peak (within 15 trading days) is the trading day
 # before the Key Dev date. It looks at volume after day 0, so it is off from v1 on (audit A1) and
 # only used for a robustness test (passes_volume_filter in 03b).
