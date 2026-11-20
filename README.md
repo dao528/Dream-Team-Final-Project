@@ -5,7 +5,7 @@ https://dream-team-index-effect.streamlit.app/
 
 When a company is added to the S&P 500, does its stock still jump? And is the jump on the day the addition is **announced** or the day it **takes effect**? Shleifer (1986) found a large jump; Greenwood & Sammon (_The Disappearing Index Effect_) find it has mostly vanished. We measure it for every S&P 500 addition since 2022, with both dates, and on the effective date back to 2001 to see how the jump changed over time.
 
-Status: Checkpoint 2 (v0, small sample, every step runs). The Checkpoint 1 memo is [`STATUS.md`](STATUS.md). The candidate ideas from Checkpoint 0 are in [`docs/checkpoint0_candidates.md`](docs/checkpoint0_candidates.md).
+Status: fixing the Checkpoint 2 audit. The 2001-2021 history sample is complete, the 2022+ sample is still the 5 v0 additions. The Checkpoint 1 memo is [`STATUS.md`](STATUS.md). The candidate ideas from Checkpoint 0 are in [`docs/checkpoint0_candidates.md`](docs/checkpoint0_candidates.md).
 
 ## How to run
 
@@ -18,7 +18,7 @@ python3.12 -m venv .venv
 .venv/bin/python run_all.py --fresh   # deletes data/raw/ (except wrds/) and downloads everything again
 ```
 
-No API keys. v0 runs 5 additions from 2022 on (`POC_TICKERS` in [`code/config.py`](code/config.py)) and 4 history additions per era (`HISTORY_PER_ERA`). Set both to `None` for the full sample.
+No API keys. The 2022+ sample is still the 5 v0 additions (`POC_TICKERS` in [`code/config.py`](code/config.py), set it to `None` for all 84). The 2001-2021 history sample has every Key Dev addition since the Checkpoint 2 audit (`HISTORY_PER_ERA = None`). Optional: the full CRSP file `crsp_daily.parquet` from the same Drive folder (1.5 GB) lets step 4 recover two firms that changed permno (see "New permnos" below).
 
 ## Folder layout
 
@@ -29,11 +29,11 @@ code/
   01_download_index_changes.py     Wikipedia changes table (pinned revision) -> data/raw/wiki_sp500_changes.csv
   02_download_announcements.py     S&P DJI press releases -> data/raw/spdji_release_list.csv, data/clean/spdji_sp500_actions.csv
   03_build_additions.py            one row per addition, both dates -> data/clean/additions.csv
-  03b_build_history_additions.py   Key Dev additions 2001-2021, effective date only -> data/clean/history_additions.csv, outputs/history_date_check.csv, outputs/history_dropped.csv
-  04_download_returns.py           one event list + daily returns (CRSP, yfinance after 2025) -> data/clean/events.csv, data/clean/stock_returns.parquet (git-ignored), data/raw/prices.csv
+  03b_build_history_additions.py   Key Dev additions 2001-2021, effective date checked against Wikipedia -> data/clean/history_additions.csv, outputs/history_dates.csv, outputs/history_date_rules.csv, outputs/history_date_check.csv, outputs/history_dropped.csv
+  04_download_returns.py           one event list + daily returns (CRSP, yfinance after 2025) -> data/clean/events.csv, data/clean/stock_returns.parquet (git-ignored), data/raw/prices.csv, outputs/yfinance_fallback.csv, outputs/history_predecessors.csv
   05_build_event_panel.py          market-model ARs -> data/clean/event_panel.csv, outputs/car_windows.csv, outputs/dropped_short_history.csv, outputs/announce_effective_gap.csv
-  06_hand_check.py                 recomputes COIN's CAR from raw CRSP, compares CRSP with yfinance (incl. a dividend payer), checks Tesla's rebalance day
-  07_summarize.py                  mean CARs and t-tests by era -> outputs/car_summary.csv, outputs/fig_mean_car_by_era.png
+  06_hand_check.py                 recomputes COIN's CAR from raw CRSP, compares CRSP with yfinance (incl. a dividend payer), checks Tesla's rebalance day, the release times, and three history dates against S&P's releases
+  07_summarize.py                  mean CARs and t-tests by era -> outputs/car_summary.csv, outputs/car_summary_history_dates.csv, outputs/fig_mean_car_by_era.png
   08_magnitudes.py                 CARs in dollars (x market value), bid-ask spreads, tradable part of the announcement jump -> outputs/magnitudes.csv
 data/raw/                          downloads, never edited (wrds/ is git-ignored; the release HTML cache is committed so step 02 runs offline)
 data/clean/                        built by code/
@@ -54,6 +54,7 @@ specs_tried.md                     every specification we have run
 | `data/raw/wrds/outputs/crsp_daily_sp500_ever.parquet` (git-ignored) | CRSP daily stock file (`crsp.dsf_v2`), 2000-01-03 to 2025-12-31, for the 1,130 permnos in membership spells that Prof. Bowen rebuilt from Key Dev and Compustat (the official `dsp500list` was not available, see the Drive folder's README). We use `ret_adj` (return including the delisting return), `ticker`, `comnam`, `vol`. | Pulled from WRDS by Prof. Bowen on 2026-11-04 and shared as the Google Drive folder `dao528_request`. Its `README.md` and `code/` folder document the pull. |
 | `data/raw/wrds/outputs/keydev_sp500_events.parquet` (git-ignored) | Capital IQ Key Developments, S&P 500 adds and drops (event types 95 and 75), linked to permno, with a volume check of the date (`trading_days_to_peak`) | same Drive folder |
 | `data/raw/wrds/outputs/market_daily.parquet` (git-ignored) | CRSP market returns. We only use its dates, as the trading calendar in step 3b. | same Drive folder |
+| `data/raw/wrds/outputs/crsp_daily.parquet` (git-ignored, optional) | The same CRSP daily file for every security (1.5 GB). Step 4 reads it only for older permnos that were never in the S&P 500 (`PREDECESSORS` in `code/config.py`). | same Drive folder |
 
 ## One row of the final dataset
 
@@ -80,13 +81,18 @@ For the five recent 2022+ additions, the dollar jumps look huge at an average +7
 - **Releases after the fact.** VYLR's release (2026-10-01) reports an addition that already happened (a Corteva spin-off). Its rebalance day is before the announcement day 0, so there was no index-fund trade to anticipate. Step 5 drops events like this and lists them in `outputs/dropped_short_history.csv`.
 - **Confounding news.** Earnings inside the window (COIN, MRVL in the proof of concept). Not yet flagged in the data.
 - **Spin-offs** with no return history before the announcement (e.g. GE Vernova, Solventum, Kenvue) cannot get a market model. Events with fewer than 200 estimation days (`MIN_EST_DAYS`) are dropped and counted (approved by Prof. Bowen at Checkpoint 1).
-- **Survivorship.** Additions are taken from S&P's own announcements (and Key Dev before 2022), not from today's constituent list, so firms deleted later are still in the sample. Returns come from CRSP, which keeps delisted firms and includes delisting returns. yfinance is only used after CRSP ends (2026 additions).
-- **Key Dev dates before 2022 are effective dates.** For 2001-2021 we only study the effective date. Of 555 Key Dev additions, 377 are kept (`outputs/history_date_check.csv`, each dropped one is in `outputs/history_dropped.csv`):
-  - 36 are not additions. They are a Key Dev backfill dated Saturday 2005-01-29 (AT&T, Fannie Mae and other long-time members, no matching drops).
-  - 80 were not trading on the rebalance day (spin-offs and new listings).
-  - 4 have no volume test, and 58 have their CRSP volume peak on another day than our rebalance day.
-- **The volume filter is a look-ahead.** The volume peak is searched within 15 trading days on both sides, so the filter uses data from after day 0, and the kept additions are the ones with a clear index-fund trade. That can bias the history CARs. It also drops real additions whose Key Dev date is one day off (peak on day 0 or -2). In v1 we want dates that don't depend on volume: the old S&P releases, or Wikipedia from 2007 on. Until then, v1 will also report the history CARs without the volume filter.
+- **Survivorship.** Additions are taken from S&P's own announcements (and Key Dev before 2022), not from today's constituent list, so firms deleted later are still in the sample. Returns come from CRSP, which keeps delisted firms and includes delisting returns. yfinance is only used where CRSP has no row: event windows that end after 2025, and spin-offs that were not trading yet at the announcement (`outputs/yfinance_fallback.csv`, 30 of the 84 2022+ additions, each with its reason).
+- **Key Dev dates before 2022 are effective dates.** For 2001-2021 we only study the effective date. Key Dev has 555 additions in those years. 36 are not additions: a Key Dev backfill dated Saturday 2005-01-29 (AT&T, Fannie Mae and other long-time members, no matching drops). 5 repeat a firm within 10 trading days (Moderna on 2021-07-20 and 2021-07-22), and we keep one row per firm (`SAME_FIRM_WINDOW`). That leaves 514 additions (`outputs/history_date_check.csv`; every dropped row, with its name, is in `outputs/history_dropped.csv`).
+- **Spin-offs and mergers before 2022.** 77 of the 514 have no CRSP row on the rebalance day because the stock started trading 1 to 7 trading days later (`trading_days_to_first_crsp` in `outputs/history_dropped.csv`). They are spin-offs or firms created by a merger (Zimmer, PayPal, AbbVie, Kraft Heinz), and `code/03b_build_history_additions.py` asserts that each one starts trading after the rebalance day. When an S&P 500 member spins off a firm, index funds get the new shares through the spin-off without buying them. 2015-2021 has more of these (41, against 20 and 16), which changes the mix of firms across eras a little.
+- **Effective dates without volume data.** Up to Checkpoint 2 we kept a history addition only if its CRSP volume peak was on our rebalance day. That filter used volume after day 0, so it is off now (`HISTORY_VOLUME_FILTER`). Instead, step 3b checks every Key Dev date against Wikipedia's changes table (same ticker, at most 10 trading days apart) and records a rule per addition (`outputs/history_dates.csv`, counts by era in `outputs/history_date_rules.csv`):
+  - 171 dates agree.
+  - Where Key Dev lists the firm twice around Wikipedia's date (Moderna) or Wikipedia's date is later (14 additions, where Key Dev looks like the announcement), we use Wikipedia's date.
+  - Where Wikipedia is one trading day earlier (70, mostly 2008-2014), we keep Key Dev. In those years Wikipedia often gives the "after the close of" day, as S&P's release does for Helmerich & Payne in 2010. For PTC in 2021, though, Key Dev is the one that is a day late (`code/06_hand_check.py`). The volume peak is on Key Dev's rebalance day for 58 of the 70 and on Wikipedia's for 4. We only report this (`volume_peak_on`) and never use it to pick a date.
+  - Where Wikipedia is 2 to 10 trading days earlier (7), we keep Key Dev as well.
+  - 251 additions have no Wikipedia match, 154 of them before 2008, when the table has almost no rows. They keep Key Dev's date.
+  
+  `outputs/car_summary_history_dates.csv` repeats the history CARs for four groups: all additions, only those that pass the old volume filter, all without the 70 one-day disagreements, and only those where both sources agree.
 - **The announcement is inside the effective window before 2022 too.** Back then S&P often announced about a week before the effective date, so the effective-date CAR over [-10,+10] includes the announcement jump. We can't measure the gap yet because we have no announcement dates for 2001-2021.
 - **Two return sources.** CRSP up to 2025, yfinance for 2026 additions, never mixed within one event (`ret_source`). Where both exist they agree (`code/06_hand_check.py`).
-- **New permnos.** Some firms get a new CRSP permno (Ensco after its 2012 move to the UK, Invesco after its 2007 move to the NYSE), so they look like they have no history and are dropped (`outputs/dropped_short_history.csv`).
+- **New permnos.** Some firms got a new CRSP permno when they moved abroad or back, so they seemed to have no return history. Ensco has three: Ensco International Inc, then the Ensco plc ADS after the move to the UK in 2009, then Ensco plc class A shares in 2012. `PREDECESSORS` in `code/config.py` maps each new permno to the old one, and step 4 fills the estimation window with the old permno's returns (`outputs/history_predecessors.csv`). The day of the switch has no return. Invesco (the AMVESCAP ADR before its 2007 move to the NYSE) and News Corp (the Australian ADR before its 2004 move to the US) were never in the S&P 500 under the old permno, so their old returns are only in the full CRSP file (`crsp_daily.parquet`, same Drive folder). Without that file IVZ_2008 and NWS_2004 stay dropped for short history. The other short-history drops are IPOs and spin-offs (`outputs/dropped_short_history.csv`).
 - **Index-fund ownership** is not in the data yet. The WRDS account could not read the mutual fund tables.
