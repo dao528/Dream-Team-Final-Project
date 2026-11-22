@@ -16,7 +16,8 @@ announcement date, so their window is EST_WINDOW relative to the effective day 0
 
 Outputs:
   data/clean/event_panel.csv     key: (event_id, anchor, event_day)
-  outputs/car_windows.csv        one row per addition x anchor: CAR over standard windows
+  outputs/car_windows.csv        one row per addition x anchor: CAR over standard windows, plus the
+                                 day 0 return and AR (ret_day0, ar_day0)
   outputs/dropped_short_history.csv   dropped additions, with the reason: fewer than MIN_EST_DAYS
                                  estimation days, or the release came after the rebalance day
   outputs/announce_effective_gap.csv   every 2022+ addition: trading days from announcement day 0 to
@@ -162,5 +163,10 @@ car_windows = car_by_window.merge(
     [["event_id", "anchor", "ticker", "sample", "era", "day0", "beta", "n_est", "batch_size",
       "gap_trading_days", "ret_source"]],
     on=["event_id", "anchor"], how="left", validate="one_to_one")
+# Day 0 raw return and AR, so numbers like COIN's announcement-day jump trace to outputs/ (audit A6).
+day0_rows = (event_panel.query("event_day == 0")[["event_id", "anchor", "ret", "ar"]]
+             .rename(columns={"ret": "ret_day0", "ar": "ar_day0"}))
+car_windows = car_windows.merge(day0_rows, on=["event_id", "anchor"], how="left", validate="one_to_one")
+assert car_windows["ar_day0"].notna().all()
 car_windows.to_csv(WINDOWS_OUT, index=False)
 print(car_windows.round({name: 4 for name in [*CAR_WINDOWS, "beta"]}).to_string())
