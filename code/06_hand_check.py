@@ -33,7 +33,7 @@ import numpy as np
 import pandas as pd
 import pyarrow.dataset as ds
 
-from config import CLEAN, CRSP_DAILY, KEYDEV_EVENTS, MARKET, OUTPUTS, RAW, RELEASE_CACHE
+from config import CLEAN, CRSP_DAILY, KEYDEV_EVENTS, MARKET, OUTPUTS, RAW, release_cache_file
 
 crsp = ds.dataset(CRSP_DAILY)
 prices = pd.read_csv(RAW / "prices.csv", index_col="Date", parse_dates=True)
@@ -104,7 +104,7 @@ assert around.idxmax() == rule_day0 == pd.Timestamp("2020-12-18")
 EASTERN = ZoneInfo("America/New_York")
 additions = pd.read_csv(CLEAN / "additions.csv", parse_dates=["announce_et"])
 for addition in additions.itertuples():
-    page = (RELEASE_CACHE / (addition.announce_url.rsplit("/", 1)[1][:150] + ".html")).read_text(encoding="utf-8")
+    page = release_cache_file(addition.announce_url).read_text(encoding="utf-8")
     stamp, zone = re.search(r"ITEMDATE: (\S+ \S+) (E[DS]T)", page).groups()
     stamp = pd.Timestamp(stamp)
     assert stamp == addition.announce_et, addition.ticker
