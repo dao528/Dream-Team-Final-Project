@@ -5,7 +5,7 @@ https://dream-team-index-effect.streamlit.app/
 
 When a company is added to the S&P 500, does its stock still jump? And is the jump on the day the addition is **announced** or the day it **takes effect**? Shleifer (1986) found a large jump; Greenwood & Sammon (_The Disappearing Index Effect_) find it has mostly vanished. We measure it for every S&P 500 addition since 2022, with both dates, and on the effective date back to 2001 to see how the jump changed over time.
 
-Status: fixing the Checkpoint 3 audit. Both samples are complete: every 2022+ addition (69 after drops) and every 2001-2021 Key Dev addition (409 after drops). The Checkpoint 1 memo is [`STATUS.md`](STATUS.md). The candidate ideas from Checkpoint 0 are in [`docs/checkpoint0_candidates.md`](docs/checkpoint0_candidates.md).
+Status: fixing the Checkpoint 3 audit. Both samples are complete: every 2022+ addition (69 after drops) and every 2001-2021 Key Dev addition (409 after drops). The status memo (Checkpoint 3, with the Checkpoint 1 memo below it) is [`STATUS.md`](STATUS.md). The candidate ideas from Checkpoint 0 are in [`docs/checkpoint0_candidates.md`](docs/checkpoint0_candidates.md).
 
 ## How to run
 
