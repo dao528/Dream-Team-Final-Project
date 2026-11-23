@@ -96,7 +96,10 @@ with results:
     table["p_value"] = table["p_value"].round(3)
     st.dataframe(table.drop(columns="window"), hide_index=True)
     st.caption("v0 has only 3 to 5 additions per era, so none of these are reliable yet.")
-
+    if window == "CAR[-10,+10]":
+        st.warning("For every 2022+ addition, the effective [-10,+10] window also contains the "
+                   "announcement day, and it picks up other news such as earnings. Read it as the "
+                   "announcement and effective-date moves together. See README, Threats to validity.")
 # ---------------------------------------------------------------- Explore
 with explore:
     st.header("Explore one addition")
@@ -132,3 +135,5 @@ with explore:
     for col in ["car_m1_p1", "car_0_p1", "car_m10_p10"]:
         mine[col] = mine[col].map("{:+.2%}".format)
     st.dataframe(mine, hide_index=True)
+        st.caption("car_m10_p10 for the effective anchor includes the announcement day for every "
+               "2022+ addition (see README, Threats to validity).")
