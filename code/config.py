@@ -1,4 +1,5 @@
 """Shared settings for the index-effect pipeline. Every script imports from here."""
+import hashlib
 from pathlib import Path
 
 import pandas as pd
@@ -10,6 +11,14 @@ CLEAN = ROOT / "data" / "clean"
 OUTPUTS = ROOT / "outputs"
 for folder in (RAW, RELEASE_CACHE, CLEAN, OUTPUTS):
     folder.mkdir(parents=True, exist_ok=True)
+
+
+def release_cache_file(url):
+    """Cached page for one release: publication date + the first 10 characters of the url's sha1.
+    The full slugs (up to 150 characters) pushed paths past Windows' 260-character limit when the
+    repo sits in a deep folder (e.g. under OneDrive), so git could not check the pages out."""
+    slug = url.rsplit("/", 1)[1]
+    return RELEASE_CACHE / f"{slug[:10]}_{hashlib.sha1(url.encode()).hexdigest()[:10]}.html"
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Lehigh FIN 331 student project)"}
 

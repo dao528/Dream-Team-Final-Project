@@ -1,0 +1,2 @@
+# Cached S&P release pages: keep the bytes as committed (no CRLF conversion on Windows).
+data/raw/spdji_releases/*.html -text
