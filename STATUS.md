@@ -1,20 +1,20 @@
-# Status memo: Checkpoint 3 response (Nov 23)
+# status memo: checkpoint 3 response (nov 23)
 
-## Section 1
+## Section 1:
 
-* Both samples are complete (69 new additions and 409 older ones).
-* The main result is that the announcement day jump (+4.46%) is for sure real and the effective day (-1.02%) isn't.
-* Over time only 2001-2007 shows a significant effect (+0.81%), with the caveat being the unchecked dates.
-* The magnitudes point: about $2.4B per addition, but only +0.2% is left for traders.
+* both samples are complete (69 new additions and 409 older ones)
+* the main result is that the announcement day jump (+4.46%) is for sure real and the effective day (-1.02%) isnt.
+* over time only 2001 - 2007 shows significant effect (+0.81%) with the caveat being the unchecked dates.
+* the magnitudes point; about $2.4B per addition, but only +0.2 % is left for trader
 
-## Section 2: What got fixed
+## Section 2: what got fixed
 
-* All of the findings that were in Checkpoint 2 are fixed or addressed in some way.
-* B1 was just fixed (PR #18) and B2 is in progress. A7 is done.
+* All of the findings that were in checkpoint 2 are fixed or addressed in some way
+* B1 was just fixed (PR #18) and B2 is in progress. A7 is done
 
 ## Section 3: What is left and who does it
 
-* Karthik: the dashboard text
+* Karthik- the dashboard text
 * Daniel: the fixed magnitudes paragraph and reviewing and merging
 * Manny: the response file
 * EVERYONE: the slides, dashboard URL in sheet and being able to explain the pipeline before we have to present in class
