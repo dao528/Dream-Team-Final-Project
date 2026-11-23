@@ -1,3 +1,19 @@
+# Status memo: Checkpoint 3 (Nov 22)
+What works: 
+2001-2021 history sample is complete with verified dates, company names, and reasons
+2001-07 isn't verified, the old filter makes it fall to .31% because a few dates could be announcement dates
+Magnitudes are complete 
+
+What's missing:
+2022-2026 only uses 5 test additions. We need to run all 84
+The dashboard still contiains a placeholder
+
+Who does what next:
+Tom: runs full sample
+Karthik: Complete dashboard text
+Manny: checks sources and checks dates
+Daniel: Review and mergs PRs.
+
 # Status memo: Checkpoint 1 (Oct 23)
 
 We picked Seed 3, the disappearing index effect. At Checkpoint 0 it was the cleaner question, but it depended on one input we didn't know we could get: the date S&P announces each addition, as opposed to the date it takes effect. That turned out to be easy. The S&P Dow Jones Indices newsroom can be searched by keyword and paged with plain `requests`, and every "Set to Join S&P 500" release since 2022 has a summary table (effective date, index, action, company, ticker) that `pd.read_html` reads, plus an Eastern-time publication stamp in the page source. That gave us 84 additions from 53 releases, January 2022 to October 2026, with no agent and no hand collection. Seed 7 (analyst rating changes) would have been faster to build, but most of yfinance's rows are reiterations, and ranking 40+ brokers raises a multiple-testing problem we'd rather not build the project around.
