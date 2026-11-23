@@ -2,7 +2,8 @@
 
 1. Search the S&P newsroom for index-change releases and keep those about the S&P 500
    published since SAMPLE_START. Release URLs start with the publication date.
-2. Download each release once (cached in data/raw/spdji_releases/, committed to git).
+2. Download each release once (cached in data/raw/spdji_releases/, committed to git, one file
+   per release named by date + url hash, see config.release_cache_file).
 3. Parse the release's publication time (the page's ITEMDATE comment, US Eastern) and its
    summary table (Effective Date | Index Name | Action | Company Name | Ticker | GICS Sector).
 
@@ -17,8 +18,8 @@ import time
 import pandas as pd
 import requests
 
-from config import (CLEAN, HEADERS, NEWSROOM_SEARCH, NEWSROOM_SECTION, RAW, RELEASE_CACHE,
-                    SAMPLE_START, SEARCH_KEYWORDS)
+from config import (CLEAN, HEADERS, NEWSROOM_SEARCH, NEWSROOM_SECTION, RAW, SAMPLE_START,
+                    SEARCH_KEYWORDS, release_cache_file)
 
 LIST_OUT = RAW / "spdji_release_list.csv"
 ACTIONS_OUT = CLEAN / "spdji_sp500_actions.csv"
@@ -49,7 +50,7 @@ def search_release_links(keyword):
 def get_release_html(url):
     """The cached page is committed (audit finding A5), so a fresh clone parses it offline.
     utf-8 explicitly: Windows would otherwise use cp1252 and fail on characters like U+202F."""
-    cache_file = RELEASE_CACHE / (url.rsplit("/", 1)[1][:150] + ".html")
+    cache_file = release_cache_file(url)
     if not cache_file.exists():
         cache_file.write_text(requests.get(url, headers=HEADERS, timeout=30).text, encoding="utf-8")
         time.sleep(1)
