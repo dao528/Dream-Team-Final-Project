@@ -5,7 +5,7 @@ https://dream-team-index-effect.streamlit.app/
 
 When a company is added to the S&P 500, does its stock still jump? And is the jump on the day the addition is **announced** or the day it **takes effect**? Shleifer (1986) found a large jump; Greenwood & Sammon (_The Disappearing Index Effect_) find it has mostly vanished. We measure it for every S&P 500 addition since 2022, with both dates, and on the effective date back to 2001 to see how the jump changed over time.
 
-Status: fixing the Checkpoint 2 audit. The 2001-2021 history sample is complete, the 2022+ sample is still the 5 v0 additions. The Checkpoint 1 memo is [`STATUS.md`](STATUS.md). The candidate ideas from Checkpoint 0 are in [`docs/checkpoint0_candidates.md`](docs/checkpoint0_candidates.md).
+Status: fixing the Checkpoint 3 audit. Both samples are complete: every 2022+ addition (69 after drops) and every 2001-2021 Key Dev addition (409 after drops). The Checkpoint 1 memo is [`STATUS.md`](STATUS.md). The candidate ideas from Checkpoint 0 are in [`docs/checkpoint0_candidates.md`](docs/checkpoint0_candidates.md).
 
 ## How to run
 
@@ -18,7 +18,7 @@ python3.12 -m venv .venv
 .venv/bin/python run_all.py --fresh   # deletes data/raw/ (except wrds/) and downloads everything again
 ```
 
-No API keys. The 2022+ sample is still the 5 v0 additions (`POC_TICKERS` in [`code/config.py`](code/config.py), set it to `None` for all 84). The 2001-2021 history sample has every Key Dev addition since the Checkpoint 2 audit (`HISTORY_PER_ERA = None`). Optional: the full CRSP file `crsp_daily.parquet` (1.5 GB). The Drive folder's README lists it, but it was not shared with us. Step 4 reads it if it is there, for older permnos of firms that changed permno and were not in the S&P 500 before (see "New permnos" below).
+No API keys. The 2022+ sample is every addition since the Checkpoint 3 audit (`POC_TICKERS = None` in [`code/config.py`](code/config.py); a list of tickers runs only those). The 2001-2021 history sample has every Key Dev addition since the Checkpoint 2 audit (`HISTORY_PER_ERA = None`). Optional: the full CRSP file `crsp_daily.parquet` (1.5 GB). The Drive folder's README lists it, but it was not shared with us. Step 4 reads it if it is there, for older permnos of firms that changed permno and were not in the S&P 500 before (see "New permnos" below).
 
 ## Folder layout
 
@@ -50,7 +50,7 @@ specs_tried.md                     every specification we have run
 | `data/raw/spdji_release_list.csv` | S&P DJI newsroom search, [press.spglobal.com](https://press.spglobal.com/index.php?s=2429), keywords "Join S&P 500", "Added to the S&P 500", "S&P 500". The `pulled_on` column has the date. | `code/02_download_announcements.py` |
 | `data/raw/spdji_releases/*.html` (committed) | Each release page, downloaded once and committed so the announcement times can't change on a rerun. Files are named by publication date + a hash of the url (`release_cache_file` in `code/config.py`), because the full titles made paths too long for a Windows checkout. Announcement time = the page's `ITEMDATE` comment, e.g. `2025-05-12 18:00:00 EDT` (US Eastern; `code/06_hand_check.py` checks the EDT/EST label against the date). | same script, only for releases missing from the cache |
 | `data/raw/wiki_sp500_changes.csv` | Wikipedia "List of S&P 500 companies", revision [1368675864](https://en.wikipedia.org/w/index.php?oldid=1368675864) (2026-08-10), the last one with the changes table | `code/01_download_index_changes.py` |
-| `data/raw/prices.csv` | yfinance 1.7.0, `auto_adjust=True` Close: SPY from 1999-11-08 to 2026-11-09 (the market for every event) and the 2022+ additions (their returns after CRSP ends, and a cross-check). Pulled on 2026-11-10; the end date is fixed in `code/config.py` (`PRICES_END`). yfinance revises adjusted prices, so a new pull can move the 2026 numbers slightly. | `code/04_download_returns.py` |
+| `data/raw/prices.csv` | yfinance 1.7.0, `auto_adjust=True` Close: SPY from 1999-11-08 to 2026-11-09 (the market for every event) and the 2022+ additions (their returns after CRSP ends, and a cross-check). Pulled on 2026-11-22 for all 84 additions (first pulled 2026-11-10 for the 5 v0 ones; SPY moved by at most 0.02 bp); the end date is fixed in `code/config.py` (`PRICES_END`). yfinance revises adjusted prices, so a new pull can move the 2026 numbers slightly. | `code/04_download_returns.py` |
 | `data/raw/wrds/outputs/crsp_daily_sp500_ever.parquet` (git-ignored) | CRSP daily stock file (`crsp.dsf_v2`), 2000-01-03 to 2025-12-31, for the 1,130 permnos in membership spells that Prof. Bowen rebuilt from Key Dev and Compustat (the official `dsp500list` was not available, see the Drive folder's README). We use `ret_adj` (return including the delisting return), `ticker`, `comnam`, `vol`. | Pulled from WRDS by Prof. Bowen on 2026-11-04 and shared as the Google Drive folder `dao528_request`. Its `README.md` and `code/` folder document the pull. |
 | `data/raw/wrds/outputs/keydev_sp500_events.parquet` (git-ignored) | Capital IQ Key Developments, S&P 500 adds and drops (event types 95 and 75), linked to permno, with a volume check of the date (`trading_days_to_peak`) | same Drive folder |
 | `data/raw/wrds/outputs/market_daily.parquet` (git-ignored) | CRSP market returns. We only use its dates, as the trading calendar in step 3b. | same Drive folder |

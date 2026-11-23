@@ -62,7 +62,9 @@ assert np.isclose(beta, pipeline["beta"]) and np.isclose(car_0_p1_by_hand, pipel
 assert np.isclose(panel.query("event_day == 0")["ret"].iloc[0], coin[DAY0])
 
 # 2. CRSP vs. yfinance on the same stock-days.
-events = pd.read_csv(CLEAN / "events.csv")
+# Only events step 5 keeps: dropped ones (spin-offs with short history) can lack yfinance data (KVUE).
+kept = pd.read_csv(OUTPUTS / "car_windows.csv")["event_id"].unique()
+events = pd.read_csv(CLEAN / "events.csv").query("event_id in @kept")
 stock_returns = pd.read_parquet(CLEAN / "stock_returns.parquet")
 crsp_release_events = events.query("sample == 'releases_2022on' and ret_source == 'crsp'")
 yf_returns = prices.pct_change(fill_method=None)
@@ -74,15 +76,29 @@ for event in crsp_release_events.itertuples():
           f"{from_crsp.corr(from_yf):.4f}, median gap {gap.median() * 1e4:.2f}bp, max gap {gap.max() * 1e4:.1f}bp")
     assert from_crsp.corr(from_yf) > 0.99
 assert abs(coin[DAY0] - yf_returns.loc[DAY0, TICKER]) < 0.001
+# yfinance-source additions: compare 2025, for the ones that traded most of 2025 (later IPOs can't be compared).
+# A gap is allowed only on a day where it equals CRSP's dividend (ret_adj - retx): Yahoo's dividend
+# history misses some payments (CRH, 2025-08-22 and 2025-11-21), so its return that day is price only.
+compared = 0
 for ticker in events.query("sample == 'releases_2022on' and ret_source == 'yfinance'")["ticker"]:
-    from_crsp = (crsp.to_table(columns=["date", "ret_adj"],
+    from_crsp = (crsp.to_table(columns=["date", "ret_adj", "retx"],
                                filter=(ds.field("ticker") == ticker) & (ds.field("date") >= pd.Timestamp("2025-01-01")))
                  .to_pandas()
                  .astype({"date": "datetime64[ns]"})
-                 .set_index("date")["ret_adj"])
-    gap = (from_crsp - yf_returns[ticker].reindex(from_crsp.index)).abs()
-    print(f"{ticker} 2025: {gap.notna().sum()} days, max gap CRSP vs. yfinance {gap.max() * 1e4:.1f}bp")
-    assert gap.notna().sum() > 200 and gap.max() < 0.002
+                 .set_index("date"))
+    signed_gap = from_crsp["ret_adj"] - yf_returns[ticker].reindex(from_crsp.index)
+    gap = signed_gap.abs()
+    if gap.notna().sum() <= 200:
+        print(f"{ticker} 2025: only {gap.notna().sum()} days in both sources, not compared")
+        continue
+    missed_dividend = (gap >= 0.002) & ((signed_gap - (from_crsp["ret_adj"] - from_crsp["retx"])).abs() < 0.0001)
+    other = gap.where(~missed_dividend)
+    print(f"{ticker} 2025: {gap.notna().sum()} days, max gap CRSP vs. yfinance {other.max() * 1e4:.1f}bp"
+          + (f", plus dividends missing in yfinance on {[d.date().isoformat() for d in gap.index[missed_dividend]]}"
+             if missed_dividend.any() else ""))
+    assert other.max() < 0.002
+    compared += 1
+assert compared >= 3  # v0 compared 3 (VEEV, FLEX, MRVL)
 
 # 3. Tesla: CRSP volume peak vs. the day 0 rule.
 keydev_date = pd.Timestamp("2020-12-21")

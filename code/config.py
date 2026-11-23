@@ -39,8 +39,9 @@ EST_WINDOW = (-250, -30)  # relative to the ANNOUNCEMENT day 0, for both anchors
 MIN_EST_DAYS = 200
 EVENT_WINDOW = (-10, 10)
 
-# v0 sample: run returns and ARs on these 2022+ additions only. Set to None to run every matched addition.
-POC_TICKERS = ["FLEX", "MRVL", "VEEV", "DASH", "COIN"]
+# v0 ran returns and ARs on 5 2022+ additions (FLEX, MRVL, VEEV, DASH, COIN). None = every matched
+# addition (since the Checkpoint 3 audit, finding B1). A list runs only those tickers.
+POC_TICKERS = None
 
 # WRDS pull from Prof. Bowen (Google Drive folder "dao528_request", built 2026-11-04). Not in git.
 WRDS = RAW / "wrds" / "outputs"
@@ -52,7 +53,7 @@ KEYDEV_EVENTS = WRDS / "keydev_sp500_events.parquet"
 CRSP_MARKET = WRDS / "market_daily.parquet"  # used only for its trading calendar
 CRSP_END = pd.Timestamp("2025-12-31")  # last CRSP day; events whose window runs past it use yfinance
 # yfinance prices end the day before this date (yfinance's end is exclusive). Fixed, so a rerun
-# downloads the same days and never a half-finished trading day. Pulled on 2026-11-10.
+# downloads the same days and never a half-finished trading day. Pulled on 2026-11-10, again on 2026-11-22 for all 84 additions.
 PRICES_END = pd.Timestamp("2026-11-10")
 
 # History sample: Key Dev additions before our S&P-release sample starts. Before about 2021 the
