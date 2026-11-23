@@ -1,18 +1,23 @@
-# Status memo: Checkpoint 3 (Nov 22)
-What works: 
-2001-2021 history sample is complete with verified dates, company names, and reasons
-2001-07 isn't verified, the old filter makes it fall to .31% because a few dates could be announcement dates
-Magnitudes are complete 
+# Status memo: Checkpoint 3 response (Nov 23)
 
-What's missing:
-2022-2026 only uses 5 test additions. We need to run all 84
-The dashboard still contiains a placeholder
+## Section 1
 
-Who does what next:
-Tom: runs full sample
-Karthik: Complete dashboard text
-Manny: checks sources and checks dates
-Daniel: Review and mergs PRs.
+* Both samples are complete (69 new additions and 409 older ones).
+* The main result is that the announcement day jump (+4.46%) is for sure real and the effective day (-1.02%) isn't.
+* Over time only 2001-2007 shows a significant effect (+0.81%), with the caveat being the unchecked dates.
+* The magnitudes point: about $2.4B per addition, but only +0.2% is left for traders.
+
+## Section 2: What got fixed
+
+* All of the findings that were in Checkpoint 2 are fixed or addressed in some way.
+* B1 was just fixed (PR #18) and B2 is in progress. A7 is done.
+
+## Section 3: What is left and who does it
+
+* Karthik: the dashboard text
+* Daniel: the fixed magnitudes paragraph and reviewing and merging
+* Manny: the response file
+* EVERYONE: the slides, dashboard URL in sheet and being able to explain the pipeline before we have to present in class
 
 # Status memo: Checkpoint 1 (Oct 23)
 
