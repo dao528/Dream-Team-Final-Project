@@ -70,7 +70,7 @@ The 2001-2007 caveat: 152 of its 167 additions have no Wikipedia date to check K
   |---|---|---|
   | backfill | 36 | a Saturday in 2005 when Key Dev "added" AT&T, Fannie Mae and other old members; no real index change |
   | same firm twice | 5 | Key Dev rows of one firm within 10 trading days (Moderna) become one event |
-  | not new members | 16 | the firm was already in the index (Google's second share class in 2014) or Key Dev drops it again within days (Alcoa/Arconic 2016) |
+  | not new members | 16 | 10 firms were already in the index (Google's second share class in 2014, Alcoa 2016), 6 are dropped again by Key Dev within days (Coca-Cola Enterprises 2010, Kyndryl 2021) |
   | new listings | 77 | spin-offs and merger-created firms with no CRSP price on the rebalance day (PayPal, AbbVie, Kraft Heinz) |
 
 - Dates: no volume data is used to pick a date (the old volume filter was a look-ahead, audit A1). Each Key Dev date is compared with Wikipedia's (`outputs/history_date_rules.csv`, 498 real additions):
@@ -88,7 +88,7 @@ The 2001-2007 caveat: 152 of its 167 additions have no Wikipedia date to check K
   - 9 are spin-offs that weren't trading yet.
 
   One event never mixes the two sources (`ret_source`).
-- Ensco changed permno twice (moves to the UK). Its older permnos' returns fill the estimation window (`outputs/history_predecessors.csv`). Invesco and News Corp would need the full CRSP file, which we don't have, so IVZ_2008 and NWS_2004 are still dropped.
+- Ensco changed permno twice: when it moved to the UK in 2009 (ADS) and when its class A shares replaced the ADS in 2012. Its older permnos' returns fill the estimation window (`outputs/history_predecessors.csv`). Invesco and News Corp would need the full CRSP file, which we don't have, so IVZ_2008 and NWS_2004 are still dropped.
 
 ### 05 Abnormal returns (`code/05_build_event_panel.py`)
 
